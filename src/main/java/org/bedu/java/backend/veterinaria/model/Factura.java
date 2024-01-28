@@ -40,4 +40,8 @@ public class Factura {
     @Column(nullable = false, length = 250)
     private String razon_social;
 
+    @ManyToOne
+    @JoinColumn(name = "propietario_id", referencedColumnName = "id")
+    Propietario propietario;
+
 }
