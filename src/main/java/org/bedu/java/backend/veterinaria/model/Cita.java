@@ -35,4 +35,8 @@ public class Cita {
     @JoinColumn(name = "veterinario_id", referencedColumnName = "id")
     Veterinario veterinario;
 
+    @ManyToOne
+    @JoinColumn(name = "propietario_id", referencedColumnName = "id")
+    Propietario propietario;
+
 }

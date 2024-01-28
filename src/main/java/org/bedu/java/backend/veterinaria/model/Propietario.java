@@ -42,4 +42,8 @@ public class Propietario {
     @Column(nullable = false, length = 60)
     private String ocupacion;
 
+    @ManyToOne
+    @JoinColumn(name = "factura_id", referencedColumnName = "id")
+    Factura factura;
+
 }

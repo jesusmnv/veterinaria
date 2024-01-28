@@ -42,4 +42,8 @@ public class Mascota {
     @Column(nullable = false, length = 50)
     private String color;
 
+    @ManyToOne
+    @JoinColumn(name = "propietario_id", referencedColumnName = "id")
+    Propietario propietario;
+
 }
