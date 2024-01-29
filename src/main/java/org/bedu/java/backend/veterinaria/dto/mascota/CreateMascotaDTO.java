@@ -5,6 +5,8 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+
+import org.bedu.java.backend.veterinaria.model.Propietario;
 import org.hibernate.validator.constraints.Length;
 
 @Data
@@ -47,4 +49,5 @@ public class CreateMascotaDTO {
     @Length(min = 1, max = 50, message = "La descripción del color debe ser entre 1 y 50 caracteres")
     private String color;
 
+    private Propietario propietario;
 }

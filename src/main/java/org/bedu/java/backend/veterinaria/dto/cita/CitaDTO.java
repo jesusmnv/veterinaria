@@ -1,12 +1,14 @@
 package org.bedu.java.backend.veterinaria.dto.cita;
 
-
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Date;
+
+import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Veterinario;
 
 @Data
 @AllArgsConstructor
@@ -19,12 +21,16 @@ public class CitaDTO {
     private Date fechaCita;
 
     @Schema(description = "Hora de la cita", example = "12:55")
-    private Time horaCita;
+    private LocalTime horaCita;
 
     @Schema(description = "Primera Cita", example = "Si/No") // Preguntar True / False
     private boolean primeraCita;
 
     @Schema(description = "Motivo de la cita", example = "Urgencia")
     private String motivoCita;
+
+    private Veterinario veterinario;
+
+    private Propietario propietario;
 
 }

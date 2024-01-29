@@ -3,7 +3,9 @@ package org.bedu.java.backend.veterinaria.dto.propietario;
 import java.util.Date;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
 
+@Data
 public class UpdatePropietarioDTO {
     @Schema(description = "Nombre del propietario", example = "Miguel")
     private String nombre;

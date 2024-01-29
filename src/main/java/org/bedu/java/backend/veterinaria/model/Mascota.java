@@ -44,6 +44,6 @@ public class Mascota {
 
     @ManyToOne
     @JoinColumn(name = "propietario_id", referencedColumnName = "id")
-    Propietario propietario;
+    private Propietario propietario;
 
 }

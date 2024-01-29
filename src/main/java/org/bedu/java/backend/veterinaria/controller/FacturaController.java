@@ -3,10 +3,13 @@ package org.bedu.java.backend.veterinaria.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.bedu.java.backend.veterinaria.dto.factura.AddMedicamentoDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.CreateFacturaDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.FacturaDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.UpdateFacturaDTO;
+import org.bedu.java.backend.veterinaria.dto.medicamento.MedicamentoDTO;
 import org.bedu.java.backend.veterinaria.exception.FacturaNotFoundException;
+import org.bedu.java.backend.veterinaria.service.FacturaMedicamentoService;
 import org.bedu.java.backend.veterinaria.service.FacturaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,33 +25,54 @@ public class FacturaController {
     @Autowired
     private FacturaService service;
 
-    @Operation(summary = "Obtiene la lista de las facturas")
+    @Autowired
+    private FacturaMedicamentoService facturaMedicamentoService;
+
+    @Operation(summary = "Obtiene la lista de todas las facturas")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<FacturaDTO> findAll() {
         return service.findAll();
     }
 
-    @Operation(summary = "Crea una nueva factura")
+    @Operation(summary = "Registra una factura")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public FacturaDTO save(@Valid @RequestBody CreateFacturaDTO data) {
         return service.save(data);
     }
 
-    @Operation(summary = "Actualiza la información de una factura")
-    @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable Long id, @Valid @RequestBody UpdateFacturaDTO updatedData)
+    @Operation(summary = "Actualiza una factura")
+    @PutMapping("{facturaId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@PathVariable(name = "facturaId") Long facturaId, @RequestBody UpdateFacturaDTO data)
             throws FacturaNotFoundException {
-        service.update(id, updatedData);
+        service.update(facturaId, data);
     }
 
-    @Operation(summary = "Elimina una factura de la base de datos")
-    @DeleteMapping("/{id}")
+    @Operation(summary = "Elimina una factura")
+    @DeleteMapping("{facturaId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable Long id) throws FacturaNotFoundException {
-        service.deleteById(id);
+    public void delete(@PathVariable(name = "facturaId") Long facturaId) throws FacturaNotFoundException {
+        service.deleteById(facturaId);
+    }
+
+    // ==========================================================
+    // Nuevos métodos
+    @Operation(summary = "Asocia un medicamento a una factura")
+    @PostMapping("{facturaId}/medicamentos")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void addMedicamento(@PathVariable Long facturaId,
+            @RequestBody AddMedicamentoDTO data) {
+        facturaMedicamentoService.addMedicamento(facturaId, data.getMedicamentoId(), data.getPrecio(),
+                data.getCantidad());
+    }
+
+    @Operation(summary = "Obtiene los medicamentos de una factura determinada")
+    @GetMapping("{facturaId}/medicamentos")
+    @ResponseStatus(HttpStatus.OK)
+    public List<MedicamentoDTO> findMedicamentos(@PathVariable Long facturaId) {
+        return facturaMedicamentoService.findMedicamentosByFactura(facturaId);
     }
 
 }

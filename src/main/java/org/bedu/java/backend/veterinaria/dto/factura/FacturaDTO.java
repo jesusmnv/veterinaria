@@ -1,16 +1,22 @@
 package org.bedu.java.backend.veterinaria.dto.factura;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.util.Date;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+import org.bedu.java.backend.veterinaria.model.Propietario;
 
+@Data
+@AllArgsConstructor
 public class FacturaDTO {
 
     @Schema(description = "Identificador de la factura", example = "11093")
     private Long id;
 
     @Schema(description = "Fecha de la factura", example = "2019-10-23")
-    private Date fecha_emision;
+    private Date fechaEmision;
 
     @Schema(description = "Subtotal de la factura", example = "123.50")
     private float subtotal;
@@ -22,9 +28,11 @@ public class FacturaDTO {
     private float total;
 
     @Schema(description = "RFC del cliente", example = "HBO8912228A9")
-    private String rfc_cliente;
+    private String rfcCliente;
 
     @Schema(description = "Razón social", example = "Hortensia Bonilla Ortega")
-    private String razon_social;
+    private String razonSocial;
+
+    private Propietario propietario;
 
 }

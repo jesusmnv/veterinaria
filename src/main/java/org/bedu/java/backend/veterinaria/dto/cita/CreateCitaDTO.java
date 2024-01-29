@@ -5,9 +5,12 @@ import jakarta.validation.constraints.NotNull;
 import jdk.jfr.BooleanFlag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
+import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Data
@@ -22,7 +25,7 @@ public class CreateCitaDTO {
     @Schema(description = "Hora de la cita", example = "12:55")
     @NotNull(message = "La fecha de la cita no puede ser nula")
     @DateTimeFormat(pattern = "HH:mm")
-    private Time horaCita;
+    private LocalTime horaCita;
 
     @Schema(description = "Primera Cita", example = "Si/No")
     @NotNull(message = "La primera cita no puede ser nula")
@@ -32,5 +35,9 @@ public class CreateCitaDTO {
     @Schema(description = "Motivo de la cita", example = "Urgencia")
     @NotNull(message = "El motivo de la cita no puede ser nulo")
     private String motivoCita;
+
+    private Veterinario veterinario;
+
+    private Propietario propietario;
 
 }

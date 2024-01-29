@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Getter
@@ -23,7 +23,7 @@ public class Cita {
     private Date fechaCita;
 
     @Column(nullable = false)
-    private Time horaCita;
+    private LocalTime horaCita;
 
     @Column(nullable = false)
     private boolean primeraCita;
@@ -33,10 +33,10 @@ public class Cita {
 
     @ManyToOne
     @JoinColumn(name = "veterinario_id", referencedColumnName = "id")
-    Veterinario veterinario;
+    private Veterinario veterinario;
 
     @ManyToOne
     @JoinColumn(name = "propietario_id", referencedColumnName = "id")
-    Propietario propietario;
+    private Propietario propietario;
 
 }

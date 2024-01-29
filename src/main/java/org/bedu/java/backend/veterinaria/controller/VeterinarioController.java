@@ -18,35 +18,36 @@ import org.bedu.java.backend.veterinaria.service.VeterinarioService;
 @RestController
 @RequestMapping("/veterinarios")
 public class VeterinarioController {
-    
+
     @Autowired
     private VeterinarioService service;
 
     @Operation(summary = "Obtiene la lista de veterinarios")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<VeterinarioDTO> findAll(){
+    public List<VeterinarioDTO> findAll() {
         return service.findAll();
     }
 
     @Operation(summary = "Crea un nuevo veterinario")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public VeterinarioDTO save(@Valid @RequestBody CreateVeterinarioDTO data){
+    public VeterinarioDTO save(@Valid @RequestBody CreateVeterinarioDTO data) {
         return service.save(data);
     }
 
     @Operation(summary = "Actualiza la información de un veterinario")
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable Long id, @Valid @RequestBody UpdateVeterinarioDTO updatedData) throws VeterinarioNotFoundException {
+    public void update(@PathVariable Long id, @Valid @RequestBody UpdateVeterinarioDTO updatedData)
+            throws VeterinarioNotFoundException {
         service.update(id, updatedData);
     }
 
     @Operation(summary = "Elimina un veterinario de la base de datos")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable Long id) {
+    public void deleteById(@PathVariable Long id) throws VeterinarioNotFoundException {
         service.deleteById(id);
     }
 

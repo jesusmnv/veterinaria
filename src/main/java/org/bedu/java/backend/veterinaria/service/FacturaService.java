@@ -1,5 +1,6 @@
 package org.bedu.java.backend.veterinaria.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.bedu.java.backend.veterinaria.dto.factura.CreateFacturaDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.FacturaDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.UpdateFacturaDTO;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Slf4j
 public class FacturaService {
 
     @Autowired
@@ -31,7 +33,12 @@ public class FacturaService {
     }
 
     public FacturaDTO save(CreateFacturaDTO data) {
-        Factura entity = repository.save(mapper.toModel(data));
+        Factura temp = mapper.toModel(data);
+        temp.setIva(data.getSubtotal() * 0.16F);
+        temp.setTotal(temp.getIva() + data.getSubtotal());
+
+        Factura entity = repository.save(temp);
+
         return mapper.toDTO(entity);
     }
 
@@ -43,7 +50,16 @@ public class FacturaService {
         }
 
         Factura factura = result.get();
-        mapper.update(factura, data);
+
+        UpdateFacturaDTO temp = data;
+        log.error("Datos: " + temp);
+        temp.setSubtotal(data.getSubtotal());
+        temp.setIva(temp.getSubtotal() * 0.16F);
+        float total = temp.getIva() + temp.getSubtotal();
+        temp.setTotal(total);
+
+        log.error("============TOTAL===============: " + total);
+        mapper.update(factura, temp);
         repository.save(factura);
     }
 

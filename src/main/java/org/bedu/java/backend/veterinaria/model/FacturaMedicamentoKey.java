@@ -9,10 +9,11 @@ import lombok.Setter;
 @Setter
 @Embeddable
 public class FacturaMedicamentoKey {
+
     @Column(name = "factura_id")
-    private long facturaId;
+    private Long facturaId;
 
     @Column(name = "medicamento_id")
-    private long medicamentoId;
+    private Long medicamentoId;
 
 }

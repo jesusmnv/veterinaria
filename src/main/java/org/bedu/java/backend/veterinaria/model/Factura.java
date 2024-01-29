@@ -1,12 +1,12 @@
 package org.bedu.java.backend.veterinaria.model;
 
-import java.util.Date;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.util.Date;
 
 @Getter
 @Setter
@@ -14,34 +14,33 @@ import lombok.ToString;
 @Entity
 @Table(name = "factura")
 public class Factura {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
+
+    @Column(name = "fecha_emision", nullable = false)
+    private Date fechaEmision;
 
     @Column(nullable = false)
-    private Date fecha_emision;
-
-    @Column(nullable = false)
-    @DecimalMin(value = "0.01")
+    @DecimalMin("0.01")
     private float subtotal;
 
     @Column(nullable = false)
-    @DecimalMin(value = "0.01")
+    @DecimalMin("0.01")
     private float iva;
 
     @Column(nullable = false)
-    @DecimalMin(value = "0.01")
+    @DecimalMin("0.01")
     private float total;
 
-    @Column(nullable = false, length = 13)
-    private String rfc_cliente;
+    @Column(name = "rfc_cliente", nullable = false, length = 13)
+    private String rfcCliente;
 
-    @Column(nullable = false, length = 250)
-    private String razon_social;
+    @Column(name = "razon_social", nullable = false, length = 250)
+    private String razonSocial;
 
     @ManyToOne
     @JoinColumn(name = "propietario_id", referencedColumnName = "id")
-    Propietario propietario;
+    private Propietario propietario;
 
 }

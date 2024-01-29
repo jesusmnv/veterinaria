@@ -15,18 +15,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class VeterinarioService {
-    
+
     @Autowired
     private VeterinarioRepository veterinarioRepository;
 
     @Autowired
     private VeterinarioMapper mapper;
 
-    public List<VeterinarioDTO> findAll(){
+    public List<VeterinarioDTO> findAll() {
         return mapper.toDTO(veterinarioRepository.findAll());
     }
 
-    public VeterinarioDTO save(CreateVeterinarioDTO data){
+    public VeterinarioDTO save(CreateVeterinarioDTO data) {
         Veterinario entity = veterinarioRepository.save(mapper.toModel(data));
         return mapper.toDTO(entity);
     }
@@ -34,17 +34,23 @@ public class VeterinarioService {
     public void update(long veterinarioId, UpdateVeterinarioDTO data) throws VeterinarioNotFoundException {
         Optional<Veterinario> result = veterinarioRepository.findById(veterinarioId);
 
-        if(!result.isPresent()){
+        if (!result.isPresent()) {
             throw new VeterinarioNotFoundException(veterinarioId);
         }
 
         Veterinario veterinario = result.get();
-        mapper.update(veterinario,data);
+        mapper.update(veterinario, data);
         veterinarioRepository.save(veterinario);
     }
 
-    public void deleteById(Long id){
-        veterinarioRepository.deleteById(id);
+    public void deleteById(Long veterinarioId) throws VeterinarioNotFoundException {
+        Optional<Veterinario> result = veterinarioRepository.findById(veterinarioId);
+
+        if (!result.isPresent()) {
+            throw new VeterinarioNotFoundException(veterinarioId);
+        }
+
+        veterinarioRepository.deleteById(veterinarioId);
     }
 
 }

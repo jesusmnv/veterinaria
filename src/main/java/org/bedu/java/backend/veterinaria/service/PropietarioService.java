@@ -48,7 +48,6 @@ public class PropietarioService {
     }
 
     public void deleteById(Long id) throws PropietarioNotFoundException {
-
         Optional<Propietario> result = repository.findById(id);
 
         if (!result.isPresent()) {

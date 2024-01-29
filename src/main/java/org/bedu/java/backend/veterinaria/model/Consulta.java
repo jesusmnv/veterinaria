@@ -31,10 +31,10 @@ public class Consulta {
 
     @ManyToOne
     @JoinColumn(name = "mascota_id", referencedColumnName = "id")
-    Mascota mascota;
+    private Mascota mascota;
 
     @ManyToOne
     @JoinColumn(name = "veterinario_id", referencedColumnName = "id")
-    Veterinario veterinario;
+    private Veterinario veterinario;
 
 }
