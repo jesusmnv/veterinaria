@@ -3,22 +3,22 @@ package org.bedu.java.backend.veterinaria.dto.consulta;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
+
+import java.time.LocalDate;
+
 import org.bedu.java.backend.veterinaria.model.Mascota;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
 
 @Data
-@AllArgsConstructor
 public class CreateConsultaDTO {
 
     @Schema(description = "Fecha de la consulta", example = "2023-11-25")
     @NotNull(message = "La fecha de la consulta no puede ser nula") //Verificar
     @DateTimeFormat(pattern = "yyyy-MM-dd") //Verificar
-    private Date fechaConsulta;
+    private LocalDate fechaConsulta;
 
     @Schema(description = "Diagnóstico de la consulta", example = "Fiebre y tos")
     @NotBlank(message = "El diagnóstico es obligatorio")

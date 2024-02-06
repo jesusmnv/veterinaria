@@ -1,11 +1,13 @@
 package org.bedu.java.backend.veterinaria.model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Date;
+
 
 @Getter
 @Setter
@@ -18,7 +20,7 @@ public class Consulta {
     private Long id;
 
     @Column(nullable = false)
-    private Date fechaConsulta;
+    private LocalDate fechaConsulta;
 
     @Column(nullable = false)
     private String diagnostico;

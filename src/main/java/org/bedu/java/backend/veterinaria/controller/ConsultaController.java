@@ -19,8 +19,12 @@ import java.util.List;
 @RequestMapping("/consultas")
 public class ConsultaController {
 
-    @Autowired
     private ConsultaService service;
+
+    @Autowired
+    public ConsultaController(ConsultaService service) {
+        this.service = service;
+    }
 
     @Operation(summary = "Obtiene la lista de todos las consultas")
     @GetMapping
