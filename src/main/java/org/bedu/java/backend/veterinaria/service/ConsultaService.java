@@ -16,11 +16,15 @@ import java.util.Optional;
 @Service
 public class ConsultaService {
 
-    @Autowired
     private ConsultaRepository repository;
 
-    @Autowired
     private ConsultaMapper mapper;
+
+    @Autowired
+    public ConsultaService(ConsultaRepository repository, ConsultaMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     public List<ConsultaDTO> findAll() {
         return mapper.toDTO(repository.findAll());
