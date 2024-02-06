@@ -1,7 +1,7 @@
 package org.bedu.java.backend.veterinaria.repository;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -49,7 +49,7 @@ class ConsultaRepositoryTest {
         manager.persist(consulta3);
         List<Consulta> result;
         result = repository.findByFechaConsulta(LocalDate.parse("2023-12-01"));
-        assertTrue(result.size() == 2);
+        assertEquals(2, result.size());
     }
 
     private Consulta crearConsulta1() {

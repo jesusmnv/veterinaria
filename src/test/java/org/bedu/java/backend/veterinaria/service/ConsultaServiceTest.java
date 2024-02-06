@@ -42,13 +42,13 @@ class ConsultaServiceTest {
     private ConsultaService service;
 
     @Test
-    @DisplayName("El servicio debería ser inyectado")
+    @DisplayName("Service should be injected")
     void smokeTest() {
         assertNotNull(service);
     }
 
     @Test
-    @DisplayName("El servicio debería regresar consultas del repositorio")
+    @DisplayName("Service should return consultations from the repository")
     void findAllTest() {
         List<Consulta> data = new LinkedList<>();
 
@@ -87,7 +87,7 @@ class ConsultaServiceTest {
     }
 
     @Test
-    @DisplayName("El servicio debería guardar una consulta en el repositorio")
+    @DisplayName("Service should save a consultation in the repository")
     void saveTest() {
         CreateConsultaDTO dto = new CreateConsultaDTO();
         dto.setFechaConsulta(LocalDate.parse("2025-05-05"));
@@ -129,7 +129,7 @@ class ConsultaServiceTest {
     }
 
     @Test
-    @DisplayName("El servicio debería arrojar un error si la consulta no fue encontrada")
+    @DisplayName("Service should throw an error if the consultation is not found when attempting to update it")
     void updateWithErrorTest() {
         UpdateConsultaDTO dto = new UpdateConsultaDTO();
         Optional<Consulta> dummy = Optional.empty();
@@ -140,7 +140,7 @@ class ConsultaServiceTest {
     }
 
     @Test
-    @DisplayName("El servicio debería actualizar una consulta en el repositorio")
+    @DisplayName("Service should update a consultation in the repository")
     void updateTest() throws ConsultaNotFoundException {
         UpdateConsultaDTO dto = new UpdateConsultaDTO();
         dto.setDiagnostico("Diagnóstico..."); //TODO: Terminar de asignar
@@ -160,7 +160,7 @@ class ConsultaServiceTest {
     }
 
     @Test
-    @DisplayName("El servicio debería arrojar un error si la consulta no fue encontrada al tratar de eliminarla")
+    @DisplayName("Service should throw an error if the consultation is not found when attempting to delete it")
     void deleteByIdWithErrorTest() {
         Optional<Consulta> dummy = Optional.empty();
 
@@ -170,7 +170,7 @@ class ConsultaServiceTest {
     }
 
     @Test
-    @DisplayName("El servicio debería eliminar una consulta por id")
+    @DisplayName("Service should delete a consultation by ID")
     void deleteByIdTest() throws ConsultaNotFoundException {
 
         Consulta consulta = new Consulta();

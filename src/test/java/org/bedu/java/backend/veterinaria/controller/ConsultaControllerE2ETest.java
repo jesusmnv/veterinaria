@@ -26,7 +26,7 @@ class ConsultaControllerE2ETest {
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("GET /consultas should return an empty llist")
+    @DisplayName("GET /consultas should return an empty list")
     void emptyListTest() throws Exception {
         MvcResult result = mockMvc.perform(get("/consultas"))
                 .andExpect(status().isOk())
@@ -37,8 +37,8 @@ class ConsultaControllerE2ETest {
     }
 
     @Test
-    @DisplayName("POST /consultas should be return an error if fechaConsulta is missing") 
-    void fechaConsultaMissingRequestBodyTest() throws Exception {
+    @DisplayName("POST /consultas should be return an error if consultation date is missing")
+    void consultationDateMissingRequestBodyTest() throws Exception {
         String jsonString = "{"
         + "\"diagnostico\": \"Gripe felina\","
         + "\"tratamientoIndicado\": \"Antibióticos y reposo\","
