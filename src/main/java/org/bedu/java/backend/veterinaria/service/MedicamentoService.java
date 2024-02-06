@@ -16,11 +16,15 @@ import java.util.Optional;
 @Service
 public class MedicamentoService {
 
-    @Autowired
+
     private MedicamentoRepository repository;
+    private MedicamentoMapper mapper;
 
     @Autowired
-    private MedicamentoMapper mapper;
+    public MedicamentoService(MedicamentoRepository repository, MedicamentoMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     public List<MedicamentoDTO> findAll() {
         return mapper.toDTO(repository.findAll());

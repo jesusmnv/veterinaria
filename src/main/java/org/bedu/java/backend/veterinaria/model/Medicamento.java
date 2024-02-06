@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.validator.constraints.Range;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -27,7 +27,7 @@ public class Medicamento {
     private String descripcion;
 
     @Column(name = "fecha_caducidad", nullable = false)
-    private Date fechaCaducidad;
+    private LocalDate fechaCaducidad;
 
     @Column(nullable = false)
     @Range(min = 0)

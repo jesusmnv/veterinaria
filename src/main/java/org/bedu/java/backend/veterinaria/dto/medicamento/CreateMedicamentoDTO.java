@@ -5,15 +5,14 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
 import lombok.Data;
+
+import java.time.LocalDate;
+
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
-
 @Data
-@AllArgsConstructor
 public class CreateMedicamentoDTO {
 
     @Schema(description = "Nombre del medicamento", example = "Doxiciclina")
@@ -33,7 +32,7 @@ public class CreateMedicamentoDTO {
     @Schema(description = "Fecha en la que caduca el medicamento", example = "2025-01-01")
     @NotNull(message = "La fecha de caducidad del medicamento no puede ser nula") //Verificar
     @DateTimeFormat(pattern = "yyyy-MM-dd") //Verificar
-    private Date fechaCaducidad;
+    private LocalDate fechaCaducidad;
 
     @Schema(description = "Cantidad de medicamentos en existencia", example = "100")
     @Min(value = 1, message = "La cantidad o existencia del medicamento debe ser mayor o igual que 1")

@@ -1,17 +1,15 @@
 package org.bedu.java.backend.veterinaria.dto.medicamento;
 
+import java.time.LocalDate;
+
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
-@AllArgsConstructor
 public class MedicamentoDTO {
 
     @Schema(description = "Identificador del medicamento", example = "100")
-    private long id;
+    private Long id;
 
     @Schema(description = "Nombre del medicamento", example = "Doxiciclina")
     private String nombre;
@@ -23,7 +21,7 @@ public class MedicamentoDTO {
     private String descripcion;
 
     @Schema(description = "Fecha en la que caduca el medicamento", example = "2025-01-01")
-    private Date fechaCaducidad;
+    private LocalDate fechaCaducidad;
 
     @Schema(description = "Cantidad de medicamentos en existencia", example = "100")
     private int existencia;
