@@ -44,14 +44,11 @@ public class ConsultaRepositoryTest {
         Consulta consulta1 = crearConsulta1();
         Consulta consulta2 = crearConsulta2();
         Consulta consulta3 = crearConsulta3();
-
         manager.persist(consulta1);
         manager.persist(consulta2);
         manager.persist(consulta3);
-
         List<Consulta> result;
         result = repository.findByFechaConsulta(LocalDate.parse("2023-12-01"));
-        
         assertTrue(result.size() == 2);
     }
 
