@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Service
 public class MascotaService {
-    
+
     @Autowired
     private MascotaRepository repository;
 
@@ -51,7 +51,7 @@ public class MascotaService {
 
         Optional<Mascota> result = repository.findById(id);
 
-        if(!result.isPresent()) {
+        if (!result.isPresent()) {
             throw new MascotaNotFoundException(id);
         }
 
