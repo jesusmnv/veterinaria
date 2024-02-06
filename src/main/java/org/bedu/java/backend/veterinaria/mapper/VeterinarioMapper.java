@@ -9,10 +9,10 @@ import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-
+import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.bedu.java.backend.veterinaria.dto.veterinario.VeterinarioDTO;
 
-@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
+@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR, nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface VeterinarioMapper {
 
     VeterinarioDTO toDTO(Veterinario model);

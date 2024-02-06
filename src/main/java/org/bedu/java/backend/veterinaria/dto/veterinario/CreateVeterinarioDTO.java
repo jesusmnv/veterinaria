@@ -4,7 +4,8 @@ import java.time.LocalTime;
 import java.util.Date;
 
 import org.hibernate.validator.constraints.Length;
-import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 
@@ -30,7 +31,7 @@ public class CreateVeterinarioDTO {
     private String apellidoMaterno;
 
     @Schema(description = "Fecha de nacimiento del veterinario", example = "1998-12-25")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date fechaNacimiento;
 
     @Schema(description = "Numero de celular del veterinario", example = "+528331593654")

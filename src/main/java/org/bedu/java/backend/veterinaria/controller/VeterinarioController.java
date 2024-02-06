@@ -7,6 +7,7 @@ import org.bedu.java.backend.veterinaria.dto.veterinario.UpdateVeterinarioDTO;
 import org.bedu.java.backend.veterinaria.dto.veterinario.VeterinarioDTO;
 import org.bedu.java.backend.veterinaria.exception.VeterinarioNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -19,8 +20,12 @@ import org.bedu.java.backend.veterinaria.service.VeterinarioService;
 @RequestMapping("/veterinarios")
 public class VeterinarioController {
 
-    @Autowired
     private VeterinarioService service;
+
+    @Autowired
+    public VeterinarioController(VeterinarioService service){
+        this.service = service;
+    }  
 
     @Operation(summary = "Obtiene la lista de veterinarios")
     @GetMapping
@@ -38,16 +43,15 @@ public class VeterinarioController {
 
     @Operation(summary = "Actualiza la información de un veterinario")
     @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable Long id, @Valid @RequestBody UpdateVeterinarioDTO updatedData)
-            throws VeterinarioNotFoundException {
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@Param("id") long id, @Valid @RequestBody UpdateVeterinarioDTO updatedData) throws VeterinarioNotFoundException {
         service.update(id, updatedData);
     }
 
     @Operation(summary = "Elimina un veterinario de la base de datos")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable Long id) throws VeterinarioNotFoundException {
+    public void deleteById(@Param("id") long id) throws VeterinarioNotFoundException {
         service.deleteById(id);
     }
 

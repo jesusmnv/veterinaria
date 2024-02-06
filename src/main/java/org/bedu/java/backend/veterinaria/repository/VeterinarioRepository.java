@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface VeterinarioRepository extends CrudRepository<Veterinario,Long> {
 
+    //JpaRepositort<Veterinario, Long>
+
     List<Veterinario> findAll();
     
 }
