@@ -3,6 +3,7 @@ plugins {
 	id 'org.springframework.boot' version '3.2.2'
 	id 'io.spring.dependency-management' version '1.1.4'
 	id "org.sonarqube" version "4.4.1.3373"
+	id "jacoco"
 }
 
 group = 'org.bedu.java.backend'
@@ -42,8 +43,53 @@ dependencies {
 
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'com.h2database:h2:2.2.224'
+
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+	reports {
+		xml.required = true
+	}
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+    }
+
+		afterEvaluate {
+			classDirectories.setFrom(files(classDirectories.files.collect {
+						fileTree(dir: it,
+								exclude: [
+									'org/bedu/java/backend/veterinaria/dto/**/**',
+									'org/bedu/java/backend/veterinaria/model/**',
+									'org/bedu/java/backend/veterinaria/mapper/**',
+									'org/bedu/java/backend/veterinaria/VeterinariaApplication.class'
+								]
+						)
+			}))
+		}
+}
+
+
+test {
+	jacoco {
+		excludes = [
+			'org.bedu.java.backend.veterinaria.dto.*.*',
+			'org.bedu.java.backend.veterinaria.model.*',
+			'org.bedu.java.backend.veterinaria.mapper.*',
+			'org.bedu.java.backend.veterinaria.VeterinariaApplication.class'
+		]
+	
+	}
+}
+
+tasks.named('sonar') {
+	dependsOn test
 }

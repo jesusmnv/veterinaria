@@ -18,15 +18,29 @@ import java.util.List;
 @RestController
 @RequestMapping("/mascotas")
 public class MascotaController {
-    
+
     @Autowired
     private MascotaService service;
+
+    /*
+     * @Autowired
+     * public MascotaController(MascotaService service) {
+     * this.service = service;
+     * }
+     */
 
     @Operation(summary = "Obtiene la lista de las mascotas")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<MascotaDTO> findAll() {
         return service.findAll();
+    }
+
+    @Operation(summary = "Busca una mascota en la base de datos")
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void findById(@PathVariable Long id) throws MascotaNotFoundException {
+        service.findById(id);
     }
 
     @Operation(summary = "Crea una nueva mascota")
@@ -39,7 +53,8 @@ public class MascotaController {
     @Operation(summary = "Actualiza la información de una mascota")
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable Long id, @Valid @RequestBody UpdateMascotaDTO updatedData) throws MascotaNotFoundException {
+    public void update(@PathVariable Long id, @Valid @RequestBody UpdateMascotaDTO updatedData)
+            throws MascotaNotFoundException {
         service.update(id, updatedData);
     }
 

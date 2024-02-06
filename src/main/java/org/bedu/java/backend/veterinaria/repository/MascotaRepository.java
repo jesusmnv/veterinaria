@@ -8,7 +8,10 @@ import java.util.List;
 
 @Repository
 public interface MascotaRepository extends CrudRepository<Mascota, Long> {
-    
+
     List<Mascota> findAll();
+
+    // SELECT * FROM mascotas WHERE nombre LIKE = :nombre
+    List<Mascota> findByNombreContaining(String nombre);
 
 }
