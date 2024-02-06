@@ -24,7 +24,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-public class ConsultaRepositoryTest {
+class ConsultaRepositoryTest {
 
     @Autowired
     private ConsultaRepository repository;
