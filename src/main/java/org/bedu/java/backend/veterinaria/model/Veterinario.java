@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
@@ -30,7 +31,7 @@ public class Veterinario {
     private String apellidoMaterno;
 
     @Column(name = "fecha_nacimiento", nullable = false)
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     @Column(nullable = false, length = 13)
     private String celular;
@@ -41,7 +42,7 @@ public class Veterinario {
     @Column(nullable = false, length = 100)
     private String especialidad;
 
-    @Column(name="hora_entrada", nullable = false)
+    @Column(name = "hora_entrada", nullable = false)
     @DateTimeFormat(pattern = "HH:mm")
     private LocalTime horaEntrada;
 

@@ -1,6 +1,7 @@
 package org.bedu.java.backend.veterinaria.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+// import java.util.Date;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -37,7 +38,7 @@ public class Propietario {
     private String correo;
 
     @Column(name = "fecha_nacimiento", nullable = false)
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     @Column(nullable = false, length = 60)
     private String ocupacion;

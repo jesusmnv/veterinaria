@@ -1,6 +1,6 @@
 package org.bedu.java.backend.veterinaria.dto.propietario;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -46,7 +46,7 @@ public class CreatePropietarioDTO {
 
     @Schema(description = "Fecha de nacimiento del propietario", example = "1998-08-23")
     @NotNull(message = "La fecha de nacimiento es obligatoria")
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     @Schema(description = "Ocupación del propietario", example = "Empleado")
     @Column(nullable = false, length = 100)

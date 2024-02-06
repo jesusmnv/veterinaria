@@ -1,6 +1,6 @@
 package org.bedu.java.backend.veterinaria.dto.propietario;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -26,7 +26,7 @@ public class UpdatePropietarioDTO {
     private String correo;
 
     @Schema(description = "Fecha de nacimiento del propietario", example = "1998-08-23")
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     @Schema(description = "Ocupación del propietario", example = "Empleado")
     private String ocupacion;

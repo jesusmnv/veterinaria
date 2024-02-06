@@ -151,6 +151,16 @@ public class MascotaServiceTest {
     }
 
     @Test
+    @DisplayName("Service should shows an error if pet don't exist")
+    public void updateMascotaNotFoundExceptionTest() throws MascotaNotFoundException {
+        UpdateMascotaDTO dto = new UpdateMascotaDTO();
+        Optional<Mascota> empty = Optional.empty();
+
+        when(repository.findById(anyLong())).thenReturn(empty);
+        assertThrows(MascotaNotFoundException.class, () -> service.update(35L, dto));
+    }
+
+    @Test
     @DisplayName("Service should delete a pet by id in repository")
     void deleteByIdTest() throws MascotaNotFoundException {
 
