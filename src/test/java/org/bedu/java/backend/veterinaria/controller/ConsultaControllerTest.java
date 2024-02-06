@@ -35,13 +35,13 @@ class ConsultaControllerTest {
     private ConsultaController controller;
 
     @Test
-    @DisplayName("El controlador debería ser inyectado")
+    @DisplayName("Controller should be injected")
     void smokeTest() {
         assertNotNull(controller);
     }
 
     @Test
-    @DisplayName("El controlador debería retornar una lista de consultas")
+    @DisplayName("Controller should return a list of consultations")
     void findAllTest() {
         List<ConsultaDTO> data = new LinkedList<>();
         ConsultaDTO consulta = new ConsultaDTO();
@@ -81,7 +81,7 @@ class ConsultaControllerTest {
     }
 
     @Test
-    @DisplayName("El controlador debería guardar una consulta")
+    @DisplayName("Controller should save a consultation")
     void saveTest() {
         CreateConsultaDTO dto = new CreateConsultaDTO();
         dto.setFechaConsulta(LocalDate.of(2023, 11, 15));
@@ -123,7 +123,7 @@ class ConsultaControllerTest {
     }
 
     @Test
-    @DisplayName("El controlador debería actualizar una consulta")
+    @DisplayName("Controller should update a consultation")
     void updateTest() throws ConsultaNotFoundException {
         UpdateConsultaDTO dto = new UpdateConsultaDTO();
         dto.setFechaConsulta(LocalDate.of(2021, 1, 1));
@@ -147,7 +147,7 @@ class ConsultaControllerTest {
     }
 
     @Test
-    @DisplayName("El controlador debería eliminar una consulta")
+    @DisplayName("Controller should delete a consultation")
     void deleteByIdTest() throws ConsultaNotFoundException {
         controller.deleteById(10L);
         verify(service, times(1)).deleteById(10L);

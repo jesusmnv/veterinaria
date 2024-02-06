@@ -19,8 +19,12 @@ import java.util.List;
 @RequestMapping("/medicamentos")
 public class MedicamentoController {
 
-    @Autowired
     private MedicamentoService service;
+
+    @Autowired
+    public MedicamentoController(MedicamentoService service) {
+        this.service = service;
+    }
 
     @Operation(summary = "Obtiene la lista de todos los medicamentos")
     @GetMapping
