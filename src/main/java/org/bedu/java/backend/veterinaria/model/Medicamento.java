@@ -41,4 +41,3 @@ public class Medicamento {
     private String instruccionesUso;
 
 }
-

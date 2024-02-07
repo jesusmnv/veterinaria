@@ -14,6 +14,10 @@ import org.bedu.java.backend.veterinaria.model.Veterinario;
 @AllArgsConstructor
 public class CitaDTO {
 
+    public CitaDTO() {
+
+    }
+
     @Schema(description = "ID de la cita", example = "1")
     private Long id;
 

@@ -16,7 +16,6 @@ import java.util.Optional;
 @Service
 public class MedicamentoService {
 
-
     private MedicamentoRepository repository;
     private MedicamentoMapper mapper;
 
@@ -36,13 +35,13 @@ public class MedicamentoService {
 
     public MedicamentoDTO save(CreateMedicamentoDTO data) {
         Medicamento entity = repository.save(mapper.toModel(data));
-        return  mapper.toDTO(entity);
+        return mapper.toDTO(entity);
     }
 
     public void update(Long medicamentoId, UpdateMedicamentoDTO data) throws MedicamentoNotFoundException {
         Optional<Medicamento> result = repository.findById(medicamentoId);
 
-        if(!result.isPresent()) {
+        if (!result.isPresent()) {
             throw new MedicamentoNotFoundException(medicamentoId);
         }
 
@@ -55,7 +54,7 @@ public class MedicamentoService {
 
         Optional<Medicamento> result = repository.findById(medicamentoId);
 
-        if(!result.isPresent()) {
+        if (!result.isPresent()) {
             throw new MedicamentoNotFoundException(medicamentoId);
         }
 

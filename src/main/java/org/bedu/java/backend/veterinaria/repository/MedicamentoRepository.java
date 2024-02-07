@@ -11,7 +11,7 @@ public interface MedicamentoRepository extends CrudRepository<Medicamento, Long>
 
     List<Medicamento> findAll();
 
-    //SELECT * FROM medicamento WHERE nombre LIKE :nombre
+    // SELECT * FROM medicamento WHERE nombre LIKE :nombre
     List<Medicamento> findByNombreContaining(String nombre);
 
     List<Medicamento> findByClasificacion(String clasificacion);

@@ -36,13 +36,13 @@ public class ConsultaService {
 
     public ConsultaDTO save(CreateConsultaDTO data) {
         Consulta entity = repository.save(mapper.toModel(data));
-        return  mapper.toDTO(entity);
+        return mapper.toDTO(entity);
     }
 
     public void update(Long consultaId, UpdateConsultaDTO data) throws ConsultaNotFoundException {
         Optional<Consulta> result = repository.findById(consultaId);
 
-        if(!result.isPresent()) {
+        if (!result.isPresent()) {
             throw new ConsultaNotFoundException(consultaId);
         }
 
@@ -55,7 +55,7 @@ public class ConsultaService {
 
         Optional<Consulta> result = repository.findById(consultaId);
 
-        if(!result.isPresent()) {
+        if (!result.isPresent()) {
             throw new ConsultaNotFoundException(consultaId);
         }
 

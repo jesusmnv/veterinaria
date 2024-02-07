@@ -26,12 +26,12 @@ public class UpdateMedicamentoDTO {
     private String clasificacion;
 
     @Schema(description = "Descripción del medicamento", example = "Útil para tratar enfermedades transmitidas por garrapatas y enfermedades respiratorias.")
-    @NotBlank(message ="La descripción del medicamento es obligatoria")
+    @NotBlank(message = "La descripción del medicamento es obligatoria")
     private String descripcion;
 
     @Schema(description = "Fecha en la que caduca el medicamento", example = "2025-01-01")
-    @NotNull(message = "La fecha de caducidad del medicamento no puede ser nula") //Verificar
-    @DateTimeFormat(pattern = "yyyy-MM-dd") //Verificar
+    @NotNull(message = "La fecha de caducidad del medicamento no puede ser nula") // Verificar
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // Verificar
     private LocalDate fechaCaducidad;
 
     @Schema(description = "Cantidad de medicamentos en existencia", example = "100")

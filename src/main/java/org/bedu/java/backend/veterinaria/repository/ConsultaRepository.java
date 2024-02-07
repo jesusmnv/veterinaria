@@ -12,6 +12,6 @@ public interface ConsultaRepository extends CrudRepository<Consulta, Long> {
 
     List<Consulta> findAll();
 
-    List<Consulta> findByFechaConsulta(LocalDate fechaConsulta); //Revisar tipo de dato de fecha
+    List<Consulta> findByFechaConsulta(LocalDate fechaConsulta); // Revisar tipo de dato de fecha
 
 }

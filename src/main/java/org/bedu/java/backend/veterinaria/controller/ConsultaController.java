@@ -43,7 +43,8 @@ public class ConsultaController {
     @Operation(summary = "Actualiza la información de una consulta")
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable Long id, @Valid @RequestBody UpdateConsultaDTO updateData) throws ConsultaNotFoundException {
+    public void update(@PathVariable Long id, @Valid @RequestBody UpdateConsultaDTO updateData)
+            throws ConsultaNotFoundException {
         service.update(id, updateData);
     }
 

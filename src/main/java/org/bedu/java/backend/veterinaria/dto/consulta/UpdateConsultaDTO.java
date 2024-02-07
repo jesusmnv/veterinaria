@@ -11,14 +11,12 @@ import org.bedu.java.backend.veterinaria.model.Mascota;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
-
 @Data
 public class UpdateConsultaDTO {
 
     @Schema(description = "Fecha de la consulta", example = "2023-11-25")
-    @NotNull(message = "La fecha de la consulta no puede ser nula") //Verificar
-    @DateTimeFormat(pattern = "yyyy-MM-dd") //Verificar
+    @NotNull(message = "La fecha de la consulta no puede ser nula") // Verificar
+    @DateTimeFormat(pattern = "yyyy-MM-dd") // Verificar
     private LocalDate fechaConsulta;
 
     @Schema(description = "Diagnóstico de la consulta", example = "Fiebre y tos")

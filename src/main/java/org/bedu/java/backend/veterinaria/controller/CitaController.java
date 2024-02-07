@@ -35,12 +35,12 @@ public class CitaController {
         return service.save(data);
     }
 
-
     @Operation(summary = "Actualiza la información de una cita")
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable Long id, @Valid @RequestBody UpdateCitaDTO updateData) throws CitaNotFoundException {
-        service.update(id, updateData);
+    public void update(@PathVariable long l, @Valid @RequestBody UpdateCitaDTO updateData)
+            throws CitaNotFoundException {
+        service.update(l, updateData);
     }
 
     @Operation(summary = "Elimina una cita existente")

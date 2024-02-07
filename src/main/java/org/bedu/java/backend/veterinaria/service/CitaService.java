@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @Service
 public class CitaService {
+
     @Autowired
     private CitaRepository repository;
 
@@ -31,13 +32,13 @@ public class CitaService {
 
     public CitaDTO save(CreateCitaDTO data) {
         Cita entity = repository.save(mapper.toModel(data));
-        return  mapper.toDTO(entity);
+        return mapper.toDTO(entity);
     }
 
     public void update(Long citaId, UpdateCitaDTO data) throws CitaNotFoundException {
         Optional<Cita> result = repository.findById(citaId);
 
-        if(!result.isPresent()) {
+        if (!result.isPresent()) {
             throw new CitaNotFoundException(citaId);
         }
 
@@ -50,10 +51,11 @@ public class CitaService {
 
         Optional<Cita> result = repository.findById(citaId);
 
-        if(!result.isPresent()) {
+        if (!result.isPresent()) {
             throw new CitaNotFoundException(citaId);
         }
 
         repository.deleteById(citaId);
     }
+
 }

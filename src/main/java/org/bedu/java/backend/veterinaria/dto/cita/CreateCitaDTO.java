@@ -17,6 +17,10 @@ import java.util.Date;
 @AllArgsConstructor
 public class CreateCitaDTO {
 
+    public CreateCitaDTO() { // Se crea constructor -5 feb
+
+    }
+
     @Schema(description = "Fecha de la cita", example = "2021-10-31")
     @NotNull(message = "La fecha de la cita no puede ser nula")
     @DateTimeFormat(pattern = "yyyy-MM-dd")

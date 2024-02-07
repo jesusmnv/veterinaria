@@ -43,7 +43,8 @@ public class MedicamentoController {
     @Operation(summary = "Actualiza la información de un medicamento")
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable Long id, @Valid @RequestBody UpdateMedicamentoDTO updateData) throws MedicamentoNotFoundException {
+    public void update(@PathVariable Long id, @Valid @RequestBody UpdateMedicamentoDTO updateData)
+            throws MedicamentoNotFoundException {
         service.update(id, updateData);
     }
 
