@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -13,6 +14,6 @@ public interface VeterinarioRepository extends CrudRepository<Veterinario,Long> 
 
     List<Veterinario> findAll();
 
-    List<Veterinario> findByNombre(String nombre, String apellidoPaterno, String apellidoMaterno);
+   List<Veterinario> findByNombre(@Param("nombre") String nombre, @Param("apellidoPaterno") String apellidoPaterno, @Param("apellidoMaterno") String apellidoMaterno);
     
 }

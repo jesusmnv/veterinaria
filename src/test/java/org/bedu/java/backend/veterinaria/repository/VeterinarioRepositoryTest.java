@@ -16,13 +16,13 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 public class VeterinarioRepositoryTest {
 
-   /*  @Autowired
+     @Autowired
     private VeterinarioRepository repository;
 
     @Test
     @DisplayName("Comporbar que el repository exista")
     void smokeTest(){
         assertNotNull(repository);
-    }*/
+    }
     
 }
