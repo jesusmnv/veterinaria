@@ -20,6 +20,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import org.bedu.java.backend.veterinaria.dto.ErrorDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.FacturaDTO;
@@ -38,7 +39,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 class FacturaControllerE2ETest {
-    
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -71,7 +72,7 @@ class FacturaControllerE2ETest {
     @DisplayName("GET /facturas retorna una lista de facturas")
     void findAll() throws Exception {
         Factura factura = new Factura();
-        Date fecha = Date.valueOf("2023-12-12");
+        LocalDate fecha = LocalDate.parse("2023-12-12");
         factura.setId(1L);
         factura.setFechaEmision(fecha);
         factura.setIva(1);
@@ -121,18 +122,19 @@ class FacturaControllerE2ETest {
 
         Propietario propietario = new Propietario();
         propietario.setId(1L);
-        
+
         Factura factura = new Factura();
         factura.setId(1L);
-        factura.setFechaEmision(Date.valueOf("2023-12-10"));
+        factura.setFechaEmision(LocalDate.parse("2023-12-10"));
         factura.setIva(240F);
         factura.setPropietario(propietario);
         factura.setRazonSocial("Razón Social del Cliente2");
         factura.setRfcCliente("RFC del Clien");
         factura.setSubtotal(1500.0F);
         factura.setTotal(0);
-        
-        String contentido = "{\"fechaEmision\":\""+ Date.valueOf("2023-12-12") +"\",\"subtotal\": 1500.0,\"iva\": 240,\"rfcCliente\": \"RFC del Clien\",\"razonSocial\": \"Razón Social del Cliente2\",\"propietario\": { \"id\":1}}";
+
+        String contentido = "{\"fechaEmision\":\"" + Date.valueOf("2023-12-12")
+                + "\",\"subtotal\": 1500.0,\"iva\": 240,\"rfcCliente\": \"RFC del Clien\",\"razonSocial\": \"Razón Social del Cliente2\",\"propietario\": { \"id\":1}}";
 
         MvcResult result = mockMvc.perform(post("/facturas").contentType("application/json")
                 .content(contentido))
@@ -144,7 +146,7 @@ class FacturaControllerE2ETest {
         Factura response = mapper.readValue(content, Factura.class);
 
         assertNotNull(result);
-        assertEquals(response.getId(), factura.getId() );
+        assertEquals(response.getId(), factura.getId());
         assertEquals(response.getPropietario().getId(), factura.getPropietario().getId());
     }
 

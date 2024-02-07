@@ -3,8 +3,8 @@ package org.bedu.java.backend.veterinaria.repository;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.sql.Date;
 import java.time.LocalDate;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,7 +47,7 @@ class FacturaRepositoryTest {
 
    @DisplayName("FindAll")
    void findAllTest() {
-      Date fecha = Date.valueOf("2023-12-12");
+      LocalDate fecha = LocalDate.parse("2023-12-12");
       Factura factura = new Factura();
       Factura factura2 = new Factura();
 
@@ -83,7 +83,7 @@ class FacturaRepositoryTest {
       factura2.setRfcCliente("1234567891234");
       factura2.setSubtotal(150);
       factura2.setTotal(1500);
-      factura2.setPropietario(propietario); 
+      factura2.setPropietario(propietario);
 
       repository.save(factura2);
 
@@ -91,44 +91,41 @@ class FacturaRepositoryTest {
       assertEquals(2, result.size());
 
    }
-   
-     
-     @Test
-     
-     @DisplayName("Repository should filter by Id")
-     void findByIdtest(){
-     Factura factura = new Factura();
-     Factura factura2 = new Factura();
-     
-     Date fecha = Date.valueOf("2023-12-12");
-     factura.setId(1L);
-     
-     factura.setFechaEmision(fecha);
-     factura.setIva(1);
-     factura.setRazonSocial("qwerty");
-     factura.setRfcCliente("ytrewq");
-     factura.setSubtotal(150);
-     factura.setTotal(1500);
-     factura.setPropietario(null);
-     
-     factura2.setId(2L);
-     
-     factura2.setFechaEmision(fecha);
-     factura2.setIva(1);
-     factura2.setRazonSocial("qwerty");
-     factura2.setRfcCliente("ytrewq");
-     factura2.setSubtotal(150);
-     factura2.setTotal(1500);
-     factura2.setPropietario(null);
-     
-     
-     repository.save(factura);
-     repository.save(factura2);
-     
-     Optional<Factura> result = repository.findById(1L);
-     Factura fResult = result.get();
-     
-     assertEquals(1L,fResult.getId());
-     }
-    
+
+   @Test
+
+   @DisplayName("Repository should filter by Id")
+   void findByIdtest() {
+      Factura factura = new Factura();
+      Factura factura2 = new Factura();
+
+      LocalDate fecha = LocalDate.parse("2023-12-12");
+      factura.setId(1L);
+
+      factura.setFechaEmision(fecha);
+      factura.setIva(1);
+      factura.setRazonSocial("qwerty");
+      factura.setRfcCliente("ytrewq");
+      factura.setSubtotal(150);
+      factura.setTotal(1500);
+      factura.setPropietario(null);
+
+      factura2.setId(2L);
+
+      factura2.setFechaEmision(fecha);
+      factura2.setIva(1);
+      factura2.setRazonSocial("qwerty");
+      factura2.setRfcCliente("ytrewq");
+      factura2.setSubtotal(150);
+      factura2.setTotal(1500);
+      factura2.setPropietario(null);
+
+      repository.save(factura);
+      repository.save(factura2);
+
+      Optional<Factura> result = repository.findById(1L);
+
+      assertEquals(1L, result.get().getId());
+   }
+
 }

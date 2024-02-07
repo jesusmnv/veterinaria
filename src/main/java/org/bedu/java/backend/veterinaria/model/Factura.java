@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -19,7 +19,7 @@ public class Factura {
     private Long id;
 
     @Column(name = "fecha_emision", nullable = false)
-    private Date fechaEmision;
+    private LocalDate fechaEmision;
 
     @Column(nullable = false)
     @DecimalMin("0.01")

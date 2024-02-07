@@ -24,7 +24,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -50,13 +50,12 @@ class FacturaServiceTest {
         repository.deleteAll();
     }
 
-    
     @Test
     @DisplayName("Busqueda de una factura por Id")
     void findByIdTest() {
 
         Factura factura = new Factura();
-        Date fecha = Date.valueOf("2023-12-12");
+        LocalDate fecha = LocalDate.parse("2023-12-12");
         factura.setId(1L);
 
         factura.setFechaEmision(fecha);
@@ -68,8 +67,8 @@ class FacturaServiceTest {
         factura.setPropietario(null);
 
         when(repository.findById(anyLong())).thenReturn(Optional.of(factura));
-        
-        Optional<FacturaDTO>  result = service.findById(factura.getId());
+
+        Optional<FacturaDTO> result = service.findById(factura.getId());
 
         assertNotNull(result.get());
         assertEquals(factura.getId(), result.get().getId());
@@ -81,7 +80,6 @@ class FacturaServiceTest {
         assertEquals(factura.getRazonSocial(), result.get().getRazonSocial());
         assertEquals(factura.getPropietario(), result.get().getPropietario());
 
-
     }
 
     @Test
@@ -91,7 +89,7 @@ class FacturaServiceTest {
         List<Factura> data = new LinkedList<>();
         Factura factura = new Factura();
 
-        Date fecha = Date.valueOf("2023-12-12");
+        LocalDate fecha = LocalDate.parse("2023-12-12");
         factura.setId(1L);
 
         factura.setFechaEmision(fecha);
@@ -124,7 +122,7 @@ class FacturaServiceTest {
     @Test
     @DisplayName("Services guarda una factura")
     void saveTest() {
-        Date fecha = Date.valueOf("2023-12-12");
+        LocalDate fecha = LocalDate.parse("2023-12-12");
         CreateFacturaDTO dto = new CreateFacturaDTO();
 
         dto.setFechaEmision(fecha);
@@ -206,13 +204,16 @@ class FacturaServiceTest {
 
     @Test
     @DisplayName("Service elimina una factura por Id")
-    void deleteTest() throws FacturaNotFoundException {
+    void deleteByIdTest() throws FacturaNotFoundException {
+
         Factura factura = new Factura();
+
         factura.setId(1L);
         factura.setRazonSocial("ytrewq");
         factura.setRfcCliente("qwerty");
-        
+
         when(repository.findById(anyLong())).thenReturn(Optional.of(factura));
+
         service.deleteById(factura.getId());
         verify(repository, times(1)).deleteById(factura.getId());
 

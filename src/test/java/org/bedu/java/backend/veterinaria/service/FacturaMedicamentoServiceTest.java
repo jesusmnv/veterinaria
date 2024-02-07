@@ -5,22 +5,17 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.bedu.java.backend.veterinaria.dto.medicamento.MedicamentoDTO;
-import org.bedu.java.backend.veterinaria.exception.FacturaNotFoundException;
 import org.bedu.java.backend.veterinaria.exception.MedicamentoNotFoundException;
 import org.bedu.java.backend.veterinaria.model.Factura;
 import org.bedu.java.backend.veterinaria.model.Medicamento;
 import org.bedu.java.backend.veterinaria.repository.FacturaMedicamentoRepository;
 import org.bedu.java.backend.veterinaria.repository.MedicamentoRepository;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -48,7 +43,6 @@ class FacturaMedicamentoServiceTest {
         medicamentoRepository.deleteAll();
     }
 
-
     @Test
     @DisplayName("FacturaMedicamento injected")
     void smokeTest() {
@@ -59,7 +53,7 @@ class FacturaMedicamentoServiceTest {
     @DisplayName("Añadir un medicamento a una factura")
     void addMedicamento() throws MedicamentoNotFoundException {
         Factura factura = new Factura();
-        Date fecha = Date.valueOf("2023-12-12");
+        LocalDate fecha = LocalDate.parse("2023-12-12");
         factura.setId(1L);
 
         factura.setFechaEmision(fecha);
@@ -89,7 +83,7 @@ class FacturaMedicamentoServiceTest {
     @DisplayName("Añadir un medicamento a una factura")
     void addMedicamentoWithErrortest() throws MedicamentoNotFoundException {
         Factura factura = new Factura();
-        Date fecha = Date.valueOf("2023-12-12");
+        LocalDate fecha = LocalDate.parse("2023-12-12");
         factura.setId(1L);
 
         factura.setFechaEmision(fecha);
@@ -118,12 +112,12 @@ class FacturaMedicamentoServiceTest {
 
     @Test
     @DisplayName("Retorna una lista de medicamentos de una factura")
-    void listMedicamentosTest() throws MedicamentoNotFoundException{
+    void listMedicamentosTest() throws MedicamentoNotFoundException {
 
         List<Medicamento> data = new LinkedList<>();
 
         Factura factura = new Factura();
-        Date fecha = Date.valueOf("2023-12-12");
+        LocalDate fecha = LocalDate.parse("2023-12-12");
         factura.setId(1L);
 
         factura.setFechaEmision(fecha);
@@ -154,10 +148,10 @@ class FacturaMedicamentoServiceTest {
         model2.setExistencia(40);
         model2.setPrecio(18.75F);
         model2.setInstruccionesUso("Tomar 1 tableta cada 12 horas");
-        
+
         data.add(model);
         data.add(model2);
-        
+
         medicamentoRepository.save(model);
         medicamentoRepository.save(model2);
 
@@ -170,7 +164,7 @@ class FacturaMedicamentoServiceTest {
 
         assertNotNull(dtoData);
         assertEquals(2, dtoData.size());
-        
+
     }
 
 }

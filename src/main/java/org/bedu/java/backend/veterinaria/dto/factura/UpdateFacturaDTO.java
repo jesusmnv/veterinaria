@@ -3,7 +3,7 @@ package org.bedu.java.backend.veterinaria.dto.factura;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import org.bedu.java.backend.veterinaria.model.Propietario;
 
@@ -11,7 +11,7 @@ import org.bedu.java.backend.veterinaria.model.Propietario;
 public class UpdateFacturaDTO {
 
     @Schema(description = "Fecha de la factura", example = "2019-10-23")
-    private Date fechaEmision;
+    private LocalDate fechaEmision;
 
     @Schema(description = "Subtotal de la factura", example = "123.50")
     private float subtotal;
