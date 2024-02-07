@@ -53,12 +53,6 @@ tasks.named('test') {
 }
 
 jacocoTestReport {
-	reports {
-		xml.required = true
-	}
-}
-
-jacocoTestReport {
     reports {
         xml.required = true
     }
@@ -67,7 +61,7 @@ jacocoTestReport {
 			classDirectories.setFrom(files(classDirectories.files.collect {
 						fileTree(dir: it,
 								exclude: [
-									'org/bedu/java/backend/veterinaria/dto/**/**',
+									'org/bedu/java/backend/veterinaria/dto/**',
 									'org/bedu/java/backend/veterinaria/model/**',
 									'org/bedu/java/backend/veterinaria/mapper/**',
 									'org/bedu/java/backend/veterinaria/VeterinariaApplication.class'
@@ -81,7 +75,7 @@ jacocoTestReport {
 test {
 	jacoco {
 		excludes = [
-			'org.bedu.java.backend.veterinaria.dto.*.*',
+			'org.bedu.java.backend.veterinaria.dto.*',
 			'org.bedu.java.backend.veterinaria.model.*',
 			'org.bedu.java.backend.veterinaria.mapper.*',
 			'org.bedu.java.backend.veterinaria.VeterinariaApplication.class'
