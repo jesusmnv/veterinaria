@@ -3,7 +3,7 @@ package org.bedu.java.backend.veterinaria.dto.factura;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import java.util.Date;
+import java.sql.Date;
 
 import org.bedu.java.backend.veterinaria.model.Propietario;
 

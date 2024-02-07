@@ -10,7 +10,7 @@ import org.bedu.java.backend.veterinaria.model.Propietario;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Data
 public class CreateFacturaDTO {
@@ -29,7 +29,6 @@ public class CreateFacturaDTO {
     private float iva;
 
     @Schema(description = "Total de la factura", example = "143.26")
-    @DecimalMin(value = "0.1", message = "El total debe ser mayor a cero")
     private float total;
 
     @Schema(description = "RFC del cliente", example = "HBO8912228A9")
