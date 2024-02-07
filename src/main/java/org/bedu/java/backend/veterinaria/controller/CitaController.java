@@ -18,8 +18,12 @@ import jakarta.validation.Valid;
 @RequestMapping("/citas")
 public class CitaController {
 
-    @Autowired
     private CitaService service;
+
+    @Autowired
+    public CitaController(CitaService service) {
+        this.service = service;
+    }
 
     @Operation(summary = "Obtiene la lista de todos las citas")
     @GetMapping

@@ -11,14 +11,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class FacturaMedicamentoService {
 
-    @Autowired
     private FacturaMedicamentoRepository repository;
-
-    @Autowired
     private FacturaMedicamentoMapper mapper;
+    private MedicamentoMapper medicamentoMapper;
 
     @Autowired
-    private MedicamentoMapper medicamentoMapper;
+    public FacturaMedicamentoService(FacturaMedicamentoRepository repository, FacturaMedicamentoMapper mapper,
+            MedicamentoMapper medicamentoMapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+        this.medicamentoMapper = medicamentoMapper;
+    }
 
     public void addMedicamento(Long facturaId, Long medicamentoId, float precio, int cantidad) {
         repository.save(mapper.toModel(facturaId, medicamentoId, precio, cantidad));

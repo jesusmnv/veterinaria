@@ -16,11 +16,14 @@ import java.util.Optional;
 @Service
 public class PropietarioService {
 
-    @Autowired
     private PropietarioRepository repository;
+    private PropietarioMapper mapper;
 
     @Autowired
-    private PropietarioMapper mapper;
+    public PropietarioService(PropietarioRepository repository, PropietarioMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     public List<PropietarioDTO> findAll() {
         return mapper.toDTO(repository.findAll());

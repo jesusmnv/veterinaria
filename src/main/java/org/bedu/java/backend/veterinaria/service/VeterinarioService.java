@@ -16,11 +16,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class VeterinarioService {
 
-    @Autowired
     private VeterinarioRepository veterinarioRepository;
+    private VeterinarioMapper mapper;
 
     @Autowired
-    private VeterinarioMapper mapper;
+    public VeterinarioService(VeterinarioRepository veterinarioRepository, VeterinarioMapper mapper) {
+        this.veterinarioRepository = veterinarioRepository;
+        this.mapper = mapper;
+    }
 
     public List<VeterinarioDTO> findAll() {
         return mapper.toDTO(veterinarioRepository.findAll());

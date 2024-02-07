@@ -22,11 +22,14 @@ import java.util.List;
 @RequestMapping("/facturas")
 public class FacturaController {
 
-    @Autowired
     private FacturaService service;
+    private FacturaMedicamentoService facturaMedicamentoService;
 
     @Autowired
-    private FacturaMedicamentoService facturaMedicamentoService;
+    public FacturaController(FacturaService service, FacturaMedicamentoService facturaMedicamentoService) {
+        this.service = service;
+        this.facturaMedicamentoService = facturaMedicamentoService;
+    }
 
     @Operation(summary = "Obtiene la lista de todas las facturas")
     @GetMapping

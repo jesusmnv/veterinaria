@@ -25,34 +25,30 @@ import java.util.LinkedList;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
-public class CitaControllerTest {
+class CitaControllerTest {
 
-    @MockBean
-    private CitaService citaService;
-  
-    @Autowired
-    private CitaController citaController;
+  @MockBean
+  private CitaService citaService;
 
+  @Autowired
+  private CitaController citaController;
 
-    @Test
-    @DisplayName("Controller debe inyectarse")
-    void smokeTest() {
+  @Test
+  @DisplayName("Controller debe inyectarse")
+  void smokeTest() {
     assertNotNull(citaController);
   }
-
-  
 
   @Test
   @DisplayName("Controller regresa una lista de citas")
   void findAllTest() {
 
-   List<CitaDTO> data = new LinkedList<>();
+    List<CitaDTO> data = new LinkedList<>();
 
     CitaDTO cita = new CitaDTO();
 
     cita.setId(9L);
     cita.setMotivoCita("Operacion");
-    
 
     data.add(cita);
 
@@ -64,14 +60,12 @@ public class CitaControllerTest {
     assertTrue(result.size() > 0);
     assertEquals(cita.getId(), result.get(0).getId());
     assertEquals(cita.getMotivoCita(), result.get(0).getMotivoCita());
-    
+
   }
 
-    //
-
-    @Test
-    @DisplayName("Controller guarda una cita")
-    void saveTest() {
+  @Test
+  @DisplayName("Controller guarda una cita")
+  void saveTest() {
     CreateCitaDTO dto = new CreateCitaDTO();
 
     dto.setFechaCita(null);
@@ -118,9 +112,8 @@ public class CitaControllerTest {
   void deleteByIdTest() throws CitaNotFoundException {
 
     citaController.deleteById(200L);
-    
+
     verify(citaService, times(1)).deleteById(200L);
   }
-
 
 }

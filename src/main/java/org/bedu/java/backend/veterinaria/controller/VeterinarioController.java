@@ -19,8 +19,12 @@ import org.bedu.java.backend.veterinaria.service.VeterinarioService;
 @RequestMapping("/veterinarios")
 public class VeterinarioController {
 
-    @Autowired
     private VeterinarioService service;
+
+    @Autowired
+    public VeterinarioController(VeterinarioService service) {
+        this.service = service;
+    }
 
     @Operation(summary = "Obtiene la lista de veterinarios")
     @GetMapping

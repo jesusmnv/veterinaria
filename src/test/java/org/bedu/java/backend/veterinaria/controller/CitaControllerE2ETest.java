@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class CitaControllerE2ETest {
+class CitaControllerE2ETest {
 
   @Autowired
   private MockMvc mockMvc;

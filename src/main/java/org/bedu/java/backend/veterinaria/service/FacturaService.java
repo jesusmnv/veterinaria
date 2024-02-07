@@ -18,11 +18,14 @@ import java.util.Optional;
 @Slf4j
 public class FacturaService {
 
-    @Autowired
     private FacturaRepository repository;
+    private FacturaMapper mapper;
 
     @Autowired
-    private FacturaMapper mapper;
+    public FacturaService(FacturaRepository repository, FacturaMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     public List<FacturaDTO> findAll() {
         return mapper.toDTO(repository.findAll());
