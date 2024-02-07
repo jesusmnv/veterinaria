@@ -11,4 +11,8 @@ public interface VeterinarioRepository extends CrudRepository<Veterinario, Long>
 
     List<Veterinario> findAll();
 
+    List<Veterinario> findByName(String nombre, String apellidoPaterno, String apellidoMaterno);
+
+    List<Veterinario> findBySpecialty(String especialidad);
+
 }

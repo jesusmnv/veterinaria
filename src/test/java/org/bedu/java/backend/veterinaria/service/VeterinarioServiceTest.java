@@ -41,13 +41,13 @@ class VeterinarioServiceTest {
     private VeterinarioService service;
 
     @Test
-    @DisplayName("Comprobar si el servicio esta siendo inyectado")
+    @DisplayName("Controller should be injected")
     void smokeTest() {
         assertNotNull(service);
     }
 
     @Test
-    @DisplayName("Comprobar si el servicio esta retornando los Veterinarios desde el repositorio")
+    @DisplayName("Service should return veterinarians from repository")
     void findAllTest() {
         List<Veterinario> data = new LinkedList<>();
 
@@ -90,7 +90,7 @@ class VeterinarioServiceTest {
     }
 
     @Test
-    @DisplayName("Comprobar si el servicio esta guardando a un Veterinario desde el repositorio")
+    @DisplayName("Service should save a Vet in repository")
     void saveTest() {
 
         CreateVeterinarioDTO veterinarioDTO = new CreateVeterinarioDTO();
@@ -141,7 +141,7 @@ class VeterinarioServiceTest {
     }
 
     @Test
-    @DisplayName("Comprobar que se lance un error cuando un Veterinario no es encontrado")
+    @DisplayName("Service should throws an error if Vet was not found")
     void updateWithErrorTest() {
 
         Optional<Veterinario> optionalEmpty = Optional.empty();
@@ -156,8 +156,8 @@ class VeterinarioServiceTest {
     }
 
     @Test
-    @DisplayName("Comprobar que el servicio actualice a un Veterinario desde el repositorio")
-    void updatetest() throws VeterinarioNotFoundException {
+    @DisplayName("Service should update a vet in repository")
+    void updateTest() throws VeterinarioNotFoundException {
 
         UpdateVeterinarioDTO veterinarioDTO = new UpdateVeterinarioDTO();
 
@@ -203,7 +203,7 @@ class VeterinarioServiceTest {
     }
 
     @Test
-    @DisplayName("Comprobar que el servicio si este eliminando a un  Veterinario desde el repositorio")
+    @DisplayName("Service should delete a vet by id in repository")
     void deleteByIdTest() throws VeterinarioNotFoundException {
         // service.deleteById(1547l);
         // verify(repository, times(1)).deleteById(1547l);
@@ -215,7 +215,7 @@ class VeterinarioServiceTest {
     }
 
     @Test
-    @DisplayName("Comprobar que el servicio muestre ERROR cuando no exista el Veterinario buscado")
+    @DisplayName("Service should shows an error if vet don't exist")
     void deleteByIdErrorTest() {
         when(repository.findById(154l)).thenReturn(Optional.empty());
 

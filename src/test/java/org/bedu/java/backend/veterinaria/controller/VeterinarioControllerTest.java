@@ -37,13 +37,13 @@ class VeterinarioControllerTest {
     private VeterinarioController controller;
 
     @Test
-    @DisplayName("Comprobar si Spring inyecta correctamente el controlador")
+    @DisplayName("Controller should be injected")
     void smokeTest() {
         assertNotNull(controller);
     }
 
     @Test
-    @DisplayName("Comprobar si retorna la lista de Veterinarios")
+    @DisplayName("Controller should return a list of Veterinarians")
     void findAllTest() {
         List<VeterinarioDTO> data = new LinkedList<>();
 
@@ -85,7 +85,7 @@ class VeterinarioControllerTest {
     }
 
     @Test
-    @DisplayName("Comprobando si guarda correctamente a un Veterinario")
+    @DisplayName("Controller should save a Vet")
     void saveTest() {
 
         CreateVeterinarioDTO veterinarioDTO = new CreateVeterinarioDTO();
@@ -134,7 +134,7 @@ class VeterinarioControllerTest {
     }
 
     @Test
-    @DisplayName("El controlador debería actualizar al Veterinario")
+    @DisplayName("Controller should update a Vet")
     void updateTest() throws VeterinarioNotFoundException {
 
         UpdateVeterinarioDTO veterinarioDto = new UpdateVeterinarioDTO();
@@ -156,7 +156,7 @@ class VeterinarioControllerTest {
     }
 
     @Test
-    @DisplayName("El controlador debería eliminar a un Veterinario")
+    @DisplayName("Controller should delete a Vet")
     void deleteByIdTest() throws VeterinarioNotFoundException {
         controller.deleteById(1593l);
         verify(service, times(1)).deleteById(1593l);
