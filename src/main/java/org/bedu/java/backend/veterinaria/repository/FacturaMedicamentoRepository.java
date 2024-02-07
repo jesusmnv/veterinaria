@@ -6,7 +6,6 @@ import org.bedu.java.backend.veterinaria.model.FacturaMedicamentoKey;
 import org.bedu.java.backend.veterinaria.model.Medicamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-// import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -14,7 +13,5 @@ public interface FacturaMedicamentoRepository extends JpaRepository<FacturaMedic
 
     @Query("SELECT f.medicamento FROM FacturaMedicamento f WHERE f.factura.id = :facturaId")
     List<Medicamento> findMedicamentosByFactura(Long facturaId);
-    // List<Medicamento> findMedicamentosByFactura(@Param("facturaId") Long
-    // facturaId);
 
 }

@@ -34,7 +34,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-public class MascotaServiceTest {
+class MascotaServiceTest {
 
     @MockBean
     private MascotaRepository repository;
@@ -152,7 +152,7 @@ public class MascotaServiceTest {
 
     @Test
     @DisplayName("Service should shows an error if pet don't exist")
-    public void updateMascotaNotFoundExceptionTest() throws MascotaNotFoundException {
+    void updateMascotaNotFoundExceptionTest() throws MascotaNotFoundException {
         UpdateMascotaDTO dto = new UpdateMascotaDTO();
         Optional<Mascota> empty = Optional.empty();
 
@@ -176,7 +176,7 @@ public class MascotaServiceTest {
 
     @Test
     @DisplayName("Service should shows an error if pet don't exist")
-    public void deleteByIdMascotaNotFoundExceptionTest() throws MascotaNotFoundException {
+    void deleteByIdMascotaNotFoundExceptionTest() throws MascotaNotFoundException {
 
         Long idMascota = 1L;
 

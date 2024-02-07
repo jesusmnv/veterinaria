@@ -1,7 +1,6 @@
 package org.bedu.java.backend.veterinaria.model;
 
 import java.time.LocalDate;
-// import java.util.Date;
 
 import jakarta.persistence.*;
 import lombok.Getter;

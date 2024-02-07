@@ -34,7 +34,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-public class PropietarioServiceTest {
+class PropietarioServiceTest {
 
     @MockBean
     private PropietarioRepository repository;
@@ -147,7 +147,7 @@ public class PropietarioServiceTest {
 
     @Test
     @DisplayName("Service should shows an error if owner don't exist")
-    public void updatePropietarioNotFoundExceptionTest() throws PropietarioNotFoundException {
+    void updatePropietarioNotFoundExceptionTest() throws PropietarioNotFoundException {
         UpdatePropietarioDTO dto = new UpdatePropietarioDTO();
         Optional<Propietario> empty = Optional.empty();
 
@@ -171,7 +171,7 @@ public class PropietarioServiceTest {
 
     @Test
     @DisplayName("Service should shows an error if owner don't exist")
-    public void deleteByIdPropietarioNotFoundExceptionTest() throws PropietarioNotFoundException {
+    void deleteByIdPropietarioNotFoundExceptionTest() throws PropietarioNotFoundException {
 
         Long idPropietario = 1L;
 

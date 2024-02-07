@@ -20,7 +20,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-public class PropietarioRepositoryTest {
+class PropietarioRepositoryTest {
 
     @Autowired
     private PropietarioRepository repository;

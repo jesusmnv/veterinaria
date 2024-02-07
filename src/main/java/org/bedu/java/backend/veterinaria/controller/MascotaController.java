@@ -22,13 +22,6 @@ public class MascotaController {
     @Autowired
     private MascotaService service;
 
-    /*
-     * @Autowired
-     * public MascotaController(MascotaService service) {
-     * this.service = service;
-     * }
-     */
-
     @Operation(summary = "Obtiene la lista de las mascotas")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -39,7 +32,7 @@ public class MascotaController {
     @Operation(summary = "Busca una mascota en la base de datos")
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void findById(@PathVariable Long id) throws MascotaNotFoundException {
+    public void findById(@PathVariable Long id) {
         service.findById(id);
     }
 
