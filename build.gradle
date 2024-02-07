@@ -54,6 +54,8 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport
+	
 }
 
 
@@ -104,10 +106,10 @@ sonarqube{
 	}
 }
 
-/*
+
 sonar {
     properties {
         properties["sonar.sources"] += sourceSets.custom.allSource.srcDirs
         properties["sonar.tests"] += sourceSets.integTest.allSource.srcDirs
     }
-}*/
+}
