@@ -75,7 +75,7 @@ class FacturaMedicamentoServiceTest {
         model.setPrecio(18.75F);
         model.setInstruccionesUso("Tomar 1 tableta cada 12 horas");
         medicamentoRepository.save(model);
-        service.addMedicamento(1L, 1L, 2);
+        service.addMedicamento(1L, 3L, 2);
         assertNotNull(repository);
     }
 
