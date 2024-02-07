@@ -221,10 +221,22 @@ class VeterinarioServiceTest {
 
     @Test
     @DisplayName("Comprobar que el servicio si este eliminando a un  Veterinario desde el repositorio")
-    void deleteByIdTest(){
-		service.deleteById(1547l);
+    void deleteByIdTest() throws VeterinarioNotFoundException{
+		//service.deleteById(1547l); 
+       // verify(repository, times(1)).deleteById(1547l);
+        when(repository.findById(15471l)).thenReturn(Optional.of(new Veterinario()));
 
-        verify(repository, times(1)).deleteById(1547l);
+        service.deleteById(15471l);
+
+        verify(repository).deleteById(15471l);
     }
      
+    @Test
+    @DisplayName("Comprobar que el servicio muestre ERROR cuando no exista el Veterinario buscado")
+    void deleteByIdErrorTest(){
+        when(repository.findById(154l)).thenReturn(Optional.empty());
+
+        assertThrows(VeterinarioNotFoundException.class, () -> service.deleteById(154l));
+    }
+
 }

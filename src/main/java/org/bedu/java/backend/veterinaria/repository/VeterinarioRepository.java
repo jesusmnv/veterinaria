@@ -12,5 +12,7 @@ public interface VeterinarioRepository extends CrudRepository<Veterinario,Long> 
     //JpaRepositort<Veterinario, Long>
 
     List<Veterinario> findAll();
+
+    List<Veterinario> findByNombre(String nombre, String apellidoPaterno, String apellidoMaterno);
     
 }

@@ -46,7 +46,7 @@ public class VeterinarioService {
         veterinarioRepository.save(veterinario);
     }
 
-    /*public void deleteById(Long veterinarioId) throws VeterinarioNotFoundException {
+    public void deleteById(Long veterinarioId) throws VeterinarioNotFoundException {
         Optional<Veterinario> result = veterinarioRepository.findById(veterinarioId);
 
         if (!result.isPresent()) {
@@ -54,10 +54,8 @@ public class VeterinarioService {
         }
 
         veterinarioRepository.deleteById(veterinarioId);
-    }*/
-
-    public void deleteById(Long veterinarioId){
-        veterinarioRepository.deleteById(veterinarioId);
     }
+
+   
 
 }
