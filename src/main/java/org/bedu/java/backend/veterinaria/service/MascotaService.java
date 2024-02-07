@@ -16,11 +16,14 @@ import java.util.Optional;
 @Service
 public class MascotaService {
 
-    @Autowired
     private MascotaRepository repository;
+    private MascotaMapper mapper;
 
     @Autowired
-    private MascotaMapper mapper;
+    public MascotaService(MascotaRepository repository, MascotaMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     public List<MascotaDTO> findAll() {
         return mapper.toDTO(repository.findAll());

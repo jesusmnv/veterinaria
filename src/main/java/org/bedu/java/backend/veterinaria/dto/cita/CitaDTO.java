@@ -1,7 +1,6 @@
 package org.bedu.java.backend.veterinaria.dto.cita;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalTime;
@@ -11,12 +10,7 @@ import org.bedu.java.backend.veterinaria.model.Propietario;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 
 @Data
-@AllArgsConstructor
 public class CitaDTO {
-
-    public CitaDTO() {
-
-    }
 
     @Schema(description = "ID de la cita", example = "1")
     private Long id;

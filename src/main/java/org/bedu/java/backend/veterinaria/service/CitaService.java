@@ -16,11 +16,14 @@ import java.util.Optional;
 @Service
 public class CitaService {
 
-    @Autowired
     private CitaRepository repository;
+    private CitaMapper mapper;
 
     @Autowired
-    private CitaMapper mapper;
+    public CitaService(CitaRepository repository, CitaMapper mapper) {
+        this.repository = repository;
+        this.mapper = mapper;
+    }
 
     public List<CitaDTO> findAll() {
         return mapper.toDTO(repository.findAll());

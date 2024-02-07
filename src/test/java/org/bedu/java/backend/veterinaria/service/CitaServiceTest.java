@@ -32,18 +32,18 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
-class citaServiceTest {
-    @MockBean
-    private CitaRepository citaRepository;
+class CitaServiceTest {
+  @MockBean
+  private CitaRepository citaRepository;
 
   @Autowired
   private CitaService citaService;
 
   @Test
   @DisplayName("Service debe ser inyectado")
-  void smokeTest() {assertNotNull(citaService);
+  void smokeTest() {
+    assertNotNull(citaService);
   }
-
 
   @Test
   @DisplayName("Service debe retonar cita desde el repositorio")
@@ -70,11 +70,9 @@ class citaServiceTest {
     assertEquals(cita.getHoraCita(), result.get(0).getHoraCita());
     assertEquals(cita.getMotivoCita(), result.get(0).getMotivoCita());
   }
-    
 
-
-@SuppressWarnings("null")
-@Test
+  @SuppressWarnings("null")
+  @Test
   @DisplayName("Service debe guardar una cita en el repositorio")
   void saveTest() {
     CreateCitaDTO dto = new CreateCitaDTO();
@@ -97,12 +95,11 @@ class citaServiceTest {
     assertNotNull(result);
     assertEquals(model.getId(), result.getId());
     assertEquals(model.getFechaCita(), result.getFechaCita());
-    assertEquals(model.getHoraCita(), result.getFechaCita());
+    assertEquals(model.getHoraCita(), result.getHoraCita());
     assertEquals(model.getMotivoCita(), result.getMotivoCita());
   }
 
-  
-   @Test
+  @Test
   @DisplayName("Service lanza error si la cita no se encontró")
   void updateWithErrorTest() {
     UpdateCitaDTO dto = new UpdateCitaDTO();
@@ -113,19 +110,17 @@ class citaServiceTest {
     assertThrows(CitaNotFoundException.class, () -> citaService.update(100L, dto));
   }
 
-
-
-@Test
+  @Test
   @DisplayName("El Service debe actualizar una cita en repository")
   void updateTest() throws CitaNotFoundException {
-    UpdateCitaDTO dto = new UpdateCitaDTO(); 
+    UpdateCitaDTO dto = new UpdateCitaDTO();
 
     dto.setFechaCita(null);
     dto.setHoraCita(null);
     dto.setMotivoCita("Peinado");
 
-    Cita cita = new Cita(); 
-    
+    Cita cita = new Cita();
+
     cita.setId(8L);
     cita.setFechaCita(null);
     cita.setHoraCita(null);
@@ -135,29 +130,19 @@ class citaServiceTest {
 
     citaService.update(1L, dto);
 
-   
     assertEquals(dto.getFechaCita(), cita.getFechaCita());
     assertEquals(dto.getHoraCita(), cita.getHoraCita());
     assertEquals(dto.getMotivoCita(), cita.getMotivoCita());
     verify(citaRepository, times(1)).save(cita);
   }
 
-
   @Test
   @DisplayName("Service borra una cita en el repository")
   void deleteById() {
 
-    citaRepository.deleteById(87L);    
-    
+    citaRepository.deleteById(87L);
+
     verify(citaRepository, times(1)).deleteById(87L);
   }
 
-
 }
-
-
-
-
-
-
-
