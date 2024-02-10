@@ -4,9 +4,11 @@ import org.bedu.java.backend.veterinaria.model.Propietario;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class UpdateMascotaDTO {
 
     @Schema(description = "Nombre de la mascota", example = "Rex")

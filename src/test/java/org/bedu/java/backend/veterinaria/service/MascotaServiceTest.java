@@ -119,7 +119,7 @@ class MascotaServiceTest {
     @Test
     @DisplayName("Service should throws an error if pet was not found")
     void updateWithErrorTest() {
-        UpdateMascotaDTO dto = new UpdateMascotaDTO();
+        UpdateMascotaDTO dto = UpdateMascotaDTO.builder().build();
         Optional<Mascota> dummy = Optional.empty();
 
         when(repository.findById(anyLong())).thenReturn(dummy);
@@ -130,10 +130,11 @@ class MascotaServiceTest {
     @Test
     @DisplayName("Service should update a pet in repository")
     void updateTest() throws MascotaNotFoundException {
-        UpdateMascotaDTO dto = new UpdateMascotaDTO();
+        UpdateMascotaDTO dto = UpdateMascotaDTO.builder()
 
-        dto.setNombre("Romeo");
-        dto.setEdad(35);
+                .nombre("Romeo")
+                .edad(35)
+                .build();
 
         Mascota mascota = new Mascota();
 
@@ -153,7 +154,7 @@ class MascotaServiceTest {
     @Test
     @DisplayName("Service should shows an error if pet don't exist")
     void updateMascotaNotFoundExceptionTest() throws MascotaNotFoundException {
-        UpdateMascotaDTO dto = new UpdateMascotaDTO();
+        UpdateMascotaDTO dto = UpdateMascotaDTO.builder().build();
         Optional<Mascota> empty = Optional.empty();
 
         when(repository.findById(anyLong())).thenReturn(empty);

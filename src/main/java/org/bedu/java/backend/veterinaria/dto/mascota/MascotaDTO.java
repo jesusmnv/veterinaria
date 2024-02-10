@@ -15,28 +15,28 @@ public class MascotaDTO {
     @Schema(description = "Identificador de la mascota", example = "100")
     private long id;
 
-    @Schema(description = "Nombre de la mascota", example = "Rex")
+    @Schema(description = "Nombre de la mascota", example = "Panchita")
     private String nombre;
 
-    @Schema(description = "Nombre de la especie", example = "Perico")
+    @Schema(description = "Nombre de la especie", example = "Perro")
     private String especie;
 
-    @Schema(description = "Raza de la mascota", example = "Loro Eclectus")
+    @Schema(description = "Raza de la mascota", example = "Dachshund")
     private String raza;
 
-    @Schema(description = "Edad de la mascota en años", example = "1")
+    @Schema(description = "Edad de la mascota en años", example = "3")
     private int edad;
 
-    @Schema(description = "Altura de la mascota en metros", example = "0.5")
+    @Schema(description = "Altura de la mascota en metros", example = "0.45")
     private float altura;
 
-    @Schema(description = "Peso de la mascota en Kg", example = "0.3")
+    @Schema(description = "Peso de la mascota en Kg", example = "2.3")
     private float peso;
 
-    @Schema(description = "Sexo de la mascota (Macho/Hembra)", example = "Macho")
+    @Schema(description = "Sexo de la mascota (Macho/Hembra)", example = "Hembra")
     private String sexo;
 
-    @Schema(description = "Color de la mascota", example = "Negro con rayas blancas")
+    @Schema(description = "Color de la mascota", example = "Negro, con algunas manchas cafe")
     private String color;
 
     private Propietario propietario;

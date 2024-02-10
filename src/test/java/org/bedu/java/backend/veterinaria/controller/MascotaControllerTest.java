@@ -92,7 +92,7 @@ class MascotaControllerTest {
     @Test
     @DisplayName("Controller should update a pet")
     void updateTest() throws MascotaNotFoundException {
-        UpdateMascotaDTO dto = new UpdateMascotaDTO();
+        UpdateMascotaDTO dto = UpdateMascotaDTO.builder().build();
 
         Long idMascota = 3L;
 
