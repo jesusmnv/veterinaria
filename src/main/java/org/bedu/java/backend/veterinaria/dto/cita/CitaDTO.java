@@ -6,7 +6,7 @@ import lombok.Data;
 import java.time.LocalTime;
 import java.util.Date;
 
-import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Owner;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 
 @Data
@@ -29,6 +29,6 @@ public class CitaDTO {
 
     private Veterinario veterinario;
 
-    private Propietario propietario;
+    private Owner propietario;
 
 }

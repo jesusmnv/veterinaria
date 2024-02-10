@@ -20,7 +20,7 @@ import org.bedu.java.backend.veterinaria.dto.consulta.CreateConsultaDTO;
 import org.bedu.java.backend.veterinaria.dto.consulta.UpdateConsultaDTO;
 import org.bedu.java.backend.veterinaria.exception.ConsultaNotFoundException;
 import org.bedu.java.backend.veterinaria.model.Consulta;
-import org.bedu.java.backend.veterinaria.model.Mascota;
+import org.bedu.java.backend.veterinaria.model.Pet;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.bedu.java.backend.veterinaria.repository.ConsultaRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -60,7 +60,7 @@ class ConsultaServiceTest {
         consulta.setTratamientoIndicado("Antibióticos y reposo");
         consulta.setObservaciones("La mascota parece mejorar, seguir monitoreando");
 
-        Mascota m = new Mascota();
+        Pet m = new Pet();
         m.setId(4L);
 
         Veterinario v = new Veterinario();
@@ -95,7 +95,7 @@ class ConsultaServiceTest {
         dto.setTratamientoIndicado("Antibióticos y reposo");
         dto.setObservaciones("La mascota parece mejorar, seguir monitoreando");
 
-        Mascota m = new Mascota();
+        Pet m = new Pet();
         m.setId(5L);
 
         Veterinario v = new Veterinario();
@@ -143,7 +143,7 @@ class ConsultaServiceTest {
     @DisplayName("Service should update a consultation in the repository")
     void updateTest() throws ConsultaNotFoundException {
         UpdateConsultaDTO dto = new UpdateConsultaDTO();
-        dto.setDiagnostico("Diagnóstico..."); //TODO: Terminar de asignar
+        dto.setDiagnostico("Diagnóstico..."); // TODO: Terminar de asignar
 
         Consulta consulta = new Consulta();
 
@@ -176,7 +176,7 @@ class ConsultaServiceTest {
         Consulta consulta = new Consulta();
 
         consulta.setId(222L);
-        consulta.setDiagnostico(""); //TODO: Revisar estos setter
+        consulta.setDiagnostico(""); // TODO: Revisar estos setter
 
         when(repository.findById(anyLong())).thenReturn(Optional.of(consulta));
 

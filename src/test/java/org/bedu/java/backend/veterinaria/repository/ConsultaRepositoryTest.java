@@ -8,8 +8,8 @@ import java.time.LocalTime;
 import java.util.List;
 
 import org.bedu.java.backend.veterinaria.model.Consulta;
-import org.bedu.java.backend.veterinaria.model.Mascota;
-import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Pet;
+import org.bedu.java.backend.veterinaria.model.Owner;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -60,18 +60,18 @@ class ConsultaRepositoryTest {
                 consulta.setObservaciones("Controlar la alimentación");
                 consulta.setFechaConsulta(LocalDate.parse("2024-04-04"));
 
-                Mascota m = new Mascota();
+                Pet m = new Pet();
                 m.setId(7L);
-                m.setNombre("Bobby");
-                m.setEspecie("Perro");
-                m.setRaza("Poodle");
-                m.setEdad(3);
-                m.setAltura(20.3F);
-                m.setPeso(10.1F);
-                m.setSexo("Macho");
+                m.setName("Bobby");
+                m.setSpecies("Perro");
+                m.setBreed("Poodle");
+                m.setAge(3);
+                m.setHeight(20.3F);
+                m.setWeight(10.1F);
+                m.setGender("Macho");
                 m.setColor("Blanco");
 
-                Propietario p = new Propietario();
+                Owner p = new Owner();
                 p.setId(7L);
                 p.setNombre("Carmen");
                 p.setApellidoPaterno("Sanchez");
@@ -81,7 +81,7 @@ class ConsultaRepositoryTest {
                 p.setCorreo("carmen@example.com");
                 p.setFechaNacimiento(LocalDate.parse("1978-06-15"));
                 p.setOcupacion("Arquitecta");
-                m.setPropietario(manager.merge(p));
+                m.setOwner(manager.merge(p));
 
                 Veterinario v = new Veterinario();
                 v.setId(7L);
@@ -109,18 +109,18 @@ class ConsultaRepositoryTest {
                 consulta.setObservaciones("Evitar exposición al agua");
                 consulta.setFechaConsulta(LocalDate.parse("2023-12-01"));
 
-                Mascota m = new Mascota();
+                Pet m = new Pet();
                 m.setId(9L);
-                m.setNombre("Misty");
-                m.setEspecie("Gato");
-                m.setRaza("Angora");
-                m.setEdad(1);
-                m.setAltura(18.2F);
-                m.setPeso(3.0F);
-                m.setSexo("Hembra");
+                m.setName("Misty");
+                m.setSpecies("Gato");
+                m.setBreed("Angora");
+                m.setAge(1);
+                m.setHeight(18.2F);
+                m.setWeight(3.0F);
+                m.setGender("Hembra");
                 m.setColor("Blanco");
 
-                Propietario p = new Propietario();
+                Owner p = new Owner();
                 p.setId(9L);
                 p.setNombre("Isabel");
                 p.setApellidoPaterno("Fuentes");
@@ -130,7 +130,7 @@ class ConsultaRepositoryTest {
                 p.setCorreo("isabel@example.com");
                 p.setFechaNacimiento(LocalDate.parse("1984-02-17"));
                 p.setOcupacion("Psicóloga");
-                m.setPropietario(manager.merge(p));
+                m.setOwner(manager.merge(p));
 
                 Veterinario v = new Veterinario();
                 v.setId(9L);
@@ -158,18 +158,18 @@ class ConsultaRepositoryTest {
                 consulta.setObservaciones("Reposo absoluto");
                 consulta.setFechaConsulta(LocalDate.parse("2023-12-01"));
 
-                Mascota m = new Mascota();
+                Pet m = new Pet();
                 m.setId(3L);
-                m.setNombre("Firulais");
-                m.setEspecie("Perro");
-                m.setRaza("Chihuahua");
-                m.setEdad(1);
-                m.setAltura(15.0F);
-                m.setPeso(2.0F);
-                m.setSexo("Macho");
+                m.setName("Firulais");
+                m.setSpecies("Perro");
+                m.setBreed("Chihuahua");
+                m.setAge(1);
+                m.setHeight(15.0F);
+                m.setWeight(2.0F);
+                m.setGender("Macho");
                 m.setColor("Café");
 
-                Propietario p = new Propietario();
+                Owner p = new Owner();
                 p.setId(3L);
                 p.setNombre("Laura");
                 p.setApellidoPaterno("Diaz");
@@ -179,7 +179,7 @@ class ConsultaRepositoryTest {
                 p.setCorreo("laura@example.com");
                 p.setFechaNacimiento(LocalDate.parse("1992-08-20"));
                 p.setOcupacion("Enfermera");
-                m.setPropietario(manager.merge(p));
+                m.setOwner(manager.merge(p));
 
                 Veterinario v = new Veterinario();
                 v.setId(3L);

@@ -31,7 +31,7 @@ public class Consulta {
 
     @ManyToOne
     @JoinColumn(name = "mascota_id", referencedColumnName = "id")
-    private Mascota mascota;
+    private Pet mascota;
 
     @ManyToOne
     @JoinColumn(name = "veterinario_id", referencedColumnName = "id")

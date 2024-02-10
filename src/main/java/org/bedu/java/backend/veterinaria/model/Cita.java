@@ -37,6 +37,6 @@ public class Cita {
 
     @ManyToOne
     @JoinColumn(name = "propietario_id", referencedColumnName = "id")
-    private Propietario propietario;
+    private Owner propietario;
 
 }

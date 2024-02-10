@@ -4,7 +4,7 @@ import org.bedu.java.backend.veterinaria.dto.consulta.ConsultaDTO;
 import org.bedu.java.backend.veterinaria.dto.consulta.CreateConsultaDTO;
 import org.bedu.java.backend.veterinaria.dto.consulta.UpdateConsultaDTO;
 import org.bedu.java.backend.veterinaria.exception.ConsultaNotFoundException;
-import org.bedu.java.backend.veterinaria.model.Mascota;
+import org.bedu.java.backend.veterinaria.model.Pet;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.bedu.java.backend.veterinaria.service.ConsultaService;
 import org.junit.jupiter.api.DisplayName;
@@ -52,8 +52,8 @@ class ConsultaControllerTest {
         consulta.setTratamientoIndicado("Antibióticos y reposo");
         consulta.setObservaciones("La mascota parece mejorar, seguir monitoreando");
 
-        //Revisar objeto Mascota y Veterinario
-        Mascota m = new Mascota();
+        // Revisar objeto Mascota y Veterinario
+        Pet m = new Pet();
         m.setId(9L);
 
         Veterinario v = new Veterinario();
@@ -96,8 +96,8 @@ class ConsultaControllerTest {
         consulta.setTratamientoIndicado(dto.getTratamientoIndicado());
         consulta.setObservaciones(dto.getObservaciones());
 
-        //Revisar objeto Mascota y Veterinario
-        Mascota m = new Mascota();
+        // Revisar objeto Mascota y Veterinario
+        Pet m = new Pet();
         m.setId(3L);
 
         Veterinario v = new Veterinario();
@@ -119,7 +119,7 @@ class ConsultaControllerTest {
         assertEquals(consulta.getObservaciones(), result.getObservaciones());
         assertEquals(consulta.getMascota(), result.getMascota());
         assertEquals(consulta.getVeterinario(), result.getVeterinario());
-    
+
     }
 
     @Test
@@ -130,9 +130,9 @@ class ConsultaControllerTest {
         dto.setDiagnostico("Infección de oído");
         dto.setTratamientoIndicado("Antibióticos y gotas para los oídos");
         dto.setObservaciones("El propietario reporta que el gato ha estado rascándose las orejas con frecuencia.");
-        
-        //Revisar objeto Mascota y Veterinario
-        Mascota m = new Mascota();
+
+        // Revisar objeto Mascota y Veterinario
+        Pet m = new Pet();
         m.setId(2L);
 
         Veterinario v = new Veterinario();
@@ -152,6 +152,5 @@ class ConsultaControllerTest {
         controller.deleteById(10L);
         verify(service, times(1)).deleteById(10L);
     }
-
 
 }

@@ -19,7 +19,7 @@ import org.bedu.java.backend.veterinaria.dto.propietario.CreatePropietarioDTO;
 import org.bedu.java.backend.veterinaria.dto.propietario.PropietarioDTO;
 import org.bedu.java.backend.veterinaria.dto.propietario.UpdatePropietarioDTO;
 import org.bedu.java.backend.veterinaria.exception.PropietarioNotFoundException;
-import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Owner;
 import org.bedu.java.backend.veterinaria.repository.PropietarioRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -51,9 +51,9 @@ class PropietarioServiceTest {
     @Test
     @DisplayName("Service should return owner from repository")
     void findAllTest() {
-        List<Propietario> data = new LinkedList<>();
+        List<Owner> data = new LinkedList<>();
 
-        Propietario p = new Propietario();
+        Owner p = new Owner();
         p.setId(7L);
         p.setNombre("Carmen");
         p.setApellidoPaterno("Sanchez");
@@ -92,14 +92,14 @@ class PropietarioServiceTest {
         dto.setApellidoPaterno("Fuentes");
         dto.setApellidoMaterno("Macias");
 
-        Propietario model = new Propietario();
+        Owner model = new Owner();
 
         model.setId(2345L);
         model.setNombre(dto.getNombre());
         model.setApellidoPaterno(dto.getApellidoPaterno());
         model.setApellidoMaterno(dto.getApellidoMaterno());
 
-        when(repository.save(any(Propietario.class))).thenReturn(model);
+        when(repository.save(any(Owner.class))).thenReturn(model);
 
         PropietarioDTO result = service.save(dto);
 
@@ -115,7 +115,7 @@ class PropietarioServiceTest {
     @DisplayName("Service should throws an error if owner was not found")
     void updateWithErrorTest() {
         UpdatePropietarioDTO dto = new UpdatePropietarioDTO();
-        Optional<Propietario> dummy = Optional.empty();
+        Optional<Owner> dummy = Optional.empty();
 
         when(repository.findById(anyLong())).thenReturn(dummy);
 
@@ -130,7 +130,7 @@ class PropietarioServiceTest {
         dto.setNombre("Ramiro");
         dto.setApellidoPaterno("Ramirez");
 
-        Propietario propietario = new Propietario();
+        Owner propietario = new Owner();
 
         propietario.setId(12L);
         propietario.setNombre("Rogelio");
@@ -149,7 +149,7 @@ class PropietarioServiceTest {
     @DisplayName("Service should shows an error if owner don't exist")
     void updatePropietarioNotFoundExceptionTest() throws PropietarioNotFoundException {
         UpdatePropietarioDTO dto = new UpdatePropietarioDTO();
-        Optional<Propietario> empty = Optional.empty();
+        Optional<Owner> empty = Optional.empty();
 
         when(repository.findById(anyLong())).thenReturn(empty);
         assertThrows(PropietarioNotFoundException.class, () -> service.update(35L, dto));
@@ -161,7 +161,7 @@ class PropietarioServiceTest {
 
         Long idPropietario = 1L;
 
-        when(repository.findById(idPropietario)).thenReturn(Optional.of(new Propietario()));
+        when(repository.findById(idPropietario)).thenReturn(Optional.of(new Owner()));
 
         service.deleteById(idPropietario);
 

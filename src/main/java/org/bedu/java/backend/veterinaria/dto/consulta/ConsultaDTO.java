@@ -2,7 +2,7 @@ package org.bedu.java.backend.veterinaria.dto.consulta;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import org.bedu.java.backend.veterinaria.model.Mascota;
+import org.bedu.java.backend.veterinaria.model.Pet;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 
 import java.time.LocalDate;
@@ -26,7 +26,7 @@ public class ConsultaDTO {
     private String observaciones;
 
     // Relación
-    private Mascota mascota;
+    private Pet mascota;
 
     private Veterinario veterinario;
 
