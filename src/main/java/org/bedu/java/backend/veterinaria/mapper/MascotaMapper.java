@@ -2,7 +2,7 @@ package org.bedu.java.backend.veterinaria.mapper;
 
 import org.bedu.java.backend.veterinaria.dto.mascota.CreateMascotaDTO;
 import org.bedu.java.backend.veterinaria.dto.mascota.MascotaDTO;
-import org.bedu.java.backend.veterinaria.dto.mascota.UpdateMascotaDTO;
+// import org.bedu.java.backend.veterinaria.dto.mascota.UpdateMascotaDTO;
 import org.bedu.java.backend.veterinaria.model.Mascota;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
@@ -22,6 +22,6 @@ public interface MascotaMapper {
     Mascota toModel(CreateMascotaDTO dto);
 
     @Mapping(target = "id", ignore = true)
-    void update(@MappingTarget Mascota mascota, UpdateMascotaDTO data);
+    void update(@MappingTarget Mascota mascota, CreateMascotaDTO data);
 
 }

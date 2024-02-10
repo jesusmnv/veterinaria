@@ -16,7 +16,7 @@ import java.util.Optional;
 
 import org.bedu.java.backend.veterinaria.dto.mascota.CreateMascotaDTO;
 import org.bedu.java.backend.veterinaria.dto.mascota.MascotaDTO;
-import org.bedu.java.backend.veterinaria.dto.mascota.UpdateMascotaDTO;
+// import org.bedu.java.backend.veterinaria.dto.mascota.UpdateMascotaDTO;
 import org.bedu.java.backend.veterinaria.exception.MascotaNotFoundException;
 import org.bedu.java.backend.veterinaria.model.Mascota;
 import org.bedu.java.backend.veterinaria.model.Propietario;
@@ -119,7 +119,11 @@ class MascotaServiceTest {
     @Test
     @DisplayName("Service should throws an error if pet was not found")
     void updateWithErrorTest() {
+<<<<<<< Updated upstream
         UpdateMascotaDTO dto = UpdateMascotaDTO.builder().build();
+=======
+        CreateMascotaDTO dto = new CreateMascotaDTO();
+>>>>>>> Stashed changes
         Optional<Mascota> dummy = Optional.empty();
 
         when(repository.findById(anyLong())).thenReturn(dummy);
@@ -130,7 +134,11 @@ class MascotaServiceTest {
     @Test
     @DisplayName("Service should update a pet in repository")
     void updateTest() throws MascotaNotFoundException {
+<<<<<<< Updated upstream
         UpdateMascotaDTO dto = UpdateMascotaDTO.builder()
+=======
+        CreateMascotaDTO dto = new CreateMascotaDTO();
+>>>>>>> Stashed changes
 
                 .nombre("Romeo")
                 .edad(35)
@@ -154,7 +162,11 @@ class MascotaServiceTest {
     @Test
     @DisplayName("Service should shows an error if pet don't exist")
     void updateMascotaNotFoundExceptionTest() throws MascotaNotFoundException {
+<<<<<<< Updated upstream
         UpdateMascotaDTO dto = UpdateMascotaDTO.builder().build();
+=======
+        CreateMascotaDTO dto = new CreateMascotaDTO();
+>>>>>>> Stashed changes
         Optional<Mascota> empty = Optional.empty();
 
         when(repository.findById(anyLong())).thenReturn(empty);

@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.bedu.java.backend.veterinaria.dto.mascota.CreateMascotaDTO;
 import org.bedu.java.backend.veterinaria.dto.mascota.MascotaDTO;
-import org.bedu.java.backend.veterinaria.dto.mascota.UpdateMascotaDTO;
+// import org.bedu.java.backend.veterinaria.dto.mascota.UpdateMascotaDTO;
 import org.bedu.java.backend.veterinaria.exception.MascotaNotFoundException;
 import org.bedu.java.backend.veterinaria.service.MascotaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +50,7 @@ public class MascotaController {
     @Operation(summary = "Actualiza la información de una mascota")
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable Long id, @Valid @RequestBody UpdateMascotaDTO updatedData)
+    public void update(@PathVariable Long id, @Valid @RequestBody CreateMascotaDTO updatedData)
             throws MascotaNotFoundException {
         service.update(id, updatedData);
     }

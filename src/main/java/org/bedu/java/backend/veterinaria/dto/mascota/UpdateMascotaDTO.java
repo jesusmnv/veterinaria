@@ -1,7 +1,8 @@
-package org.bedu.java.backend.veterinaria.dto.mascota;
+// package org.bedu.java.backend.veterinaria.dto.mascota;
 
-import org.bedu.java.backend.veterinaria.model.Propietario;
+// import org.bedu.java.backend.veterinaria.model.Propietario;
 
+<<<<<<< Updated upstream
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
@@ -10,32 +11,41 @@ import lombok.Data;
 @Data
 @Builder
 public class UpdateMascotaDTO {
+=======
+// import io.swagger.v3.oas.annotations.media.Schema;
+// import jakarta.validation.constraints.NotBlank;
+// import lombok.Data;
 
-    @Schema(description = "Nombre de la mascota", example = "Rex")
-    @NotBlank
-    private String nombre;
+// @Data
+// public class UpdateMascotaDTO {
+>>>>>>> Stashed changes
 
-    @Schema(description = "Nombre de la especie", example = "Perico")
-    private String especie;
+// @Schema(description = "Nombre de la mascota", example = "Rex")
+// @NotBlank
+// private String nombre;
 
-    @Schema(description = "Raza de la mascota", example = "Loro Eclectus")
-    private String raza;
+// @Schema(description = "Nombre de la especie", example = "Perico")
+// private String especie;
 
-    @Schema(description = "Edad de la mascota en años", example = "1")
-    private int edad;
+// @Schema(description = "Raza de la mascota", example = "Loro Eclectus")
+// private String raza;
 
-    @Schema(description = "Altura de la mascota en metros", example = "0.5")
-    private float altura;
+// @Schema(description = "Edad de la mascota en años", example = "1")
+// private int edad;
 
-    @Schema(description = "Peso de la mascota en Kg", example = "0.3")
-    private float peso;
+// @Schema(description = "Altura de la mascota en metros", example = "0.5")
+// private float altura;
 
-    @Schema(description = "Sexo de la mascota (Macho/Hembra)", example = "Macho")
-    private String sexo;
+// @Schema(description = "Peso de la mascota en Kg", example = "0.3")
+// private float peso;
 
-    @Schema(description = "Color de la mascota", example = "Negro con rayas blancas")
-    private String color;
+// @Schema(description = "Sexo de la mascota (Macho/Hembra)", example = "Macho")
+// private String sexo;
 
-    private Propietario propietario;
+// @Schema(description = "Color de la mascota", example = "Negro con rayas
+// blancas")
+// private String color;
 
-}
+// private Propietario propietario;
+
+// }

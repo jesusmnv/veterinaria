@@ -2,7 +2,7 @@ package org.bedu.java.backend.veterinaria.service;
 
 import org.bedu.java.backend.veterinaria.dto.mascota.CreateMascotaDTO;
 import org.bedu.java.backend.veterinaria.dto.mascota.MascotaDTO;
-import org.bedu.java.backend.veterinaria.dto.mascota.UpdateMascotaDTO;
+// import org.bedu.java.backend.veterinaria.dto.mascota.UpdateMascotaDTO;
 import org.bedu.java.backend.veterinaria.exception.MascotaNotFoundException;
 import org.bedu.java.backend.veterinaria.mapper.MascotaMapper;
 import org.bedu.java.backend.veterinaria.model.Mascota;
@@ -38,7 +38,7 @@ public class MascotaService {
         return mapper.toDTO(entity);
     }
 
-    public void update(Long mascotaId, UpdateMascotaDTO data) throws MascotaNotFoundException {
+    public void update(Long mascotaId, CreateMascotaDTO data) throws MascotaNotFoundException {
         Optional<Mascota> result = repository.findById(mascotaId);
 
         if (!result.isPresent()) {

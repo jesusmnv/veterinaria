@@ -13,7 +13,7 @@ import java.util.List;
 
 import org.bedu.java.backend.veterinaria.dto.mascota.CreateMascotaDTO;
 import org.bedu.java.backend.veterinaria.dto.mascota.MascotaDTO;
-import org.bedu.java.backend.veterinaria.dto.mascota.UpdateMascotaDTO;
+// import org.bedu.java.backend.veterinaria.dto.mascota.UpdateMascotaDTO;
 import org.bedu.java.backend.veterinaria.exception.MascotaNotFoundException;
 import org.bedu.java.backend.veterinaria.service.MascotaService;
 import org.junit.jupiter.api.DisplayName;
@@ -92,7 +92,11 @@ class MascotaControllerTest {
     @Test
     @DisplayName("Controller should update a pet")
     void updateTest() throws MascotaNotFoundException {
+<<<<<<< Updated upstream
         UpdateMascotaDTO dto = UpdateMascotaDTO.builder().build();
+=======
+        CreateMascotaDTO dto = new CreateMascotaDTO();
+>>>>>>> Stashed changes
 
         Long idMascota = 3L;
 
