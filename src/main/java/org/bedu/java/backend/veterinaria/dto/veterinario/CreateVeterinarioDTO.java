@@ -1,7 +1,7 @@
 package org.bedu.java.backend.veterinaria.dto.veterinario;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,7 +13,7 @@ import lombok.Data;
 
 @Data
 public class CreateVeterinarioDTO {
-    
+
     @Schema(description = "Nombre del veterinario", example = "Alberto")
     @NotBlank(message = "El nombre del veterinario es obligatorio")
     @Length(min = 1, max = 100, message = "El nombre no puede exceder de 100 caracteres")
@@ -31,7 +31,7 @@ public class CreateVeterinarioDTO {
 
     @Schema(description = "Fecha de nacimiento del veterinario", example = "1998-12-25")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     @Schema(description = "Numero de celular del veterinario", example = "+528331593654")
     @NotBlank(message = "El numero de celular del veterinario es obligatorio")

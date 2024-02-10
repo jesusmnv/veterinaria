@@ -74,8 +74,12 @@ import java.util.List;
 @RequestMapping("/propietarios")
 public class PropietarioController {
 
-    @Autowired
     private PropietarioService service;
+
+    @Autowired
+    public PropietarioController(PropietarioService service) {
+        this.service = service;
+    }
 
     @Operation(summary = "Obtiene la lista de todos los propietarios")
     @GetMapping

@@ -1,7 +1,7 @@
 package org.bedu.java.backend.veterinaria.dto.veterinario;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
@@ -9,7 +9,6 @@ import lombok.Data;
 
 @Data
 public class UpdateVeterinarioDTO {
-    
 
     @Schema(description = "Nombre del veterinario", example = "Alberto")
     @NotBlank
@@ -24,7 +23,7 @@ public class UpdateVeterinarioDTO {
     private String apellidoMaterno;
 
     @Schema(description = "Fecha de nacimiento del veterinario", example = "1998-12-25")
-    private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     @Schema(description = "Numero de celular del veterinario", example = "+528332587821")
     private String celular;

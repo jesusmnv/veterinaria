@@ -10,7 +10,7 @@ import org.bedu.java.backend.veterinaria.model.Propietario;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 public class CreateFacturaDTO {
@@ -18,7 +18,7 @@ public class CreateFacturaDTO {
     @Schema(description = "Fecha de la factura", example = "2019-10-23")
     @NotNull(message = "La fecha de la factura no puede ser nula") // Verificar
     @DateTimeFormat(pattern = "yyyy-MM-dd") // Verificar
-    private Date fechaEmision;
+    private LocalDate fechaEmision;
 
     @Schema(description = "Subtotal de la factura", example = "123.50")
     @DecimalMin(value = "0.1", message = "El subtotal debe ser mayor a cero")
@@ -29,7 +29,6 @@ public class CreateFacturaDTO {
     private float iva;
 
     @Schema(description = "Total de la factura", example = "143.26")
-    @DecimalMin(value = "0.1", message = "El total debe ser mayor a cero")
     private float total;
 
     @Schema(description = "RFC del cliente", example = "HBO8912228A9")

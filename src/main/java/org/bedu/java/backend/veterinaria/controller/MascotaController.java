@@ -19,8 +19,12 @@ import java.util.List;
 @RequestMapping("/mascotas")
 public class MascotaController {
 
-    @Autowired
     private MascotaService service;
+
+    @Autowired
+    public MascotaController(MascotaService service) {
+        this.service = service;
+    }
 
     @Operation(summary = "Obtiene la lista de las mascotas")
     @GetMapping
