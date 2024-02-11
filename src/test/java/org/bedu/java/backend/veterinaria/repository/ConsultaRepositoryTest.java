@@ -73,14 +73,14 @@ class ConsultaRepositoryTest {
 
                 Owner p = new Owner();
                 p.setId(7L);
-                p.setNombre("Carmen");
-                p.setApellidoPaterno("Sanchez");
-                p.setApellidoMaterno("Gomez");
-                p.setDireccion("Avenida 567");
-                p.setCelular("1231231234");
-                p.setCorreo("carmen@example.com");
-                p.setFechaNacimiento(LocalDate.parse("1978-06-15"));
-                p.setOcupacion("Arquitecta");
+                p.setName("Carmen");
+                p.setPLastName("Sanchez");
+                p.setMLastName("Gomez");
+                p.setAddress("Avenida 567");
+                p.setCellPhone("1231231234");
+                p.setEmail("carmen@example.com");
+                p.setBirthDate(LocalDate.parse("1978-06-15"));
+                p.setOccupation("Arquitecta");
                 m.setOwner(manager.merge(p));
 
                 Veterinario v = new Veterinario();
@@ -122,14 +122,14 @@ class ConsultaRepositoryTest {
 
                 Owner p = new Owner();
                 p.setId(9L);
-                p.setNombre("Isabel");
-                p.setApellidoPaterno("Fuentes");
-                p.setApellidoMaterno("Jimenez");
-                p.setDireccion("Avenida 345");
-                p.setCelular("9991112222");
-                p.setCorreo("isabel@example.com");
-                p.setFechaNacimiento(LocalDate.parse("1984-02-17"));
-                p.setOcupacion("Psicóloga");
+                p.setName("Isabel");
+                p.setPLastName("Fuentes");
+                p.setMLastName("Jimenez");
+                p.setAddress("Avenida 345");
+                p.setCellPhone("9991112222");
+                p.setEmail("isabel@example.com");
+                p.setBirthDate(LocalDate.parse("1984-02-17"));
+                p.setOccupation("Psicóloga");
                 m.setOwner(manager.merge(p));
 
                 Veterinario v = new Veterinario();
@@ -171,14 +171,14 @@ class ConsultaRepositoryTest {
 
                 Owner p = new Owner();
                 p.setId(3L);
-                p.setNombre("Laura");
-                p.setApellidoPaterno("Diaz");
-                p.setApellidoMaterno("Santos");
-                p.setDireccion("Calle 456");
-                p.setCelular("9876543210");
-                p.setCorreo("laura@example.com");
-                p.setFechaNacimiento(LocalDate.parse("1992-08-20"));
-                p.setOcupacion("Enfermera");
+                p.setName("Laura");
+                p.setPLastName("Diaz");
+                p.setMLastName("Santos");
+                p.setAddress("Calle 456");
+                p.setCellPhone("9876543210");
+                p.setEmail("laura@example.com");
+                p.setBirthDate(LocalDate.parse("1992-08-20"));
+                p.setOccupation("Enfermera");
                 m.setOwner(manager.merge(p));
 
                 Veterinario v = new Veterinario();

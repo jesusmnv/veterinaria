@@ -63,14 +63,14 @@ class FacturaRepositoryTest {
 
       Owner propietario = new Owner();
       propietario.setId(8L);
-      propietario.setNombre("Job");
-      propietario.setApellidoMaterno("Martinez");
-      propietario.setApellidoPaterno("Moreno");
-      propietario.setDireccion("Paseo");
-      propietario.setCelular("33333");
-      propietario.setCorreo("a@a.com");
-      propietario.setFechaNacimiento(LocalDate.parse("2023-12-01"));
-      propietario.setOcupacion("empleado");
+      propietario.setName("Job");
+      propietario.setPLastName("Martinez");
+      propietario.setMLastName("Moreno");
+      propietario.setAddress("Paseo");
+      propietario.setCellPhone("33333");
+      propietario.setEmail("a@a.com");
+      propietario.setBirthDate(LocalDate.parse("2023-12-01"));
+      propietario.setOccupation("empleado");
 
       factura.setPropietario(manager.merge(propietario));
       return factura;
@@ -89,14 +89,14 @@ class FacturaRepositoryTest {
 
       Owner propietario = new Owner();
       propietario.setId(45L);
-      propietario.setNombre("Job");
-      propietario.setApellidoMaterno("Martinez");
-      propietario.setApellidoPaterno("Moreno");
-      propietario.setDireccion("Paseo");
-      propietario.setCelular("33333");
-      propietario.setCorreo("a@a.com");
-      propietario.setFechaNacimiento(LocalDate.parse("2023-12-01"));
-      propietario.setOcupacion("empleado");
+      propietario.setName("Job");
+      propietario.setMLastName("Martinez");
+      propietario.setPLastName("Moreno");
+      propietario.setAddress("Paseo");
+      propietario.setCellPhone("33333");
+      propietario.setEmail("a@a.com");
+      propietario.setBirthDate(LocalDate.parse("2023-12-01"));
+      propietario.setOccupation("empleado");
 
       factura.setPropietario(manager.merge(propietario));
       return factura;

@@ -1,8 +1,8 @@
 package org.bedu.java.backend.veterinaria.mapper;
 
-import org.bedu.java.backend.veterinaria.dto.mascota.CreatePetDTO;
-import org.bedu.java.backend.veterinaria.dto.mascota.PetDTO;
-import org.bedu.java.backend.veterinaria.dto.mascota.UpdatePetDTO;
+import org.bedu.java.backend.veterinaria.dto.pet.CreatePetDTO;
+import org.bedu.java.backend.veterinaria.dto.pet.PetDTO;
+import org.bedu.java.backend.veterinaria.dto.pet.UpdatePetDTO;
 import org.bedu.java.backend.veterinaria.model.Pet;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;

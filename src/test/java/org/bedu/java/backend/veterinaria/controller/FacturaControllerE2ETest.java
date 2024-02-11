@@ -24,7 +24,7 @@ import org.bedu.java.backend.veterinaria.dto.ErrorDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.FacturaDTO;
 import org.bedu.java.backend.veterinaria.model.Factura;
 import org.bedu.java.backend.veterinaria.repository.FacturaRepository;
-import org.bedu.java.backend.veterinaria.repository.PropietarioRepository;
+import org.bedu.java.backend.veterinaria.repository.OwnerRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
@@ -46,7 +46,7 @@ class FacturaControllerE2ETest {
     private FacturaRepository repository;
 
     @Autowired
-    private PropietarioRepository propietarioRepository;
+    private OwnerRepository propietarioRepository;
 
     private ObjectMapper mapper = new ObjectMapper();
 
