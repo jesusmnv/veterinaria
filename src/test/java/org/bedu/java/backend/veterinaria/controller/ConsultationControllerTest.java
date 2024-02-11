@@ -17,7 +17,7 @@ import org.bedu.java.backend.veterinaria.dto.consultation.CreateConsultationDTO;
 import org.bedu.java.backend.veterinaria.dto.consultation.UpdateConsultationDTO;
 import org.bedu.java.backend.veterinaria.exception.ConsultationNotFoundException;
 import org.bedu.java.backend.veterinaria.model.Pet;
-import org.bedu.java.backend.veterinaria.model.Veterinario;
+import org.bedu.java.backend.veterinaria.model.Vet;
 import org.bedu.java.backend.veterinaria.service.ConsultationService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -57,7 +57,7 @@ class ConsultationControllerTest {
         Pet p = new Pet();
         p.setId(9L);
 
-        Veterinario v = new Veterinario();
+        Vet v = new Vet();
         v.setId(8L);
 
         consultationDTO.setPet(p);
@@ -101,7 +101,7 @@ class ConsultationControllerTest {
         Pet p = new Pet();
         p.setId(3L);
 
-        Veterinario v = new Veterinario();
+        Vet v = new Vet();
         v.setId(3L);
 
         consultationDTO.setPet(p);
@@ -135,7 +135,7 @@ class ConsultationControllerTest {
         Pet p = new Pet();
         p.setId(2L);
 
-        Veterinario v = new Veterinario();
+        Vet v = new Vet();
         v.setId(2L);
 
         dto.setPet(p);

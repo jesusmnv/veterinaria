@@ -7,7 +7,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-import org.bedu.java.backend.veterinaria.model.Veterinario;
+import org.bedu.java.backend.veterinaria.dto.vet.VetDTO;
+import org.bedu.java.backend.veterinaria.model.Vet;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,67 +22,64 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-class VeterinarioRepositoryTest {
+class VetRepositoryTest {
     
-
     @Autowired
-    private VeterinarioRepository repository;
+    private VetRepository repository;
 
     @Autowired
     private TestEntityManager manager;
 
     @Test
     @DisplayName("Repository should be injected")
+
     void smokeTest(){
         assertNotNull(repository);
     }
 
     @Test
     @DisplayName("Repository should filter a vet by name")
-    void findByNameTest(){
+    void findByNombrTest(){
 
-        Veterinario vet1 = new Veterinario();
-        Veterinario vet2 = new Veterinario();
-        Veterinario vet3 = new Veterinario();
+        VetDTO vet1 = new VetDTO();
+        VetDTO vet2 = new VetDTO();
+        VetDTO vet3 = new VetDTO();
 
-        vet1.setId(151l);
-        vet1.setNombre("Juan");
-        vet1.setApellidoPaterno("Perez");
-        vet1.setApellidoMaterno("Castellanos");
-        vet1.setFechaNacimiento(LocalDate.parse("1998-02-25"));
-        vet1.setCelular("8523697415");
-        vet1.setCorreo("juan@gmail.com");
-        vet1.setEspecialidad("Cirujano");
-        vet1.setHoraEntrada(LocalTime.parse("02:25"));
-        vet1.setHoraSalida(LocalTime.parse("15:25"));
+        vet1.setName("Juan");
+        vet1.setPLastName("Perez");
+        vet1.setMLastName("Castellanos");
+        vet1.setBirthDate(LocalDate.parse("1998-02-25"));
+        vet1.setCellPhone("8523697415");
+        vet1.setEmail("juan@gmail.com");
+        vet1.setSpecialty("Cirujano");
+        vet1.setEntryTime(LocalTime.parse("02:25"));
+        vet1.setExitTime(LocalTime.parse("15:25"));
 
-        vet2.setId(150l);
-        vet2.setNombre("Roberto");
-        vet2.setApellidoPaterno("Valdez");
-        vet2.setApellidoMaterno("Hernandez");
-        vet2.setFechaNacimiento(LocalDate.parse("1991-08-25"));
-        vet2.setCelular("1478963254");
-        vet2.setCorreo("roberto@gmail.com");
-        vet2.setEspecialidad("Cirujano");
-        vet2.setHoraEntrada(LocalTime.parse("23:50"));
-        vet2.setHoraSalida(LocalTime.parse("07:00"));
+        vet2.setName("Roberto");
+        vet2.setPLastName("Valdez");
+        vet2.setMLastName("Hernandez");
+        vet2.setBirthDate(LocalDate.parse("1991-08-25"));
+        vet2.setCellPhone("1478963254");
+        vet2.setEmail("roberto@gmail.com");
+        vet2.setSpecialty("Cirujano");
+        vet2.setEntryTime(LocalTime.parse("23:50"));
+        vet2.setExitTime(LocalTime.parse("07:00"));
 
-        vet3.setId(141l);
-        vet3.setNombre("Yamileth");
-        vet3.setApellidoPaterno("Robles");
-        vet3.setApellidoMaterno("Quintero");
-        vet3.setFechaNacimiento(LocalDate.parse("2000-12-15"));
-        vet3.setCelular("7896523148");
-        vet3.setCorreo("yamileth@gmail.com");
-        vet3.setEspecialidad("Rehabilitacion");
-        vet3.setHoraEntrada(LocalTime.parse("20:00"));
-        vet3.setHoraSalida(LocalTime.parse("06:00"));
+        vet3.setName("Yamileth");
+        vet3.setPLastName("Robles");
+        vet3.setMLastName("Quintero");
+        vet3.setBirthDate(LocalDate.parse("2000-12-15"));
+        vet3.setCellPhone("7896523148");
+        vet3.setEmail("yamileth@gmail.com");
+        vet3.setSpecialty("Rehabilitacion");
+        vet3.setEntryTime(LocalTime.parse("20:00"));
+        vet3.setExitTime(LocalTime.parse("06:00"));
 
         manager.persist(vet1);
         manager.persist(vet2);
         manager.persist(vet3);
 
-        List<Veterinario> result = repository.findByName("Yamileth", "Robles", "Quintero");
+        List<VetDTO> result = repository.findByName("Yamileth", "Robles", "Quintero");
 
         assertEquals(1, result.size());
 
@@ -91,48 +89,48 @@ class VeterinarioRepositoryTest {
     @DisplayName("Repository should filter a vet by specialty")
     void findBySpecialtyTest(){
 
-        Veterinario vet1 = new Veterinario();
-        Veterinario vet2 = new Veterinario();
-        Veterinario vet3 = new Veterinario();
+        Vet vet1 = new Vet();
+        Vet vet2 = new Vet();
+        Vet vet3 = new Vet();
 
         vet1.setId(151l);
-        vet1.setNombre("Juan");
-        vet1.setApellidoPaterno("Perez");
-        vet1.setApellidoMaterno("Castellanos");
-        vet1.setFechaNacimiento(LocalDate.parse("1998-02-25"));
-        vet1.setCelular("8523697415");
-        vet1.setCorreo("juan@gmail.com");
-        vet1.setEspecialidad("Cirujano");
-        vet1.setHoraEntrada(LocalTime.parse("02:25"));
-        vet1.setHoraSalida(LocalTime.parse("15:25"));
+        vet1.setName("Juan");
+        vet1.setPLastName("Perez");
+        vet1.setMLastName("Castellanos");
+        vet1.setBirthDate(LocalDate.parse("1998-02-25"));
+        vet1.setCellPhone("8523697415");
+        vet1.setEmail("juan@gmail.com");
+        vet1.setSpecialty("Cirujano");
+        vet1.setEntryTime(LocalTime.parse("02:25"));
+        vet1.setExitTime(LocalTime.parse("15:25"));
 
         vet2.setId(150l);
-        vet2.setNombre("Roberto");
-        vet2.setApellidoPaterno("Valdez");
-        vet2.setApellidoMaterno("Hernandez");
-        vet2.setFechaNacimiento(LocalDate.parse("1991-08-25"));
-        vet2.setCelular("1478963254");
-        vet2.setCorreo("roberto@gmail.com");
-        vet2.setEspecialidad("Cirujano");
-        vet2.setHoraEntrada(LocalTime.parse("23:50"));
-        vet2.setHoraSalida(LocalTime.parse("07:00"));
+        vet2.setName("Roberto");
+        vet2.setPLastName("Valdez");
+        vet2.setMLastName("Hernandez");
+        vet2.setBirthDate(LocalDate.parse("1991-08-25"));
+        vet2.setCellPhone("1478963254");
+        vet2.setEmail("roberto@gmail.com");
+        vet2.setSpecialty("Cirujano");
+        vet2.setEntryTime(LocalTime.parse("23:50"));
+        vet2.setExitTime(LocalTime.parse("07:00"));
 
         vet3.setId(141l);
-        vet3.setNombre("Yamileth");
-        vet3.setApellidoPaterno("Robles");
-        vet3.setApellidoMaterno("Quintero");
-        vet3.setFechaNacimiento(LocalDate.parse("2000-12-15"));
-        vet3.setCelular("7896523148");
-        vet3.setCorreo("yamileth@gmail.com");
-        vet3.setEspecialidad("Rehabilitacion");
-        vet3.setHoraEntrada(LocalTime.parse("20:00"));
-        vet3.setHoraSalida(LocalTime.parse("06:00"));
+        vet3.setName("Yamileth");
+        vet3.setPLastName("Robles");
+        vet3.setMLastName("Quintero");
+        vet3.setBirthDate(LocalDate.parse("2000-12-15"));
+        vet3.setCellPhone("7896523148");
+        vet3.setEmail("yamileth@gmail.com");
+        vet3.setSpecialty("Rehabilitacion");
+        vet3.setEntryTime(LocalTime.parse("20:00"));
+        vet3.setExitTime(LocalTime.parse("06:00"));
 
         manager.persist(vet1);
         manager.persist(vet2);
         manager.persist(vet3);
 
-        List<Veterinario> result = repository.findBySpecialty("Cirujano");
+        List<Vet> result = repository.findBySpecialty("Cirujano");
 
         assertEquals(2, result.size());
 

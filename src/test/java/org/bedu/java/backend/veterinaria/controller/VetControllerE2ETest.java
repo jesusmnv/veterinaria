@@ -10,8 +10,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.Arrays;
 
-import org.bedu.java.backend.veterinaria.dto.veterinario.VeterinarioDTO;
-import org.bedu.java.backend.veterinaria.model.Veterinario;
+import org.bedu.java.backend.veterinaria.dto.vet.VetDTO;
+import org.bedu.java.backend.veterinaria.model.Vet;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -30,15 +30,15 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @AutoConfigureMockMvc
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-class VeterinarioControllerE2ETest {
+class VetControllerE2ETest {
 
-    private static final String BASE = "/veterinarios";
+    private static final String BASE = "/veterinarians";
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("GET /veterinarios debería regresar una lista vacia")
+    @DisplayName("GET /vets should return an empty list")
     void emptyListTest() throws Exception {
 
         // Realizar una petición de tipo GET hacia /veterinarios y esperar que el
@@ -52,7 +52,7 @@ class VeterinarioControllerE2ETest {
     }
 
     @Test
-    @DisplayName("GET /veterinarios deberia de obtener todos los Veterinarios")
+    @DisplayName("GET /veterinarians should get all the Veterinarians")
     void getAllTest() throws Exception {
 
         MvcResult result = mockMvc.perform(get(BASE))
@@ -66,14 +66,14 @@ class VeterinarioControllerE2ETest {
     @DisplayName("POST /veterinarios should be return if name is missing")
     void nameMissingPostTest() throws Exception{
         String jsonVeterinario = "{"
-        + "\"apellidoPaterno\": \"Velez\","
-        + "\"apellidoMaterno\": \"Ramirez\","
-        + "\"fechaNacimiento\": \"1998-11-15\","
-        + "\"celular\": 8332547851,"
-        + "\"correo\": pepeVlez@gmail.com"
-        + "\"especialidad\": \"Cirujano\""
-        +  "\"horaEntrada\": \"00:10\""
-        +  "\"horaSalida\": \"07:00\""
+        + "\"pLastName\": \"Velez\","
+        + "\"mLastName\": \"Ramirez\","
+        + "\"birthdate\": \"1998-11-15\","
+        + "\"cellPhone\": 8332547851,"
+        + "\"email\": pepeVlez@gmail.com"
+        + "\"specialty\": \"Cirujano\""
+        +  "\"entryTime\": \"00:10\""
+        +  "\"exitTime\": \"07:00\""
         + "}";
 
         MvcResult result = mockMvc.perform(post(BASE).content("application/json").content(jsonVeterinario))
@@ -81,7 +81,7 @@ class VeterinarioControllerE2ETest {
 
         String content = result.getResponse().getContentAsString();
 
-        String expectedResponse =  "{\"code\":\"ERR_VALID\",\"message\":\"Hubo un error al validar los datos de entrada\",\"details\":[\"El nombre del medicamento es obligatorio\"]}";
+        String expectedResponse =  "{\"code\":\"ERR_VALID\",\"message\":\"There was an error validating the input data\",\"details\":[\"The vet name is mandatory\"]}";
 
         assertEquals(expectedResponse, content);
     }
