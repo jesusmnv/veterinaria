@@ -125,7 +125,7 @@ class MedicationControllerE2ETest {
 
         String content = result.getResponse().getContentAsString();
 
-        String expectedResponse = "{\"code\":\"ERR_VALID\",\"messag/e\":\"There was an error validating the input data\",\"details\":[\"The medication name is mandatory\"]}";
+        String expectedResponse = "{\"code\":\"ERR_VALID\",\"message\":\"There was an error validating the input data\",\"details\":[\"The medication name is mandatory\"]}";
 
         assertEquals(expectedResponse, content);
 

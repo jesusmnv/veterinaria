@@ -141,7 +141,7 @@ class PetRepositoryTest {
     }
 
     @Test
-    @Tag("propietario")
+    @Tag("owner")
     @Tag("mascota")
     @DisplayName("Probando relaciones entre mascotas y propietarios")
     void testRelacionMascotaPropietario() {

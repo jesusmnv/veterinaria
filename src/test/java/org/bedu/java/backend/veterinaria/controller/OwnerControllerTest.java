@@ -79,7 +79,7 @@ class OwnerControllerTest {
     }
 
     @Test
-    @DisplayName("Controller should save a propietario")
+    @DisplayName("Controller should save a owner")
     void saveTest() {
         CreateOwnerDTO dto = new CreateOwnerDTO();
 

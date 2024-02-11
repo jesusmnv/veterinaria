@@ -15,7 +15,7 @@ public class OwnerDTO {
     @Schema(description = "Owner id", example = "23")
     private Long id;
 
-    @Schema(description = "Nombre del propietario", example = "Miguel")
+    @Schema(description = "Nombre del owner", example = "Miguel")
     private String name;
 
     @Schema(description = "Paternal last name", example = "Ramírez")
