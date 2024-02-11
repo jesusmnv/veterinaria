@@ -20,7 +20,7 @@ import org.bedu.java.backend.veterinaria.dto.consultation.CreateConsultationDTO;
 import org.bedu.java.backend.veterinaria.dto.consultation.UpdateConsultationDTO;
 import org.bedu.java.backend.veterinaria.exception.ConsultationNotFoundException;
 import org.bedu.java.backend.veterinaria.model.Consultation;
-import org.bedu.java.backend.veterinaria.model.Mascota;
+import org.bedu.java.backend.veterinaria.model.Pet;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.bedu.java.backend.veterinaria.repository.ConsultationRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -58,9 +58,9 @@ class ConsultationServiceTest {
         consultation.setConsultationDate(LocalDate.of(2024, 4, 14));
         consultation.setDiagnosis("Gripe felina");
         consultation.setPrescribedTreatment("Antibióticos y reposo");
-        consultation.setObservations("La mascota parece mejorar, seguir monitoreando");
+        consultation.setObservations("La Pet parece mejorar, seguir monitoreando");
 
-        Mascota m = new Mascota();
+        Pet m = new Pet();
         m.setId(4L);
 
         Veterinario v = new Veterinario();
@@ -93,9 +93,9 @@ class ConsultationServiceTest {
         dto.setConsultationDate(LocalDate.parse("2025-05-05"));
         dto.setDiagnosis("Gripe felina");
         dto.setPrescribedTreatment("Antibióticos y reposo");
-        dto.setObservations("La mascota parece mejorar, seguir monitoreando");
+        dto.setObservations("La Pet parece mejorar, seguir monitoreando");
 
-        Mascota m = new Mascota();
+        Pet m = new Pet();
         m.setId(5L);
 
         Veterinario v = new Veterinario();

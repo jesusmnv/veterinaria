@@ -73,14 +73,14 @@ class ConsultationRepositoryTest {
 
                 Owner owner = new Owner();
                 owner.setId(7L);
-                owner.setNombre("Carmen");
-                owner.setApellidoPaterno("Sanchez");
-                owner.setApellidoMaterno("Gomez");
-                owner.setDireccion("Avenida 567");
-                owner.setCelular("1231231234");
-                owner.setCorreo("carmen@example.com");
-                owner.setFechaNacimiento(LocalDate.parse("1978-06-15"));
-                owner.setOcupacion("Arquitecta");
+                owner.setName("Carmen");
+                owner.setPLastName("Sanchez");
+                owner.setMLastName("Gomez");
+                owner.setAddress("Avenida 567");
+                owner.setCellPhone("1231231234");
+                owner.setEmail("carmen@example.com");
+                owner.setBirthDate(LocalDate.parse("1978-06-15"));
+                owner.setOccupation("Arquitecta");
                 pet.setOwner(manager.merge(owner));
 
                 Veterinario vet = new Veterinario();
@@ -122,14 +122,14 @@ class ConsultationRepositoryTest {
 
                 Owner owner = new Owner();
                 owner.setId(9L);
-                owner.setNombre("Isabel");
-                owner.setApellidoPaterno("Fuentes");
-                owner.setApellidoMaterno("Jimenez");
-                owner.setDireccion("Avenida 345");
-                owner.setCelular("9991112222");
-                owner.setCorreo("isabel@example.com");
-                owner.setFechaNacimiento(LocalDate.parse("1984-02-17"));
-                owner.setOcupacion("Psicóloga");
+                owner.setName("Isabel");
+                owner.setPLastName("Fuentes");
+                owner.setMLastName("Jimenez");
+                owner.setAddress("Avenida 345");
+                owner.setCellPhone("9991112222");
+                owner.setEmail("isabel@example.com");
+                owner.setBirthDate(LocalDate.parse("1984-02-17"));
+                owner.setOccupation("Psicóloga");
                 pet.setOwner(manager.merge(owner));
 
                 Veterinario vet = new Veterinario();
@@ -171,14 +171,14 @@ class ConsultationRepositoryTest {
 
                 Owner owner = new Owner();
                 owner.setId(3L);
-                owner.setNombre("Laura");
-                owner.setApellidoPaterno("Diaz");
-                owner.setApellidoMaterno("Santos");
-                owner.setDireccion("Calle 456");
-                owner.setCelular("9876543210");
-                owner.setCorreo("laura@example.com");
-                owner.setFechaNacimiento(LocalDate.parse("1992-08-20"));
-                owner.setOcupacion("Enfermera");
+                owner.setName("Laura");
+                owner.setPLastName("Diaz");
+                owner.setMLastName("Santos");
+                owner.setAddress("Calle 456");
+                owner.setCellPhone("9876543210");
+                owner.setEmail("laura@example.com");
+                owner.setBirthDate(LocalDate.parse("1992-08-20"));
+                owner.setOccupation("Enfermera");
                 pet.setOwner(manager.merge(owner));
 
                 Veterinario vet = new Veterinario();
