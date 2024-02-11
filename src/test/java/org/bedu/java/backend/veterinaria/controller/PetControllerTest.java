@@ -96,8 +96,8 @@ class PetControllerTest {
 
         Long idPet = 3L;
 
-        dto.setName("Goliat");
-        dto.setAge(13);
+        dto.setNameU("Goliat");
+        dto.setAgeU(13);
 
         controller.update(idPet, dto);
 

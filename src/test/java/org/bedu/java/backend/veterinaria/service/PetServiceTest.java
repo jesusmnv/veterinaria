@@ -132,8 +132,8 @@ class PetServiceTest {
     void updateTest() throws PetNotFoundException {
         UpdatePetDTO dto = new UpdatePetDTO();
 
-        dto.setName("Romeo");
-        dto.setAge(35);
+        dto.setNameU("Romeo");
+        dto.setAgeU(35);
 
         Pet pet = new Pet();
 
@@ -145,8 +145,8 @@ class PetServiceTest {
 
         service.update(12L, dto);
 
-        assertEquals(dto.getName(), pet.getName());
-        assertEquals(dto.getAge(), pet.getAge());
+        assertEquals(dto.getNameU(), pet.getName());
+        assertEquals(dto.getAgeU(), pet.getAge());
         verify(repository, times(1)).save(pet);
     }
 

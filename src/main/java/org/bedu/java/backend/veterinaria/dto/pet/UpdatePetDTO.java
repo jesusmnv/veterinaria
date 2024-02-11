@@ -14,6 +14,7 @@ public class UpdatePetDTO {
 
     @Schema(description = "Pet name", example = "Rex")
     @NotBlank
+<<<<<<< Updated upstream
     @Length(min = 1, max = 100, message = "Pet's name cannot exceed 100 chars")
     private String name;
 
@@ -44,7 +45,31 @@ public class UpdatePetDTO {
     @Schema(description = "Pet color", example = "Black with white stripes")
     @Length(min = 1, max = 50, message = "Color description must be between 1 and 50 chars")
     private String color;
+=======
+    private String nameU;
 
-    private Owner owner;
+    @Schema(description = "Species pet", example = "Parrot")
+    private String speciesU;
+
+    @Schema(description = "Pet breed", example = "Eclectus Parrot")
+    private String breedU;
+
+    @Schema(description = "Pet's age", example = "1")
+    private int ageU;
+
+    @Schema(description = "Pet's height in meters", example = "0.5")
+    private float heightU;
+
+    @Schema(description = "Pet's weight in Kg", example = "0.3")
+    private float weightU;
+
+    @Schema(description = "Pet gender (Male/Female)", example = "Male")
+    private String genderU;
+
+    @Schema(description = "Pet color", example = "Black with white stripes")
+    private String colorU;
+>>>>>>> Stashed changes
+
+    private Owner ownerU;
 
 }
