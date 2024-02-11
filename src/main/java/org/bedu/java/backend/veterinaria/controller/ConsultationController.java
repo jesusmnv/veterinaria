@@ -3,55 +3,55 @@ package org.bedu.java.backend.veterinaria.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.bedu.java.backend.veterinaria.dto.consulta.CreateConsultaDTO;
-import org.bedu.java.backend.veterinaria.dto.consulta.ConsultaDTO;
-import org.bedu.java.backend.veterinaria.dto.consulta.UpdateConsultaDTO;
-import org.bedu.java.backend.veterinaria.exception.ConsultaNotFoundException;
-import org.bedu.java.backend.veterinaria.service.ConsultaService;
+import org.bedu.java.backend.veterinaria.dto.consultation.ConsultationDTO;
+import org.bedu.java.backend.veterinaria.dto.consultation.CreateConsultationDTO;
+import org.bedu.java.backend.veterinaria.dto.consultation.UpdateConsultationDTO;
+import org.bedu.java.backend.veterinaria.exception.ConsultationNotFoundException;
+import org.bedu.java.backend.veterinaria.service.ConsultationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Endpoints de Consultas", description = "CRUD de Consultas")
+@Tag(name = "Endpoints of Consultations", description = "CRUD of Consultations")
 @RestController
-@RequestMapping("/consultas")
-public class ConsultaController {
+@RequestMapping("/consultations")
+public class ConsultationController {
 
-    private ConsultaService service;
+    private ConsultationService service;
 
     @Autowired
-    public ConsultaController(ConsultaService service) {
+    public ConsultationController(ConsultationService service) {
         this.service = service;
     }
 
-    @Operation(summary = "Obtiene la lista de todos las consultas")
+    @Operation(summary = "Get the list of all consultations")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<ConsultaDTO> findAll() {
+    public List<ConsultationDTO> findAll() {
         return service.findAll();
     }
 
-    @Operation(summary = "Crea una nueva consulta")
+    @Operation(summary = "Create a new consultation")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ConsultaDTO save(@Valid @RequestBody CreateConsultaDTO data) {
+    public ConsultationDTO save(@Valid @RequestBody CreateConsultationDTO data) {
         return service.save(data);
     }
 
-    @Operation(summary = "Actualiza la información de una consulta")
+    @Operation(summary = "Update consultation information")
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable Long id, @Valid @RequestBody UpdateConsultaDTO updateData)
-            throws ConsultaNotFoundException {
+    public void update(@PathVariable Long id, @Valid @RequestBody UpdateConsultationDTO updateData)
+            throws ConsultationNotFoundException {
         service.update(id, updateData);
     }
 
-    @Operation(summary = "Elimina una consulta existente")
+    @Operation(summary = "Delete an existing consultation")
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable Long id) throws ConsultaNotFoundException {
+    public void deleteById(@PathVariable Long id) throws ConsultationNotFoundException {
         service.deleteById(id);
     }
 

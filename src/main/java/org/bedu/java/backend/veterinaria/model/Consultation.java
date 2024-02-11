@@ -11,30 +11,30 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name = "consulta")
-public class Consulta {
+@Table(name = "consultation")
+public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private LocalDate fechaConsulta;
+    private LocalDate consultationDate;
 
     @Column(nullable = false)
-    private String diagnostico;
+    private String diagnosis;
 
     @Column(nullable = false)
-    private String tratamientoIndicado;
+    private String prescribedTreatment;
 
     @Column(nullable = false)
-    private String observaciones;
+    private String observations;
 
     @ManyToOne
-    @JoinColumn(name = "mascota_id", referencedColumnName = "id")
-    private Mascota mascota;
+    @JoinColumn(name = "pet_id", referencedColumnName = "id")
+    private Mascota pet;
 
     @ManyToOne
-    @JoinColumn(name = "veterinario_id", referencedColumnName = "id")
-    private Veterinario veterinario;
+    @JoinColumn(name = "vet_id", referencedColumnName = "id")
+    private Veterinario veterinarian;
 
 }

@@ -1,9 +1,9 @@
 package org.bedu.java.backend.veterinaria.service;
 
-import org.bedu.java.backend.veterinaria.dto.medicamento.MedicamentoDTO;
-import org.bedu.java.backend.veterinaria.exception.MedicamentoNotFoundException;
+import org.bedu.java.backend.veterinaria.dto.medication.MedicationDTO;
+import org.bedu.java.backend.veterinaria.exception.MedicationNotFoundException;
 import org.bedu.java.backend.veterinaria.mapper.FacturaMedicamentoMapper;
-import org.bedu.java.backend.veterinaria.mapper.MedicamentoMapper;
+import org.bedu.java.backend.veterinaria.mapper.MedicationMapper;
 import org.bedu.java.backend.veterinaria.repository.FacturaMedicamentoRepository;
 import java.util.List;
 import java.util.Optional;
@@ -14,37 +14,37 @@ import org.springframework.stereotype.Service;
 @Service
 public class FacturaMedicamentoService {
 
-    private MedicamentoService serviceMService;
+    private MedicationService serviceMService;
 
     private FacturaMedicamentoRepository repository;
 
     private FacturaMedicamentoMapper mapper;
 
-    private MedicamentoMapper medicamentoMapper;
+    private MedicationMapper medicationMapper;
 
     @Autowired
     public FacturaMedicamentoService(FacturaMedicamentoRepository repository, FacturaMedicamentoMapper mapper,
-            MedicamentoMapper medicamentoMapper, MedicamentoService serviceMService) {
+                                     MedicationMapper medicationMapper, MedicationService serviceMService) {
         this.repository = repository;
         this.mapper = mapper;
-        this.medicamentoMapper = medicamentoMapper;
+        this.medicationMapper = medicationMapper;
         this.serviceMService = serviceMService;
 
     }
 
-    public void addMedicamento(Long facturaId, Long medicamentoId, int cantidad) throws MedicamentoNotFoundException {
+    public void addMedicamento(Long facturaId, Long medicamentoId, int cantidad) throws MedicationNotFoundException {
 
-        Optional<MedicamentoDTO> dto = serviceMService.findById(medicamentoId);
+        Optional<MedicationDTO> dto = serviceMService.findById(medicamentoId);
         if (!dto.isPresent()) {
-            throw new MedicamentoNotFoundException(medicamentoId);
+            throw new MedicationNotFoundException(medicamentoId);
         }
 
-        MedicamentoDTO medicamento = dto.get();
+        MedicationDTO medicamento = dto.get();
 
-        repository.save(mapper.toModel(facturaId, medicamentoId, medicamento.getPrecio(), cantidad));
+        repository.save(mapper.toModel(facturaId, medicamentoId, medicamento.getPrice(), cantidad));
     }
 
-    public List<MedicamentoDTO> findMedicamentosByFactura(Long facturaId) {
-        return medicamentoMapper.toDTO(repository.findMedicamentosByFactura(facturaId));
+    public List<MedicationDTO> findMedicamentosByFactura(Long facturaId) {
+        return medicationMapper.toDTO(repository.findMedicamentosByFactura(facturaId));
     }
 }

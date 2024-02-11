@@ -26,7 +26,7 @@ public class FacturaMedicamento {
     @ManyToOne
     @MapsId("medicamentoId")
     @JoinColumn(name = "medicamento_id")
-    private Medicamento medicamento;
+    private Medication medication;
 
     private float precio;
 

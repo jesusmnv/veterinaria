@@ -15,8 +15,8 @@ import lombok.Data;
 public class CreatePropietarioDTO {
 
     @Schema(description = "Nombre del propietario", example = "Miguel")
-    @NotBlank(message = "El nombre del propietario es obligatorio")
-    @Length(min = 1, max = 70, message = "El nombre no puede exceder de 70 caracteres")
+    @NotBlank(message = "El name del propietario es obligatorio")
+    @Length(min = 1, max = 70, message = "El name no puede exceder de 70 caracteres")
     private String nombre;
 
     @Schema(description = "Apellido paterno", example = "Ramírez")

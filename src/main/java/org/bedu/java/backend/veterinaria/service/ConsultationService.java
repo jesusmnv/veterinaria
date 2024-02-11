@@ -1,12 +1,12 @@
 package org.bedu.java.backend.veterinaria.service;
 
-import org.bedu.java.backend.veterinaria.dto.consulta.ConsultaDTO;
-import org.bedu.java.backend.veterinaria.dto.consulta.CreateConsultaDTO;
-import org.bedu.java.backend.veterinaria.dto.consulta.UpdateConsultaDTO;
-import org.bedu.java.backend.veterinaria.exception.ConsultaNotFoundException;
-import org.bedu.java.backend.veterinaria.mapper.ConsultaMapper;
-import org.bedu.java.backend.veterinaria.model.Consulta;
-import org.bedu.java.backend.veterinaria.repository.ConsultaRepository;
+import org.bedu.java.backend.veterinaria.dto.consultation.ConsultationDTO;
+import org.bedu.java.backend.veterinaria.dto.consultation.CreateConsultationDTO;
+import org.bedu.java.backend.veterinaria.dto.consultation.UpdateConsultationDTO;
+import org.bedu.java.backend.veterinaria.exception.ConsultationNotFoundException;
+import org.bedu.java.backend.veterinaria.mapper.ConsultationMapper;
+import org.bedu.java.backend.veterinaria.model.Consultation;
+import org.bedu.java.backend.veterinaria.repository.ConsultationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,52 +14,52 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class ConsultaService {
+public class ConsultationService {
 
-    private ConsultaRepository repository;
+    private ConsultationRepository repository;
 
-    private ConsultaMapper mapper;
+    private ConsultationMapper mapper;
 
     @Autowired
-    public ConsultaService(ConsultaRepository repository, ConsultaMapper mapper) {
+    public ConsultationService(ConsultationRepository repository, ConsultationMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
 
-    public List<ConsultaDTO> findAll() {
+    public List<ConsultationDTO> findAll() {
         return mapper.toDTO(repository.findAll());
     }
 
-    public Optional<ConsultaDTO> findById(Long id) {
+    public Optional<ConsultationDTO> findById(Long id) {
         return repository.findById(id).map(mapper::toDTO);
     }
 
-    public ConsultaDTO save(CreateConsultaDTO data) {
-        Consulta entity = repository.save(mapper.toModel(data));
+    public ConsultationDTO save(CreateConsultationDTO data) {
+        Consultation entity = repository.save(mapper.toModel(data));
         return mapper.toDTO(entity);
     }
 
-    public void update(Long consultaId, UpdateConsultaDTO data) throws ConsultaNotFoundException {
-        Optional<Consulta> result = repository.findById(consultaId);
+    public void update(Long consultationId, UpdateConsultationDTO data) throws ConsultationNotFoundException {
+        Optional<Consultation> result = repository.findById(consultationId);
 
         if (!result.isPresent()) {
-            throw new ConsultaNotFoundException(consultaId);
+            throw new ConsultationNotFoundException(consultationId);
         }
 
-        Consulta consulta = result.get();
-        mapper.update(consulta, data);
-        repository.save(consulta);
+        Consultation consultation = result.get();
+        mapper.update(consultation, data);
+        repository.save(consultation);
     }
 
-    public void deleteById(Long consultaId) throws ConsultaNotFoundException {
+    public void deleteById(Long consultationId) throws ConsultationNotFoundException {
 
-        Optional<Consulta> result = repository.findById(consultaId);
+        Optional<Consultation> result = repository.findById(consultationId);
 
         if (!result.isPresent()) {
-            throw new ConsultaNotFoundException(consultaId);
+            throw new ConsultationNotFoundException(consultationId);
         }
 
-        repository.deleteById(consultaId);
+        repository.deleteById(consultationId);
     }
 
 }

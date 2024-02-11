@@ -7,9 +7,9 @@ import org.bedu.java.backend.veterinaria.dto.factura.AddMedicamentoDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.CreateFacturaDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.FacturaDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.UpdateFacturaDTO;
-import org.bedu.java.backend.veterinaria.dto.medicamento.MedicamentoDTO;
+import org.bedu.java.backend.veterinaria.dto.medication.MedicationDTO;
 import org.bedu.java.backend.veterinaria.exception.FacturaNotFoundException;
-import org.bedu.java.backend.veterinaria.exception.MedicamentoNotFoundException;
+import org.bedu.java.backend.veterinaria.exception.MedicationNotFoundException;
 import org.bedu.java.backend.veterinaria.service.FacturaMedicamentoService;
 import org.bedu.java.backend.veterinaria.service.FacturaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,14 +67,14 @@ public class FacturaController {
     @PostMapping("{facturaId}/medicamentos")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void addMedicamento(@PathVariable Long facturaId,
-            @RequestBody AddMedicamentoDTO data) throws MedicamentoNotFoundException {
+            @RequestBody AddMedicamentoDTO data) throws MedicationNotFoundException {
         facturaMedicamentoService.addMedicamento(facturaId, data.getMedicamentoId(),data.getCantidad());
     }
 
     @Operation(summary = "Obtiene los medicamentos de una factura determinada")
     @GetMapping("{facturaId}/medicamentos")
     @ResponseStatus(HttpStatus.OK)
-    public List<MedicamentoDTO> findMedicamentos(@PathVariable Long facturaId) {
+    public List<MedicationDTO> findMedicamentos(@PathVariable Long facturaId) {
         return facturaMedicamentoService.findMedicamentosByFactura(facturaId);
     }
 

@@ -15,8 +15,8 @@ import lombok.Data;
 public class CreateVeterinarioDTO {
 
     @Schema(description = "Nombre del veterinario", example = "Alberto")
-    @NotBlank(message = "El nombre del veterinario es obligatorio")
-    @Length(min = 1, max = 100, message = "El nombre no puede exceder de 100 caracteres")
+    @NotBlank(message = "El name del veterinario es obligatorio")
+    @Length(min = 1, max = 100, message = "El name no puede exceder de 100 caracteres")
     private String nombre;
 
     @Schema(description = "Apellido paterno del veterinario", example = "Juarez")

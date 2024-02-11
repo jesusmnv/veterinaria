@@ -1,12 +1,12 @@
 package org.bedu.java.backend.veterinaria.controller;
 
-import org.bedu.java.backend.veterinaria.dto.consulta.ConsultaDTO;
-import org.bedu.java.backend.veterinaria.dto.consulta.CreateConsultaDTO;
-import org.bedu.java.backend.veterinaria.dto.consulta.UpdateConsultaDTO;
-import org.bedu.java.backend.veterinaria.exception.ConsultaNotFoundException;
+import org.bedu.java.backend.veterinaria.dto.consultation.ConsultationDTO;
+import org.bedu.java.backend.veterinaria.dto.consultation.CreateConsultationDTO;
+import org.bedu.java.backend.veterinaria.dto.consultation.UpdateConsultationDTO;
+import org.bedu.java.backend.veterinaria.exception.ConsultationNotFoundException;
 import org.bedu.java.backend.veterinaria.model.Mascota;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
-import org.bedu.java.backend.veterinaria.service.ConsultaService;
+import org.bedu.java.backend.veterinaria.service.ConsultationService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,12 +27,12 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
-class ConsultaControllerTest {
+class ConsultationControllerTest {
     @MockBean
-    private ConsultaService service;
+    private ConsultationService service;
 
     @Autowired
-    private ConsultaController controller;
+    private ConsultationController controller;
 
     @Test
     @DisplayName("Controller should be injected")
@@ -43,103 +43,101 @@ class ConsultaControllerTest {
     @Test
     @DisplayName("Controller should return a list of consultations")
     void findAllTest() {
-        List<ConsultaDTO> data = new LinkedList<>();
-        ConsultaDTO consulta = new ConsultaDTO();
+        List<ConsultationDTO> data = new LinkedList<>();
+        ConsultationDTO consultationDTO = new ConsultationDTO();
 
-        consulta.setId(100L);
-        consulta.setFechaConsulta(LocalDate.of(2024, 1, 22));
-        consulta.setDiagnostico("Gripe felina");
-        consulta.setTratamientoIndicado("Antibióticos y reposo");
-        consulta.setObservaciones("La mascota parece mejorar, seguir monitoreando");
+        consultationDTO.setId(100L);
+        consultationDTO.setConsultationDate(LocalDate.of(2024, 1, 22));
+        consultationDTO.setDiagnosis("Feline flu");
+        consultationDTO.setPrescribedTreatment("Antibiotics and rest");
+        consultationDTO.setObservations("The pet seems to be improving, continue monitoring");
 
-        //Revisar objeto Mascota y Veterinario
-        Mascota m = new Mascota();
-        m.setId(9L);
+        Mascota p = new Mascota();
+        p.setId(9L);
 
         Veterinario v = new Veterinario();
         v.setId(8L);
 
-        consulta.setMascota(m);
-        consulta.setVeterinario(v);
+        consultationDTO.setPet(p);
+        consultationDTO.setVet(v);
 
-        data.add(consulta);
+        data.add(consultationDTO);
 
         when(service.findAll()).thenReturn(data);
 
-        List<ConsultaDTO> result = controller.findAll();
+        List<ConsultationDTO> result = controller.findAll();
 
         assertNotNull(result);
         assertTrue(result.size() > 0);
-        assertEquals(consulta.getId(), result.get(0).getId());
-        assertEquals(consulta.getFechaConsulta(), result.get(0).getFechaConsulta());
-        assertEquals(consulta.getDiagnostico(), result.get(0).getDiagnostico());
-        assertEquals(consulta.getTratamientoIndicado(), result.get(0).getTratamientoIndicado());
-        assertEquals(consulta.getObservaciones(), result.get(0).getObservaciones());
-        assertEquals(consulta.getMascota(), result.get(0).getMascota());
-        assertEquals(consulta.getVeterinario(), result.get(0).getVeterinario());
+        assertEquals(consultationDTO.getId(), result.get(0).getId());
+        assertEquals(consultationDTO.getConsultationDate(), result.get(0).getConsultationDate());
+        assertEquals(consultationDTO.getDiagnosis(), result.get(0).getDiagnosis());
+        assertEquals(consultationDTO.getPrescribedTreatment(), result.get(0).getPrescribedTreatment());
+        assertEquals(consultationDTO.getObservations(), result.get(0).getObservations());
+        assertEquals(consultationDTO.getPet(), result.get(0).getPet());
+        assertEquals(consultationDTO.getVet(), result.get(0).getVet());
 
     }
 
     @Test
     @DisplayName("Controller should save a consultation")
     void saveTest() {
-        CreateConsultaDTO dto = new CreateConsultaDTO();
-        dto.setFechaConsulta(LocalDate.of(2023, 11, 15));
-        dto.setDiagnostico("Gripe felina");
-        dto.setTratamientoIndicado("Antibióticos y reposo");
-        dto.setObservaciones("La mascota parece mejorar, seguir monitoreando");
+        CreateConsultationDTO dto = new CreateConsultationDTO();
+        dto.setConsultationDate(LocalDate.of(2023, 11, 15));
+        dto.setDiagnosis("Feline flu");
+        dto.setPrescribedTreatment("Antibiotics and rest");
+        dto.setObservations("The pet seems to be improving, continue monitoring");
 
-        ConsultaDTO consulta = new ConsultaDTO();
-        consulta.setId(100L);
-        consulta.setFechaConsulta(dto.getFechaConsulta());
-        consulta.setDiagnostico(dto.getDiagnostico());
-        consulta.setTratamientoIndicado(dto.getTratamientoIndicado());
-        consulta.setObservaciones(dto.getObservaciones());
 
-        //Revisar objeto Mascota y Veterinario
-        Mascota m = new Mascota();
-        m.setId(3L);
+        ConsultationDTO consultationDTO = new ConsultationDTO();
+        consultationDTO.setId(100L);
+        consultationDTO.setConsultationDate(dto.getConsultationDate());
+        consultationDTO.setDiagnosis(dto.getDiagnosis());
+        consultationDTO.setPrescribedTreatment(dto.getPrescribedTreatment());
+        consultationDTO.setObservations(dto.getObservations());
+
+        Mascota p = new Mascota();
+        p.setId(3L);
 
         Veterinario v = new Veterinario();
         v.setId(3L);
 
-        consulta.setMascota(m);
-        consulta.setVeterinario(v);
+        consultationDTO.setPet(p);
+        consultationDTO.setVet(v);
 
-        when(service.save(any(CreateConsultaDTO.class))).thenReturn(consulta);
+        when(service.save(any(CreateConsultationDTO.class))).thenReturn(consultationDTO);
 
-        ConsultaDTO result = controller.save(dto);
+        ConsultationDTO result = controller.save(dto);
 
         assertNotNull(result);
 
-        assertEquals(consulta.getId(), result.getId());
-        assertEquals(consulta.getFechaConsulta(), result.getFechaConsulta());
-        assertEquals(consulta.getDiagnostico(), result.getDiagnostico());
-        assertEquals(consulta.getTratamientoIndicado(), result.getTratamientoIndicado());
-        assertEquals(consulta.getObservaciones(), result.getObservaciones());
-        assertEquals(consulta.getMascota(), result.getMascota());
-        assertEquals(consulta.getVeterinario(), result.getVeterinario());
+        assertEquals(consultationDTO.getId(), result.getId());
+        assertEquals(consultationDTO.getConsultationDate(), result.getConsultationDate());
+        assertEquals(consultationDTO.getDiagnosis(), result.getDiagnosis());
+        assertEquals(consultationDTO.getPrescribedTreatment(), result.getPrescribedTreatment());
+        assertEquals(consultationDTO.getObservations(), result.getObservations());
+        assertEquals(consultationDTO.getPet(), result.getPet());
+        assertEquals(consultationDTO.getVet(), result.getVet());
     
     }
 
     @Test
     @DisplayName("Controller should update a consultation")
-    void updateTest() throws ConsultaNotFoundException {
-        UpdateConsultaDTO dto = new UpdateConsultaDTO();
-        dto.setFechaConsulta(LocalDate.of(2021, 1, 1));
-        dto.setDiagnostico("Infección de oído");
-        dto.setTratamientoIndicado("Antibióticos y gotas para los oídos");
-        dto.setObservaciones("El propietario reporta que el gato ha estado rascándose las orejas con frecuencia.");
-        
-        //Revisar objeto Mascota y Veterinario
-        Mascota m = new Mascota();
-        m.setId(2L);
+    void updateTest() throws ConsultationNotFoundException {
+        UpdateConsultationDTO dto = new UpdateConsultationDTO();
+        dto.setConsultationDate(LocalDate.of(2021, 1, 1));
+        dto.setDiagnosis("Ear infection");
+        dto.setPrescribedTreatment("Antibiotics and ear drops");
+        dto.setObservations("The owner reports that the cat has been scratching its ears frequently.");
+
+        Mascota p = new Mascota();
+        p.setId(2L);
 
         Veterinario v = new Veterinario();
         v.setId(2L);
 
-        dto.setMascota(m);
-        dto.setVeterinario(v);
+        dto.setPet(p);
+        dto.setVet(v);
 
         controller.update(300L, dto);
 
@@ -148,7 +146,7 @@ class ConsultaControllerTest {
 
     @Test
     @DisplayName("Controller should delete a consultation")
-    void deleteByIdTest() throws ConsultaNotFoundException {
+    void deleteByIdTest() throws ConsultationNotFoundException {
         controller.deleteById(10L);
         verify(service, times(1)).deleteById(10L);
     }

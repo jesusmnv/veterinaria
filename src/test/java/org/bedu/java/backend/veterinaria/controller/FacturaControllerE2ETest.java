@@ -122,7 +122,7 @@ class FacturaControllerE2ETest {
 
     // Propietario propietario = new Propietario();
     // propietario.setId(1L);
-    // propietario.setNombre("Isabel");
+    // propietario.setName("Isabel");
     // propietario.setApellidoPaterno("Fuentes");
     // propietario.setApellidoMaterno("Jimenez");
     // propietario.setDireccion("Avenida 345");

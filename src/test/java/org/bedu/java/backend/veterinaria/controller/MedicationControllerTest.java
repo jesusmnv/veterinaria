@@ -1,10 +1,10 @@
 package org.bedu.java.backend.veterinaria.controller;
 
-import org.bedu.java.backend.veterinaria.dto.medicamento.CreateMedicamentoDTO;
-import org.bedu.java.backend.veterinaria.dto.medicamento.MedicamentoDTO;
-import org.bedu.java.backend.veterinaria.dto.medicamento.UpdateMedicamentoDTO;
-import org.bedu.java.backend.veterinaria.exception.MedicamentoNotFoundException;
-import org.bedu.java.backend.veterinaria.service.MedicamentoService;
+import org.bedu.java.backend.veterinaria.dto.medication.CreateMedicationDTO;
+import org.bedu.java.backend.veterinaria.dto.medication.MedicationDTO;
+import org.bedu.java.backend.veterinaria.dto.medication.UpdateMedicationDTO;
+import org.bedu.java.backend.veterinaria.exception.MedicationNotFoundException;
+import org.bedu.java.backend.veterinaria.service.MedicationService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -25,13 +25,13 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
-class MedicamentoControllerTest {
+class MedicationControllerTest {
 
     @MockBean
-    private MedicamentoService service;
+    private MedicationService service;
 
     @Autowired
-    private MedicamentoController controller;
+    private MedicationController controller;
 
     @Test
     @DisplayName("Controller should be injected")
@@ -42,88 +42,87 @@ class MedicamentoControllerTest {
     @Test
     @DisplayName("Controller should return a list of medications")
     void findAllTest() {
-        List<MedicamentoDTO> data = new LinkedList<>();
-        MedicamentoDTO medicamento = new MedicamentoDTO();
+        List<MedicationDTO> data = new LinkedList<>();
+        MedicationDTO medication = new MedicationDTO();
 
-        medicamento.setId(100L);
-        medicamento.setNombre("Paracetamol");
-        medicamento.setClasificacion("Analgésico");
-        medicamento.setDescripcion("Alivia el dolor y reduce la fiebre");
-        medicamento.setFechaCaducidad(LocalDate.parse("2023-12-01"));
+        medication.setId(100L);
+        medication.setName("Ibuprofen");
+        medication.setClassification("Anti-inflammatory");
+        medication.setDescription("Relieves pain in dogs and cats");
+        medication.setExpirationDate(LocalDate.parse("2023-12-01"));
+        medication.setStock(150);
+        medication.setPrice(10.5F);
+        medication.setUsageInstructions("Administer 1 tablet with food as directed by the vet");
 
-        medicamento.setExistencia(150);
-        medicamento.setPrecio(10.5F);
-        medicamento.setInstruccionesUso("Tomar 1 tableta cada 6 horas");
-
-        data.add(medicamento);
+        data.add(medication);
 
         when(service.findAll()).thenReturn(data);
 
-        List<MedicamentoDTO> result = controller.findAll();
+        List<MedicationDTO> result = controller.findAll();
 
         assertNotNull(result);
         assertTrue(result.size() > 0);
-        assertEquals(medicamento.getId(), result.get(0).getId());
-        assertEquals(medicamento.getNombre(), result.get(0).getNombre());
-        assertEquals(medicamento.getClasificacion(), result.get(0).getClasificacion());
-        assertEquals(medicamento.getDescripcion(), result.get(0).getDescripcion());
-        assertEquals(medicamento.getFechaCaducidad(), result.get(0).getFechaCaducidad());
-        assertEquals(medicamento.getExistencia(), result.get(0).getExistencia());
-        assertEquals(medicamento.getPrecio(), result.get(0).getPrecio());
-        assertEquals(medicamento.getInstruccionesUso(), result.get(0).getInstruccionesUso());
+        assertEquals(medication.getId(), result.get(0).getId());
+        assertEquals(medication.getName(), result.get(0).getName());
+        assertEquals(medication.getClassification(), result.get(0).getClassification());
+        assertEquals(medication.getDescription(), result.get(0).getDescription());
+        assertEquals(medication.getExpirationDate(), result.get(0).getExpirationDate());
+        assertEquals(medication.getStock(), result.get(0).getStock());
+        assertEquals(medication.getPrice(), result.get(0).getPrice());
+        assertEquals(medication.getUsageInstructions(), result.get(0).getUsageInstructions());
 
     }
 
     @Test
     @DisplayName("Controller should save a medication")
     void saveTest() {
-        CreateMedicamentoDTO dto = new CreateMedicamentoDTO();
+        CreateMedicationDTO dto = new CreateMedicationDTO();
 
-        dto.setNombre("Ibuprofeno");
-        dto.setClasificacion("Antiinflamatorio");
-        dto.setDescripcion("Reduce la inflamación y alivia el dolor");
-        dto.setFechaCaducidad(LocalDate.parse("2023-11-15"));
-        dto.setExistencia(100);
-        dto.setPrecio(8.75F);
-        dto.setInstruccionesUso("Tomar 1 tableta con alimentos");
+        dto.setName("Ibuprofen");
+        dto.setClassification("Anti-inflammatory");
+        dto.setDescription("Relieves pain in dogs and cats");
+        dto.setExpirationDate(LocalDate.parse("2023-12-01"));
+        dto.setStock(150);
+        dto.setPrice(10.5F);
+        dto.setUsageInstructions("Administer 1 tablet with food as directed by the vet");
 
-        MedicamentoDTO medicamento = new MedicamentoDTO();
-        medicamento.setId(300L);
-        medicamento.setNombre(dto.getNombre());
-        medicamento.setClasificacion(dto.getClasificacion());
-        medicamento.setDescripcion(dto.getDescripcion());
-        medicamento.setFechaCaducidad(dto.getFechaCaducidad());
-        medicamento.setExistencia(dto.getExistencia());
-        medicamento.setPrecio(dto.getPrecio());
-        medicamento.setInstruccionesUso(dto.getInstruccionesUso());
+        MedicationDTO medication = new MedicationDTO();
+        medication.setId(300L);
+        medication.setName(dto.getName());
+        medication.setClassification(dto.getClassification());
+        medication.setDescription(dto.getDescription());
+        medication.setExpirationDate(dto.getExpirationDate());
+        medication.setStock(dto.getStock());
+        medication.setPrice(dto.getPrice());
+        medication.setUsageInstructions(dto.getUsageInstructions());
 
-        when(service.save(any(CreateMedicamentoDTO.class))).thenReturn(medicamento);
+        when(service.save(any(CreateMedicationDTO.class))).thenReturn(medication);
 
-        MedicamentoDTO result = controller.save(dto);
+        MedicationDTO result = controller.save(dto);
 
         assertNotNull(result);
 
-        assertEquals(medicamento.getId(), result.getId());
-        assertEquals(medicamento.getNombre(), result.getNombre());
-        assertEquals(medicamento.getClasificacion(), result.getClasificacion());
-        assertEquals(medicamento.getDescripcion(), result.getDescripcion());
-        assertEquals(medicamento.getFechaCaducidad(), result.getFechaCaducidad());
-        assertEquals(medicamento.getExistencia(), result.getExistencia());
-        assertEquals(medicamento.getPrecio(), result.getPrecio());
-        assertEquals(medicamento.getInstruccionesUso(), result.getInstruccionesUso());
+        assertEquals(medication.getId(), result.getId());
+        assertEquals(medication.getName(), result.getName());
+        assertEquals(medication.getClassification(), result.getClassification());
+        assertEquals(medication.getDescription(), result.getDescription());
+        assertEquals(medication.getExpirationDate(), result.getExpirationDate());
+        assertEquals(medication.getStock(), result.getStock());
+        assertEquals(medication.getPrice(), result.getPrice());
+        assertEquals(medication.getUsageInstructions(), result.getUsageInstructions());
     }
 
     @Test
     @DisplayName("Controller should update a medication")
-    void updateTest() throws MedicamentoNotFoundException {
-        UpdateMedicamentoDTO dto = new UpdateMedicamentoDTO();
-        dto.setNombre("Paracetamol");
-        dto.setClasificacion("Analgésico");
-        dto.setDescripcion("Paracetamol");
-        dto.setFechaCaducidad(LocalDate.parse("2023-12-01"));
-        dto.setExistencia(200);
-        dto.setPrecio(20.5F);
-        dto.setInstruccionesUso("Tomar 1 tableta cada 10 horas");
+    void updateTest() throws MedicationNotFoundException {
+        UpdateMedicationDTO dto = new UpdateMedicationDTO();
+        dto.setName("Prednisone");
+        dto.setClassification("Corticosteroid");
+        dto.setDescription("Treats inflammatory and allergic conditions in dogs and cats");
+        dto.setExpirationDate(LocalDate.parse("2023-12-01"));
+        dto.setStock(200);
+        dto.setPrice(20.5F);
+        dto.setUsageInstructions("Administer according to the dose prescribed by the vet");
 
         controller.update(400L, dto);
 
@@ -132,7 +131,7 @@ class MedicamentoControllerTest {
 
     @Test
     @DisplayName("Controller should delete a medication")
-    void deleteByIdTest() throws MedicamentoNotFoundException {
+    void deleteByIdTest() throws MedicationNotFoundException {
         controller.deleteById(8793L);
         verify(service, times(1)).deleteById(8793L);
     }

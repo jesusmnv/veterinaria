@@ -13,7 +13,7 @@ import org.bedu.java.backend.veterinaria.dto.factura.CreateFacturaDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.FacturaDTO;
 import org.bedu.java.backend.veterinaria.dto.factura.UpdateFacturaDTO;
 import org.bedu.java.backend.veterinaria.exception.FacturaNotFoundException;
-import org.bedu.java.backend.veterinaria.exception.MedicamentoNotFoundException;
+import org.bedu.java.backend.veterinaria.exception.MedicationNotFoundException;
 import org.bedu.java.backend.veterinaria.service.FacturaMedicamentoService;
 import org.bedu.java.backend.veterinaria.service.FacturaService;
 import org.junit.jupiter.api.DisplayName;
@@ -119,7 +119,7 @@ class FacturaControllerTest {
 
     @Test
     @DisplayName("Controller añade un medicaento a una factura")
-    void addMedicamentoTest() throws MedicamentoNotFoundException {
+    void addMedicamentoTest() throws MedicationNotFoundException {
 
         AddMedicamentoDTO add = new AddMedicamentoDTO();
         add.setMedicamentoId(1L);

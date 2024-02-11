@@ -1,4 +1,4 @@
-package org.bedu.java.backend.veterinaria.dto.medicamento;
+package org.bedu.java.backend.veterinaria.dto.medication;
 
 import java.time.LocalDate;
 
@@ -6,30 +6,31 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
-public class MedicamentoDTO {
+public class MedicationDTO {
 
-    @Schema(description = "Identificador del medicamento", example = "100")
+    @Schema(description = "Medication ID", example = "100")
     private Long id;
 
-    @Schema(description = "Nombre del medicamento", example = "Doxiciclina")
-    private String nombre;
+    @Schema(description = "Medication name", example = "Doxycycline")
+    private String name;
 
-    @Schema(description = "Clasificación o tipo de medicamento", example = "Antibióticos")
-    private String clasificacion;
+    @Schema(description = "Classification or type of medication", example = "Antibiotics")
+    private String classification;
 
-    @Schema(description = "Descripción del medicamento", example = "Útil para tratar enfermedades transmitidas por garrapatas y enfermedades respiratorias.")
-    private String descripcion;
+    @Schema(description = "Description of the medication", example = "Useful for treating diseases transmitted by ticks and respiratory illnesses.")
+    private String description;
 
-    @Schema(description = "Fecha en la que caduca el medicamento", example = "2025-01-01")
-    private LocalDate fechaCaducidad;
+    @Schema(description = "Date when the medication expires", example = "2025-01-01")
+    private LocalDate expirationDate;
 
-    @Schema(description = "Cantidad de medicamentos en existencia", example = "100")
-    private int existencia;
+    @Schema(description = "Quantity of medication in stock", example = "100")
+    private int stock;
 
-    @Schema(description = "Precio del medicamento", example = "125.50")
-    private float precio;
+    @Schema(description = "Price of the medication", example = "125.50")
+    private float price;
 
-    @Schema(description = "Instrucciones de uso del medicamento", example = "Por lo general, se administra de 2 a 5 mg por kg de peso corporal cada 12 o 24 horas.")
-    private String instruccionesUso;
+    @Schema(description = "Usage instructions for the medication", example = "Generally administered at a dosage of 2 to 5 mg per kg of body weight every 12 or 24 hours.")
+    private String usageInstructions;
+
 
 }

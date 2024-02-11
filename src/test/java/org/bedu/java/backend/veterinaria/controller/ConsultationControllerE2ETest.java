@@ -21,14 +21,14 @@ import org.springframework.test.web.servlet.MvcResult;
 @AutoConfigureMockMvc
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-class ConsultaControllerE2ETest {
+class ConsultationControllerE2ETest {
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("GET /consultas should return an empty list")
+    @DisplayName("GET /consultations should return an empty list")
     void emptyListTest() throws Exception {
-        MvcResult result = mockMvc.perform(get("/consultas"))
+        MvcResult result = mockMvc.perform(get("/consultations"))
                 .andExpect(status().isOk())
                 .andReturn();
 
@@ -37,27 +37,28 @@ class ConsultaControllerE2ETest {
     }
 
     @Test
-    @DisplayName("POST /consultas should be return an error if consultation date is missing")
+    @DisplayName("POST /consultations should be return an error if consultation date is missing")
     void consultationDateMissingRequestBodyTest() throws Exception {
         String jsonString = "{"
-        + "\"diagnostico\": \"Gripe felina\","
-        + "\"tratamientoIndicado\": \"Antibióticos y reposo\","
-        + "\"observaciones\": \"La mascota parece mejorar, seguir monitoreando\","
-        + "\"mascota\": {"
+        + "\"diagnosis\": \"Feline flu\","
+        + "\"prescribedTreatment\": \"Antibiotics and rest\","
+        + "\"observations\": \"The pet seems to be improving, continue monitoring\","
+        + "\"pet\": {"
         + "  \"id\": 9"
         + "},"
-        + "\"veterinario\": {"
+        + "\"vet\": {"
         + "  \"id\": 8"
         + "}"
         + "}";
 
-        MvcResult result = mockMvc.perform(post("/consultas").contentType("application/json").content(jsonString))
+
+        MvcResult result = mockMvc.perform(post("/consultations").contentType("application/json").content(jsonString))
         .andExpect(status().isBadRequest())
         .andReturn();
 
         String content = result.getResponse().getContentAsString();
 
-        String expectedResponse = "{\"code\":\"ERR_VALID\",\"message\":\"Hubo un error al validar los datos de entrada\",\"details\":[\"La fecha de la consulta no puede ser nula\"]}";
+        String expectedResponse = "{\"code\":\"ERR_VALID\",\"message\":\"There was an error validating the input data\",\"details\":[\"Consultation date cannot be null\"]}";
 
         assertEquals(expectedResponse, content);
         

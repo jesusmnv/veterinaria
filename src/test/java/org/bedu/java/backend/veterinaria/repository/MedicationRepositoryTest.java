@@ -3,7 +3,7 @@ package org.bedu.java.backend.veterinaria.repository;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.bedu.java.backend.veterinaria.model.Medicamento;
+import org.bedu.java.backend.veterinaria.model.Medication;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -19,10 +19,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-class MedicamentoRepositoryTest {
+class MedicationRepositoryTest {
 
     @Autowired
-    private MedicamentoRepository repository;
+    private MedicationRepository repository;
 
     @Autowired
     private TestEntityManager manager;
@@ -36,39 +36,39 @@ class MedicamentoRepositoryTest {
     @Test
     @DisplayName("Repository should filter medications by classification or type")
     void filterByClassificationTest() {
-        Medicamento medicamento1 = new Medicamento();
-        Medicamento medicamento2 = new Medicamento();
-        Medicamento medicamento3 = new Medicamento();
+        Medication medication1 = new Medication();
+        Medication medication2 = new Medication();
+        Medication medication3 = new Medication();
 
-        medicamento1.setNombre("Amoxicilina");
-        medicamento1.setClasificacion("Antibiótico");
-        medicamento1.setDescripcion("Antibiótico para gatos");
-        medicamento1.setFechaCaducidad(LocalDate.parse("2023-12-01"));
-        medicamento1.setExistencia(120);
-        medicamento1.setPrecio(12.75F);
-        medicamento1.setInstruccionesUso("Según indicaciones veterinarias");
+        medication1.setName("Amoxicillin");
+        medication1.setClassification("Antibiotic");
+        medication1.setDescription("Treats bacterial infections in dogs and cats");
+        medication1.setExpirationDate(LocalDate.parse("2023-12-01"));
+        medication1.setStock(120);
+        medication1.setPrice(12.75F);
+        medication1.setUsageInstructions("Administer 1 capsule every 8 hours");
 
-        medicamento2.setNombre("Paracetamol");
-        medicamento2.setClasificacion("Analgésico");
-        medicamento2.setDescripcion("Alivia el dolor y reduce la fiebre");
-        medicamento2.setFechaCaducidad(LocalDate.parse("2023-12-01"));
-        medicamento2.setExistencia(150);
-        medicamento2.setPrecio(10.5F);
-        medicamento2.setInstruccionesUso("Tomar 1 tableta cada 6 horas");
+        medication2.setName("Metronidazole");
+        medication2.setClassification("Antibiotic");
+        medication2.setDescription("Treats bacterial infections and certain parasites in dogs and cats");
+        medication2.setExpirationDate(LocalDate.parse("2023-12-01"));
+        medication2.setStock(150);
+        medication2.setPrice(10.5F);
+        medication2.setUsageInstructions("Administer according to the dose prescribed by the vet");
 
-        medicamento3.setNombre("Amoxicilina_Gato");
-        medicamento3.setClasificacion("Antibiótico");
-        medicamento3.setDescripcion("Antibiótico para gatos");
-        medicamento3.setFechaCaducidad(LocalDate.parse("2026-06-06"));
-        medicamento3.setExistencia(260);
-        medicamento3.setPrecio(26.66F);
-        medicamento3.setInstruccionesUso("Según indicaciones veterinarias");
+        medication3.setName("Furosemide");
+        medication3.setClassification("Loop Diuretic");
+        medication3.setDescription("Treats fluid retention and congestion associated with congestive heart failure in dogs and cats");
+        medication3.setExpirationDate(LocalDate.parse("2026-06-06"));
+        medication3.setStock(260);
+        medication3.setPrice(26.66F);
+        medication3.setUsageInstructions("Administer according to the dose prescribed by the vet");
 
-        manager.persist(medicamento1);
-        manager.persist(medicamento2);
-        manager.persist(medicamento3);
+        manager.persist(medication1);
+        manager.persist(medication2);
+        manager.persist(medication3);
 
-        List<Medicamento> result = repository.findByClasificacion("Antibiótico");
+        List<Medication> result = repository.findByClassification("Antibiotic");
         assertEquals(2, result.size());
     }
 

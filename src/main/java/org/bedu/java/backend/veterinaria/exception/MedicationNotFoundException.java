@@ -1,7 +1,7 @@
 package org.bedu.java.backend.veterinaria.exception;
 
-public class MedicamentoNotFoundException extends RuntimeException {
-    public MedicamentoNotFoundException(Long medicamentoId) {
-        super("ERR_DATA_NOT_FOUND", "No se encontró el medicamento especificado", medicamentoId);
+public class MedicationNotFoundException extends RuntimeException {
+    public MedicationNotFoundException(Long medicationId) {
+        super("ERR_DATA_NOT_FOUND", "The specified medication was not found", medicationId);
     }
 }

@@ -14,13 +14,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MedicamentoService {
+public class MedicationService {
 
     private MedicationRepository repository;
     private MedicationMapper mapper;
 
     @Autowired
-    public MedicamentoService(MedicationRepository repository, MedicationMapper mapper) {
+    public MedicationService(MedicationRepository repository, MedicationMapper mapper) {
         this.repository = repository;
         this.mapper = mapper;
     }
@@ -38,11 +38,11 @@ public class MedicamentoService {
         return mapper.toDTO(entity);
     }
 
-    public void update(Long medicamentoId, UpdateMedicationDTO data) throws MedicationNotFoundException {
-        Optional<Medication> result = repository.findById(medicamentoId);
+    public void update(Long medicationId, UpdateMedicationDTO data) throws MedicationNotFoundException {
+        Optional<Medication> result = repository.findById(medicationId);
 
         if (!result.isPresent()) {
-            throw new MedicationNotFoundException(medicamentoId);
+            throw new MedicationNotFoundException(medicationId);
         }
 
         Medication medication = result.get();
@@ -50,15 +50,15 @@ public class MedicamentoService {
         repository.save(medication);
     }
 
-    public void deleteById(Long medicamentoId) throws MedicationNotFoundException {
+    public void deleteById(Long medicationId) throws MedicationNotFoundException {
 
-        Optional<Medication> result = repository.findById(medicamentoId);
+        Optional<Medication> result = repository.findById(medicationId);
 
         if (!result.isPresent()) {
-            throw new MedicationNotFoundException(medicamentoId);
+            throw new MedicationNotFoundException(medicationId);
         }
 
-        repository.deleteById(medicamentoId);
+        repository.deleteById(medicationId);
     }
 
 }

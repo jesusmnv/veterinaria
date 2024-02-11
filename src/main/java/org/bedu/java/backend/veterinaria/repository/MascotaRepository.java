@@ -11,7 +11,7 @@ public interface MascotaRepository extends CrudRepository<Mascota, Long> {
 
     List<Mascota> findAll();
 
-    // SELECT * FROM mascotas WHERE nombre LIKE = :nombre
+    // SELECT * FROM mascotas WHERE name LIKE = :name
     List<Mascota> findByNombreContaining(String nombre);
 
 }

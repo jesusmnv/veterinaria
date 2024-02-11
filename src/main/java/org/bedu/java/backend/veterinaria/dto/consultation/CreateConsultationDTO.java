@@ -1,4 +1,4 @@
-package org.bedu.java.backend.veterinaria.dto.consulta;
+package org.bedu.java.backend.veterinaria.dto.consultation;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
@@ -12,28 +12,28 @@ import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
-public class CreateConsultaDTO {
+public class CreateConsultationDTO {
 
-    @Schema(description = "Fecha de la consulta", example = "2023-11-25")
-    @NotNull(message = "La fecha de la consulta no puede ser nula") // Verificar
-    @DateTimeFormat(pattern = "yyyy-MM-dd") // Verificar
-    private LocalDate fechaConsulta;
+    @Schema(description = "Consultation date", example = "2023-11-25")
+    @NotNull(message = "Consultation date cannot be null")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate consultationDate;
 
-    @Schema(description = "Diagnóstico de la consulta", example = "Fiebre y tos")
-    @NotBlank(message = "El diagnóstico es obligatorio")
-    private String diagnostico;
+    @Schema(description = "Consultation diagnosis", example = "Fever and cough")
+    @NotBlank(message = "Diagnosis is mandatory")
+    private String diagnosis;
 
-    @Schema(description = "Tratamiento indicado", example = "Tomar medicamento X cada 8 horas")
-    @NotBlank(message = "El tratamiento indicado es obligatorio")
-    private String tratamientoIndicado;
+    @Schema(description = "Prescribed treatment", example = "Take medication X every 8 hours")
+    @NotBlank(message = "Prescribed treatment is mandatory")
+    private String prescribedTreatment;
 
-    @Schema(description = "Observaciones adicionales", example = "Seguimiento requerido")
-    @NotBlank(message = "Las observaciones son obligatorias")
-    private String observaciones;
+    @Schema(description = "Additional observations", example = "Follow-up required")
+    @NotBlank(message = "Observations are mandatory")
+    private String observations;
 
     // Relación
-    private Mascota mascota;
+    private Mascota pet;
 
-    private Veterinario veterinario;
+    private Veterinario vet;
 
 }

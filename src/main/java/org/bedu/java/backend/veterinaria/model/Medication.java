@@ -10,34 +10,34 @@ import java.time.LocalDate;
 @Setter
 @ToString
 @Entity
-@Table(name = "medicamento")
-public class Medicamento {
+@Table(name = "medication")
+public class Medication {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 100)
-    private String nombre;
+    private String name;
 
     @Column(nullable = false, length = 100)
-    private String clasificacion;
+    private String classification;
 
     @Column(nullable = false)
-    private String descripcion;
+    private String description;
 
-    @Column(name = "fecha_caducidad", nullable = false)
-    private LocalDate fechaCaducidad;
+    @Column(name = "expiration_date", nullable = false)
+    private LocalDate expirationDate;
 
     @Column(nullable = false)
     @Range(min = 0)
-    private int existencia;
+    private int stock;
 
     @Column(nullable = false)
     @Range(min = 1)
-    private float precio;
+    private float price;
 
-    @Column(name = "instrucciones_uso", nullable = false)
-    private String instruccionesUso;
+    @Column(name = "usage_instructions", nullable = false)
+    private String usageInstructions;
 
 }

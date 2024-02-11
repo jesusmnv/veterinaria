@@ -1,4 +1,4 @@
-package org.bedu.java.backend.veterinaria.dto.medicamento;
+package org.bedu.java.backend.veterinaria.dto.medication;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.DecimalMin;
@@ -13,37 +13,38 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
-public class UpdateMedicamentoDTO {
+public class UpdateMedicationDTO {
 
-    @Schema(description = "Nombre del medicamento", example = "Doxiciclina")
-    @NotBlank(message = "El nombre del medicamento es obligatorio")
-    @Length(min = 1, max = 100, message = "El nombre del medicamento no puede exceder de 100 caracteres")
-    private String nombre;
+    @Schema(description = "Medication name", example = "Doxycycline")
+    @NotBlank(message = "The medication name is mandatory")
+    @Length(min = 1, max = 100, message = "The medication name cannot exceed 100 characters")
+    private String name;
 
-    @Schema(description = "Clasificación o tipo de medicamento", example = "Antibióticos")
-    @NotBlank(message = "La clasificación del medicamento es obligatoria")
-    @Length(min = 1, max = 100, message = "El nombre no puede exceder de 75 caracteres")
-    private String clasificacion;
+    @Schema(description = "Classification or type of medication", example = "Antibiotics")
+    @NotBlank(message = "The medication classification is mandatory")
+    @Length(min = 1, max = 100, message = "The classification cannot exceed 75 characters")
+    private String classification;
 
-    @Schema(description = "Descripción del medicamento", example = "Útil para tratar enfermedades transmitidas por garrapatas y enfermedades respiratorias.")
-    @NotBlank(message = "La descripción del medicamento es obligatoria")
-    private String descripcion;
+    @Schema(description = "Description of the medication", example = "Useful for treating diseases transmitted by ticks and respiratory illnesses.")
+    @NotBlank(message = "The medication description is mandatory")
+    private String description;
 
-    @Schema(description = "Fecha en la que caduca el medicamento", example = "2025-01-01")
-    @NotNull(message = "La fecha de caducidad del medicamento no puede ser nula") // Verificar
-    @DateTimeFormat(pattern = "yyyy-MM-dd") // Verificar
-    private LocalDate fechaCaducidad;
+    @Schema(description = "Date when the medication expires", example = "2025-01-01")
+    @NotNull(message = "The medication expiration date cannot be null")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate expirationDate;
 
-    @Schema(description = "Cantidad de medicamentos en existencia", example = "100")
-    @Min(value = 1, message = "La cantidad o existencia del medicamento debe ser mayor o igual que 1")
-    private int existencia;
+    @Schema(description = "Quantity of medication in stock", example = "100")
+    @Min(value = 1, message = "The medication stock must be greater than or equal to 1")
+    private int stock;
 
-    @Schema(description = "Precio del medicamento", example = "125.50")
-    @DecimalMin(value = "0.0", message = "El precio del medicamento debe ser mayor o igual que 0.0")
-    private float precio;
+    @Schema(description = "Price of the medication", example = "125.50")
+    @DecimalMin(value = "0.0", message = "The medication price must be greater than or equal to 0.0")
+    private float price;
 
-    @Schema(description = "Instrucciones de uso del medicamento", example = "Por lo general, se administra de 2 a 5 mg por kg de peso corporal cada 12 o 24 horas.")
-    @NotBlank(message = "Las instrucciones de uso del medicamento son obligatorias")
-    private String instruccionesUso;
+    @Schema(description = "Usage instructions for the medication", example = "Generally administered at a dosage of 2 to 5 mg per kg of body weight every 12 or 24 hours.")
+    @NotBlank(message = "The medication usage instructions are mandatory")
+    private String usageInstructions;
+
 
 }

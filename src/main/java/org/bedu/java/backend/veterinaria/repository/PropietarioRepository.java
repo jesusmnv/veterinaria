@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface PropietarioRepository extends CrudRepository<Propietario, Long> {
     List<Propietario> findAll();
 
-    // SELECT * FROM propietarios WHERE nombre LIKE = :nombre
+    // SELECT * FROM propietarios WHERE name LIKE = :name
     List<Propietario> findByNombreContaining(String nombre);
 
 }

@@ -12,12 +12,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
-import org.bedu.java.backend.veterinaria.dto.medicamento.CreateMedicamentoDTO;
-import org.bedu.java.backend.veterinaria.dto.medicamento.MedicamentoDTO;
-import org.bedu.java.backend.veterinaria.dto.medicamento.UpdateMedicamentoDTO;
-import org.bedu.java.backend.veterinaria.exception.MedicamentoNotFoundException;
-import org.bedu.java.backend.veterinaria.model.Medicamento;
-import org.bedu.java.backend.veterinaria.repository.MedicamentoRepository;
+import org.bedu.java.backend.veterinaria.dto.medication.CreateMedicationDTO;
+import org.bedu.java.backend.veterinaria.dto.medication.MedicationDTO;
+import org.bedu.java.backend.veterinaria.dto.medication.UpdateMedicationDTO;
+import org.bedu.java.backend.veterinaria.exception.MedicationNotFoundException;
+import org.bedu.java.backend.veterinaria.model.Medication;
+import org.bedu.java.backend.veterinaria.repository.MedicationRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,13 +28,13 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
-class MedicamentoServiceTest {
+class MedicationServiceTest {
 
     @MockBean
-    private MedicamentoRepository repository;
+    private MedicationRepository repository;
 
     @Autowired
-    private MedicamentoService service;
+    private MedicationService service;
 
     @Test
     @DisplayName("Service should be injected")
@@ -45,130 +45,130 @@ class MedicamentoServiceTest {
     @Test
     @DisplayName("Service should return medications from the repository")
     void findAllTest() {
-        List<Medicamento> data = new LinkedList<>();
+        List<Medication> data = new LinkedList<>();
 
-        Medicamento medicamento = new Medicamento();
+        Medication medication = new Medication();
 
-        medicamento.setId(500L);
-        medicamento.setNombre("Dipirona");
-        medicamento.setClasificacion("Analgésico");
-        medicamento.setDescripcion("Alivia el dolor y reduce la fiebre");
-        medicamento.setFechaCaducidad(LocalDate.parse("2023-12-15"));
-        medicamento.setExistencia(80);
-        medicamento.setPrecio(9.5F);
-        medicamento.setInstruccionesUso("Tomar 1 tableta cada 4 horas");
+        medication.setId(500L);
+        medication.setName("Dipyrone");
+        medication.setClassification("Analgesic and Antipyretic");
+        medication.setDescription("Relieves pain and reduces fever in dogs and cats");
+        medication.setExpirationDate(LocalDate.parse("2023-12-15"));
+        medication.setStock(80);
+        medication.setPrice(9.5F);
+        medication.setUsageInstructions("Administer according to the dose prescribed by the vet");
 
-        data.add(medicamento);
+        data.add(medication);
 
         when(repository.findAll()).thenReturn(data);
 
-        List<MedicamentoDTO> result = service.findAll();
+        List<MedicationDTO> result = service.findAll();
 
         assertNotNull(result);
         assertTrue(result.size() > 0);
-        assertEquals(medicamento.getId(), result.get(0).getId());
-        assertEquals(medicamento.getNombre(), result.get(0).getNombre());
-        assertEquals(medicamento.getClasificacion(), result.get(0).getClasificacion());
-        assertEquals(medicamento.getDescripcion(), result.get(0).getDescripcion());
-        assertEquals(medicamento.getFechaCaducidad(), result.get(0).getFechaCaducidad());
-        assertEquals(medicamento.getExistencia(), result.get(0).getExistencia());
-        assertEquals(medicamento.getPrecio(), result.get(0).getPrecio());
-        assertEquals(medicamento.getInstruccionesUso(), result.get(0).getInstruccionesUso());
+        assertEquals(medication.getId(), result.get(0).getId());
+        assertEquals(medication.getName(), result.get(0).getName());
+        assertEquals(medication.getClassification(), result.get(0).getClassification());
+        assertEquals(medication.getDescription(), result.get(0).getDescription());
+        assertEquals(medication.getExpirationDate(), result.get(0).getExpirationDate());
+        assertEquals(medication.getStock(), result.get(0).getStock());
+        assertEquals(medication.getPrice(), result.get(0).getPrice());
+        assertEquals(medication.getUsageInstructions(), result.get(0).getUsageInstructions());
     }
 
     @Test
     @DisplayName("Service should save a medication into the repository")
     void saveTest() {
-        CreateMedicamentoDTO dto = new CreateMedicamentoDTO();
-        dto.setNombre("Ciprofloxacino");
-        dto.setClasificacion("Antibiótico");
-        dto.setDescripcion("Trata infecciones bacterianas");
-        dto.setFechaCaducidad(LocalDate.parse("2024-01-10"));
-        dto.setExistencia(40);
-        dto.setPrecio(18.75F);
-        dto.setInstruccionesUso("Tomar 1 tableta cada 12 horas");
+        CreateMedicationDTO dto = new CreateMedicationDTO();
+        dto.setName("Enrofloxacin");
+        dto.setClassification("Antibiotic");
+        dto.setDescription("Treats bacterial infections in dogs and cats");
+        dto.setExpirationDate(LocalDate.parse("2024-01-10"));
+        dto.setStock(40);
+        dto.setPrice(18.75F);
+        dto.setUsageInstructions("Administer according to the dose prescribed by the vet");
 
-        Medicamento model = new Medicamento();
+        Medication model = new Medication();
 
         model.setId(600L);
-        model.setNombre(dto.getNombre());
-        model.setDescripcion(dto.getDescripcion());
-        model.setClasificacion(dto.getClasificacion());
-        model.setFechaCaducidad(dto.getFechaCaducidad());
-        model.setExistencia(dto.getExistencia());
-        model.setPrecio(dto.getPrecio());
-        model.setInstruccionesUso(dto.getInstruccionesUso());
+        model.setName(dto.getName());
+        model.setDescription(dto.getDescription());
+        model.setClassification(dto.getClassification());
+        model.setExpirationDate(dto.getExpirationDate());
+        model.setStock(dto.getStock());
+        model.setPrice(dto.getPrice());
+        model.setUsageInstructions(dto.getUsageInstructions());
 
-        when(repository.save(any(Medicamento.class))).thenReturn(model);
+        when(repository.save(any(Medication.class))).thenReturn(model);
 
-        MedicamentoDTO result = service.save(dto);
+        MedicationDTO result = service.save(dto);
 
         assertNotNull(result);
         assertEquals(model.getId(), result.getId());
-        assertEquals(model.getNombre(), result.getNombre());
-        assertEquals(model.getDescripcion(), result.getDescripcion());
-        assertEquals(model.getClasificacion(), result.getClasificacion());
-        assertEquals(model.getFechaCaducidad(), result.getFechaCaducidad());
-        assertEquals(model.getExistencia(), result.getExistencia());
-        assertEquals(model.getPrecio(), result.getPrecio());
-        assertEquals(model.getInstruccionesUso(), result.getInstruccionesUso());
+        assertEquals(model.getName(), result.getName());
+        assertEquals(model.getDescription(), result.getDescription());
+        assertEquals(model.getClassification(), result.getClassification());
+        assertEquals(model.getExpirationDate(), result.getExpirationDate());
+        assertEquals(model.getStock(), result.getStock());
+        assertEquals(model.getPrice(), result.getPrice());
+        assertEquals(model.getUsageInstructions(), result.getUsageInstructions());
     }
 
     @Test
     @DisplayName("Service should throw an error if the medication is not found when attempting to update it")
     void updateWithErrorTest() {
-        UpdateMedicamentoDTO dto = new UpdateMedicamentoDTO();
-        Optional<Medicamento> dummy = Optional.empty();
+        UpdateMedicationDTO dto = new UpdateMedicationDTO();
+        Optional<Medication> dummy = Optional.empty();
 
         when(repository.findById(anyLong())).thenReturn(dummy);
 
-        assertThrows(MedicamentoNotFoundException.class, () -> service.update(100L, dto));
+        assertThrows(MedicationNotFoundException.class, () -> service.update(100L, dto));
     }
 
     @Test
     @DisplayName("Service should update a medication in the repository")
-    void updateTest() throws MedicamentoNotFoundException {
-        UpdateMedicamentoDTO dto = new UpdateMedicamentoDTO();
-        dto.setNombre("Salbutamol");
-        dto.setClasificacion("Broncodilatador"); //TODO: Terminar de asignar
+    void updateTest() throws MedicationNotFoundException {
+        UpdateMedicationDTO dto = new UpdateMedicationDTO();
+        dto.setName("Meloxicam");
+        dto.setClassification("Anti-inflammatory");
 
-        Medicamento medicamento = new Medicamento();
+        Medication medication = new Medication();
 
-        medicamento.setId(125L);
-        medicamento.setNombre("MeDiCaMeNtO");
-        medicamento.setClasificacion("CLASIFICACION");
+        medication.setId(125L);
+        medication.setName("MEDICATION");
+        medication.setClassification("CLASSIFICATION");
 
-        when(repository.findById(anyLong())).thenReturn(Optional.of(medicamento));
+        when(repository.findById(anyLong())).thenReturn(Optional.of(medication));
 
         service.update(125L, dto);
 
-        assertEquals(dto.getNombre(), medicamento.getNombre());
-        assertEquals(dto.getClasificacion(), medicamento.getClasificacion());
-        verify(repository, times(1)).save(medicamento);
+        assertEquals(dto.getName(), medication.getName());
+        assertEquals(dto.getClassification(), medication.getClassification());
+        verify(repository, times(1)).save(medication);
 
     }
 
     @Test
     @DisplayName("Service should throw an error if the medication is not found when attempting to delete it")
     void deleteByIdWithErrorTest() {
-        Optional<Medicamento> dummy = Optional.empty();
+        Optional<Medication> dummy = Optional.empty();
 
         when(repository.findById(anyLong())).thenReturn(dummy);
 
-        assertThrows(MedicamentoNotFoundException.class, () -> service.deleteById(100L));
+        assertThrows(MedicationNotFoundException.class, () -> service.deleteById(100L));
     }
 
     @Test
-    @DisplayName("Sservice should delete a medication by ID")
-    void deleteByIdTest() throws MedicamentoNotFoundException {
+    @DisplayName("Service should delete a medication by ID")
+    void deleteByIdTest() throws MedicationNotFoundException {
 
-        Medicamento medicamento = new Medicamento();
+        Medication medication = new Medication();
 
-        medicamento.setId(125L);
-        medicamento.setNombre(""); //TODO: Revisar estos setter
-        medicamento.setClasificacion("");
+        medication.setId(125L);
+        medication.setName("");
+        medication.setClassification("");
 
-        when(repository.findById(anyLong())).thenReturn(Optional.of(medicamento));
+        when(repository.findById(anyLong())).thenReturn(Optional.of(medication));
 
         service.deleteById(125L);
         verify(repository, times(1)).deleteById(125L);

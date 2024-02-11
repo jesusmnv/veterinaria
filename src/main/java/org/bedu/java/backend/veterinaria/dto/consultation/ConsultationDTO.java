@@ -1,4 +1,4 @@
-package org.bedu.java.backend.veterinaria.dto.consulta;
+package org.bedu.java.backend.veterinaria.dto.consultation;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -8,26 +8,26 @@ import org.bedu.java.backend.veterinaria.model.Veterinario;
 import java.time.LocalDate;
 
 @Data
-public class ConsultaDTO {
+public class ConsultationDTO {
 
-    @Schema(description = "ID de la consulta", example = "1")
+    @Schema(description = "Consultation ID", example = "1")
     private Long id;
 
-    @Schema(description = "Fecha de la consulta", example = "2023-11-25")
-    private LocalDate fechaConsulta;
+    @Schema(description = "Consultation date", example = "2023-11-25")
+    private LocalDate consultationDate;
 
-    @Schema(description = "Diagnóstico de la consulta", example = "Fiebre y tos")
-    private String diagnostico;
+    @Schema(description = "Consultation diagnosis", example = "Fever and cough")
+    private String diagnosis;
 
-    @Schema(description = "Tratamiento indicado", example = "Tomar medicamento X cada 8 horas")
-    private String tratamientoIndicado;
+    @Schema(description = "Prescribed treatment", example = "Take medication X every 8 hours")
+    private String prescribedTreatment;
 
-    @Schema(description = "Observaciones adicionales", example = "Seguimiento requerido")
-    private String observaciones;
+    @Schema(description = "Additional observations", example = "Follow-up required")
+    private String observations;
 
     // Relación
-    private Mascota mascota;
+    private Mascota pet;
 
-    private Veterinario veterinario;
+    private Veterinario vet;
 
 }

@@ -1,19 +1,19 @@
 package org.bedu.java.backend.veterinaria.repository;
 
-import org.bedu.java.backend.veterinaria.model.Medicamento;
+import org.bedu.java.backend.veterinaria.model.Medication;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface MedicamentoRepository extends CrudRepository<Medicamento, Long> {
+public interface MedicationRepository extends CrudRepository<Medication, Long> {
 
-    List<Medicamento> findAll();
+    List<Medication> findAll();
 
-    // SELECT * FROM medicamento WHERE nombre LIKE :nombre
-    List<Medicamento> findByNombreContaining(String nombre);
+    // SELECT * FROM medication WHERE name LIKE :name
+    List<Medication> findByNameContaining(String name);
 
-    List<Medicamento> findByClasificacion(String clasificacion);
+    List<Medication> findByClassification(String classification);
 
 }

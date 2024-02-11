@@ -13,17 +13,17 @@ import org.hibernate.validator.constraints.Length;
 public class CreateMascotaDTO {
 
     @Schema(description = "Nombre de la mascota", example = "Rex")
-    @NotBlank(message = "El nombre de la mascota es obligatorio")
-    @Length(min = 1, max = 100, message = "El nombre no puede exceder de 100 caracteres")
+    @NotBlank(message = "El name de la mascota es obligatorio")
+    @Length(min = 1, max = 100, message = "El name no puede exceder de 100 caracteres")
     private String nombre;
 
     @Schema(description = "Nombre de la especie", example = "Perico")
-    @NotBlank(message = "El nombre de la especie es obligatorio")
+    @NotBlank(message = "El name de la especie es obligatorio")
     @Length(min = 1, max = 40, message = "La descripción de la especie no puede exceder de 40 caracteres")
     private String especie;
 
     @Schema(description = "Raza de la mascota", example = "Loro Eclectus")
-    @NotBlank(message = "El nombre de la raza es obligatorio")
+    @NotBlank(message = "El name de la raza es obligatorio")
     @Length(min = 1, max = 60, message = "La descripción de la raza no puede exceder de 60 caracteres")
     private String raza;
 

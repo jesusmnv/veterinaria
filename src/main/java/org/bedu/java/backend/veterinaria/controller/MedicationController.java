@@ -7,40 +7,40 @@ import org.bedu.java.backend.veterinaria.dto.medication.CreateMedicationDTO;
 import org.bedu.java.backend.veterinaria.dto.medication.MedicationDTO;
 import org.bedu.java.backend.veterinaria.dto.medication.UpdateMedicationDTO;
 import org.bedu.java.backend.veterinaria.exception.MedicationNotFoundException;
-import org.bedu.java.backend.veterinaria.service.MedicamentoService;
+import org.bedu.java.backend.veterinaria.service.MedicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Endpoints de Medicamentos", description = "CRUD de Medicamentos")
+@Tag(name = "Endpoints of Medications", description = "CRUD of Medications")
 @RestController
-@RequestMapping("/medicamentos")
-public class MedicamentoController {
+@RequestMapping("/medications")
+public class MedicationController {
 
-    private MedicamentoService service;
+    private MedicationService service;
 
     @Autowired
-    public MedicamentoController(MedicamentoService service) {
+    public MedicationController(MedicationService service) {
         this.service = service;
     }
 
-    @Operation(summary = "Obtiene la lista de todos los medicamentos")
+    @Operation(summary = "Get the list of all medications")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<MedicationDTO> findAll() {
         return service.findAll();
     }
 
-    @Operation(summary = "Crea un nuevo medicamento")
+    @Operation(summary = "Create a new medication")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public MedicationDTO save(@Valid @RequestBody CreateMedicationDTO data) {
         return service.save(data);
     }
 
-    @Operation(summary = "Actualiza la información de un medicamento")
+    @Operation(summary = "Update medication information")
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable Long id, @Valid @RequestBody UpdateMedicationDTO updateData)
@@ -48,7 +48,7 @@ public class MedicamentoController {
         service.update(id, updateData);
     }
 
-    @Operation(summary = "Elimina un medicamento existente")
+    @Operation(summary = "Delete an existing medication")
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws MedicationNotFoundException {
