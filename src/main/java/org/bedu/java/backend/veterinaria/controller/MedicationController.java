@@ -3,10 +3,10 @@ package org.bedu.java.backend.veterinaria.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
-import org.bedu.java.backend.veterinaria.dto.medicamento.CreateMedicamentoDTO;
-import org.bedu.java.backend.veterinaria.dto.medicamento.MedicamentoDTO;
-import org.bedu.java.backend.veterinaria.dto.medicamento.UpdateMedicamentoDTO;
-import org.bedu.java.backend.veterinaria.exception.MedicamentoNotFoundException;
+import org.bedu.java.backend.veterinaria.dto.medication.CreateMedicationDTO;
+import org.bedu.java.backend.veterinaria.dto.medication.MedicationDTO;
+import org.bedu.java.backend.veterinaria.dto.medication.UpdateMedicationDTO;
+import org.bedu.java.backend.veterinaria.exception.MedicationNotFoundException;
 import org.bedu.java.backend.veterinaria.service.MedicamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,29 +29,29 @@ public class MedicamentoController {
     @Operation(summary = "Obtiene la lista de todos los medicamentos")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<MedicamentoDTO> findAll() {
+    public List<MedicationDTO> findAll() {
         return service.findAll();
     }
 
     @Operation(summary = "Crea un nuevo medicamento")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MedicamentoDTO save(@Valid @RequestBody CreateMedicamentoDTO data) {
+    public MedicationDTO save(@Valid @RequestBody CreateMedicationDTO data) {
         return service.save(data);
     }
 
     @Operation(summary = "Actualiza la información de un medicamento")
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable Long id, @Valid @RequestBody UpdateMedicamentoDTO updateData)
-            throws MedicamentoNotFoundException {
+    public void update(@PathVariable Long id, @Valid @RequestBody UpdateMedicationDTO updateData)
+            throws MedicationNotFoundException {
         service.update(id, updateData);
     }
 
     @Operation(summary = "Elimina un medicamento existente")
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable Long id) throws MedicamentoNotFoundException {
+    public void deleteById(@PathVariable Long id) throws MedicationNotFoundException {
         service.deleteById(id);
     }
 
