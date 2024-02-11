@@ -21,20 +21,20 @@ public class ErrorHandler {
     public ErrorDTO validationError(MethodArgumentNotValidException ex) {
         List<FieldError> fieldErrors = ex.getBindingResult().getFieldErrors();
         List<String> errors = fieldErrors.stream().map(x -> x.getDefaultMessage()).toList();
-        return new ErrorDTO("ERR_VALID", "Hubo un error al validar los datos de entrada", errors);
+        return new ErrorDTO("ERR_VALID", "There was an error validating the input data", errors);
     }
 
     @ExceptionHandler(RuntimeException.class)
-    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY) // REVISAR si es corecto este status
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
     public ErrorDTO applicationError(RuntimeException ex) {
         return new ErrorDTO(ex.getCode(), ex.getMessage(), ex.getDetails());
     }
 
     @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // REVISAR si es corecto este status
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorDTO unknownError(Exception ex) {
         log.error(ex.getMessage());
-        return new ErrorDTO("ERR_UNKNOWN", "Ocurrió un error inesperado", null);
+        return new ErrorDTO("ERR_UNKNOWN", "An unexpected error occurred", null);
     }
 
 }

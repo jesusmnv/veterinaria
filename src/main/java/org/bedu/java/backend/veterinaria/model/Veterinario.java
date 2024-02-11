@@ -13,7 +13,7 @@ import java.time.LocalTime;
 @Setter
 @ToString
 @Entity
-@Table(name = "veterinario")
+@Table(name = "vet")
 public class Veterinario {
 
     @Id

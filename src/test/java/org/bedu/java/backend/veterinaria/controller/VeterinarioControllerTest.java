@@ -119,7 +119,7 @@ class VeterinarioControllerTest {
 
         assertNotNull(result);
 
-        // assertEquals(veterinario, result);
+        // assertEquals(vet, result);
         assertEquals(veterinario.getId(), result.getId());
         assertEquals(veterinario.getNombre(), result.getNombre());
         assertEquals(veterinario.getApellidoPaterno(), result.getApellidoPaterno());
