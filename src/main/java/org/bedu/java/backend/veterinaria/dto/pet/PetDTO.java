@@ -1,19 +1,24 @@
-package org.bedu.java.backend.veterinaria.dto.mascota;
+package org.bedu.java.backend.veterinaria.dto.pet;
 
 import org.bedu.java.backend.veterinaria.model.Owner;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-public class UpdatePetDTO {
+@AllArgsConstructor
+@NoArgsConstructor
+public class PetDTO {
+
+    @Schema(description = "Pet id", example = "100")
+    private long id;
 
     @Schema(description = "Pet name", example = "Rex")
-    @NotBlank
     private String name;
 
-    @Schema(description = "Species pet", example = "Parrot")
+    @Schema(description = "Species name", example = "Parrot")
     private String species;
 
     @Schema(description = "Pet breed", example = "Eclectus Parrot")
@@ -35,5 +40,4 @@ public class UpdatePetDTO {
     private String color;
 
     private Owner owner;
-
 }

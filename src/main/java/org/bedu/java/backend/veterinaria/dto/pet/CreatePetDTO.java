@@ -1,4 +1,4 @@
-package org.bedu.java.backend.veterinaria.dto.mascota;
+package org.bedu.java.backend.veterinaria.dto.pet;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.DecimalMin;

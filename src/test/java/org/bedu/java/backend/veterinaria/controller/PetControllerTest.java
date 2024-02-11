@@ -11,9 +11,9 @@ import static org.mockito.Mockito.when;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.bedu.java.backend.veterinaria.dto.mascota.CreatePetDTO;
-import org.bedu.java.backend.veterinaria.dto.mascota.PetDTO;
-import org.bedu.java.backend.veterinaria.dto.mascota.UpdatePetDTO;
+import org.bedu.java.backend.veterinaria.dto.pet.CreatePetDTO;
+import org.bedu.java.backend.veterinaria.dto.pet.PetDTO;
+import org.bedu.java.backend.veterinaria.dto.pet.UpdatePetDTO;
 import org.bedu.java.backend.veterinaria.exception.PetNotFoundException;
 import org.bedu.java.backend.veterinaria.service.PetService;
 import org.junit.jupiter.api.DisplayName;

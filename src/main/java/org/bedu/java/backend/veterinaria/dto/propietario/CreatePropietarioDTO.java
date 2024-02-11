@@ -54,3 +54,4 @@ public class CreatePropietarioDTO {
     private String ocupacion;
 
 }
+

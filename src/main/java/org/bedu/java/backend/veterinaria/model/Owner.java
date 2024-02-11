@@ -11,7 +11,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name = "propietario")
+@Table(name = "owners")
 public class Owner {
 
     @Id
@@ -19,27 +19,27 @@ public class Owner {
     private Long id;
 
     @Column(nullable = false, length = 70)
-    private String nombre;
+    private String name;
 
-    @Column(name = "apellido_paterno", nullable = false, length = 70)
-    private String apellidoPaterno;
+    @Column(name = "p_last_name", nullable = false, length = 70)
+    private String pLastName;
 
-    @Column(name = "apellido_materno", nullable = false, length = 70)
-    private String apellidoMaterno;
+    @Column(name = "m_last_name", nullable = false, length = 70)
+    private String mLastName;
 
-    @Column(name = "direccion", nullable = false)
-    private String direccion;
+    @Column(name = "address", nullable = false)
+    private String address;
 
     @Column(nullable = false, length = 15)
-    private String celular;
+    private String cellPhone;
 
     @Column(nullable = false, length = 150)
-    private String correo;
+    private String email;
 
-    @Column(name = "fecha_nacimiento", nullable = false)
-    private LocalDate fechaNacimiento;
+    @Column(name = "birth_date", nullable = false)
+    private LocalDate birthDate;
 
     @Column(nullable = false, length = 60)
-    private String ocupacion;
+    private String occupation;
 
 }
