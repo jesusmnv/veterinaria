@@ -4,7 +4,7 @@ import org.bedu.java.backend.veterinaria.dto.consultation.ConsultationDTO;
 import org.bedu.java.backend.veterinaria.dto.consultation.CreateConsultationDTO;
 import org.bedu.java.backend.veterinaria.dto.consultation.UpdateConsultationDTO;
 import org.bedu.java.backend.veterinaria.exception.ConsultationNotFoundException;
-import org.bedu.java.backend.veterinaria.model.Mascota;
+import org.bedu.java.backend.veterinaria.model.Pet;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.bedu.java.backend.veterinaria.service.ConsultationService;
 import org.junit.jupiter.api.DisplayName;
@@ -52,7 +52,7 @@ class ConsultationControllerTest {
         consultationDTO.setPrescribedTreatment("Antibiotics and rest");
         consultationDTO.setObservations("The pet seems to be improving, continue monitoring");
 
-        Mascota p = new Mascota();
+        Pet p = new Pet();
         p.setId(9L);
 
         Veterinario v = new Veterinario();
@@ -96,7 +96,7 @@ class ConsultationControllerTest {
         consultationDTO.setPrescribedTreatment(dto.getPrescribedTreatment());
         consultationDTO.setObservations(dto.getObservations());
 
-        Mascota p = new Mascota();
+        Pet p = new Pet();
         p.setId(3L);
 
         Veterinario v = new Veterinario();
@@ -130,7 +130,7 @@ class ConsultationControllerTest {
         dto.setPrescribedTreatment("Antibiotics and ear drops");
         dto.setObservations("The owner reports that the cat has been scratching its ears frequently.");
 
-        Mascota p = new Mascota();
+        Pet p = new Pet();
         p.setId(2L);
 
         Veterinario v = new Veterinario();

@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
-import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Owner;
 
 @Data
 public class UpdateFacturaDTO {
@@ -28,6 +28,6 @@ public class UpdateFacturaDTO {
     @Schema(description = "Razón social", example = "Hortensia Bonilla Ortega")
     private String razonSocial;
 
-    private Propietario propietario;
+    private Owner propietario;
 
 }

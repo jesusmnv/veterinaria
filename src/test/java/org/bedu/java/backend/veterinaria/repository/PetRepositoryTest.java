@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.bedu.java.backend.veterinaria.model.Mascota;
-import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Pet;
+import org.bedu.java.backend.veterinaria.model.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -22,10 +22,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)
-class MascotaRepositoryTest {
+class PetRepositoryTest {
 
     @Autowired
-    private MascotaRepository repository;
+    private PetRepository repository;
 
     @Autowired
     private TestEntityManager manager;
@@ -40,30 +40,30 @@ class MascotaRepositoryTest {
     @DisplayName("Repository should filter pets by name")
     void findByNameTest() {
 
-        Mascota mascota1 = crearMascota1();
-        Mascota mascota2 = crearMascota2();
-        Mascota mascota3 = crearMascota3();
-        manager.persist(mascota1);
-        manager.persist(mascota2);
-        manager.persist(mascota3);
-        List<Mascota> result = repository.findByNombreContaining("Fury");
+        Pet pet1 = createPet1();
+        Pet pet2 = createPet2();
+        Pet pet3 = createPet3();
+        manager.persist(pet1);
+        manager.persist(pet2);
+        manager.persist(pet3);
+        List<Pet> result = repository.findByNameContaining("Fury");
         assertEquals(1, result.size());
     }
 
-    private Mascota crearMascota1() {
+    private Pet createPet1() {
 
-        Mascota mascota = new Mascota();
+        Pet pet = new Pet();
 
-        mascota.setNombre("Fury");
-        mascota.setEspecie("Perro");
-        mascota.setRaza("Schnauzer");
-        mascota.setEdad(2);
-        mascota.setAltura(0.25F);
-        mascota.setPeso(1.45F);
-        mascota.setSexo("Macho");
-        mascota.setColor("gris");
+        pet.setName("Fury");
+        pet.setSpecies("Perro");
+        pet.setBreed("Schnauzer");
+        pet.setAge(2);
+        pet.setHeight(0.25F);
+        pet.setWeight(1.45F);
+        pet.setGender("Macho");
+        pet.setColor("gris");
 
-        Propietario p = new Propietario();
+        Owner p = new Owner();
         p.setId(7L);
         p.setNombre("Carmen");
         p.setApellidoPaterno("Sanchez");
@@ -74,26 +74,26 @@ class MascotaRepositoryTest {
         p.setFechaNacimiento(LocalDate.parse("1978-06-15"));
         p.setOcupacion("Arquitecta");
 
-        mascota.setPropietario(manager.merge(p));
+        pet.setOwner(manager.merge(p));
 
-        return mascota;
+        return pet;
 
     }
 
-    private Mascota crearMascota2() {
+    private Pet createPet2() {
 
-        Mascota mascota = new Mascota();
+        Pet mascota = new Pet();
 
-        mascota.setNombre("Daenerys");
-        mascota.setEspecie("Perro");
-        mascota.setRaza("Chihuahua");
-        mascota.setEdad(2);
-        mascota.setAltura(0.12F);
-        mascota.setPeso(0.8F);
-        mascota.setSexo("Hembra");
+        mascota.setName("Daenerys");
+        mascota.setSpecies("Perro");
+        mascota.setBreed("Chihuahua");
+        mascota.setAge(2);
+        mascota.setHeight(0.12F);
+        mascota.setWeight(0.8F);
+        mascota.setGender("Hembra");
         mascota.setColor("cafe claro");
 
-        Propietario p = new Propietario();
+        Owner p = new Owner();
         p.setId(9L);
         p.setNombre("Isabel");
         p.setApellidoPaterno("Fuentes");
@@ -104,26 +104,26 @@ class MascotaRepositoryTest {
         p.setFechaNacimiento(LocalDate.parse("1984-02-17"));
         p.setOcupacion("Psicóloga");
 
-        mascota.setPropietario(manager.merge(p));
+        mascota.setOwner(manager.merge(p));
 
         return mascota;
 
     }
 
-    private Mascota crearMascota3() {
+    private Pet createPet3() {
 
-        Mascota mascota = new Mascota();
+        Pet mascota = new Pet();
 
-        mascota.setNombre("Perseo");
-        mascota.setEspecie("Tortuga");
-        mascota.setRaza("reeves");
-        mascota.setEdad(67);
-        mascota.setAltura(0.10F);
-        mascota.setPeso(0.6F);
-        mascota.setSexo("Macho");
+        mascota.setName("Perseo");
+        mascota.setSpecies("Tortuga");
+        mascota.setBreed("reeves");
+        mascota.setAge(67);
+        mascota.setHeight(0.10F);
+        mascota.setWeight(0.6F);
+        mascota.setGender("Macho");
         mascota.setColor("cafe pardo con manchas");
 
-        Propietario p = new Propietario();
+        Owner p = new Owner();
         p.setId(3L);
         p.setNombre("Laura");
         p.setApellidoPaterno("Diaz");
@@ -134,7 +134,7 @@ class MascotaRepositoryTest {
         p.setFechaNacimiento(LocalDate.parse("1992-08-20"));
         p.setOcupacion("Enfermera");
 
-        mascota.setPropietario(manager.merge(p));
+        mascota.setOwner(manager.merge(p));
 
         return mascota;
 
@@ -145,17 +145,17 @@ class MascotaRepositoryTest {
     @Tag("mascota")
     @DisplayName("Probando relaciones entre mascotas y propietarios")
     void testRelacionMascotaPropietario() {
-        Mascota m = new Mascota();
-        m.setNombre("Perseo");
-        m.setEspecie("Tortuga");
-        m.setRaza("reeves");
-        m.setEdad(67);
-        m.setAltura(0.10F);
-        m.setPeso(0.6F);
-        m.setSexo("Macho");
+        Pet m = new Pet();
+        m.setName("Perseo");
+        m.setSpecies("Tortuga");
+        m.setBreed("reeves");
+        m.setAge(67);
+        m.setHeight(0.10F);
+        m.setWeight(0.6F);
+        m.setGender("Macho");
         m.setColor("cafe pardo con manchas");
 
-        Propietario p = new Propietario();
+        Owner p = new Owner();
         p.setId(3L);
         p.setNombre("Laura");
         p.setApellidoPaterno("Diaz");
@@ -165,8 +165,8 @@ class MascotaRepositoryTest {
         p.setCorreo("laura@example.com");
         p.setFechaNacimiento(LocalDate.parse("1992-08-20"));
         p.setOcupacion("Enfermera");
-        m.setPropietario(p);
+        m.setOwner(p);
 
-        assertEquals(Propietario.class, m.getPropietario().getClass());
+        assertEquals(Owner.class, m.getOwner().getClass());
     }
 }

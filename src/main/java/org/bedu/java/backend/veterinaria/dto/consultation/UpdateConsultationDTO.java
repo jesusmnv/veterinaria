@@ -7,7 +7,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
-import org.bedu.java.backend.veterinaria.model.Mascota;
+import org.bedu.java.backend.veterinaria.model.Pet;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -32,7 +32,7 @@ public class UpdateConsultationDTO {
     private String observations;
 
     // Relación
-    private Mascota pet;
+    private Pet pet;
 
     private Veterinario vet;
 

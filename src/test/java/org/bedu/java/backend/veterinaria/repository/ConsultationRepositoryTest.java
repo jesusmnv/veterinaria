@@ -8,8 +8,8 @@ import java.time.LocalTime;
 import java.util.List;
 
 import org.bedu.java.backend.veterinaria.model.Consultation;
-import org.bedu.java.backend.veterinaria.model.Mascota;
-import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Pet;
+import org.bedu.java.backend.veterinaria.model.Owner;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -60,18 +60,18 @@ class ConsultationRepositoryTest {
                 consultation.setObservations("Monitor feeding");
                 consultation.setConsultationDate(LocalDate.parse("2024-04-04"));
 
-                Mascota pet = new Mascota();
+                Pet pet = new Pet();
                 pet.setId(7L);
-                pet.setNombre("Bobby");
-                pet.setEspecie("Perro");
-                pet.setRaza("Poodle");
-                pet.setEdad(3);
-                pet.setAltura(20.3F);
-                pet.setPeso(10.1F);
-                pet.setSexo("Macho");
+                pet.setName("Bobby");
+                pet.setSpecies("Perro");
+                pet.setBreed("Poodle");
+                pet.setAge(3);
+                pet.setHeight(20.3F);
+                pet.setWeight(10.1F);
+                pet.setGender("Macho");
                 pet.setColor("Blanco");
 
-                Propietario owner = new Propietario();
+                Owner owner = new Owner();
                 owner.setId(7L);
                 owner.setNombre("Carmen");
                 owner.setApellidoPaterno("Sanchez");
@@ -81,7 +81,7 @@ class ConsultationRepositoryTest {
                 owner.setCorreo("carmen@example.com");
                 owner.setFechaNacimiento(LocalDate.parse("1978-06-15"));
                 owner.setOcupacion("Arquitecta");
-                pet.setPropietario(manager.merge(owner));
+                pet.setOwner(manager.merge(owner));
 
                 Veterinario vet = new Veterinario();
                 vet.setId(7L);
@@ -96,7 +96,7 @@ class ConsultationRepositoryTest {
                 vet.setHoraSalida(LocalTime.parse("18:00"));
 
                 consultation.setPet(manager.merge(pet));
-                consultation.setVeterinarian(manager.merge(vet));
+                consultation.setVet(manager.merge(vet));
 
                 return consultation;
         }
@@ -109,18 +109,18 @@ class ConsultationRepositoryTest {
                 consultation.setObservations("Avoid water exposure");
                 consultation.setConsultationDate(LocalDate.parse("2023-12-01"));
 
-                Mascota pet = new Mascota();
+                Pet pet = new Pet();
                 pet.setId(9L);
-                pet.setNombre("Misty");
-                pet.setEspecie("Gato");
-                pet.setRaza("Angora");
-                pet.setEdad(1);
-                pet.setAltura(18.2F);
-                pet.setPeso(3.0F);
-                pet.setSexo("Hembra");
+                pet.setName("Misty");
+                pet.setSpecies("Gato");
+                pet.setBreed("Angora");
+                pet.setAge(1);
+                pet.setHeight(18.2F);
+                pet.setWeight(3.0F);
+                pet.setGender("Hembra");
                 pet.setColor("Blanco");
 
-                Propietario owner = new Propietario();
+                Owner owner = new Owner();
                 owner.setId(9L);
                 owner.setNombre("Isabel");
                 owner.setApellidoPaterno("Fuentes");
@@ -130,7 +130,7 @@ class ConsultationRepositoryTest {
                 owner.setCorreo("isabel@example.com");
                 owner.setFechaNacimiento(LocalDate.parse("1984-02-17"));
                 owner.setOcupacion("Psicóloga");
-                pet.setPropietario(manager.merge(owner));
+                pet.setOwner(manager.merge(owner));
 
                 Veterinario vet = new Veterinario();
                 vet.setId(9L);
@@ -145,7 +145,7 @@ class ConsultationRepositoryTest {
                 vet.setHoraSalida(LocalTime.parse("16:45"));
 
                 consultation.setPet(manager.merge(pet));
-                consultation.setVeterinarian(manager.merge(vet));
+                consultation.setVet(manager.merge(vet));
 
                 return consultation;
         }
@@ -158,18 +158,18 @@ class ConsultationRepositoryTest {
                 consultation.setObservations("Absolute rest");
                 consultation.setConsultationDate(LocalDate.parse("2023-12-01"));
 
-                Mascota pet = new Mascota();
+                Pet pet = new Pet();
                 pet.setId(3L);
-                pet.setNombre("Firulais");
-                pet.setEspecie("Perro");
-                pet.setRaza("Chihuahua");
-                pet.setEdad(1);
-                pet.setAltura(15.0F);
-                pet.setPeso(2.0F);
-                pet.setSexo("Macho");
+                pet.setName("Firulais");
+                pet.setSpecies("Perro");
+                pet.setBreed("Chihuahua");
+                pet.setAge(1);
+                pet.setHeight(15.0F);
+                pet.setWeight(2.0F);
+                pet.setGender("Macho");
                 pet.setColor("Café");
 
-                Propietario owner = new Propietario();
+                Owner owner = new Owner();
                 owner.setId(3L);
                 owner.setNombre("Laura");
                 owner.setApellidoPaterno("Diaz");
@@ -179,7 +179,7 @@ class ConsultationRepositoryTest {
                 owner.setCorreo("laura@example.com");
                 owner.setFechaNacimiento(LocalDate.parse("1992-08-20"));
                 owner.setOcupacion("Enfermera");
-                pet.setPropietario(manager.merge(owner));
+                pet.setOwner(manager.merge(owner));
 
                 Veterinario vet = new Veterinario();
                 vet.setId(3L);
@@ -194,7 +194,7 @@ class ConsultationRepositoryTest {
                 vet.setHoraSalida(LocalTime.parse("16:00"));
 
                 consultation.setPet(manager.merge(pet));
-                consultation.setVeterinarian(manager.merge(vet));
+                consultation.setVet(manager.merge(vet));
 
                 return consultation;
         }

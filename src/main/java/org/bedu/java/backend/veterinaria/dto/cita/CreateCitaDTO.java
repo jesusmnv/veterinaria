@@ -6,7 +6,7 @@ import jdk.jfr.BooleanFlag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Owner;
 import org.bedu.java.backend.veterinaria.model.Veterinario;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -42,6 +42,6 @@ public class CreateCitaDTO {
 
     private Veterinario veterinario;
 
-    private Propietario propietario;
+    private Owner propietario;
 
 }

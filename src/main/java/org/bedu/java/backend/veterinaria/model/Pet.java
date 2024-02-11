@@ -11,39 +11,39 @@ import org.hibernate.validator.constraints.Range;
 @Setter
 @ToString
 @Entity
-@Table(name = "mascota")
-public class Mascota {
+@Table(name = "pets")
+public class Pet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 100)
-    private String nombre;
+    private String name;
 
     @Column(nullable = false, length = 40)
-    private String especie;
+    private String species;
 
     @Column(nullable = false, length = 60)
-    private String raza;
+    private String breed;
 
     @Range(min = 1, max = 200)
-    private int edad;
+    private int age;
 
     @DecimalMin(value = "0.01")
-    private float altura;
+    private float height;
 
     @DecimalMin(value = "0.01")
-    private float peso;
+    private float weight;
 
     @Column(nullable = false, length = 20)
-    private String sexo;
+    private String gender;
 
     @Column(nullable = false, length = 50)
     private String color;
 
     @ManyToOne
-    @JoinColumn(name = "propietario_id", referencedColumnName = "id")
-    private Propietario propietario;
+    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    private Owner owner;
 
 }

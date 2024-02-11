@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.time.LocalDate;
 import java.util.List;
 
-import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -38,19 +38,19 @@ class PropietarioRepositoryTest {
     @DisplayName("Repository should filter pets by name")
     void findByNameTest() {
 
-        Propietario propietario1 = crearPropietario1();
-        Propietario propietario2 = crearPropietario2();
-        Propietario propietario3 = crearPropietario3();
+        Owner propietario1 = crearPropietario1();
+        Owner propietario2 = crearPropietario2();
+        Owner propietario3 = crearPropietario3();
         manager.persist(propietario1);
         manager.persist(propietario2);
         manager.persist(propietario3);
-        List<Propietario> result = repository.findByNombreContaining("Carmen");
+        List<Owner> result = repository.findByNombreContaining("Carmen");
         assertEquals(1, result.size());
     }
 
-    private Propietario crearPropietario1() {
+    private Owner crearPropietario1() {
 
-        Propietario p = new Propietario();
+        Owner p = new Owner();
         // p.setId(7L);
         p.setNombre("Carmen");
         p.setApellidoPaterno("Sanchez");
@@ -65,9 +65,9 @@ class PropietarioRepositoryTest {
 
     }
 
-    private Propietario crearPropietario2() {
+    private Owner crearPropietario2() {
 
-        Propietario p = new Propietario();
+        Owner p = new Owner();
         // p.setId(9L);
         p.setNombre("Isabel");
         p.setApellidoPaterno("Fuentes");
@@ -82,9 +82,9 @@ class PropietarioRepositoryTest {
 
     }
 
-    private Propietario crearPropietario3() {
+    private Owner crearPropietario3() {
 
-        Propietario p = new Propietario();
+        Owner p = new Owner();
         // p.setId(3L);
         p.setNombre("Laura");
         p.setApellidoPaterno("Diaz");

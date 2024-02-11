@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Owner;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -41,6 +41,6 @@ public class CreateFacturaDTO {
     @Length(min = 1, max = 250, message = "La razón social no puede exceder de 250 caracteres")
     private String razonSocial;
 
-    private Propietario propietario;
+    private Owner propietario;
 
 }

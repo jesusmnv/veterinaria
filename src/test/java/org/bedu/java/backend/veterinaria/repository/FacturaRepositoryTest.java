@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.bedu.java.backend.veterinaria.model.Factura;
-import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -61,7 +61,7 @@ class FacturaRepositoryTest {
       factura.setSubtotal(150);
       factura.setTotal(1500);
 
-      Propietario propietario = new Propietario();
+      Owner propietario = new Owner();
       propietario.setId(8L);
       propietario.setNombre("Job");
       propietario.setApellidoMaterno("Martinez");
@@ -87,7 +87,7 @@ class FacturaRepositoryTest {
       factura.setSubtotal(150);
       factura.setTotal(1500);
 
-      Propietario propietario = new Propietario();
+      Owner propietario = new Owner();
       propietario.setId(45L);
       propietario.setNombre("Job");
       propietario.setApellidoMaterno("Martinez");

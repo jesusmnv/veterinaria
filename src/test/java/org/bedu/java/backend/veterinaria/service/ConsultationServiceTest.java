@@ -67,7 +67,7 @@ class ConsultationServiceTest {
         v.setId(4L);
 
         consultation.setPet(m);
-        consultation.setVeterinarian(v);
+        consultation.setVet(v);
 
         data.add(consultation);
 
@@ -83,7 +83,7 @@ class ConsultationServiceTest {
         assertEquals(consultation.getPrescribedTreatment(), result.get(0).getPrescribedTreatment());
         assertEquals(consultation.getObservations(), result.get(0).getObservations());
         assertEquals(consultation.getPet(), result.get(0).getPet());
-        assertEquals(consultation.getVeterinarian(), result.get(0).getVet());
+        assertEquals(consultation.getVet(), result.get(0).getVet());
     }
 
     @Test
@@ -112,7 +112,7 @@ class ConsultationServiceTest {
         model.setPrescribedTreatment(dto.getPrescribedTreatment());
         model.setObservations(dto.getObservations());
         model.setPet(dto.getPet());
-        model.setVeterinarian(dto.getVet());
+        model.setVet(dto.getVet());
 
         when(repository.save(any(Consultation.class))).thenReturn(model);
 
@@ -125,7 +125,7 @@ class ConsultationServiceTest {
         assertEquals(model.getDiagnosis(), result.getDiagnosis());
         assertEquals(model.getObservations(), result.getObservations());
         assertEquals(model.getPet(), result.getPet());
-        assertEquals(model.getVeterinarian(), result.getVet());
+        assertEquals(model.getVet(), result.getVet());
     }
 
     @Test

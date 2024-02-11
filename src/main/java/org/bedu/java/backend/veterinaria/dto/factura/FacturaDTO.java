@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 
-import org.bedu.java.backend.veterinaria.model.Propietario;
+import org.bedu.java.backend.veterinaria.model.Owner;
 
 @Data
 @AllArgsConstructor
@@ -35,6 +35,6 @@ public class FacturaDTO {
     @Schema(description = "Razón social", example = "Hortensia Bonilla Ortega")
     private String razonSocial;
 
-    private Propietario propietario;
+    private Owner propietario;
 
 }
