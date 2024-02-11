@@ -22,6 +22,15 @@ public interface PetMapper {
     Pet toModel(CreatePetDTO dto);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "name", source = "nameU")
+    @Mapping(target = "species", source = "speciesU")
+    @Mapping(target = "breed", source = "breedU")
+    @Mapping(target = "age", source = "ageU")
+    @Mapping(target = "height", source = "heightU")
+    @Mapping(target = "weight", source = "weightU")
+    @Mapping(target = "gender", source = "genderU")
+    @Mapping(target = "color", source = "colorU")
+    @Mapping(target = "owner", source = "ownerU")
     void update(@MappingTarget Pet pet, UpdatePetDTO data);
 
 }
