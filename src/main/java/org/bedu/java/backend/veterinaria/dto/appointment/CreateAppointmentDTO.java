@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import org.bedu.java.backend.veterinaria.model.Owner;
-import org.bedu.java.backend.veterinaria.model.Veterinario;
+import org.bedu.java.backend.veterinaria.model.Vet;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -32,7 +32,7 @@ public class CreateAppointmentDTO {
     @NotNull(message = "Appointment reason cannot be null")
     private String appointmentReason;
 
-    private Veterinario vet;
+    private Vet vet;
 
     private Owner owner;
 

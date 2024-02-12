@@ -33,7 +33,7 @@ public class Appointment {
 
     @ManyToOne
     @JoinColumn(name = "veterinario_id", referencedColumnName = "id")
-    private Veterinario vet;
+    private Vet vet;
 
     @ManyToOne
     @JoinColumn(name = "owner_id", referencedColumnName = "id")

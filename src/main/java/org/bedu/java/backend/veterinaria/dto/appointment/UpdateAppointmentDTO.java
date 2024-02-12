@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import org.bedu.java.backend.veterinaria.model.Owner;
-import org.bedu.java.backend.veterinaria.model.Veterinario;
+import org.bedu.java.backend.veterinaria.model.Vet;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
@@ -32,7 +32,7 @@ public class UpdateAppointmentDTO {
     @NotNull(message = "Appointment reason cannot be null")
     private String appointmentReasonU;
 
-    private Veterinario vetU;
+    private Vet vet;
 
     private Owner ownerU;
 

@@ -35,6 +35,6 @@ public class Consultation {
 
     @ManyToOne
     @JoinColumn(name = "vet_id", referencedColumnName = "id")
-    private Veterinario vet;
+    private Vet vet;
 
 }

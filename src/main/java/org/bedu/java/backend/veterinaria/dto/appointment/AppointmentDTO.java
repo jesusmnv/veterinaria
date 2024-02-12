@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import org.bedu.java.backend.veterinaria.model.Owner;
-import org.bedu.java.backend.veterinaria.model.Veterinario;
+import org.bedu.java.backend.veterinaria.model.Vet;
 
 @Data
 public class AppointmentDTO {
@@ -27,7 +27,7 @@ public class AppointmentDTO {
     @Schema(description = "Reason for the appointment", example = "Urgency")
     private String appointmentReason;
 
-    private Veterinario vet;
+    private Vet vet;
 
     private Owner owner;
 
