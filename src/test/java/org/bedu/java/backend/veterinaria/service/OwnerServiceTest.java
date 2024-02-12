@@ -127,8 +127,8 @@ class OwnerServiceTest {
     void updateTest() throws OwnerNotFoundException {
         UpdateOwnerDTO dto = new UpdateOwnerDTO();
 
-        dto.setName("Ramiro");
-        dto.setPLastName("Ramirez");
+        dto.setNameU("Ramiro");
+        dto.setPLastNameU("Ramirez");
 
         Owner owner = new Owner();
 
@@ -140,8 +140,8 @@ class OwnerServiceTest {
 
         service.update(12L, dto);
 
-        assertEquals(dto.getName(), owner.getName());
-        assertEquals(dto.getPLastName(), owner.getPLastName());
+        assertEquals(dto.getNameU(), owner.getName());
+        assertEquals(dto.getPLastNameU(), owner.getPLastName());
         verify(repository, times(1)).save(owner);
     }
 

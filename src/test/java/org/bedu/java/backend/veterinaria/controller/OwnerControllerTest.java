@@ -127,14 +127,14 @@ class OwnerControllerTest {
 
         Long idOwner = 3L;
 
-        dto.setName("Isabel");
-        dto.setPLastName("Fuentes");
-        dto.setMLastName("Jimenez");
-        dto.setAddress("Avenida 345");
-        dto.setCellPhone("9991112222");
-        dto.setEmail("isabel@example.com");
-        dto.setBirthDate(LocalDate.parse("1984-02-17"));
-        dto.setOccupation("Psicóloga");
+        dto.setNameU("Isabel");
+        dto.setPLastNameU("Fuentes");
+        dto.setMLastNameU("Jimenez");
+        dto.setAddressU("Avenida 345");
+        dto.setCellPhoneU("9991112222");
+        dto.setEmailU("isabel@example.com");
+        dto.setBirthDateU(LocalDate.parse("1984-02-17"));
+        dto.setOccupationU("Psicóloga");
 
         controller.update(idOwner, dto);
 

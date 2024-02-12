@@ -22,6 +22,14 @@ public interface OwnerMapper {
     Owner toModel(CreateOwnerDTO dto);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "name", source = "nameU")
+    @Mapping(target = "PLastName", source = "PLastNameU")
+    @Mapping(target = "MLastName", source = "MLastNameU")
+    @Mapping(target = "address", source = "addressU")
+    @Mapping(target = "cellPhone", source = "cellPhoneU")
+    @Mapping(target = "email", source = "emailU")
+    @Mapping(target = "birthDate", source = "birthDateU")
+    @Mapping(target = "occupation", source = "occupationU")
     void update(@MappingTarget Owner owner, UpdateOwnerDTO data);
 
 }
