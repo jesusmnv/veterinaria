@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -23,17 +22,17 @@ public class Vet {
     @Column(nullable = false, length = 100)
     private String name;
 
-    @Column(name = "p_last_name", nullable = false, length = 100)
-    private String pLastName;
+    @Column(nullable = false, length = 100)
+    private String surname;
 
-    @Column(name = "m_last_name", nullable = false, length = 100)
-    private String mLastName;
+    @Column(name = "maternal_surname", nullable = false, length = 100)
+    private String maternalSurname;
 
-    @Column(name = "birdDate", nullable = false)
-    private LocalDate birthDate;
+    @Column(nullable = false)
+    private LocalDate birthdate;
 
     @Column(nullable = false, length = 13)
-    private String cellPhone;
+    private String cellphone;
 
     @Column(nullable = false, length = 100)
     private String email;
@@ -42,11 +41,9 @@ public class Vet {
     private String specialty;
 
     @Column(name = "entry_time", nullable = false)
-    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime entryTime;
 
     @Column(name = "exit_time", nullable = false)
-    @DateTimeFormat(pattern = "HH:mm")
     private LocalTime exitTime;
 
 }

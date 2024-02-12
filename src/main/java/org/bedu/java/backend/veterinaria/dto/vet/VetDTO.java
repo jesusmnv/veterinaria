@@ -15,22 +15,22 @@ public class VetDTO {
     @Schema(description = "Vet name", example = "Alberto")
     private String name;
 
-    @Schema(description = "Vet paternal last name", example = "Juarez")
-    private String pLastName;
+    @Schema(description = "Vet surname", example = "Juarez")
+    private String surname;
 
-    @Schema(description = "Vet maternal last name", example = "Hernandez")
-    private String mLastName;
+    @Schema(description = "Vet maternal surname", example = "Hernandez")
+    private String maternalSurname;
 
     @Schema(description = "Vet date of birth", example = "1998-12-25")
-    private LocalDate birthDate;
+    private LocalDate birthdate;
 
-    @Schema(description = "Vet cellPhone", example = "+528332587821")
-    private String cellPhone;
+    @Schema(description = "Vet cellphone", example = "+528332587821")
+    private String cellphone;
 
     @Schema(description = "Vet email address", example = "albertoHerdJua@gmail.com")
     private String email;
 
-    @Schema(description = "Vet specialty", example = "odontologia")
+    @Schema(description = "Vet specialty", example = "Odontología")
     private String specialty;
 
     @Schema(description = "Vet's entry time", example = "09:25")

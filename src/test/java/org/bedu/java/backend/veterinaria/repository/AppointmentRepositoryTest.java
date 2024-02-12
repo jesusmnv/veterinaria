@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.bedu.java.backend.veterinaria.model.Appointment;
 import org.bedu.java.backend.veterinaria.model.Owner;
-import org.bedu.java.backend.veterinaria.model.Veterinario;
+import org.bedu.java.backend.veterinaria.model.Vet;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,17 +70,17 @@ class AppointmentRepositoryTest {
     owner.setBirthDate(LocalDate.parse("1980-08-08"));
     owner.setOccupation("Maestro");
 
-    Veterinario vet = new Veterinario();
+    Vet vet = new Vet();
     vet.setId(7L);
-    vet.setNombre("Sara");
-    vet.setApellidoPaterno("Rodríguez");
-    vet.setApellidoMaterno("Santos");
-    vet.setFechaNacimiento(LocalDate.parse("1987-11-28"));
-    vet.setCelular("555-789-0123");
-    vet.setCorreo("sara@email.com");
-    vet.setEspecialidad("Cardiología");
-    vet.setHoraEntrada(LocalTime.parse("10:00"));
-    vet.setHoraSalida(LocalTime.parse("18:00"));
+    vet.setName("Sara");
+    vet.setSurname("Rodríguez");
+    vet.setMaternalSurname("Santos");
+    vet.setBirthdate(LocalDate.parse("1987-11-28"));
+    vet.setCellphone("555-789-0123");
+    vet.setEmail("sara@email.com");
+    vet.setSpecialty("Cardiología");
+    vet.setEntryTime(LocalTime.parse("10:00"));
+    vet.setExitTime(LocalTime.parse("18:00"));
 
     appointment.setOwner(manager.merge(owner));
     appointment.setVet(manager.merge(vet));
@@ -107,17 +107,17 @@ class AppointmentRepositoryTest {
     owner.setBirthDate(LocalDate.parse("1980-08-08"));
     owner.setOccupation("Comerciante");
 
-    Veterinario vet = new Veterinario();
+    Vet vet = new Vet();
     vet.setId(7L);
-    vet.setNombre("Fernanda");
-    vet.setApellidoPaterno("Rodríguez");
-    vet.setApellidoMaterno("Santos");
-    vet.setFechaNacimiento(LocalDate.parse("1987-11-28"));
-    vet.setCelular("555-789-0123");
-    vet.setCorreo("fernanda@email.com");
-    vet.setEspecialidad("Cardiología");
-    vet.setHoraEntrada(LocalTime.parse("10:00"));
-    vet.setHoraSalida(LocalTime.parse("18:00"));
+    vet.setName("Fernanda");
+    vet.setSurname("Rodríguez");
+    vet.setMaternalSurname("Santos");
+    vet.setBirthdate(LocalDate.parse("1987-11-28"));
+    vet.setCellphone("555-789-0123");
+    vet.setEmail("fernanda@email.com");
+    vet.setSpecialty("Cardiología");
+    vet.setEntryTime(LocalTime.parse("10:00"));
+    vet.setExitTime(LocalTime.parse("18:00"));
 
     appointment.setOwner(manager.merge(owner));
     appointment.setVet(manager.merge(vet));
@@ -144,17 +144,17 @@ class AppointmentRepositoryTest {
     owner.setBirthDate(LocalDate.parse("1980-08-08"));
     owner.setOccupation("Abogado");
 
-    Veterinario vet = new Veterinario();
+    Vet vet = new Vet();
     vet.setId(7L);
-    vet.setNombre("Guillermo");
-    vet.setApellidoPaterno("Rodríguez");
-    vet.setApellidoMaterno("Santos");
-    vet.setFechaNacimiento(LocalDate.parse("1987-11-28"));
-    vet.setCelular("555-789-0123");
-    vet.setCorreo("guillermo@email.com");
-    vet.setEspecialidad("Cardiología");
-    vet.setHoraEntrada(LocalTime.parse("10:00"));
-    vet.setHoraSalida(LocalTime.parse("18:00"));
+    vet.setName("Guillermo");
+    vet.setSurname("Rodríguez");
+    vet.setMaternalSurname("Santos");
+    vet.setBirthdate(LocalDate.parse("1987-11-28"));
+    vet.setCellphone("555-789-0123");
+    vet.setEmail("guillermo@email.com");
+    vet.setSpecialty("Cardiología");
+    vet.setEntryTime(LocalTime.parse("10:00"));
+    vet.setExitTime(LocalTime.parse("18:00"));
 
     appointment.setOwner(manager.merge(owner));
     appointment.setVet(manager.merge(vet));

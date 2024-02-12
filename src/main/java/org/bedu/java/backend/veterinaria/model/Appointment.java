@@ -32,7 +32,7 @@ public class Appointment {
     private String appointmentReason;
 
     @ManyToOne
-    @JoinColumn(name = "veterinario_id", referencedColumnName = "id")
+    @JoinColumn(name = "vet_id", referencedColumnName = "id")
     private Vet vet;
 
     @ManyToOne

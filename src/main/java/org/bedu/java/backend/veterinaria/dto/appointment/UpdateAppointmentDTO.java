@@ -32,7 +32,7 @@ public class UpdateAppointmentDTO {
     @NotNull(message = "Appointment reason cannot be null")
     private String appointmentReasonU;
 
-    private Vet vet;
+    private Vet vetU;
 
     private Owner ownerU;
 

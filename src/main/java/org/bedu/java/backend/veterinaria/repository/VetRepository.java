@@ -12,7 +12,7 @@ public interface VetRepository extends CrudRepository<Vet, Long> {
 
     List<Vet> findAll();
 
-    List<VetDTO> findByName(String name, String pLastName, String mLastName);
+    List<VetDTO> findByName(String name);
 
     List<Vet> findBySpecialty(String specialty);
 
