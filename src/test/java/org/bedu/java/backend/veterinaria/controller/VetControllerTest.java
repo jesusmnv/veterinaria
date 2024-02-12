@@ -43,7 +43,7 @@ class VetControllerTest {
     }
 
     @Test
-    @DisplayName("Controller should return a list of Veterinarians")
+    @DisplayName("Controller should return a list of vets")
     void findAllTest() {
         List<VetDTO> data = new LinkedList<>();
 
@@ -51,10 +51,10 @@ class VetControllerTest {
 
         vet.setId(159l);
         vet.setName("Fernando");
-        vet.setPLastName("Ramos");
-        vet.setMLastName("Carvajal");
-        vet.setBirthDate(LocalDate.parse("1985-12-12"));
-        vet.setCellPhone("8332641597");
+        vet.setSurname("Ramos");
+        vet.setMaternalSurname("Carvajal");
+        vet.setBirthdate(LocalDate.parse("1985-12-12"));
+        vet.setCellphone("8332641597");
         vet.setEmail("fernandoRC@gmail.com");
         vet.setSpecialty("Cirujano");
         vet.setEntryTime(LocalTime.parse("12:25"));
@@ -73,10 +73,10 @@ class VetControllerTest {
 
         assertEquals(vet.getId(), result.get(0).getId());
         assertEquals(vet.getName(), result.get(0).getName());
-        assertEquals(vet.getPLastName(), result.get(0).getPLastName());
-        assertEquals(vet.getMLastName(), result.get(0).getMLastName());
-        assertEquals(vet.getBirthDate(), result.get(0).getBirthDate());
-        assertEquals(vet.getCellPhone(), result.get(0).getCellPhone());
+        assertEquals(vet.getSurname(), result.get(0).getSurname());
+        assertEquals(vet.getMaternalSurname(), result.get(0).getMaternalSurname());
+        assertEquals(vet.getBirthdate(), result.get(0).getBirthdate());
+        assertEquals(vet.getCellphone(), result.get(0).getCellphone());
         assertEquals(vet.getEmail(), result.get(0).getEmail());
         assertEquals(vet.getSpecialty(), result.get(0).getSpecialty());
         assertEquals(vet.getEntryTime(), result.get(0).getEntryTime());
@@ -85,16 +85,16 @@ class VetControllerTest {
     }
 
     @Test
-    @DisplayName("Controller should save a Vet")
+    @DisplayName("Controller should save a vet")
     void saveTest() {
 
         CreateVetDTO vetDTO = new CreateVetDTO();
 
         vetDTO.setName("Alonso");
-        vetDTO.setPLastName("Perez");
-        vetDTO.setMLastName("Esquivel");
-        vetDTO.setBirthDate(LocalDate.parse("1995-11-02"));
-        vetDTO.setCellPhone("5522641597");
+        vetDTO.setSurname("Perez");
+        vetDTO.setMaternalSurname("Esquivel");
+        vetDTO.setBirthdate(LocalDate.parse("1995-11-02"));
+        vetDTO.setCellphone("5522641597");
         vetDTO.setEmail("alonso@gmail.com");
         vetDTO.setSpecialty("Dentista");
         vetDTO.setEntryTime(LocalTime.parse("06:00"));
@@ -104,10 +104,10 @@ class VetControllerTest {
 
         vet.setId(151l);
         vet.setName(vetDTO.getName());
-        vet.setPLastName(vetDTO.getPLastName());
-        vet.setMLastName(vetDTO.getMLastName());
-        vet.setBirthDate(vetDTO.getBirthDate());
-        vet.setCellPhone(vetDTO.getCellPhone());
+        vet.setSurname(vetDTO.getSurname());
+        vet.setMaternalSurname(vetDTO.getMaternalSurname());
+        vet.setBirthdate(vetDTO.getBirthdate());
+        vet.setCellphone(vetDTO.getCellphone());
         vet.setEmail(vetDTO.getEmail());
         vet.setSpecialty(vetDTO.getSpecialty());
         vet.setEntryTime(vetDTO.getEntryTime());
@@ -122,10 +122,10 @@ class VetControllerTest {
         // assertEquals(vet, result);
         assertEquals(vet.getId(), result.getId());
         assertEquals(vet.getName(), result.getName());
-        assertEquals(vet.getPLastName(), result.getPLastName());
-        assertEquals(vet.getMLastName(), result.getMLastName());
-        assertEquals(vet.getBirthDate(), result.getBirthDate());
-        assertEquals(vet.getCellPhone(), result.getCellPhone());
+        assertEquals(vet.getSurname(), result.getSurname());
+        assertEquals(vet.getMaternalSurname(), result.getMaternalSurname());
+        assertEquals(vet.getBirthdate(), result.getBirthdate());
+        assertEquals(vet.getCellphone(), result.getCellphone());
         assertEquals(vet.getEmail(), result.getEmail());
         assertEquals(vet.getSpecialty(), result.getSpecialty());
         assertEquals(vet.getEntryTime(), result.getEntryTime());
@@ -134,16 +134,16 @@ class VetControllerTest {
     }
 
     @Test
-    @DisplayName("Controller should update a Vet")
+    @DisplayName("Controller should update a vet")
     void updateTest() throws VetNotFoundException {
 
         UpdateVetDTO vetDto = new UpdateVetDTO();
 
         vetDto.setName("Julio");
-        vetDto.setPLastName("Avila");
-        vetDto.setMLastName("Robles");
-        vetDto.setBirthDate(LocalDate.parse("1990-01-24"));
-        vetDto.setCellPhone("5514785236");
+        vetDto.setSurname("Avila");
+        vetDto.setMaternalSurname("Robles");
+        vetDto.setBirthdate(LocalDate.parse("1990-01-24"));
+        vetDto.setCellphone("5514785236");
         vetDto.setEmail("julio@gmail.com");
         vetDto.setSpecialty("Cirujano");
         vetDto.setEntryTime(LocalTime.parse("06:00"));
@@ -155,7 +155,7 @@ class VetControllerTest {
     }
 
     @Test
-    @DisplayName("Controller should delete a Vet")
+    @DisplayName("Controller should delete a vet")
     void deleteByIdTest() throws VetNotFoundException {
         controller.deleteById(1593l);
         verify(service, times(1)).deleteById(1593l);

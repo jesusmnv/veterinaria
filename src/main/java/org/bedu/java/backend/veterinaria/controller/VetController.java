@@ -16,7 +16,7 @@ import org.bedu.java.backend.veterinaria.service.VetService;
 
 @Tag(name = "Endpoints de vet", description = "Vet's CRUD")
 @RestController
-@RequestMapping("/veterinarians")
+@RequestMapping("/vets")
 public class VetController {
 
     private VetService service;
@@ -26,7 +26,7 @@ public class VetController {
         this.service = service;
     }
 
-    @Operation(summary = "Get the list of veterinarians")
+    @Operation(summary = "Get the list of vets")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<VetDTO> findAll() {
@@ -42,7 +42,7 @@ public class VetController {
 
     @Operation(summary = "Update the information of vet")
     @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable Long id, @Valid @RequestBody UpdateVetDTO updatedData)
             throws VetNotFoundException {
         service.update(id, updatedData);

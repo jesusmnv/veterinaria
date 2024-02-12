@@ -45,30 +45,30 @@ class VetRepositoryTest {
         Vet vet1 = new Vet();
 
         vet1.setName("Juan");
-        vet1.setPLastName("Perez");
-        vet1.setMLastName("Castellanos");
-        vet1.setBirthDate(LocalDate.parse("1998-02-25"));
-        vet1.setCellPhone("8523697415");
+        vet1.setSurname("Perez");
+        vet1.setMaternalSurname("Castellanos");
+        vet1.setBirthdate(LocalDate.parse("1998-02-25"));
+        vet1.setCellphone("8523697415");
         vet1.setEmail("juan@gmail.com");
         vet1.setSpecialty("Cirujano");
         vet1.setEntryTime(LocalTime.parse("02:25"));
         vet1.setExitTime(LocalTime.parse("15:25"));
 
         vet2.setName("Roberto");
-        vet2.setPLastName("Valdez");
-        vet2.setMLastName("Hernandez");
-        vet2.setBirthDate(LocalDate.parse("1991-08-25"));
-        vet2.setCellPhone("1478963254");
+        vet2.setSurname("Valdez");
+        vet2.setMaternalSurname("Hernandez");
+        vet2.setBirthdate(LocalDate.parse("1991-08-25"));
+        vet2.setCellphone("1478963254");
         vet2.setEmail("roberto@gmail.com");
         vet2.setSpecialty("Cirujano");
         vet2.setEntryTime(LocalTime.parse("23:50"));
         vet2.setExitTime(LocalTime.parse("07:00"));
 
         vet3.setName("Yamileth");
-        vet3.setPLastName("Robles");
-        vet3.setMLastName("Quintero");
-        vet3.setBirthDate(LocalDate.parse("2000-12-15"));
-        vet3.setCellPhone("7896523148");
+        vet3.setSurname("Robles");
+        vet3.setMaternalSurname("Quintero");
+        vet3.setBirthdate(LocalDate.parse("2000-12-15"));
+        vet3.setCellphone("7896523148");
         vet3.setEmail("yamileth@gmail.com");
         vet3.setSpecialty("Rehabilitacion");
         vet3.setEntryTime(LocalTime.parse("20:00"));
@@ -96,10 +96,10 @@ class VetRepositoryTest {
 
         // vet1.setId(151l);
         vet1.setName("Juan");
-        vet1.setPLastName("Perez");
-        vet1.setMLastName("Castellanos");
-        vet1.setBirthDate(LocalDate.parse("1998-02-25"));
-        vet1.setCellPhone("8523697415");
+        vet1.setSurname("Perez");
+        vet1.setMaternalSurname("Castellanos");
+        vet1.setBirthdate(LocalDate.parse("1998-02-25"));
+        vet1.setCellphone("8523697415");
         vet1.setEmail("juan@gmail.com");
         vet1.setSpecialty("Cirujano");
         vet1.setEntryTime(LocalTime.parse("02:25"));
@@ -107,10 +107,10 @@ class VetRepositoryTest {
 
         // vet2.setId(150l);
         vet2.setName("Roberto");
-        vet2.setPLastName("Valdez");
-        vet2.setMLastName("Hernandez");
-        vet2.setBirthDate(LocalDate.parse("1991-08-25"));
-        vet2.setCellPhone("1478963254");
+        vet2.setSurname("Valdez");
+        vet2.setMaternalSurname("Hernandez");
+        vet2.setBirthdate(LocalDate.parse("1991-08-25"));
+        vet2.setCellphone("1478963254");
         vet2.setEmail("roberto@gmail.com");
         vet2.setSpecialty("Cirujano");
         vet2.setEntryTime(LocalTime.parse("23:50"));
@@ -118,10 +118,10 @@ class VetRepositoryTest {
 
         // vet3.setId(141l);
         vet3.setName("Yamileth");
-        vet3.setPLastName("Robles");
-        vet3.setMLastName("Quintero");
-        vet3.setBirthDate(LocalDate.parse("2000-12-15"));
-        vet3.setCellPhone("7896523148");
+        vet3.setSurname("Robles");
+        vet3.setMaternalSurname("Quintero");
+        vet3.setBirthdate(LocalDate.parse("2000-12-15"));
+        vet3.setCellphone("7896523148");
         vet3.setEmail("yamileth@gmail.com");
         vet3.setSpecialty("Rehabilitacion");
         vet3.setEntryTime(LocalTime.parse("20:00"));

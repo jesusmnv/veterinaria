@@ -54,10 +54,10 @@ class VetServiceTest {
         Vet vet = new Vet();
 
         vet.setName("Julio");
-        vet.setPLastName("Avila");
-        vet.setMLastName("Robles");
-        vet.setBirthDate(LocalDate.parse("1990-01-24"));
-        vet.setCellPhone("5514785236");
+        vet.setSurname("Avila");
+        vet.setMaternalSurname("Robles");
+        vet.setBirthdate(LocalDate.parse("1990-01-24"));
+        vet.setCellphone("5514785236");
         vet.setEmail("julio@gmail.com");
         vet.setSpecialty("Cirujano");
         vet.setEntryTime(LocalTime.parse("06:00"));
@@ -77,10 +77,10 @@ class VetServiceTest {
 
         assertEquals(vet.getId(), result.get(0).getId());
         assertEquals(vet.getName(), result.get(0).getName());
-        assertEquals(vet.getPLastName(), result.get(0).getPLastName());
-        assertEquals(vet.getMLastName(), result.get(0).getMLastName());
-        assertEquals(vet.getBirthDate(), result.get(0).getBirthDate());
-        assertEquals(vet.getCellPhone(), result.get(0).getCellPhone());
+        assertEquals(vet.getSurname(), result.get(0).getSurname());
+        assertEquals(vet.getMaternalSurname(), result.get(0).getMaternalSurname());
+        assertEquals(vet.getBirthdate(), result.get(0).getBirthdate());
+        assertEquals(vet.getCellphone(), result.get(0).getCellphone());
         assertEquals(vet.getEmail(), result.get(0).getEmail());
         assertEquals(vet.getSpecialty(), result.get(0).getSpecialty());
         assertEquals(vet.getEntryTime(), result.get(0).getEntryTime());
@@ -95,10 +95,10 @@ class VetServiceTest {
         CreateVetDTO vetDTO = new CreateVetDTO();
 
         vetDTO.setName("Alonso");
-        vetDTO.setPLastName("Perez");
-        vetDTO.setMLastName("Esquivel");
-        vetDTO.setBirthDate(LocalDate.parse("1995-11-02"));
-        vetDTO.setCellPhone("5522641597");
+        vetDTO.setSurname("Perez");
+        vetDTO.setMaternalSurname("Esquivel");
+        vetDTO.setBirthdate(LocalDate.parse("1995-11-02"));
+        vetDTO.setCellphone("5522641597");
         vetDTO.setEmail("alonso@gmail.com");
         vetDTO.setSpecialty("Dentista");
         vetDTO.setEntryTime(LocalTime.parse("06:00"));
@@ -108,10 +108,10 @@ class VetServiceTest {
 
         vet.setId(151l);
         vet.setName(vetDTO.getName());
-        vet.setPLastName(vetDTO.getPLastName());
-        vet.setMLastName(vetDTO.getMLastName());
-        vet.setBirthDate(vetDTO.getBirthDate());
-        vet.setCellPhone(vetDTO.getCellPhone());
+        vet.setSurname(vetDTO.getSurname());
+        vet.setMaternalSurname(vetDTO.getMaternalSurname());
+        vet.setBirthdate(vetDTO.getBirthdate());
+        vet.setCellphone(vetDTO.getCellphone());
         vet.setEmail(vetDTO.getEmail());
         vet.setSpecialty(vetDTO.getSpecialty());
         vet.setEntryTime(vetDTO.getEntryTime());
@@ -127,10 +127,10 @@ class VetServiceTest {
         // CreateDTOVeterinario
         assertEquals(vet.getId(), result.getId());
         assertEquals(vet.getName(), result.getName());
-        assertEquals(vet.getPLastName(), result.getPLastName());
-        assertEquals(vet.getMLastName(), result.getMLastName());
-        assertEquals(vet.getBirthDate(), result.getBirthDate());
-        assertEquals(vet.getCellPhone(), result.getCellPhone());
+        assertEquals(vet.getSurname(), result.getSurname());
+        assertEquals(vet.getMaternalSurname(), result.getMaternalSurname());
+        assertEquals(vet.getBirthdate(), result.getBirthdate());
+        assertEquals(vet.getCellphone(), result.getCellphone());
         assertEquals(vet.getEmail(), result.getEmail());
         assertEquals(vet.getSpecialty(), result.getSpecialty());
         assertEquals(vet.getEntryTime(), result.getEntryTime());
@@ -160,10 +160,10 @@ class VetServiceTest {
         UpdateVetDTO updateVetDTO = new UpdateVetDTO();
 
         updateVetDTO.setName("Alonso");
-        updateVetDTO.setPLastName("Perez");
-        updateVetDTO.setMLastName("Esquivel");
-        updateVetDTO.setBirthDate(LocalDate.parse("1995-11-02"));
-        updateVetDTO.setCellPhone("8332584562");
+        updateVetDTO.setSurname("Perez");
+        updateVetDTO.setMaternalSurname("Esquivel");
+        updateVetDTO.setBirthdate(LocalDate.parse("1995-11-02"));
+        updateVetDTO.setCellphone("8332584562");
         updateVetDTO.setEmail("alonsoEnfermero@gmail.com");
         updateVetDTO.setSpecialty("Enfermero");
         updateVetDTO.setEntryTime(LocalTime.parse("16:30"));
@@ -173,9 +173,9 @@ class VetServiceTest {
 
         vet.setId(151l);
         vet.setName("Al0nz0");
-        vet.setPLastName("Peres");
-        vet.setMLastName("Ezkibel");
-        vet.setCellPhone("5581231478");
+        vet.setSurname("Peres");
+        vet.setMaternalSurname("Ezkibel");
+        vet.setCellphone("5581231478");
         vet.setEmail("alonsoDr@gmail.com");
         vet.setSpecialty("Dentista");
         vet.setEntryTime(LocalTime.parse("02:25"));
@@ -186,10 +186,10 @@ class VetServiceTest {
         service.update(151l, updateVetDTO);
 
         assertEquals(updateVetDTO.getName(), vet.getName());
-        assertEquals(updateVetDTO.getPLastName(), vet.getPLastName());
-        assertEquals(updateVetDTO.getMLastName(), vet.getMLastName());
-        assertEquals(updateVetDTO.getBirthDate(), vet.getBirthDate());
-        assertEquals(updateVetDTO.getCellPhone(), vet.getCellPhone());
+        assertEquals(updateVetDTO.getSurname(), vet.getSurname());
+        assertEquals(updateVetDTO.getMaternalSurname(), vet.getMaternalSurname());
+        assertEquals(updateVetDTO.getBirthdate(), vet.getBirthdate());
+        assertEquals(updateVetDTO.getCellphone(), vet.getCellphone());
         assertEquals(updateVetDTO.getEmail(), vet.getEmail());
         assertEquals(updateVetDTO.getSpecialty(), vet.getSpecialty());
         assertEquals(updateVetDTO.getEntryTime(), vet.getEntryTime());
