@@ -56,7 +56,7 @@ class MedicationServiceTest {
         medication.setExpirationDate(LocalDate.parse("2023-12-15"));
         medication.setStock(80);
         medication.setPrice(9.5F);
-        medication.setUsageInstructions("Administer according to the dose prescribed by the vet");
+        medication.setUsageInstructions("Administer according to the dose prescribed by the vetU");
 
         data.add(medication);
 
@@ -86,7 +86,7 @@ class MedicationServiceTest {
         dto.setExpirationDate(LocalDate.parse("2024-01-10"));
         dto.setStock(40);
         dto.setPrice(18.75F);
-        dto.setUsageInstructions("Administer according to the dose prescribed by the vet");
+        dto.setUsageInstructions("Administer according to the dose prescribed by the vetU");
 
         Medication model = new Medication();
 

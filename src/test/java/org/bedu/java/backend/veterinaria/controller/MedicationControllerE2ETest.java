@@ -75,7 +75,7 @@ class MedicationControllerE2ETest {
         medication1.setExpirationDate(LocalDate.parse("2024-01-20"));
         medication1.setStock(40);
         medication1.setPrice(17.25F);
-        medication1.setUsageInstructions("Administer according to the dose prescribed by the vet");
+        medication1.setUsageInstructions("Administer according to the dose prescribed by the vetU");
 
         medication2.setName("Cephalexin");
         medication2.setClassification("Antibiotic");
@@ -83,7 +83,7 @@ class MedicationControllerE2ETest {
         medication2.setExpirationDate(LocalDate.parse("2023-12-30"));
         medication2.setStock(65);
         medication2.setPrice(10.5F);
-        medication2.setUsageInstructions("Administer according to the dose prescribed by the vet");
+        medication2.setUsageInstructions("Administer according to the dose prescribed by the vetU");
 
         repository.save(medication1);
         repository.save(medication2);
