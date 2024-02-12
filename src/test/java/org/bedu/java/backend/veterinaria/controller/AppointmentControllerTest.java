@@ -43,65 +43,73 @@ class AppointmentControllerTest {
   }
 
   @Test
-  @DisplayName("Controller regresa una lista de citas")
+  @DisplayName("Controller should return a list of appointments")
   void findAllTest() {
 
     List<AppointmentDTO> data = new LinkedList<>();
 
-    AppointmentDTO cita = new AppointmentDTO();
+    AppointmentDTO appointmentDTO = new AppointmentDTO();
 
-    cita.setId(9L);
-    cita.setAppointmentReason("Operation");
-
-    data.add(cita);
+    appointmentDTO.setId(9L);
+    appointmentDTO.setAppointmentDate(LocalDate.parse("2025-05-05"));
+    appointmentDTO.setAppointmentTime(LocalTime.parse("12:00"));
+    appointmentDTO.setFirstAppointment(true);
+    appointmentDTO.setAppointmentReason("Operation");
+    data.add(appointmentDTO);
 
     when(appointmentService.findAll()).thenReturn(data);
 
-    java.util.List<AppointmentDTO> result = appointmentController.findAll();
+    List<AppointmentDTO> result = appointmentController.findAll();
 
     assertNotNull(result);
     assertTrue(result.size() > 0);
-    assertEquals(cita.getId(), result.get(0).getId());
-    assertEquals(cita.getAppointmentReason(), result.get(0).getAppointmentReason());
+    assertEquals(appointmentDTO.getId(), result.get(0).getId());
+    assertEquals(appointmentDTO.getAppointmentDate(), result.get(0).getAppointmentDate());
+    assertEquals(appointmentDTO.getAppointmentTime(), result.get(0).getAppointmentTime());
+    assertEquals(appointmentDTO.getAppointmentReason(), result.get(0).getAppointmentReason());
 
   }
 
   @Test
-  @DisplayName("Controller guarda una cita")
+  @DisplayName("Controller should save an appointment")
   void saveTest() {
     CreateAppointmentDTO dto = new CreateAppointmentDTO();
 
     dto.setAppointmentDate(LocalDate.parse("2025-05-05"));
     dto.setAppointmentTime(LocalTime.parse("12:00"));
+    dto.setFirstAppointment(true);
     dto.setAppointmentReason("Operation");
 
-    AppointmentDTO cita = new AppointmentDTO();
+    AppointmentDTO appointmentDTO = new AppointmentDTO();
 
-    cita.setId(200L);
-    cita.setAppointmentDate(dto.getAppointmentDate());
-    cita.setAppointmentTime(dto.getAppointmentTime());
-    cita.setAppointmentReason(dto.getAppointmentReason());
+    appointmentDTO.setId(200L);
+    appointmentDTO.setAppointmentDate(dto.getAppointmentDate());
+    appointmentDTO.setAppointmentTime(dto.getAppointmentTime());
+    appointmentDTO.setFirstAppointment(dto.getFirstAppointment());
+    appointmentDTO.setAppointmentReason(dto.getAppointmentReason());
 
-    when(appointmentService.save(any(CreateAppointmentDTO.class))).thenReturn(cita);
+    when(appointmentService.save(any(CreateAppointmentDTO.class))).thenReturn(appointmentDTO);
 
     AppointmentDTO result = appointmentController.save(dto);
 
     assertNotNull(result);
-    assertEquals(cita.getId(), result.getId());
-    assertEquals(cita.getAppointmentDate(), result.getAppointmentDate());
-    assertEquals(cita.getAppointmentTime(), result.getAppointmentTime());
-    assertEquals(cita.getAppointmentReason(), result.getAppointmentReason());
+    assertEquals(appointmentDTO.getId(), result.getId());
+    assertEquals(appointmentDTO.getAppointmentDate(), result.getAppointmentDate());
+    assertEquals(appointmentDTO.getAppointmentTime(), result.getAppointmentTime());
+    assertEquals(appointmentDTO.getFirstAppointment(), result.getFirstAppointment());
+    assertEquals(appointmentDTO.getAppointmentReason(), result.getAppointmentReason());
 
   }
 
   @Test
-  @DisplayName("Controller debe actualizar una cita")
+  @DisplayName("Controller should update an appointment")
   void updateTest() throws AppointmentNotFoundException {
     UpdateAppointmentDTO dto = new UpdateAppointmentDTO();
 
-    dto.setAppointmentDate(LocalDate.parse("2026-06-06"));
-    dto.setAppointmentTime(LocalTime.parse("16:00"));
-    dto.setAppointmentReason("Corte de orejas");
+    dto.setAppointmentDateU(LocalDate.parse("2026-06-06"));
+    dto.setAppointmentTimeU(LocalTime.parse("16:00"));
+    dto.setFirstAppointmentU(true);
+    dto.setAppointmentReasonU("Corte de orejas");
 
     appointmentController.update(6L, dto);
 
@@ -109,7 +117,7 @@ class AppointmentControllerTest {
   }
 
   @Test
-  @DisplayName("Controller should delete a movie")
+  @DisplayName("Controller should delete an appointment")
   void deleteByIdTest() throws AppointmentNotFoundException {
 
     appointmentController.deleteById(200L);

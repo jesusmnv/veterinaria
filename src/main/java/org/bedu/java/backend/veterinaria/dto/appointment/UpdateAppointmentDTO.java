@@ -17,23 +17,23 @@ public class UpdateAppointmentDTO {
     @Schema(description = "Appointment date", example = "2021-10-31")
     @NotNull(message = "Appointment date cannot be null")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate appointmentDate;
+    private LocalDate appointmentDateU;
 
     @Schema(description = "Appointment time", example = "12:00")
     @NotNull(message = "Appointment time cannot be null")
     @DateTimeFormat(pattern = "HH:mm")
-    private LocalTime appointmentTime;
+    private LocalTime appointmentTimeU;
 
     @Schema(description = "First Appointment", example = "Yes/No")
     @NotNull(message = "First appointment cannot be null")
-    private Boolean firstAppointment;
+    private Boolean firstAppointmentU;
 
     @Schema(description = "Reason for the appointment", example = "Urgency")
     @NotNull(message = "Appointment reason cannot be null")
-    private String appointmentReason;
+    private String appointmentReasonU;
 
-    private Veterinario vet;
+    private Veterinario vetU;
 
-    private Owner owner;
+    private Owner ownerU;
 
 }

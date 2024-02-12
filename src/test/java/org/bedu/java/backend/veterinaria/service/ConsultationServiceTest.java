@@ -144,17 +144,24 @@ class ConsultationServiceTest {
     void updateTest() throws ConsultationNotFoundException {
         UpdateConsultationDTO dto = new UpdateConsultationDTO();
         dto.setDiagnosis("Diagnosis...");
+        dto.setPrescribedTreatment("Prescribed Treatment...");
+        dto.setObservations("Observations...");
 
         Consultation consultation = new Consultation();
 
         consultation.setId(155L);
         consultation.setDiagnosis("...");
+        consultation.setPrescribedTreatment("...");
+        consultation.setObservations("...");
 
         when(repository.findById(anyLong())).thenReturn(Optional.of(consultation));
 
         service.update(155L, dto);
 
         assertEquals(dto.getConsultationDate(), consultation.getConsultationDate());
+        assertEquals(dto.getPrescribedTreatment(), consultation.getPrescribedTreatment());
+        assertEquals(dto.getObservations(), consultation.getObservations());
+    
         verify(repository, times(1)).save(consultation);
 
     }

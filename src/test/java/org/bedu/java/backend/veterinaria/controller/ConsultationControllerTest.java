@@ -130,7 +130,7 @@ class ConsultationControllerTest {
         dto.setConsultationDate(LocalDate.of(2021, 1, 1));
         dto.setDiagnosis("Ear infection");
         dto.setPrescribedTreatment("Antibiotics and ear drops");
-        dto.setObservations("The owner reports that the cat has been scratching its ears frequently.");
+        dto.setObservations("The ownerU reports that the cat has been scratching its ears frequently.");
 
         Pet p = new Pet();
         p.setId(2L);

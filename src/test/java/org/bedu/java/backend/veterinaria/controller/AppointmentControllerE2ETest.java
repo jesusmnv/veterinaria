@@ -44,7 +44,7 @@ class AppointmentControllerE2ETest {
   void appointmentDateMissingInRequestBodyTest() throws Exception {
 
     String jsonString = "{\"appointmentTime\": \"12:00\", "
-        + "\"appointmentReason\": \"Urgencia\", "
+        + "\"appointmentReason\": \"Urgency\", "
         + "\"firstAppointment\": true, "
         + "\"vet\": {\"id\": 4}, "
         + "\"owner\": {\"id\": 9}}";

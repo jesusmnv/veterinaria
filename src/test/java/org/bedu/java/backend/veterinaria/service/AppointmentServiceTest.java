@@ -42,22 +42,22 @@ class AppointmentServiceTest {
   private AppointmentService appointmentService;
 
   @Test
-  @DisplayName("Service debe ser inyectado")
+  @DisplayName("Service should be injected")
   void smokeTest() {
     assertNotNull(appointmentService);
   }
 
   @Test
-  @DisplayName("Service debe retonar cita desde el repositorio")
+  @DisplayName("Service should return appointments from the repository")
   void findAllTest() {
     List<Appointment> data = new LinkedList<>();
 
     Appointment appointment = new Appointment();
 
     appointment.setId(4L);
-    appointment.setAppointmentDate(null);
-    appointment.setAppointmentTime(null);
-    appointment.setAppointmentReason("Vacunacion");
+    appointment.setAppointmentDate(LocalDate.parse("2025-05-05"));
+    appointment.setAppointmentTime(LocalTime.parse("14:00"));
+    appointment.setAppointmentReason("Vaccination");
 
     data.add(appointment);
 
@@ -74,14 +74,14 @@ class AppointmentServiceTest {
   }
 
   @Test
-  @DisplayName("Service debe guardar una cita en el repositorio")
+  @DisplayName("Service should save a appointment in the repository")
   void saveTest() {
     
     CreateAppointmentDTO dto = new CreateAppointmentDTO();
     
     dto.setAppointmentDate(LocalDate.parse("2025-05-05"));
     dto.setAppointmentTime(LocalTime.parse("12:00"));
-    dto.setAppointmentReason("Limpieza dental");
+    dto.setAppointmentReason("Dental cleaning");
 
     Appointment model = new Appointment();
 
@@ -102,7 +102,7 @@ class AppointmentServiceTest {
   }
 
   @Test
-  @DisplayName("Service lanza error si la cita no se encontró")
+  @DisplayName("Service should throw an error if the appointment is not found when attempting to update it")
   void updateWithErrorTest() {
     UpdateAppointmentDTO dto = new UpdateAppointmentDTO();
     Optional<Appointment> dummy = Optional.empty();
@@ -113,14 +113,14 @@ class AppointmentServiceTest {
   }
 
   @Test
-  @DisplayName("El Service debe actualizar una cita en repository")
+  @DisplayName("Service should update a appointment in the repository")
   void updateTest() throws AppointmentNotFoundException {
 
     UpdateAppointmentDTO dto = new UpdateAppointmentDTO();
 
-    dto.setAppointmentDate(LocalDate.parse("2026-06-06"));
-    dto.setAppointmentTime(LocalTime.parse("16:00"));
-    dto.setAppointmentReason("Peinado");
+    dto.setAppointmentDateU(LocalDate.parse("2026-06-06"));
+    dto.setAppointmentTimeU(LocalTime.parse("16:00"));
+    dto.setAppointmentReasonU("Peinado");
 
     Appointment appointment = new Appointment();
 
@@ -133,15 +133,17 @@ class AppointmentServiceTest {
 
     appointmentService.update(8L, dto);
 
-    assertEquals(dto.getAppointmentDate(), appointment.getAppointmentDate());
-    assertEquals(dto.getAppointmentTime(), appointment.getAppointmentTime());
-    assertEquals(dto.getAppointmentReason(), appointment.getAppointmentReason());
+    assertEquals(dto.getAppointmentDateU(), appointment.getAppointmentDate());
+    assertEquals(dto.getAppointmentTimeU(), appointment.getAppointmentTime());
+    assertEquals(dto.getAppointmentReasonU(), appointment.getAppointmentReason());
     verify(appointmentRepository, times(1)).save(appointment);
   }
 
   @Test
-  @DisplayName("Service borra una cita en el repository")
+  @DisplayName("Service should delete an appointment by ID") 
   void deleteById() {
+
+    //TODO: Se debe testear el servicio no el repositorio
 
     appointmentRepository.deleteById(87L);
 
