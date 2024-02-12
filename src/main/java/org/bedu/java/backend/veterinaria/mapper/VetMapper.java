@@ -10,14 +10,16 @@ import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 
-@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
+@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR, nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface VetMapper {
 
     VetDTO toDTO(Vet model);
+
     List<VetDTO> toDTO(List<Vet> model);
 
-    @Mapping(target="id", ignore = true)
+    @Mapping(target = "id", ignore = true)
     Vet toModel(CreateVetDTO dto);
 
     @Mapping(target = "id", ignore = true)

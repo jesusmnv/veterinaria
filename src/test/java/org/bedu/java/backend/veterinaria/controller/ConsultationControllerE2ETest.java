@@ -40,27 +40,26 @@ class ConsultationControllerE2ETest {
     @DisplayName("POST /consultations should be return an error if consultation date is missing")
     void consultationDateMissingRequestBodyTest() throws Exception {
         String jsonString = "{"
-        + "\"diagnosis\": \"Feline flu\","
-        + "\"prescribedTreatment\": \"Antibiotics and rest\","
-        + "\"observations\": \"The pet seems to be improving, continue monitoring\","
-        + "\"pet\": {"
-        + "  \"id\": 9"
-        + "},"
-        + "\"vetU\": {"
-        + "  \"id\": 8"
-        + "}"
-        + "}";
-
+                + "\"diagnosis\": \"Feline flu\","
+                + "\"prescribedTreatment\": \"Antibiotics and rest\","
+                + "\"observations\": \"The pet seems to be improving, continue monitoring\","
+                + "\"pet\": {"
+                + "  \"id\": 9"
+                + "},"
+                + "\"vetU\": {"
+                + "  \"id\": 8"
+                + "}"
+                + "}";
 
         MvcResult result = mockMvc.perform(post("/consultations").contentType("application/json").content(jsonString))
-        .andExpect(status().isBadRequest())
-        .andReturn();
+                .andExpect(status().isBadRequest())
+                .andReturn();
 
         String content = result.getResponse().getContentAsString();
 
         String expectedResponse = "{\"code\":\"ERR_VALID\",\"message\":\"There was an error validating the input data\",\"details\":[\"Consultation date cannot be null\"]}";
 
         assertEquals(expectedResponse, content);
-        
+
     }
 }

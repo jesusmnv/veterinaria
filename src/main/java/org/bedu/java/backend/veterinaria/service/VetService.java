@@ -29,6 +29,10 @@ public class VetService {
         return mapper.toDTO(vetRepository.findAll());
     }
 
+    public Optional<VetDTO> findById(Long id) {
+        return vetRepository.findById(id).map(mapper::toDTO);
+    }
+
     public VetDTO save(CreateVetDTO data) {
         Vet entity = vetRepository.save(mapper.toModel(data));
         return mapper.toDTO(entity);
