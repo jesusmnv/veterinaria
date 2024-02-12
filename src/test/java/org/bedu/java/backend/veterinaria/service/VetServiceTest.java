@@ -159,15 +159,15 @@ class VetServiceTest {
 
         UpdateVetDTO updateVetDTO = new UpdateVetDTO();
 
-        updateVetDTO.setName("Alonso");
-        updateVetDTO.setSurname("Perez");
-        updateVetDTO.setMaternalSurname("Esquivel");
-        updateVetDTO.setBirthdate(LocalDate.parse("1995-11-02"));
-        updateVetDTO.setCellphone("8332584562");
-        updateVetDTO.setEmail("alonsoEnfermero@gmail.com");
-        updateVetDTO.setSpecialty("Enfermero");
-        updateVetDTO.setEntryTime(LocalTime.parse("16:30"));
-        updateVetDTO.setExitTime(LocalTime.parse("22:45"));
+        updateVetDTO.setNameU("Alonso");
+        updateVetDTO.setSurnameU("Perez");
+        updateVetDTO.setMaternalSurnameU("Esquivel");
+        updateVetDTO.setBirthdateU(LocalDate.parse("1995-11-02"));
+        updateVetDTO.setCellphoneU("8332584562");
+        updateVetDTO.setEmailU("alonsoEnfermero@gmail.com");
+        updateVetDTO.setSpecialtyU("Enfermero");
+        updateVetDTO.setEntryTimeU(LocalTime.parse("16:30"));
+        updateVetDTO.setExitTimeU(LocalTime.parse("22:45"));
 
         Vet vet = new Vet();
 
@@ -185,15 +185,15 @@ class VetServiceTest {
 
         service.update(151l, updateVetDTO);
 
-        assertEquals(updateVetDTO.getName(), vet.getName());
-        assertEquals(updateVetDTO.getSurname(), vet.getSurname());
-        assertEquals(updateVetDTO.getMaternalSurname(), vet.getMaternalSurname());
-        assertEquals(updateVetDTO.getBirthdate(), vet.getBirthdate());
-        assertEquals(updateVetDTO.getCellphone(), vet.getCellphone());
-        assertEquals(updateVetDTO.getEmail(), vet.getEmail());
-        assertEquals(updateVetDTO.getSpecialty(), vet.getSpecialty());
-        assertEquals(updateVetDTO.getEntryTime(), vet.getEntryTime());
-        assertEquals(updateVetDTO.getExitTime(), vet.getExitTime());
+        assertEquals(updateVetDTO.getNameU(), vet.getName());
+        assertEquals(updateVetDTO.getSurnameU(), vet.getSurname());
+        assertEquals(updateVetDTO.getMaternalSurnameU(), vet.getMaternalSurname());
+        assertEquals(updateVetDTO.getBirthdateU(), vet.getBirthdate());
+        assertEquals(updateVetDTO.getCellphoneU(), vet.getCellphone());
+        assertEquals(updateVetDTO.getEmailU(), vet.getEmail());
+        assertEquals(updateVetDTO.getSpecialtyU(), vet.getSpecialty());
+        assertEquals(updateVetDTO.getEntryTimeU(), vet.getEntryTime());
+        assertEquals(updateVetDTO.getExitTimeU(), vet.getExitTime());
 
         verify(repository, times(1)).save(vet);
 

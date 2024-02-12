@@ -175,7 +175,7 @@ class PetServiceTest {
     }
 
     @Test
-    @DisplayName("Service should shows an error if pet don't exist")
+    @DisplayName("Service should shows an error if pet doesn't exist")
     void deleteByIdPetNotFoundExceptionTest() throws PetNotFoundException {
 
         Long idPet = 1L;

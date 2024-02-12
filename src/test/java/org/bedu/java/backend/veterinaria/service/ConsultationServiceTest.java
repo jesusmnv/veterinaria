@@ -143,9 +143,9 @@ class ConsultationServiceTest {
     @DisplayName("Service should update a consultation in the repository")
     void updateTest() throws ConsultationNotFoundException {
         UpdateConsultationDTO dto = new UpdateConsultationDTO();
-        dto.setDiagnosis("Diagnosis...");
-        dto.setPrescribedTreatment("Prescribed Treatment...");
-        dto.setObservations("Observations...");
+        dto.setDiagnosisU("Diagnosis...");
+        dto.setPrescribedTreatmentU("Prescribed Treatment...");
+        dto.setObservationsU("Observations...");
 
         Consultation consultation = new Consultation();
 
@@ -158,10 +158,10 @@ class ConsultationServiceTest {
 
         service.update(155L, dto);
 
-        assertEquals(dto.getConsultationDate(), consultation.getConsultationDate());
-        assertEquals(dto.getPrescribedTreatment(), consultation.getPrescribedTreatment());
-        assertEquals(dto.getObservations(), consultation.getObservations());
-    
+        assertEquals(dto.getConsultationDateU(), consultation.getConsultationDate());
+        assertEquals(dto.getPrescribedTreatmentU(), consultation.getPrescribedTreatment());
+        assertEquals(dto.getObservationsU(), consultation.getObservations());
+
         verify(repository, times(1)).save(consultation);
 
     }

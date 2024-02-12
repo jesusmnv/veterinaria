@@ -23,5 +23,14 @@ public interface VetMapper {
     Vet toModel(CreateVetDTO dto);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "name", source = "nameU")
+    @Mapping(target = "surname", source = "surnameU")
+    @Mapping(target = "maternalSurname", source = "maternalSurnameU")
+    @Mapping(target = "birthdate", source = "birthdateU")
+    @Mapping(target = "cellphone", source = "cellphoneU")
+    @Mapping(target = "email", source = "emailU")
+    @Mapping(target = "specialty", source = "specialtyU")
+    @Mapping(target = "entryTime", source = "entryTimeU")
+    @Mapping(target = "exitTime", source = "exitTimeU")
     void update(@MappingTarget Vet veterinario, UpdateVetDTO data);
 }

@@ -17,23 +17,23 @@ public class UpdateConsultationDTO {
     @Schema(description = "Consultation date", example = "2023-11-25")
     @NotNull(message = "Consultation date cannot be null")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate consultationDate;
+    private LocalDate consultationDateU;
 
     @Schema(description = "Consultation diagnosis", example = "Fever and cough")
     @NotBlank(message = "Diagnosis is mandatory")
-    private String diagnosis;
+    private String diagnosisU;
 
     @Schema(description = "Prescribed treatment", example = "Take medication X every 8 hours")
     @NotBlank(message = "Prescribed treatment is mandatory")
-    private String prescribedTreatment;
+    private String prescribedTreatmentU;
 
     @Schema(description = "Additional observations", example = "Follow-up required")
     @NotBlank(message = "Observations are mandatory")
-    private String observations;
+    private String observationsU;
 
     // Relación
-    private Pet pet;
+    private Pet petU;
 
-    private Vet vet;
+    private Vet vetU;
 
 }

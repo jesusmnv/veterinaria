@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Endpoints de Facturas", description = "CRUD de Facturas")
+@Tag(name = "Endpoints of invoices", description = "Invoices CRUD")
 @RestController
 @RequestMapping("/invoices")
 public class InvoiceController {
@@ -32,21 +32,21 @@ public class InvoiceController {
         this.invoiceMedicationService = invoiceMedicationService;
     }
 
-    @Operation(summary = "Obtiene la lista de todas las facturas")
+    @Operation(summary = "Gets the list of all invoices")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<InvoiceDTO> findAll() {
         return service.findAll();
     }
 
-    @Operation(summary = "Registra una factura")
+    @Operation(summary = "Register an invoice")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public InvoiceDTO save(@Valid @RequestBody CreateInvoiceDTO data) {
         return service.save(data);
     }
 
-    @Operation(summary = "Actualiza una factura")
+    @Operation(summary = "Update an invoice")
     @PutMapping("{invoiceId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable(name = "invoiceId") Long invoiceId, @RequestBody UpdateInvoiceDTO data)
@@ -54,7 +54,7 @@ public class InvoiceController {
         service.update(invoiceId, data);
     }
 
-    @Operation(summary = "Elimina una factura")
+    @Operation(summary = "Delete an invoice")
     @DeleteMapping("{invoiceId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable(name = "invoiceId") Long invoiceId) throws InvoiceNotFoundException {
@@ -63,15 +63,15 @@ public class InvoiceController {
 
     // ==========================================================
     // Nuevos métodos
-    @Operation(summary = "Asocia un medicamento a una factura")
+    @Operation(summary = "Associate a medication with an invoice")
     @PostMapping("{invoiceId}/medications")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void addMedication(@PathVariable Long invoiceId,
             @RequestBody AddMedicationDTO data) throws MedicationNotFoundException {
-        invoiceMedicationService.addMedication(invoiceId, data.getMedicationId(),data.getQuantity());
+        invoiceMedicationService.addMedication(invoiceId, data.getMedicationId(), data.getQuantity());
     }
 
-    @Operation(summary = "Obtiene los medicamentos de una factura determinada")
+    @Operation(summary = "Obtains medications from a given invoice")
     @GetMapping("{invoiceId}/medications")
     @ResponseStatus(HttpStatus.OK)
     public List<MedicationDTO> findMedications(@PathVariable Long invoiceId) {

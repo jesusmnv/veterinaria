@@ -139,15 +139,15 @@ class VetControllerTest {
 
         UpdateVetDTO vetDto = new UpdateVetDTO();
 
-        vetDto.setName("Julio");
-        vetDto.setSurname("Avila");
-        vetDto.setMaternalSurname("Robles");
-        vetDto.setBirthdate(LocalDate.parse("1990-01-24"));
-        vetDto.setCellphone("5514785236");
-        vetDto.setEmail("julio@gmail.com");
-        vetDto.setSpecialty("Cirujano");
-        vetDto.setEntryTime(LocalTime.parse("06:00"));
-        vetDto.setExitTime(LocalTime.parse("15:50"));
+        vetDto.setNameU("Julio");
+        vetDto.setSurnameU("Avila");
+        vetDto.setMaternalSurnameU("Robles");
+        vetDto.setBirthdateU(LocalDate.parse("1990-01-24"));
+        vetDto.setCellphoneU("5514785236");
+        vetDto.setEmailU("julio@gmail.com");
+        vetDto.setSpecialtyU("Cirujano");
+        vetDto.setEntryTimeU(LocalTime.parse("06:00"));
+        vetDto.setExitTimeU(LocalTime.parse("15:50"));
 
         controller.update(450l, vetDto);
         verify(service, times(1)).update(450l, vetDto);

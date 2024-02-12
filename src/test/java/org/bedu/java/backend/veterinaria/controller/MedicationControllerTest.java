@@ -116,13 +116,13 @@ class MedicationControllerTest {
     @DisplayName("Controller should update a medication")
     void updateTest() throws MedicationNotFoundException {
         UpdateMedicationDTO dto = new UpdateMedicationDTO();
-        dto.setName("Prednisone");
-        dto.setClassification("Corticosteroid");
-        dto.setDescription("Treats inflammatory and allergic conditions in dogs and cats");
-        dto.setExpirationDate(LocalDate.parse("2023-12-01"));
-        dto.setStock(200);
-        dto.setPrice(20.5F);
-        dto.setUsageInstructions("Administer according to the dose prescribed by the vetU");
+        dto.setNameU("Prednisone");
+        dto.setClassificationU("Corticosteroid");
+        dto.setDescriptionU("Treats inflammatory and allergic conditions in dogs and cats");
+        dto.setExpirationDateU(LocalDate.parse("2023-12-01"));
+        dto.setStockU(200);
+        dto.setPriceU(20.5F);
+        dto.setUsageInstructionsU("Administer according to the dose prescribed by the vetU");
 
         controller.update(400L, dto);
 

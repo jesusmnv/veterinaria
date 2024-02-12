@@ -10,24 +10,24 @@ import org.bedu.java.backend.veterinaria.model.Owner;
 @Data
 public class UpdateInvoiceDTO {
 
-    @Schema(description = "Fecha de la factura", example = "2019-10-23")
-    private LocalDate issuanceDate;
+    @Schema(description = "Invoice date", example = "2019-10-23")
+    private LocalDate issuanceDateU;
 
-    @Schema(description = "Subtotal de la factura", example = "123.50")
-    private float subtotal;
+    @Schema(description = "Subtotal of the invoice", example = "123.50")
+    private float subtotalU;
 
-    @Schema(description = "IVA de la factura (16%)", example = "19.76")
-    private float vat;
+    @Schema(description = "IVA of the invoice (16%)", example = "19.76")
+    private float vatU;
 
-    @Schema(description = "Total de la factura", example = "143.26")
-    private float total;
+    @Schema(description = "Total of the invoice", example = "143.26")
+    private float totalU;
 
-    @Schema(description = "RFC del cliente", example = "HBO8912228A9")
-    private String clientRFC;
+    @Schema(description = "RFC of the customer", example = "HBO8912228A9")
+    private String clientRFCU;
 
-    @Schema(description = "Razón social", example = "Hortensia Bonilla Ortega")
-    private String legalName;
+    @Schema(description = "Company name", example = "Hortensia Bonilla Ortega")
+    private String legalNameU;
 
-    private Owner owner;
+    private Owner ownerU;
 
 }

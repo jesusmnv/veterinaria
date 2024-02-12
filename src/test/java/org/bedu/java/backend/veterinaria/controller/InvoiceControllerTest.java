@@ -48,7 +48,7 @@ class InvoiceControllerTest {
     }
 
     @Test
-    @DisplayName("Controller regresa una lista de facturas")
+    @DisplayName("Controller should return an invoices list")
     void findAllTest() {
         List<InvoiceDTO> data = new LinkedList<>();
         LocalDate fecha = LocalDate.parse("2023-12-12");
@@ -74,7 +74,7 @@ class InvoiceControllerTest {
     }
 
     @Test
-    @DisplayName("Controller guarda una factura")
+    @DisplayName("Controller record an invoice")
     void saveInvoice() {
         CreateInvoiceDTO dto = new CreateInvoiceDTO();
         LocalDate date = LocalDate.parse("2023-12-12");
@@ -100,25 +100,25 @@ class InvoiceControllerTest {
     }
 
     @Test
-    @DisplayName("Controller actualiza una factura")
+    @DisplayName("Controller update an invoice")
     void updateTest() throws InvoiceNotFoundException {
         UpdateInvoiceDTO dto = new UpdateInvoiceDTO();
-        dto.setLegalName("qwerty");
-        dto.setClientRFC("qwerty");
+        dto.setLegalNameU("qwerty");
+        dto.setClientRFCU("qwerty");
 
         controller.update(400L, dto);
         verify(service, times(1)).update(400L, dto);
     }
 
     @Test
-    @DisplayName("Controller elimina una factura")
+    @DisplayName("Controller remove an invoice")
     void deleteTest() throws InvoiceNotFoundException {
         controller.delete(400L);
         verify(service, times(1)).deleteById(400L);
     }
 
     @Test
-    @DisplayName("Controller añade un medicaento a una factura")
+    @DisplayName("Controller add a medication into an invoice")
     void addMedicationTest() throws MedicationNotFoundException {
 
         AddMedicationDTO add = new AddMedicationDTO();
@@ -131,7 +131,7 @@ class InvoiceControllerTest {
     }
 
     @Test
-    @DisplayName("Controllador busca la información de los medicamentos asociados a una factura")
+    @DisplayName("Controller searches for medication information associated with an invoice")
     void showMedicationsTest() {
         controller.findMedications(1L);
         verify(serviceAdd, times(1)).findMedicationsByInvoice(1L);

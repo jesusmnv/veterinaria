@@ -15,30 +15,30 @@ import java.time.LocalDate;
 @Data
 public class CreateInvoiceDTO {
 
-    @Schema(description = "Fecha de la factura", example = "2019-10-23")
-    @NotNull(message = "La fecha de la factura no puede ser nula")
+    @Schema(description = "Invoice date", example = "2019-10-23")
+    @NotNull(message = "Invoice date cannot be null")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate issuanceDate;
 
-    @Schema(description = "Subtotal de la factura", example = "123.50")
-    @DecimalMin(value = "0.1", message = "El subtotal debe ser mayor a cero")
+    @Schema(description = "Invoice subtotal", example = "123.50")
+    @DecimalMin(value = "0.1", message = "Invoice subtotal should be greater than zero")
     private float subtotal;
 
-    @Schema(description = "IVA de la factura (16%)", example = "19.76")
-    @DecimalMin(value = "0.1", message = "El IVA debe ser mayor a cero")
+    @Schema(description = "IVA of the invoice (16%)", example = "19.76")
+    @DecimalMin(value = "0.1", message = "IVA should be greater than zero")
     private float vat;
 
-    @Schema(description = "Total de la factura", example = "143.26")
+    @Schema(description = "Total of the invoice", example = "143.26")
     private float total;
 
-    @Schema(description = "RFC del cliente", example = "HBO8912228A9")
-    @NotBlank(message = "El RFC es obligatorio")
-    @Length(min = 13, max = 13, message = "El RFC debe tener 13 caracteres")
+    @Schema(description = "RFC of customer", example = "HBO8912228A9")
+    @NotBlank(message = "RFC is mandatory")
+    @Length(min = 13, max = 13, message = "RFC should have 13 chars")
     private String clientRFC;
 
-    @Schema(description = "Razón social", example = "Hortensia Bonilla Ortega")
-    @NotBlank(message = "La razón social es obligatoria")
-    @Length(min = 1, max = 250, message = "La razón social no puede exceder de 250 caracteres")
+    @Schema(description = "Company name", example = "Hortensia Bonilla Ortega")
+    @NotBlank(message = "The company name is mandatory")
+    @Length(min = 1, max = 250, message = "The company name must not exceed 250 chars")
     private String legalName;
 
     private Owner owner;

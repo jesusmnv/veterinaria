@@ -66,7 +66,7 @@ class PetControllerTest {
     }
 
     @Test
-    @DisplayName("Controller should save a mascota")
+    @DisplayName("Controller should save a pet")
     void saveTest() {
         CreatePetDTO dto = new CreatePetDTO();
 
@@ -105,7 +105,7 @@ class PetControllerTest {
     }
 
     @Test
-    @DisplayName("Controller should delete a movie")
+    @DisplayName("Controller should delete a pet")
     void deleteByIdTest() throws PetNotFoundException {
         controller.deleteById(3456L);
 

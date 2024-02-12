@@ -19,6 +19,12 @@ public interface ConsultationMapper {
     Consultation toModel(CreateConsultationDTO dto);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "consultationDate", source = "consultationDateU")
+    @Mapping(target = "diagnosis", source = "diagnosisU")
+    @Mapping(target = "prescribedTreatment", source = "prescribedTreatmentU")
+    @Mapping(target = "observations", source = "observationsU")
+    @Mapping(target = "pet", source = "petU")
+    @Mapping(target = "vet", source = "vetU")
     void update(@MappingTarget Consultation consultation, UpdateConsultationDTO data);
 
 }

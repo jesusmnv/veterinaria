@@ -53,10 +53,10 @@ public class InvoiceService {
 
         UpdateInvoiceDTO temp = data;
         log.error("Datos: " + temp);
-        temp.setSubtotal(data.getSubtotal());
-        temp.setVat(temp.getSubtotal() * 0.16F);
-        float total = temp.getVat() + temp.getSubtotal();
-        temp.setTotal(total);
+        temp.setSubtotalU(data.getSubtotalU());
+        temp.setVatU(temp.getSubtotalU() * 0.16F);
+        float total = temp.getVatU() + temp.getSubtotalU();
+        temp.setTotalU(total);
 
         log.error("============TOTAL===============: " + total);
         mapper.update(invoice, temp);

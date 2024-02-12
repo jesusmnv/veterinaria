@@ -90,7 +90,6 @@ class ConsultationControllerTest {
         dto.setPrescribedTreatment("Antibiotics and rest");
         dto.setObservations("The pet seems to be improving, continue monitoring");
 
-
         ConsultationDTO consultationDTO = new ConsultationDTO();
         consultationDTO.setId(100L);
         consultationDTO.setConsultationDate(dto.getConsultationDate());
@@ -120,17 +119,17 @@ class ConsultationControllerTest {
         assertEquals(consultationDTO.getObservations(), result.getObservations());
         assertEquals(consultationDTO.getPet(), result.getPet());
         assertEquals(consultationDTO.getVet(), result.getVet());
-    
+
     }
 
     @Test
     @DisplayName("Controller should update a consultation")
     void updateTest() throws ConsultationNotFoundException {
         UpdateConsultationDTO dto = new UpdateConsultationDTO();
-        dto.setConsultationDate(LocalDate.of(2021, 1, 1));
-        dto.setDiagnosis("Ear infection");
-        dto.setPrescribedTreatment("Antibiotics and ear drops");
-        dto.setObservations("The ownerU reports that the cat has been scratching its ears frequently.");
+        dto.setConsultationDateU(LocalDate.of(2021, 1, 1));
+        dto.setDiagnosisU("Ear infection");
+        dto.setPrescribedTreatmentU("Antibiotics and ear drops");
+        dto.setObservationsU("The ownerU reports that the cat has been scratching its ears frequently.");
 
         Pet p = new Pet();
         p.setId(2L);
@@ -138,8 +137,8 @@ class ConsultationControllerTest {
         Vet v = new Vet();
         v.setId(2L);
 
-        dto.setPet(p);
-        dto.setVet(v);
+        dto.setPetU(p);
+        dto.setVetU(v);
 
         controller.update(300L, dto);
 
@@ -152,6 +151,5 @@ class ConsultationControllerTest {
         controller.deleteById(10L);
         verify(service, times(1)).deleteById(10L);
     }
-
 
 }

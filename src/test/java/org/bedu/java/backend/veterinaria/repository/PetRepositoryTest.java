@@ -143,7 +143,7 @@ class PetRepositoryTest {
     @Test
     @Tag("owner")
     @Tag("mascota")
-    @DisplayName("Probando relaciones entre mascotas y propietarios")
+    @DisplayName("Testing relationships between pets and owners")
     void testRelacionMascotaPropietario() {
         Pet m = new Pet();
         m.setName("Perseo");

@@ -14,10 +14,9 @@ import java.util.List;
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR, nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface InvoiceMapper {
 
-    // Método estático para construir y configurar el ObjectMapper
     public static ObjectMapper createObjectMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.registerModule(new JavaTimeModule()); // Registrar el módulo JavaTimeModule
+        objectMapper.registerModule(new JavaTimeModule());
         return objectMapper;
     }
 
@@ -29,6 +28,13 @@ public interface InvoiceMapper {
     Invoice toModel(CreateInvoiceDTO dto);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "issuanceDate", source = "issuanceDateU")
+    @Mapping(target = "subtotal", source = "subtotalU")
+    @Mapping(target = "vat", source = "vatU")
+    @Mapping(target = "total", source = "totalU")
+    @Mapping(target = "clientRFC", source = "clientRFCU")
+    @Mapping(target = "legalName", source = "legalNameU")
+    @Mapping(target = "owner", source = "ownerU")
     void update(@MappingTarget Invoice invoice, UpdateInvoiceDTO data);
 
 }

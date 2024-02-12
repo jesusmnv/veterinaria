@@ -142,7 +142,7 @@ class OwnerControllerTest {
     }
 
     @Test
-    @DisplayName("Controller should delete a movie")
+    @DisplayName("Controller should delete an owner")
     void deleteByIdTest() throws OwnerNotFoundException {
         controller.deleteById(3456L);
 

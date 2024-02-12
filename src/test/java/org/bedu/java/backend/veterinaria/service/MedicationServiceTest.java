@@ -129,8 +129,8 @@ class MedicationServiceTest {
     @DisplayName("Service should update a medication in the repository")
     void updateTest() throws MedicationNotFoundException {
         UpdateMedicationDTO dto = new UpdateMedicationDTO();
-        dto.setName("Meloxicam");
-        dto.setClassification("Anti-inflammatory");
+        dto.setNameU("Meloxicam");
+        dto.setClassificationU("Anti-inflammatory");
 
         Medication medication = new Medication();
 
@@ -142,8 +142,8 @@ class MedicationServiceTest {
 
         service.update(125L, dto);
 
-        assertEquals(dto.getName(), medication.getName());
-        assertEquals(dto.getClassification(), medication.getClassification());
+        assertEquals(dto.getNameU(), medication.getName());
+        assertEquals(dto.getClassificationU(), medication.getClassification());
         verify(repository, times(1)).save(medication);
 
     }

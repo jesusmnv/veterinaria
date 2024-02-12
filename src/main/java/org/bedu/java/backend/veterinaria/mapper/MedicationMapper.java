@@ -19,6 +19,13 @@ public interface MedicationMapper {
     Medication toModel(CreateMedicationDTO dto);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "name", source = "nameU")
+    @Mapping(target = "classification", source = "classificationU")
+    @Mapping(target = "description", source = "descriptionU")
+    @Mapping(target = "expirationDate", source = "expirationDateU")
+    @Mapping(target = "stock", source = "stockU")
+    @Mapping(target = "price", source = "priceU")
+    @Mapping(target = "usageInstructions", source = "usageInstructionsU")
     void update(@MappingTarget Medication medication, UpdateMedicationDTO data);
 
 }

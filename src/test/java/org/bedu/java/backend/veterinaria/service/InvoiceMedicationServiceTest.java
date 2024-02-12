@@ -50,7 +50,7 @@ class InvoiceMedicationServiceTest {
     }
 
     @Test
-    @DisplayName("Añadir un medicamento a una factura")
+    @DisplayName("Add a medication into an invoice")
     void addMedicamento() throws MedicationNotFoundException {
         Invoice invoice = new Invoice();
         LocalDate fecha = LocalDate.parse("2023-12-12");
@@ -80,7 +80,7 @@ class InvoiceMedicationServiceTest {
     }
 
     @Test
-    @DisplayName("Añadir un medicamento a una factura")
+    @DisplayName("Add a medication into an invoice with error")
     void addMedicamentoWithErrortest() throws MedicationNotFoundException {
         Invoice invoice = new Invoice();
         LocalDate fecha = LocalDate.parse("2023-12-12");
@@ -111,7 +111,7 @@ class InvoiceMedicationServiceTest {
     }
 
     @Test
-    @DisplayName("Retorna una lista de medicamentos de una factura")
+    @DisplayName("Returns a list of medications from an invoice")
     void listMedicamentosTest() throws MedicationNotFoundException {
 
         List<Medication> data = new LinkedList<>();

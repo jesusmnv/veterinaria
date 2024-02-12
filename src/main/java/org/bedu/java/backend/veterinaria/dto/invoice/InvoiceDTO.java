@@ -14,25 +14,25 @@ import org.bedu.java.backend.veterinaria.model.Owner;
 @NoArgsConstructor
 public class InvoiceDTO {
 
-    @Schema(description = "Identificador de la factura", example = "11093")
+    @Schema(description = "Invoice id", example = "11093")
     private Long id;
 
-    @Schema(description = "Fecha de la factura", example = "2019-10-23")
+    @Schema(description = "Invoice date", example = "2019-10-23")
     private LocalDate issuanceDate;
 
-    @Schema(description = "Subtotal de la factura", example = "123.50")
+    @Schema(description = "Subtotal of invoice", example = "123.50")
     private float subtotal;
 
-    @Schema(description = "IVA de la factura (16%)", example = "19.76")
+    @Schema(description = "IVA of the invoice (16%)", example = "19.76")
     private float vat;
 
-    @Schema(description = "Total de la factura", example = "143.26")
+    @Schema(description = "Total of the invoice", example = "143.26")
     private float total;
 
-    @Schema(description = "RFC del cliente", example = "HBO8912228A9")
+    @Schema(description = "RFC of the customer", example = "HBO8912228A9")
     private String clientRFC;
 
-    @Schema(description = "Razón social", example = "Hortensia Bonilla Ortega")
+    @Schema(description = "Company name", example = "Hortensia Bonilla Ortega")
     private String legalName;
 
     private Owner owner;

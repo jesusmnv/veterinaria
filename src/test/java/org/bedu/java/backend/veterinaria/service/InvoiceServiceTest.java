@@ -51,7 +51,7 @@ class InvoiceServiceTest {
     }
 
     @Test
-    @DisplayName("Busqueda de una factura por Id")
+    @DisplayName("Search for an invoice by Id")
     void findByIdTest() {
 
         Invoice invoice = new Invoice();
@@ -83,7 +83,7 @@ class InvoiceServiceTest {
     }
 
     @Test
-    @DisplayName("Service regresa una lista de facturas")
+    @DisplayName("Service returns a list of invoices")
     void findAllTest() {
 
         List<Invoice> data = new LinkedList<>();
@@ -120,7 +120,7 @@ class InvoiceServiceTest {
     }
 
     @Test
-    @DisplayName("Services guarda una factura")
+    @DisplayName("Services saves an invoice")
     void saveTest() {
         LocalDate fecha = LocalDate.parse("2023-12-12");
         CreateInvoiceDTO dto = new CreateInvoiceDTO();
@@ -159,7 +159,7 @@ class InvoiceServiceTest {
     }
 
     @Test
-    @DisplayName("Service intenta actualizar pero manda error por factura no encontrada")
+    @DisplayName("Service tries to update but sends error for invoice not found.")
     void updateWithErrorTest() {
         Optional<Invoice> empty = Optional.empty();
 
@@ -172,12 +172,12 @@ class InvoiceServiceTest {
     }
 
     @Test
-    @DisplayName("Service actualiza una factura")
+    @DisplayName("Service updates an invoice")
     void updateTest() throws InvoiceNotFoundException {
 
         UpdateInvoiceDTO data = new UpdateInvoiceDTO();
-        data.setLegalName("qwerty");
-        data.setClientRFC("ytrewq");
+        data.setLegalNameU("qwerty");
+        data.setClientRFCU("ytrewq");
 
         Invoice invoice = new Invoice();
 
@@ -189,21 +189,21 @@ class InvoiceServiceTest {
 
         service.update(1L, data);
 
-        assertEquals(data.getLegalName(), invoice.getLegalName());
-        assertEquals(data.getClientRFC(), invoice.getClientRFC());
+        assertEquals(data.getLegalNameU(), invoice.getLegalName());
+        assertEquals(data.getClientRFCU(), invoice.getClientRFC());
         verify(repository, times(1)).save(invoice);
 
     }
 
     @Test
-    @DisplayName("Service intenta eliminar una factura pero marca error por no encontrarla")
+    @DisplayName("Service tries to delete an invoice but fails to find it.")
     void deleteWithErrorTest() throws InvoiceNotFoundException {
         assertThrows(InvoiceNotFoundException.class, () -> service.deleteById(1L));
 
     }
 
     @Test
-    @DisplayName("Service elimina una factura por Id")
+    @DisplayName("Service deletes an invoice by Id")
     void deleteByIdTest() throws InvoiceNotFoundException {
 
         Invoice invoice = new Invoice();

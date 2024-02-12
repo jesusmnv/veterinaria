@@ -57,7 +57,7 @@ class InvoiceControllerE2ETest {
     }
 
     @Test
-    @DisplayName("GET /invoices regresa una lista vacia ")
+    @DisplayName("GET /invoices should return an empty list")
     void emptyListTest() throws Exception {
         // Realiza una peticion de tipo GET /invoices
         MvcResult result = mockMvc.perform(get("/invoices")).andExpect(status().isOk()).andReturn();
@@ -68,7 +68,7 @@ class InvoiceControllerE2ETest {
     }
 
     @Test
-    @DisplayName("GET /invoices retorna una lista de invoices")
+    @DisplayName("GET /invoices should return a list of invoices")
     void findAll() throws Exception {
         Invoice invoice = new Invoice();
         LocalDate fecha = LocalDate.parse("2023-12-12");
@@ -103,7 +103,7 @@ class InvoiceControllerE2ETest {
     }
 
     @Test
-    @DisplayName("POST /invoices registro de una factura con algun parametro faltante ")
+    @DisplayName("POST /invoices should return an error if any parameter is missing")
     void postMissingParameterRequestBodyTest() throws Exception {
         MvcResult result = mockMvc
                 .perform(post("/invoices").contentType("application/json").content("{\"clientRFC\":\"qwerty\"}"))
@@ -115,58 +115,5 @@ class InvoiceControllerE2ETest {
         assertEquals("ERR_VALID", response.getCode());
         assertEquals("There was an error validating the input data", response.getMessage());
     }
-
-    // @Test
-    // @DisplayName("POST /invoices registro de una factura de manera exitosa")
-    // void postTest() throws Exception {
-
-    // Propietario ownerU = new Propietario();
-    // ownerU.setId(1L);
-    // ownerU.setName("Isabel");
-    // ownerU.setApellidoPaterno("Fuentes");
-    // ownerU.setApellidoMaterno("Jimenez");
-    // ownerU.setDireccion("Avenida 345");
-    // ownerU.setCelular("9991112222");
-    // ownerU.setCorreo("isabel@example.com");
-    // ownerU.setFechaNacimiento(LocalDate.parse("1984-02-17"));
-    // ownerU.setOcupacion("Psicóloga");
-
-    // propietarioRepository.save(ownerU);
-
-    // Invoice factura = new Invoice();
-    // factura.setId(1L);
-    // factura.setIssuanceDate(LocalDate.parse("2023-12-10"));
-    // factura.setVat(240F);
-    // factura.setOwnerU(ownerU);
-    // factura.setLegalName("Razón Social del Cliente2");
-    // factura.setClientRFC("RFC del Clien");
-    // factura.setSubtotal(1500.0F);
-    // factura.setTotal(1740);
-
-    // String contenido = "{\"issuanceDate\": \"2023-12-12\", "
-    // + "\"subtotal\": 1500.0, "
-    // + "\"vat\": 240, "
-    // + "\"total\": 1740, "
-    // + "\"clientRFC\": \"RFC del Clien\", "
-    // + "\"legalName\": \"Razón Social del Cliente2\", "
-    // + "\"ownerU\": {\"id\": 1}}";
-
-    // MvcResult result =
-    // mockMvc.perform(post("/invoices").contentType("application/json")
-    // .content(contenido))
-    // .andExpect(status().isCreated())
-    // .andReturn();
-
-    // String content =
-    // result.getResponse().getContentAsString(StandardCharsets.UTF_8);
-    // // Creamos una referencia del tipo al que se va a convertir el JSON
-    // mapper.registerModule(new JavaTimeModule());
-    // Invoice response = mapper.readValue(content, Invoice.class);
-
-    // assertNotNull(result);
-    // assertEquals(response.getId(), factura.getId());
-    // assertEquals(response.getOwnerU().getId(),
-    // factura.getOwnerU().getId());
-    // }
 
 }
