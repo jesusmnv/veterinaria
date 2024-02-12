@@ -14,39 +14,39 @@ import java.time.LocalTime;
 @ToString
 @Entity
 @Table(name = "vet")
-public class Veterinario {
+public class Vet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 100)
-    private String nombre;
+    private String name;
 
-    @Column(name = "apellido_paterno", nullable = false, length = 100)
-    private String apellidoPaterno;
+    @Column(name = "p_last_name", nullable = false, length = 100)
+    private String pLastName;
 
-    @Column(name = "apellido_materno", nullable = false, length = 100)
-    private String apellidoMaterno;
+    @Column(name = "m_last_name", nullable = false, length = 100)
+    private String mLastName;
 
-    @Column(name = "fecha_nacimiento", nullable = false)
-    private LocalDate fechaNacimiento;
+    @Column(name = "birdDate", nullable = false)
+    private LocalDate birthDate;
 
     @Column(nullable = false, length = 13)
-    private String celular;
+    private String cellPhone;
 
     @Column(nullable = false, length = 100)
-    private String correo;
+    private String email;
 
     @Column(nullable = false, length = 100)
-    private String especialidad;
+    private String specialty;
 
-    @Column(name = "hora_entrada", nullable = false)
+    @Column(name = "entry_time", nullable = false)
     @DateTimeFormat(pattern = "HH:mm")
-    private LocalTime horaEntrada;
+    private LocalTime entryTime;
 
-    @Column(name = "hora_salida", nullable = false)
+    @Column(name = "exit_time", nullable = false)
     @DateTimeFormat(pattern = "HH:mm")
-    private LocalTime horaSalida;
+    private LocalTime exitTime;
 
 }

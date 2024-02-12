@@ -120,24 +120,24 @@ class InvoiceControllerE2ETest {
     // @DisplayName("POST /invoices registro de una factura de manera exitosa")
     // void postTest() throws Exception {
 
-    // Propietario owner = new Propietario();
-    // owner.setId(1L);
-    // owner.setName("Isabel");
-    // owner.setApellidoPaterno("Fuentes");
-    // owner.setApellidoMaterno("Jimenez");
-    // owner.setDireccion("Avenida 345");
-    // owner.setCelular("9991112222");
-    // owner.setCorreo("isabel@example.com");
-    // owner.setFechaNacimiento(LocalDate.parse("1984-02-17"));
-    // owner.setOcupacion("Psicóloga");
+    // Propietario ownerU = new Propietario();
+    // ownerU.setId(1L);
+    // ownerU.setName("Isabel");
+    // ownerU.setApellidoPaterno("Fuentes");
+    // ownerU.setApellidoMaterno("Jimenez");
+    // ownerU.setDireccion("Avenida 345");
+    // ownerU.setCelular("9991112222");
+    // ownerU.setCorreo("isabel@example.com");
+    // ownerU.setFechaNacimiento(LocalDate.parse("1984-02-17"));
+    // ownerU.setOcupacion("Psicóloga");
 
-    // propietarioRepository.save(owner);
+    // propietarioRepository.save(ownerU);
 
     // Invoice factura = new Invoice();
     // factura.setId(1L);
     // factura.setIssuanceDate(LocalDate.parse("2023-12-10"));
     // factura.setVat(240F);
-    // factura.setOwner(owner);
+    // factura.setOwnerU(ownerU);
     // factura.setLegalName("Razón Social del Cliente2");
     // factura.setClientRFC("RFC del Clien");
     // factura.setSubtotal(1500.0F);
@@ -149,7 +149,7 @@ class InvoiceControllerE2ETest {
     // + "\"total\": 1740, "
     // + "\"clientRFC\": \"RFC del Clien\", "
     // + "\"legalName\": \"Razón Social del Cliente2\", "
-    // + "\"owner\": {\"id\": 1}}";
+    // + "\"ownerU\": {\"id\": 1}}";
 
     // MvcResult result =
     // mockMvc.perform(post("/invoices").contentType("application/json")
@@ -165,8 +165,8 @@ class InvoiceControllerE2ETest {
 
     // assertNotNull(result);
     // assertEquals(response.getId(), factura.getId());
-    // assertEquals(response.getOwner().getId(),
-    // factura.getOwner().getId());
+    // assertEquals(response.getOwnerU().getId(),
+    // factura.getOwnerU().getId());
     // }
 
 }

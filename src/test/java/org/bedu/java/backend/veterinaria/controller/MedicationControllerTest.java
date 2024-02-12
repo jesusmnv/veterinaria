@@ -52,7 +52,7 @@ class MedicationControllerTest {
         medication.setExpirationDate(LocalDate.parse("2023-12-01"));
         medication.setStock(150);
         medication.setPrice(10.5F);
-        medication.setUsageInstructions("Administer 1 tablet with food as directed by the vet");
+        medication.setUsageInstructions("Administer 1 tablet with food as directed by the vetU");
 
         data.add(medication);
 
@@ -84,7 +84,7 @@ class MedicationControllerTest {
         dto.setExpirationDate(LocalDate.parse("2023-12-01"));
         dto.setStock(150);
         dto.setPrice(10.5F);
-        dto.setUsageInstructions("Administer 1 tablet with food as directed by the vet");
+        dto.setUsageInstructions("Administer 1 tablet with food as directed by the vetU");
 
         MedicationDTO medication = new MedicationDTO();
         medication.setId(300L);
@@ -122,7 +122,7 @@ class MedicationControllerTest {
         dto.setExpirationDate(LocalDate.parse("2023-12-01"));
         dto.setStock(200);
         dto.setPrice(20.5F);
-        dto.setUsageInstructions("Administer according to the dose prescribed by the vet");
+        dto.setUsageInstructions("Administer according to the dose prescribed by the vetU");
 
         controller.update(400L, dto);
 

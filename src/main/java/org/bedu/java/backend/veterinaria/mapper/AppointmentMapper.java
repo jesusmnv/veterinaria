@@ -19,6 +19,12 @@ public interface AppointmentMapper {
     Appointment toModel(CreateAppointmentDTO dto);
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "appointmentDate", source = "appointmentDateU")
+    @Mapping(target = "appointmentTime", source = "appointmentTimeU")
+    @Mapping(target = "firstAppointment", source = "firstAppointmentU")
+    @Mapping(target = "appointmentReason", source = "appointmentReasonU")
+    @Mapping(target = "vet", source = "vetU")
+    @Mapping(target = "owner", source = "ownerU")
     void update(@MappingTarget Appointment appointment, UpdateAppointmentDTO data);
 
 }

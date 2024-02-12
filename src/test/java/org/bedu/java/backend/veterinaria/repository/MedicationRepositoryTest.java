@@ -54,7 +54,7 @@ class MedicationRepositoryTest {
         medication2.setExpirationDate(LocalDate.parse("2023-12-01"));
         medication2.setStock(150);
         medication2.setPrice(10.5F);
-        medication2.setUsageInstructions("Administer according to the dose prescribed by the vet");
+        medication2.setUsageInstructions("Administer according to the dose prescribed by the vetU");
 
         medication3.setName("Furosemide");
         medication3.setClassification("Loop Diuretic");
@@ -62,7 +62,7 @@ class MedicationRepositoryTest {
         medication3.setExpirationDate(LocalDate.parse("2026-06-06"));
         medication3.setStock(260);
         medication3.setPrice(26.66F);
-        medication3.setUsageInstructions("Administer according to the dose prescribed by the vet");
+        medication3.setUsageInstructions("Administer according to the dose prescribed by the vetU");
 
         manager.persist(medication1);
         manager.persist(medication2);

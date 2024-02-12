@@ -10,7 +10,7 @@ import java.util.List;
 import org.bedu.java.backend.veterinaria.model.Consultation;
 import org.bedu.java.backend.veterinaria.model.Pet;
 import org.bedu.java.backend.veterinaria.model.Owner;
-import org.bedu.java.backend.veterinaria.model.Veterinario;
+import org.bedu.java.backend.veterinaria.model.Vet;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -83,17 +83,17 @@ class ConsultationRepositoryTest {
                 owner.setOccupation("Arquitecta");
                 pet.setOwner(manager.merge(owner));
 
-                Veterinario vet = new Veterinario();
+                Vet vet = new Vet();
                 vet.setId(7L);
-                vet.setNombre("Sofía");
-                vet.setApellidoPaterno("Rodríguez");
-                vet.setApellidoMaterno("Santos");
-                vet.setFechaNacimiento(LocalDate.parse("1987-11-28"));
-                vet.setCelular("555-789-0123");
-                vet.setCorreo("sofia.rodriguez@email.com");
-                vet.setEspecialidad("Cardiología");
-                vet.setHoraEntrada(LocalTime.parse("10:00"));
-                vet.setHoraSalida(LocalTime.parse("18:00"));
+                vet.setName("Sofía");
+                vet.setPLastName("Rodríguez");
+                vet.setMLastName("Santos");
+                vet.setBirthDate(LocalDate.parse("1987-11-28"));
+                vet.setCellPhone("555-789-0123");
+                vet.setEmail("sofia.rodriguez@email.com");
+                vet.setSpecialty("Cardiología");
+                vet.setEntryTime(LocalTime.parse("10:00"));
+                vet.setExitTime(LocalTime.parse("18:00"));
 
                 consultation.setPet(manager.merge(pet));
                 consultation.setVet(manager.merge(vet));
@@ -132,17 +132,17 @@ class ConsultationRepositoryTest {
                 owner.setOccupation("Psicóloga");
                 pet.setOwner(manager.merge(owner));
 
-                Veterinario vet = new Veterinario();
+                Vet vet = new Vet();
                 vet.setId(9L);
-                vet.setNombre("María");
-                vet.setApellidoPaterno("López");
-                vet.setApellidoMaterno("Herrera");
-                vet.setFechaNacimiento(LocalDate.parse("1984-08-23"));
-                vet.setCelular("555-901-2345");
-                vet.setCorreo("maria.lopez@email.com");
-                vet.setEspecialidad("Gastroenterología");
-                vet.setHoraEntrada(LocalTime.parse("08:45"));
-                vet.setHoraSalida(LocalTime.parse("16:45"));
+                vet.setName("María");
+                vet.setPLastName("López");
+                vet.setMLastName("Herrera");
+                vet.setBirthDate(LocalDate.parse("1984-08-23"));
+                vet.setCellPhone("555-901-2345");
+                vet.setEmail("maria.lopez@email.com");
+                vet.setSpecialty("Gastroenterología");
+                vet.setEntryTime(LocalTime.parse("08:45"));
+                vet.setExitTime(LocalTime.parse("16:45"));
 
                 consultation.setPet(manager.merge(pet));
                 consultation.setVet(manager.merge(vet));
@@ -181,17 +181,17 @@ class ConsultationRepositoryTest {
                 owner.setOccupation("Enfermera");
                 pet.setOwner(manager.merge(owner));
 
-                Veterinario vet = new Veterinario();
+                Vet vet = new Vet();
                 vet.setId(3L);
-                vet.setNombre("Laura");
-                vet.setApellidoPaterno("Sánchez");
-                vet.setApellidoMaterno("Ramírez");
-                vet.setFechaNacimiento(LocalDate.parse("1988-09-18"));
-                vet.setCelular("555-345-6789");
-                vet.setCorreo("laura.sanchez@email.com");
-                vet.setEspecialidad("Dermatología");
-                vet.setHoraEntrada(LocalTime.parse("08:00"));
-                vet.setHoraSalida(LocalTime.parse("16:00"));
+                vet.setName("Laura");
+                vet.setPLastName("Sánchez");
+                vet.setMLastName("Ramírez");
+                vet.setBirthDate(LocalDate.parse("1988-09-18"));
+                vet.setCellPhone("555-345-6789");
+                vet.setEmail("laura.sanchez@email.com");
+                vet.setSpecialty("Dermatología");
+                vet.setEntryTime(LocalTime.parse("08:00"));
+                vet.setExitTime(LocalTime.parse("16:00"));
 
                 consultation.setPet(manager.merge(pet));
                 consultation.setVet(manager.merge(vet));

@@ -46,7 +46,7 @@ class ConsultationControllerE2ETest {
         + "\"pet\": {"
         + "  \"id\": 9"
         + "},"
-        + "\"vet\": {"
+        + "\"vetU\": {"
         + "  \"id\": 8"
         + "}"
         + "}";
