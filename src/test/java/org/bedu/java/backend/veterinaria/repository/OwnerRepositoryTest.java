@@ -53,12 +53,12 @@ class OwnerRepositoryTest {
         Owner p = new Owner();
         // p.setId(7L);
         p.setName("Carmen");
-        p.setPLastName("Sanchez");
-        p.setMLastName("Gomez");
+        p.setSurname("Sanchez");
+        p.setMaternalSurname("Gomez");
         p.setAddress("Avenida 567");
-        p.setCellPhone("1231231234");
+        p.setCellphone("1231231234");
         p.setEmail("carmen@example.com");
-        p.setBirthDate(LocalDate.parse("1978-06-15"));
+        p.setBirthdate(LocalDate.parse("1978-06-15"));
         p.setOccupation("Arquitecta");
 
         return p;
@@ -70,12 +70,12 @@ class OwnerRepositoryTest {
         Owner p = new Owner();
         // p.setId(9L);
         p.setName("Isabel");
-        p.setPLastName("Fuentes");
-        p.setMLastName("Jimenez");
+        p.setSurname("Fuentes");
+        p.setMaternalSurname("Jimenez");
         p.setAddress("Avenida 345");
-        p.setCellPhone("9991112222");
+        p.setCellphone("9991112222");
         p.setEmail("isabel@example.com");
-        p.setBirthDate(LocalDate.parse("1984-02-17"));
+        p.setBirthdate(LocalDate.parse("1984-02-17"));
         p.setOccupation("Psicóloga");
 
         return p;
@@ -87,12 +87,12 @@ class OwnerRepositoryTest {
         Owner p = new Owner();
         // p.setId(3L);
         p.setName("Laura");
-        p.setPLastName("Diaz");
-        p.setMLastName("Santos");
+        p.setSurname("Diaz");
+        p.setMaternalSurname("Santos");
         p.setAddress("Calle 456");
-        p.setCellPhone("9876543210");
+        p.setCellphone("9876543210");
         p.setEmail("laura@example.com");
-        p.setBirthDate(LocalDate.parse("1992-08-20"));
+        p.setBirthdate(LocalDate.parse("1992-08-20"));
         p.setOccupation("Enfermera");
 
         return p;

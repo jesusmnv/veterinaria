@@ -18,32 +18,32 @@ public class CreateVetDTO {
     @Schema(description = "Vet name", example = "Alberto")
     @NotBlank(message = "The vet name is mandatory")
     @Length(min = 1, max = 100, message = "Vet's name must not exceed 100 chars")
-    private String name;
+    private String nameVet;
 
     @Schema(description = "Surname", example = "Juarez")
     @NotBlank(message = "The vet surname is mandatory")
     @Length(min = 1, max = 100, message = "The surname can't exceed 100 characteres")
-    private String surname;
+    private String surnameVet;
 
     @Schema(description = "Maternal surname", example = "Hernandez")
     @NotBlank(message = "The vet maternal surname is mandatory")
     @Length(min = 1, max = 100, message = "The maternal surname can't exceed 100 characteres")
-    private String maternalSurname;
+    private String maternalSurnameVet;
 
     @Schema(description = "Date of Birth", example = "1998-12-25")
     @NotNull(message = "The birthdate cannot be null")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate birthdate;
+    private LocalDate birthdateVet;
 
     @Schema(description = "Cellphone", example = "+528331593654")
     @NotBlank(message = "The vet cellphone is mandatory")
     @Length(min = 1, max = 100, message = "The cellphone can't exceed 13 characteres")
-    private String cellphone;
+    private String cellphoneVet;
 
     @Schema(description = "Email address", example = "albertojuHrd@gmail.com")
     @NotBlank(message = "The vet email address is mandatory")
     @Length(min = 1, max = 100, message = "The email address can't exceed 100 characteres")
-    private String email;
+    private String emailVet;
 
     @Schema(description = "Specialty", example = "Odontología")
     @NotBlank(message = "The vet specialty is mandatory")

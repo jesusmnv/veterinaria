@@ -74,12 +74,12 @@ class ConsultationRepositoryTest {
                 Owner owner = new Owner();
                 owner.setId(7L);
                 owner.setName("Carmen");
-                owner.setPLastName("Sanchez");
-                owner.setMLastName("Gomez");
+                owner.setSurname("Sanchez");
+                owner.setMaternalSurname("Gomez");
                 owner.setAddress("Avenida 567");
-                owner.setCellPhone("1231231234");
+                owner.setCellphone("1231231234");
                 owner.setEmail("carmen@example.com");
-                owner.setBirthDate(LocalDate.parse("1978-06-15"));
+                owner.setBirthdate(LocalDate.parse("1978-06-15"));
                 owner.setOccupation("Arquitecta");
                 pet.setOwner(manager.merge(owner));
 
@@ -123,12 +123,12 @@ class ConsultationRepositoryTest {
                 Owner owner = new Owner();
                 owner.setId(9L);
                 owner.setName("Isabel");
-                owner.setPLastName("Fuentes");
-                owner.setMLastName("Jimenez");
+                owner.setSurname("Fuentes");
+                owner.setMaternalSurname("Jimenez");
                 owner.setAddress("Avenida 345");
-                owner.setCellPhone("9991112222");
+                owner.setCellphone("9991112222");
                 owner.setEmail("isabel@example.com");
-                owner.setBirthDate(LocalDate.parse("1984-02-17"));
+                owner.setBirthdate(LocalDate.parse("1984-02-17"));
                 owner.setOccupation("Psicóloga");
                 pet.setOwner(manager.merge(owner));
 
@@ -172,12 +172,12 @@ class ConsultationRepositoryTest {
                 Owner owner = new Owner();
                 owner.setId(3L);
                 owner.setName("Laura");
-                owner.setPLastName("Diaz");
-                owner.setMLastName("Santos");
+                owner.setSurname("Diaz");
+                owner.setMaternalSurname("Santos");
                 owner.setAddress("Calle 456");
-                owner.setCellPhone("9876543210");
+                owner.setCellphone("9876543210");
                 owner.setEmail("laura@example.com");
-                owner.setBirthDate(LocalDate.parse("1992-08-20"));
+                owner.setBirthdate(LocalDate.parse("1992-08-20"));
                 owner.setOccupation("Enfermera");
                 pet.setOwner(manager.merge(owner));
 

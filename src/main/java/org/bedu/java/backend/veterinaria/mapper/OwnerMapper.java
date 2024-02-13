@@ -23,12 +23,12 @@ public interface OwnerMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "name", source = "nameU")
-    @Mapping(target = "PLastName", source = "PLastNameU")
-    @Mapping(target = "MLastName", source = "MLastNameU")
+    @Mapping(target = "surname", source = "surnameU")
+    @Mapping(target = "maternalSurname", source = "maternalSurnameU")
     @Mapping(target = "address", source = "addressU")
-    @Mapping(target = "cellPhone", source = "cellPhoneU")
+    @Mapping(target = "cellphone", source = "cellphoneU")
     @Mapping(target = "email", source = "emailU")
-    @Mapping(target = "birthDate", source = "birthDateU")
+    @Mapping(target = "birthdate", source = "birthdateU")
     @Mapping(target = "occupation", source = "occupationU")
     void update(@MappingTarget Owner owner, UpdateOwnerDTO data);
 

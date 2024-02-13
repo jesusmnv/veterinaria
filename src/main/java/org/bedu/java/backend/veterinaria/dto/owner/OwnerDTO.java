@@ -19,22 +19,22 @@ public class OwnerDTO {
     private String name;
 
     @Schema(description = "Paternal last name", example = "Ramírez")
-    private String pLastName;
+    private String surname;
 
     @Schema(description = "Maternal last name", example = "Tenorio")
-    private String mLastName;
+    private String maternalSurname;
 
     @Schema(description = "Address", example = "Avenida 12 #34, Angelópolis, Puebla")
     private String address;
 
-    @Schema(description = "Cell phone", example = "+52 651 239 6312")
-    private String cellPhone;
+    @Schema(description = "Cellphone", example = "+52 651 239 6312")
+    private String cellphone;
 
     @Schema(description = "Owner's email", example = "tenorio.miguel@gmail.com")
     private String email;
 
     @Schema(description = "Owner's date of birth", example = "1998-08-23")
-    private LocalDate birthDate;
+    private LocalDate birthdate;
 
     @Schema(description = "Owner's occupation", example = "Empleado")
     private String occupation;

@@ -55,8 +55,6 @@ class VetControllerE2ETest {
         @DisplayName("GET /vets should return an empty list")
         void emptyListTest() throws Exception {
 
-                // Realizar una petición de tipo GET hacia /veterinarios y esperar que el
-                // resultado sea 200
                 MvcResult result = mockMvc.perform(get(BASE))
                                 .andExpect(status().isOk()).andReturn();
 
@@ -129,11 +127,11 @@ class VetControllerE2ETest {
         @DisplayName("POST /vets should be return an error if name is missing")
         void nameMissingRequestBodyTest() throws Exception {
                 String jsonString = "{"
-                                + "\"surname\": \"Velez\","
-                                + "\"maternalSurname\": \"Ramirez\","
-                                + "\"birthdate\": \"2001-01-01\","
-                                + "\"cellphone\": \"1234567890\","
-                                + "\"email\": \"velez@gmail.com\","
+                                + "\"surnameVet\": \"Velez\","
+                                + "\"maternalSurnameVet\": \"Ramirez\","
+                                + "\"birthdateVet\": \"2001-01-01\","
+                                + "\"cellphoneVet\": \"1234567890\","
+                                + "\"emailVet\": \"velez@gmail.com\","
                                 + "\"specialty\": \"Cirujano\","
                                 + "\"entryTime\": \"08:00\","
                                 + "\"exitTime\": \"10:00\""

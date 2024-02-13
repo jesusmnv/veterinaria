@@ -62,12 +62,12 @@ class AppointmentRepositoryTest {
     Owner owner = new Owner();
     owner.setId(7L);
     owner.setName("Marcos");
-    owner.setPLastName("Solis");
-    owner.setMLastName("Cruz");
+    owner.setSurname("Solis");
+    owner.setMaternalSurname("Cruz");
     owner.setAddress("Centro 789");
-    owner.setCellPhone("1234567890");
+    owner.setCellphone("1234567890");
     owner.setEmail("marcos@example.com");
-    owner.setBirthDate(LocalDate.parse("1980-08-08"));
+    owner.setBirthdate(LocalDate.parse("1980-08-08"));
     owner.setOccupation("Maestro");
 
     Vet vet = new Vet();
@@ -99,12 +99,12 @@ class AppointmentRepositoryTest {
     Owner owner = new Owner();
     owner.setId(7L);
     owner.setName("María");
-    owner.setPLastName("Solis");
-    owner.setMLastName("Cruz");
+    owner.setSurname("Solis");
+    owner.setMaternalSurname("Cruz");
     owner.setAddress("Centro 789");
-    owner.setCellPhone("1234567890");
+    owner.setCellphone("1234567890");
     owner.setEmail("maría@example.com");
-    owner.setBirthDate(LocalDate.parse("1980-08-08"));
+    owner.setBirthdate(LocalDate.parse("1980-08-08"));
     owner.setOccupation("Comerciante");
 
     Vet vet = new Vet();
@@ -136,12 +136,12 @@ class AppointmentRepositoryTest {
     Owner owner = new Owner();
     owner.setId(7L);
     owner.setName("Mónica");
-    owner.setPLastName("Solis");
-    owner.setMLastName("Cruz");
+    owner.setSurname("Solis");
+    owner.setMaternalSurname("Cruz");
     owner.setAddress("Centro 789");
-    owner.setCellPhone("1234567890");
+    owner.setCellphone("1234567890");
     owner.setEmail("monica@example.com");
-    owner.setBirthDate(LocalDate.parse("1980-08-08"));
+    owner.setBirthdate(LocalDate.parse("1980-08-08"));
     owner.setOccupation("Abogado");
 
     Vet vet = new Vet();

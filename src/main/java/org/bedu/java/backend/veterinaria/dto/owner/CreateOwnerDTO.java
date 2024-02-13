@@ -22,21 +22,21 @@ public class CreateOwnerDTO {
     @Schema(description = "Paternal last name", example = "Ramírez")
     @NotBlank(message = "Paternal last name is mandatory")
     @Length(min = 1, max = 70, message = "Owner's paternal last name must not exceed 70 chars")
-    private String pLastName;
+    private String surname;
 
     @Schema(description = "Maternal last name", example = "Tenorio")
     @NotBlank(message = "Maternal last name is mandatory")
     @Length(min = 1, max = 70, message = "Owner's maternal last name name must not exceed 70 chars")
-    private String mLastName;
+    private String maternalSurname;
 
     @Schema(description = "Address", example = "Avenida 12 #34, Angelópolis, Puebla")
     @NotBlank(message = "Owner address is mandatory")
     private String address;
 
-    @Schema(description = "Cell phone", example = "+52 651 239 6312")
-    @NotBlank(message = "Cell phone is mandatory")
+    @Schema(description = "Cellphone", example = "+52 651 239 6312")
+    @NotBlank(message = "Cellphone is mandatory")
     @Length(min = 1, max = 15, message = "Owner's cell phone must not exceed 15 chars")
-    private String cellPhone;
+    private String cellphone;
 
     @Schema(description = "Owner's email", example = "tenorio.miguel@gmail.com")
     @NotBlank(message = "Owner's email is mandatory")
@@ -46,7 +46,7 @@ public class CreateOwnerDTO {
 
     @Schema(description = "Owner's date of birth", example = "1998-08-23")
     @NotNull(message = "Date of birth is mandatory")
-    private LocalDate birthDate;
+    private LocalDate birthdate;
 
     @Schema(description = "Owner's occupation", example = "Empleado")
     @Column(nullable = false, length = 100)

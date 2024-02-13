@@ -50,12 +50,12 @@ class OwnerControllerTest {
 
         p.setId(7L);
         p.setName("Carmen");
-        p.setPLastName("Sanchez");
-        p.setMLastName("Gomez");
+        p.setSurname("Sanchez");
+        p.setMaternalSurname("Gomez");
         p.setAddress("Avenida 567");
-        p.setCellPhone("1231231234");
+        p.setCellphone("1231231234");
         p.setEmail("carmen@example.com");
-        p.setBirthDate(LocalDate.parse("1978-06-15"));
+        p.setBirthdate(LocalDate.parse("1978-06-15"));
         p.setOccupation("Arquitecta");
 
         data.add(p);
@@ -68,12 +68,12 @@ class OwnerControllerTest {
         assertTrue(result.size() > 0);
         assertEquals(p.getId(), result.get(0).getId());
         assertEquals(p.getName(), result.get(0).getName());
-        assertEquals(p.getPLastName(), result.get(0).getPLastName());
-        assertEquals(p.getMLastName(), result.get(0).getMLastName());
+        assertEquals(p.getSurname(), result.get(0).getSurname());
+        assertEquals(p.getMaternalSurname(), result.get(0).getMaternalSurname());
         assertEquals(p.getAddress(), result.get(0).getAddress());
-        assertEquals(p.getCellPhone(), result.get(0).getCellPhone());
+        assertEquals(p.getCellphone(), result.get(0).getCellphone());
         assertEquals(p.getEmail(), result.get(0).getEmail());
-        assertEquals(p.getBirthDate(), result.get(0).getBirthDate());
+        assertEquals(p.getBirthdate(), result.get(0).getBirthdate());
         assertEquals(p.getOccupation(), result.get(0).getOccupation());
 
     }
@@ -84,24 +84,24 @@ class OwnerControllerTest {
         CreateOwnerDTO dto = new CreateOwnerDTO();
 
         dto.setName("Laura");
-        dto.setPLastName("Diaz");
-        dto.setMLastName("Santos");
+        dto.setSurname("Diaz");
+        dto.setMaternalSurname("Santos");
         dto.setAddress("Calle 456");
-        dto.setCellPhone("9876543210");
+        dto.setCellphone("9876543210");
         dto.setEmail("laura@example.com");
-        dto.setBirthDate(LocalDate.parse("1992-08-20"));
+        dto.setBirthdate(LocalDate.parse("1992-08-20"));
         dto.setOccupation("Enfermera");
 
         OwnerDTO p = new OwnerDTO();
 
         p.setId(546L);
         p.setName(dto.getName());
-        p.setPLastName(dto.getPLastName());
-        p.setMLastName(dto.getMLastName());
+        p.setSurname(dto.getSurname());
+        p.setMaternalSurname(dto.getMaternalSurname());
         p.setAddress(dto.getAddress());
-        p.setCellPhone(dto.getCellPhone());
+        p.setCellphone(dto.getCellphone());
         p.setEmail(dto.getEmail());
-        p.setBirthDate(dto.getBirthDate());
+        p.setBirthdate(dto.getBirthdate());
         p.setOccupation(dto.getOccupation());
 
         when(service.save(any(CreateOwnerDTO.class))).thenReturn(p);
@@ -111,12 +111,12 @@ class OwnerControllerTest {
         assertNotNull(result);
         assertEquals(p.getId(), result.getId());
         assertEquals(p.getName(), result.getName());
-        assertEquals(p.getPLastName(), result.getPLastName());
-        assertEquals(p.getMLastName(), result.getMLastName());
+        assertEquals(p.getSurname(), result.getSurname());
+        assertEquals(p.getMaternalSurname(), result.getMaternalSurname());
         assertEquals(p.getAddress(), result.getAddress());
-        assertEquals(p.getCellPhone(), result.getCellPhone());
+        assertEquals(p.getCellphone(), result.getCellphone());
         assertEquals(p.getEmail(), result.getEmail());
-        assertEquals(p.getBirthDate(), result.getBirthDate());
+        assertEquals(p.getBirthdate(), result.getBirthdate());
         assertEquals(p.getOccupation(), result.getOccupation());
     }
 
@@ -128,12 +128,12 @@ class OwnerControllerTest {
         Long idOwner = 3L;
 
         dto.setNameU("Isabel");
-        dto.setPLastNameU("Fuentes");
-        dto.setMLastNameU("Jimenez");
+        dto.setSurnameU("Fuentes");
+        dto.setMaternalSurnameU("Jimenez");
         dto.setAddressU("Avenida 345");
-        dto.setCellPhoneU("9991112222");
+        dto.setCellphoneU("9991112222");
         dto.setEmailU("isabel@example.com");
-        dto.setBirthDateU(LocalDate.parse("1984-02-17"));
+        dto.setBirthdateU(LocalDate.parse("1984-02-17"));
         dto.setOccupationU("Psicóloga");
 
         controller.update(idOwner, dto);

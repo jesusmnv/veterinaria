@@ -131,4 +131,28 @@ class MedicationControllerE2ETest {
 
     }
 
+    @Test
+    @DisplayName("POST /medications should be return an error if description is missing")
+    void descriptionMissingRequestBodyTest() throws Exception {
+        String jsonString = "{"
+                + "\"name\": \"Prednisone\","
+                + "\"classification\": \"Dewormer\","
+                + "\"expirationDate\": \"2001-01-01\","
+                + "\"stock\": 100,"
+                + "\"price\": 100.00,"
+                + "\"usageInstructions\": \"It is administered...\""
+                + "}";
+
+        MvcResult result = mockMvc.perform(post("/medications").contentType("application/json").content(jsonString))
+                .andExpect(status().isBadRequest())
+                .andReturn();
+
+        String content = result.getResponse().getContentAsString();
+
+        String expectedResponse = "{\"code\":\"ERR_VALID\",\"message\":\"There was an error validating the input data\",\"details\":[\"The medication description is mandatory\"]}";
+
+        assertEquals(expectedResponse, content);
+
+    }
+
 }

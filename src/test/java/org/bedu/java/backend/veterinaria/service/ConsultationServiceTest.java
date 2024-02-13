@@ -56,9 +56,9 @@ class ConsultationServiceTest {
 
         consultation.setId(500L);
         consultation.setConsultationDate(LocalDate.of(2024, 4, 14));
-        consultation.setDiagnosis("Gripe felina");
-        consultation.setPrescribedTreatment("Antibióticos y reposo");
-        consultation.setObservations("La Pet parece mejorar, seguir monitoreando");
+        consultation.setDiagnosis("Feline flu");
+        consultation.setPrescribedTreatment("Antibiotics and rest");
+        consultation.setObservations("Pet seems to be improving, continue monitoring");
 
         Pet m = new Pet();
         m.setId(4L);
@@ -87,13 +87,39 @@ class ConsultationServiceTest {
     }
 
     @Test
+    @DisplayName("Service should return a consultation from the repository")
+    void findByIdTest() {
+        Long id = 40L;
+
+        Consultation consultation = new Consultation();
+        consultation.setId(id);
+        consultation.setConsultationDate(LocalDate.parse("2024-04-04"));
+        consultation.setDiagnosis("Diagnosis..");
+        consultation.setPrescribedTreatment("Prescribed treatment...");
+        consultation.setObservations("Observations...");
+
+        when(repository.findById(id)).thenReturn(Optional.of(consultation));
+
+        Optional<ConsultationDTO> result = service.findById(id);
+
+        assertNotNull(result);
+        assertTrue(result.isPresent());
+        assertEquals(consultation.getId(), result.get().getId());
+        assertEquals(consultation.getConsultationDate(), result.get().getConsultationDate());
+        assertEquals(consultation.getDiagnosis(), result.get().getDiagnosis());
+        assertEquals(consultation.getPrescribedTreatment(), result.get().getPrescribedTreatment());
+        assertEquals(consultation.getObservations(), result.get().getObservations());
+    }
+
+    @Test
     @DisplayName("Service should save a consultation in the repository")
     void saveTest() {
         CreateConsultationDTO dto = new CreateConsultationDTO();
         dto.setConsultationDate(LocalDate.parse("2025-05-05"));
-        dto.setDiagnosis("Gripe felina");
-        dto.setPrescribedTreatment("Antibióticos y reposo");
-        dto.setObservations("La Pet parece mejorar, seguir monitoreando");
+        dto.setDiagnosis("Feline flu");
+        dto.setPrescribedTreatment("Antibiotics and rest");
+        dto.setObservations("The pet seems to be improving, continue monitoring");
+        
 
         Pet m = new Pet();
         m.setId(5L);
@@ -183,7 +209,7 @@ class ConsultationServiceTest {
         Consultation consultation = new Consultation();
 
         consultation.setId(222L);
-        consultation.setDiagnosis("");
+        consultation.setDiagnosis("Diagnosis...");
 
         when(repository.findById(anyLong())).thenReturn(Optional.of(consultation));
 

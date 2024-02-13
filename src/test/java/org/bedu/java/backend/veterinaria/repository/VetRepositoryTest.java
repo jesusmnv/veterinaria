@@ -38,7 +38,7 @@ class VetRepositoryTest {
 
     @Test
     @DisplayName("Repository should filter a vet by name")
-    void findByNombrTest() {
+    void findByNameTest() {
 
         Vet vet2 = new Vet();
         Vet vet3 = new Vet();
@@ -79,8 +79,6 @@ class VetRepositoryTest {
         manager.persist(vet3);
 
         List<Vet> result = repository.findByName("Yamileth");
-        // List<VetDTO> result = repository.findByName("Yamileth", "Robles",
-        // "Quintero");
 
         assertEquals(1, result.size());
 

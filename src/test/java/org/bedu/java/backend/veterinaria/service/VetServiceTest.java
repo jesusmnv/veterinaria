@@ -47,7 +47,7 @@ class VetServiceTest {
     }
 
     @Test
-    @DisplayName("Service should return veterinarians from repository")
+    @DisplayName("Service should return vets from repository")
     void findAllTest() {
         List<Vet> data = new LinkedList<>();
 
@@ -70,11 +70,7 @@ class VetServiceTest {
         List<VetDTO> result = service.findAll();
 
         assertNotNull(result);
-
         assertTrue(result.size() > 0);
-
-        // assertEquals(data, result);
-
         assertEquals(vet.getId(), result.get(0).getId());
         assertEquals(vet.getName(), result.get(0).getName());
         assertEquals(vet.getSurname(), result.get(0).getSurname());
@@ -89,17 +85,40 @@ class VetServiceTest {
     }
 
     @Test
-    @DisplayName("Service should save a Vet in repository")
+    @DisplayName("Service should return a vet from the repository")
+    void findByIdTest() {
+        Long id = 100L;
+
+        Vet vet = new Vet();
+        vet.setId(id);
+        vet.setName("Sam");
+        vet.setSurname("Obama");
+        vet.setEmail("sam@gmail.com");
+
+        when(repository.findById(id)).thenReturn(Optional.of(vet));
+
+        Optional<VetDTO> result = service.findById(id);
+
+        assertNotNull(result);
+        assertTrue(result.isPresent());
+        assertEquals(vet.getId(), result.get().getId());
+        assertEquals(vet.getName(), result.get().getName());
+        assertEquals(vet.getSurname(), result.get().getSurname());
+        assertEquals(vet.getEmail(), result.get().getEmail());
+    }
+
+    @Test
+    @DisplayName("Service should save a vet in repository")
     void saveTest() {
 
         CreateVetDTO vetDTO = new CreateVetDTO();
 
-        vetDTO.setName("Alonso");
-        vetDTO.setSurname("Perez");
-        vetDTO.setMaternalSurname("Esquivel");
-        vetDTO.setBirthdate(LocalDate.parse("1995-11-02"));
-        vetDTO.setCellphone("5522641597");
-        vetDTO.setEmail("alonso@gmail.com");
+        vetDTO.setNameVet("Alonso");
+        vetDTO.setSurnameVet("Perez");
+        vetDTO.setMaternalSurnameVet("Esquivel");
+        vetDTO.setBirthdateVet(LocalDate.parse("1995-11-02"));
+        vetDTO.setCellphoneVet("5522641597");
+        vetDTO.setEmailVet("alonso@gmail.com");
         vetDTO.setSpecialty("Dentista");
         vetDTO.setEntryTime(LocalTime.parse("06:00"));
         vetDTO.setExitTime(LocalTime.parse("12:30"));
@@ -107,12 +126,12 @@ class VetServiceTest {
         Vet vet = new Vet();
 
         vet.setId(151l);
-        vet.setName(vetDTO.getName());
-        vet.setSurname(vetDTO.getSurname());
-        vet.setMaternalSurname(vetDTO.getMaternalSurname());
-        vet.setBirthdate(vetDTO.getBirthdate());
-        vet.setCellphone(vetDTO.getCellphone());
-        vet.setEmail(vetDTO.getEmail());
+        vet.setName(vetDTO.getNameVet());
+        vet.setSurname(vetDTO.getSurnameVet());
+        vet.setMaternalSurname(vetDTO.getMaternalSurnameVet());
+        vet.setBirthdate(vetDTO.getBirthdateVet());
+        vet.setCellphone(vetDTO.getCellphoneVet());
+        vet.setEmail(vetDTO.getEmailVet());
         vet.setSpecialty(vetDTO.getSpecialty());
         vet.setEntryTime(vetDTO.getEntryTime());
         vet.setExitTime(vetDTO.getExitTime());
@@ -122,9 +141,6 @@ class VetServiceTest {
         VetDTO result = service.save(vetDTO);
 
         assertNotNull(result);
-
-        // Checa si el Veterinario modelo tiene los mismos valores que el DTO de
-        // CreateDTOVeterinario
         assertEquals(vet.getId(), result.getId());
         assertEquals(vet.getName(), result.getName());
         assertEquals(vet.getSurname(), result.getSurname());
@@ -139,17 +155,14 @@ class VetServiceTest {
     }
 
     @Test
-    @DisplayName("Service should throws an error if Vet was not found")
+    @DisplayName("Service should throws an error if vet was not found")
     void updateWithErrorTest() {
 
-        Optional<Vet> optionalEmpty = Optional.empty();
-
         UpdateVetDTO updateVetDTO = new UpdateVetDTO();
+        Optional<Vet> optionalEmpty = Optional.empty();
 
         when(repository.findById(anyLong())).thenReturn(optionalEmpty);
 
-        // 1.- Tipo de exception que lanzará
-        // 2.- Bloque de código encerrado en una lambda
         assertThrows(VetNotFoundException.class, () -> service.update(100, updateVetDTO));
     }
 
@@ -200,23 +213,22 @@ class VetServiceTest {
     }
 
     @Test
+    @DisplayName("Service should shows an error if vet doesn't exist")
+    void deleteByIdWithErrorTest() {
+
+        when(repository.findById(154l)).thenReturn(Optional.empty());
+        assertThrows(VetNotFoundException.class, () -> service.deleteById(154l));
+    }
+
+    @Test
     @DisplayName("Service should delete a vet by id in repository")
     void deleteByIdTest() throws VetNotFoundException {
-        // service.deleteById(1547l);
-        // verify(repository, times(1)).deleteById(1547l);
+
         when(repository.findById(15471l)).thenReturn(Optional.of(new Vet()));
 
         service.deleteById(15471l);
 
-        verify(repository).deleteById(15471l);
-    }
-
-    @Test
-    @DisplayName("Service should shows an error if vet don't exist")
-    void deleteByIdErrorTest() {
-        when(repository.findById(154l)).thenReturn(Optional.empty());
-
-        assertThrows(VetNotFoundException.class, () -> service.deleteById(154l));
+        verify(repository, times(1)).deleteById(15471l);
     }
 
 }

@@ -89,6 +89,31 @@ class PetServiceTest {
     }
 
     @Test
+    @DisplayName("Service should return a pet from the repository")
+    void findByIdTest() {
+        Long id = 200L;
+
+        Pet pet = new Pet();
+        pet.setId(id);
+        pet.setName("Dexter");
+        pet.setColor("Brown");
+        pet.setHeight(0.50F);
+        pet.setWeight(15.25F);
+
+        when(repository.findById(id)).thenReturn(Optional.of(pet));
+
+        Optional<PetDTO> result = service.findById(id);
+
+        assertNotNull(result);
+        assertTrue(result.isPresent());
+        assertEquals(pet.getId(), result.get().getId());
+        assertEquals(pet.getName(), result.get().getName());
+        assertEquals(pet.getColor(), result.get().getColor());
+        assertEquals(pet.getHeight(), result.get().getHeight());
+        assertEquals(pet.getWeight(), result.get().getWeight());
+    }
+
+    @Test
     @DisplayName("Service should save a pet in repository")
     void saveTest() {
         CreatePetDTO dto = new CreatePetDTO();
@@ -170,8 +195,7 @@ class PetServiceTest {
 
         service.deleteById(idPet);
 
-        verify(repository).deleteById(idPet);
-
+        verify(repository, times(1)).deleteById(idPet);
     }
 
     @Test

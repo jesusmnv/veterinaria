@@ -61,20 +61,20 @@ class PetRepositoryTest {
         pet.setHeight(0.25F);
         pet.setWeight(1.45F);
         pet.setGender("Macho");
-        pet.setColor("gris");
+        pet.setColor("Gris");
 
-        Owner p = new Owner();
-        p.setId(7L);
-        p.setName("Carmen");
-        p.setPLastName("Sanchez");
-        p.setMLastName("Gomez");
-        p.setAddress("Avenida 567");
-        p.setCellPhone("1231231234");
-        p.setEmail("carmen@example.com");
-        p.setBirthDate(LocalDate.parse("1978-06-15"));
-        p.setOccupation("Arquitecta");
+        Owner owner = new Owner();
+        owner.setId(7L);
+        owner.setName("Carmen");
+        owner.setSurname("Sanchez");
+        owner.setMaternalSurname("Gomez");
+        owner.setAddress("567 Avenue");
+        owner.setCellphone("1231231234");
+        owner.setEmail("carmen@example.com");
+        owner.setBirthdate(LocalDate.parse("1978-06-15"));
+        owner.setOccupation("Architect");
 
-        pet.setOwner(manager.merge(p));
+        pet.setOwner(manager.merge(owner));
 
         return pet;
 
@@ -82,61 +82,62 @@ class PetRepositoryTest {
 
     private Pet createPet2() {
 
-        Pet mascota = new Pet();
+        Pet pet = new Pet();
 
-        mascota.setName("Daenerys");
-        mascota.setSpecies("Perro");
-        mascota.setBreed("Chihuahua");
-        mascota.setAge(2);
-        mascota.setHeight(0.12F);
-        mascota.setWeight(0.8F);
-        mascota.setGender("Hembra");
-        mascota.setColor("cafe claro");
+        pet.setName("Daenerys");
+        pet.setSpecies("Dog");
+        pet.setBreed("Chihuahua");
+        pet.setAge(2);
+        pet.setHeight(0.12F);
+        pet.setWeight(0.8F);
+        pet.setGender("Female");
+        pet.setColor("Light brown");
+        
 
-        Owner p = new Owner();
-        p.setId(9L);
-        p.setName("Isabel");
-        p.setPLastName("Fuentes");
-        p.setMLastName("Jimenez");
-        p.setAddress("Avenida 345");
-        p.setCellPhone("9991112222");
-        p.setEmail("isabel@example.com");
-        p.setBirthDate(LocalDate.parse("1984-02-17"));
-        p.setOccupation("Psicóloga");
+        Owner owner = new Owner();
+        owner.setId(9L);
+        owner.setName("Isabel");
+        owner.setSurname("Fuentes");
+        owner.setMaternalSurname("Jimenez");
+        owner.setAddress("345 Avenue");
+        owner.setCellphone("9991112222");
+        owner.setEmail("isabel@example.com");
+        owner.setBirthdate(LocalDate.parse("1984-02-17"));
+        owner.setOccupation("Psychologist");
 
-        mascota.setOwner(manager.merge(p));
+        pet.setOwner(manager.merge(owner));
 
-        return mascota;
+        return pet;
 
     }
 
     private Pet createPet3() {
 
-        Pet mascota = new Pet();
+        Pet pet = new Pet();
 
-        mascota.setName("Perseo");
-        mascota.setSpecies("Tortuga");
-        mascota.setBreed("reeves");
-        mascota.setAge(67);
-        mascota.setHeight(0.10F);
-        mascota.setWeight(0.6F);
-        mascota.setGender("Macho");
-        mascota.setColor("cafe pardo con manchas");
+        pet.setName("Perseus");
+        pet.setSpecies("Turtle");
+        pet.setBreed("Reeves");
+        pet.setAge(67);
+        pet.setHeight(0.10F);
+        pet.setWeight(0.6F);
+        pet.setGender("Male");
+        pet.setColor("Brown with spots");        
 
-        Owner p = new Owner();
-        p.setId(3L);
-        p.setName("Laura");
-        p.setPLastName("Diaz");
-        p.setMLastName("Santos");
-        p.setAddress("Calle 456");
-        p.setCellPhone("9876543210");
-        p.setEmail("laura@example.com");
-        p.setBirthDate(LocalDate.parse("1992-08-20"));
-        p.setOccupation("Enfermera");
+        Owner owner = new Owner();
+        owner.setId(3L);
+        owner.setName("Laura");
+        owner.setSurname("Diaz");
+        owner.setMaternalSurname("Santos");
+        owner.setAddress("Calle 456");
+        owner.setCellphone("9876543210");
+        owner.setEmail("laura@example.com");
+        owner.setBirthdate(LocalDate.parse("1992-08-20"));
+        owner.setOccupation("Nurse");
 
-        mascota.setOwner(manager.merge(p));
+        pet.setOwner(manager.merge(owner));
 
-        return mascota;
+        return pet;
 
     }
 
@@ -145,28 +146,29 @@ class PetRepositoryTest {
     @Tag("mascota")
     @DisplayName("Testing relationships between pets and owners")
     void testRelacionMascotaPropietario() {
-        Pet m = new Pet();
-        m.setName("Perseo");
-        m.setSpecies("Tortuga");
-        m.setBreed("reeves");
-        m.setAge(67);
-        m.setHeight(0.10F);
-        m.setWeight(0.6F);
-        m.setGender("Macho");
-        m.setColor("cafe pardo con manchas");
+        Pet pet = new Pet();
+        pet.setName("Perseus");
+        pet.setSpecies("Turtle");
+        pet.setBreed("Reeves");
+        pet.setAge(67);
+        pet.setHeight(0.10F);
+        pet.setWeight(0.6F);
+        pet.setGender("Male");
+        pet.setColor("Brown with spots");
+        
 
-        Owner p = new Owner();
-        p.setId(3L);
-        p.setName("Laura");
-        p.setPLastName("Diaz");
-        p.setMLastName("Santos");
-        p.setAddress("Calle 456");
-        p.setCellPhone("9876543210");
-        p.setEmail("laura@example.com");
-        p.setBirthDate(LocalDate.parse("1992-08-20"));
-        p.setOccupation("Enfermera");
-        m.setOwner(p);
+        Owner owner = new Owner();
+        owner.setId(3L);
+        owner.setName("Laura");
+        owner.setSurname("Diaz");
+        owner.setMaternalSurname("Santos");
+        owner.setAddress("456 Street");
+        owner.setCellphone("9876543210");
+        owner.setEmail("laura@example.com");
+        owner.setBirthdate(LocalDate.parse("1992-08-20"));
+        owner.setOccupation("Nurse");
+        pet.setOwner(owner);        
 
-        assertEquals(Owner.class, m.getOwner().getClass());
+        assertEquals(Owner.class, pet.getOwner().getClass());
     }
 }

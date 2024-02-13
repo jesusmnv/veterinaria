@@ -15,6 +15,7 @@ import org.bedu.java.backend.veterinaria.dto.pet.CreatePetDTO;
 import org.bedu.java.backend.veterinaria.dto.pet.PetDTO;
 import org.bedu.java.backend.veterinaria.dto.pet.UpdatePetDTO;
 import org.bedu.java.backend.veterinaria.exception.PetNotFoundException;
+import org.bedu.java.backend.veterinaria.model.Pet;
 import org.bedu.java.backend.veterinaria.service.PetService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -41,7 +42,7 @@ class PetControllerTest {
     }
 
     @Test
-    @DisplayName("Controller sould return a list of pets")
+    @DisplayName("Controller should return a list of pets")
     void findAllTest() {
         List<PetDTO> data = new LinkedList<>();
 
@@ -64,6 +65,24 @@ class PetControllerTest {
         assertEquals(pet.getAge(), result.get(0).getAge());
 
     }
+
+    @Test
+    @DisplayName("Controller should return a pet")
+    void findByIdTest() {
+        Long id = 4L;
+
+        Pet pet = new Pet();
+        pet.setId(id);
+        pet.setName("Nifus");
+        pet.setAge(67);
+        pet.setHeight(0.10F);
+        pet.setWeight(0.6F);
+
+        controller.findById(id);
+
+        verify(service, times(1)).findById(id);
+    }
+
 
     @Test
     @DisplayName("Controller should save a pet")

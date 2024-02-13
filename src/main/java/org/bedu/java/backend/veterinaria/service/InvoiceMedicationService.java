@@ -35,6 +35,7 @@ public class InvoiceMedicationService {
     public void addMedication(Long invoiceId, Long medicationId, int quantity) throws MedicationNotFoundException {
 
         Optional<MedicationDTO> dto = medicationService.findById(medicationId);
+        
         if (!dto.isPresent()) {
             throw new MedicationNotFoundException(medicationId);
         }

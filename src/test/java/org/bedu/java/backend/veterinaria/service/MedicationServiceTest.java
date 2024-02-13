@@ -165,8 +165,8 @@ class MedicationServiceTest {
         Medication medication = new Medication();
 
         medication.setId(125L);
-        medication.setName("");
-        medication.setClassification("");
+        medication.setName("Name...");
+        medication.setClassification("Classification...");
 
         when(repository.findById(anyLong())).thenReturn(Optional.of(medication));
 

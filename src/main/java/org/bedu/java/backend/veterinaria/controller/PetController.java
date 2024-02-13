@@ -34,7 +34,7 @@ public class PetController {
         return service.findAll();
     }
 
-    @Operation(summary = "Serch for a pet in the database")
+    @Operation(summary = "Search for a pet in the database")
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void findById(@PathVariable Long id) {

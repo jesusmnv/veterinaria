@@ -49,19 +49,19 @@ class OwnerServiceTest {
     }
 
     @Test
-    @DisplayName("Service should return owner from repository")
+    @DisplayName("Service should return owners from repository")
     void findAllTest() {
         List<Owner> data = new LinkedList<>();
 
         Owner p = new Owner();
         p.setId(7L);
         p.setName("Carmen");
-        p.setPLastName("Sanchez");
-        p.setMLastName("Gomez");
+        p.setSurname("Sanchez");
+        p.setMaternalSurname("Gomez");
         p.setAddress("Avenida 567");
-        p.setCellPhone("1231231234");
+        p.setCellphone("1231231234");
         p.setEmail("carmen@example.com");
-        p.setBirthDate(LocalDate.parse("1978-06-15"));
+        p.setBirthdate(LocalDate.parse("1978-06-15"));
         p.setOccupation("Arquitecta");
 
         data.add(p);
@@ -74,30 +74,55 @@ class OwnerServiceTest {
         assertTrue(result.size() > 0);
         assertEquals(p.getId(), result.get(0).getId());
         assertEquals(p.getName(), result.get(0).getName());
-        assertEquals(p.getPLastName(), result.get(0).getPLastName());
-        assertEquals(p.getMLastName(), result.get(0).getMLastName());
+        assertEquals(p.getSurname(), result.get(0).getSurname());
+        assertEquals(p.getMaternalSurname(), result.get(0).getMaternalSurname());
         assertEquals(p.getAddress(), result.get(0).getAddress());
-        assertEquals(p.getCellPhone(), result.get(0).getCellPhone());
+        assertEquals(p.getCellphone(), result.get(0).getCellphone());
         assertEquals(p.getEmail(), result.get(0).getEmail());
-        assertEquals(p.getBirthDate(), result.get(0).getBirthDate());
+        assertEquals(p.getBirthdate(), result.get(0).getBirthdate());
         assertEquals(p.getOccupation(), result.get(0).getOccupation());
     }
 
     @Test
-    @DisplayName("Service should save a owner in repository")
+    @DisplayName("Service should return an owner from the repository")
+    void findByIdTest() {
+        Long id = 300L;
+
+        Owner owner = new Owner();
+        owner.setId(id);
+        owner.setName("Ford");
+        owner.setSurname("Smith");
+        owner.setEmail("ford@gmail.com");
+        owner.setBirthdate(LocalDate.parse("2000-01-01"));
+
+        when(repository.findById(id)).thenReturn(Optional.of(owner));
+
+        Optional<OwnerDTO> result = service.findById(id);
+
+        assertNotNull(result);
+        assertTrue(result.isPresent());
+        assertEquals(owner.getId(), result.get().getId());
+        assertEquals(owner.getName(), result.get().getName());
+        assertEquals(owner.getSurname(), result.get().getSurname());
+        assertEquals(owner.getEmail(), result.get().getEmail());
+        assertEquals(owner.getBirthdate(), result.get().getBirthdate());
+    }
+
+    @Test
+    @DisplayName("Service should save an owner in repository")
     void saveTest() {
         CreateOwnerDTO dto = new CreateOwnerDTO();
 
         dto.setName("Isabel");
-        dto.setPLastName("Fuentes");
-        dto.setMLastName("Macias");
+        dto.setSurname("Fuentes");
+        dto.setMaternalSurname("Macias");
 
         Owner model = new Owner();
 
         model.setId(2345L);
         model.setName(dto.getName());
-        model.setPLastName(dto.getPLastName());
-        model.setMLastName(dto.getMLastName());
+        model.setSurname(dto.getSurname());
+        model.setMaternalSurname(dto.getMaternalSurname());
 
         when(repository.save(any(Owner.class))).thenReturn(model);
 
@@ -106,13 +131,13 @@ class OwnerServiceTest {
         assertNotNull(result);
         assertEquals(model.getId(), result.getId());
         assertEquals(model.getName(), result.getName());
-        assertEquals(model.getPLastName(), result.getPLastName());
-        assertEquals(model.getMLastName(), result.getMLastName());
+        assertEquals(model.getSurname(), result.getSurname());
+        assertEquals(model.getMaternalSurname(), result.getMaternalSurname());
 
     }
 
     @Test
-    @DisplayName("Service should throws an error if owner was not found")
+    @DisplayName("Service should throw an error if owner was not found")
     void updateWithErrorTest() {
         UpdateOwnerDTO dto = new UpdateOwnerDTO();
         Optional<Owner> dummy = Optional.empty();
@@ -123,30 +148,30 @@ class OwnerServiceTest {
     }
 
     @Test
-    @DisplayName("Service should update a owner in repository")
+    @DisplayName("Service should update an owner in repository")
     void updateTest() throws OwnerNotFoundException {
         UpdateOwnerDTO dto = new UpdateOwnerDTO();
 
         dto.setNameU("Ramiro");
-        dto.setPLastNameU("Ramirez");
+        dto.setSurnameU("Ramirez");
 
         Owner owner = new Owner();
 
         owner.setId(12L);
         owner.setName("Rogelio");
-        owner.setPLastName("Renteria");
+        owner.setSurname("Renteria");
 
         when(repository.findById(anyLong())).thenReturn(Optional.of(owner));
 
         service.update(12L, dto);
 
         assertEquals(dto.getNameU(), owner.getName());
-        assertEquals(dto.getPLastNameU(), owner.getPLastName());
+        assertEquals(dto.getSurnameU(), owner.getSurname());
         verify(repository, times(1)).save(owner);
     }
 
     @Test
-    @DisplayName("Service should shows an error if owner don't exist")
+    @DisplayName("Service should show an error if owner doesn't exist")
     void updateOwnerNotFoundExceptionTest() throws OwnerNotFoundException {
         UpdateOwnerDTO dto = new UpdateOwnerDTO();
         Optional<Owner> empty = Optional.empty();
@@ -156,7 +181,7 @@ class OwnerServiceTest {
     }
 
     @Test
-    @DisplayName("Service should delete a owner by id in repository")
+    @DisplayName("Service should delete an owner by id in repository")
     void deleteByIdTest() throws OwnerNotFoundException {
 
         Long idOwner = 1L;
@@ -165,12 +190,12 @@ class OwnerServiceTest {
 
         service.deleteById(idOwner);
 
-        verify(repository).deleteById(idOwner);
+        verify(repository, times(1)).deleteById(idOwner);
 
     }
 
     @Test
-    @DisplayName("Service should shows an error if owner don't exist")
+    @DisplayName("Service should show an error if owner doesn't exist")
     void deleteByIdPropietarioNotFoundExceptionTest() throws OwnerNotFoundException {
 
         Long idOwner = 1L;

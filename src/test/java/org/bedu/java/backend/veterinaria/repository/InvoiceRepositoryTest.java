@@ -64,12 +64,12 @@ class InvoiceRepositoryTest {
       Owner propietario = new Owner();
       propietario.setId(8L);
       propietario.setName("Job");
-      propietario.setPLastName("Martinez");
-      propietario.setMLastName("Moreno");
+      propietario.setSurname("Martinez");
+      propietario.setMaternalSurname("Moreno");
       propietario.setAddress("Paseo");
-      propietario.setCellPhone("33333");
+      propietario.setCellphone("33333");
       propietario.setEmail("a@a.com");
-      propietario.setBirthDate(LocalDate.parse("2023-12-01"));
+      propietario.setBirthdate(LocalDate.parse("2023-12-01"));
       propietario.setOccupation("empleado");
 
       invoice.setOwner(manager.merge(propietario));
@@ -90,12 +90,12 @@ class InvoiceRepositoryTest {
       Owner propietario = new Owner();
       propietario.setId(45L);
       propietario.setName("Job");
-      propietario.setMLastName("Martinez");
-      propietario.setPLastName("Moreno");
+      propietario.setMaternalSurname("Martinez");
+      propietario.setSurname("Moreno");
       propietario.setAddress("Paseo");
-      propietario.setCellPhone("33333");
+      propietario.setCellphone("33333");
       propietario.setEmail("a@a.com");
-      propietario.setBirthDate(LocalDate.parse("2023-12-01"));
+      propietario.setBirthdate(LocalDate.parse("2023-12-01"));
       propietario.setOccupation("empleado");
 
       invoice.setOwner(manager.merge(propietario));

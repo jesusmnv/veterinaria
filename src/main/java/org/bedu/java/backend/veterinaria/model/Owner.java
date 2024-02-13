@@ -21,23 +21,23 @@ public class Owner {
     @Column(nullable = false, length = 70)
     private String name;
 
-    @Column(name = "p_last_name", nullable = false, length = 70)
-    private String pLastName;
+    @Column(nullable = false, length = 70)
+    private String surname;
 
-    @Column(name = "m_last_name", nullable = false, length = 70)
-    private String mLastName;
+    @Column(name = "maternal_surname", nullable = false, length = 70)
+    private String maternalSurname;
 
     @Column(name = "address", nullable = false)
     private String address;
 
     @Column(nullable = false, length = 15)
-    private String cellPhone;
+    private String cellphone;
 
     @Column(nullable = false, length = 150)
     private String email;
 
-    @Column(name = "birth_date", nullable = false)
-    private LocalDate birthDate;
+    @Column(nullable = false)
+    private LocalDate birthdate;
 
     @Column(nullable = false, length = 60)
     private String occupation;

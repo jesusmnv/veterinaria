@@ -74,6 +74,31 @@ class AppointmentServiceTest {
   }
 
   @Test
+  @DisplayName("Service should return a appointment from the repository")
+  void findByIdTest() {
+      Long id = 40L;
+
+      Appointment appointment = new Appointment();
+      appointment.setId(id);
+      appointment.setAppointmentDate(LocalDate.parse("2025-05-05"));
+      appointment.setAppointmentTime(LocalTime.parse("12:00"));
+      appointment.setAppointmentReason("Urgency");
+      appointment.setFirstAppointment(false);
+
+      when(appointmentRepository.findById(id)).thenReturn(Optional.of(appointment));
+
+      Optional<AppointmentDTO> result = appointmentService.findById(id);
+
+      assertNotNull(result);
+      assertTrue(result.isPresent());
+      assertEquals(appointment.getId(), result.get().getId());
+      assertEquals(appointment.getAppointmentDate(), result.get().getAppointmentDate());
+      assertEquals(appointment.getAppointmentTime(), result.get().getAppointmentTime());
+      assertEquals(appointment.getAppointmentReason(), result.get().getAppointmentReason());
+      assertEquals(appointment.getFirstAppointment(), result.get().getFirstAppointment());
+  }
+
+  @Test
   @DisplayName("Service should save a appointment in the repository")
   void saveTest() {
     
@@ -140,14 +165,29 @@ class AppointmentServiceTest {
   }
 
   @Test
+  @DisplayName("Service should throw an error if the appointment is not found when attempting to delete it")
+  void deleteByIdWithErrorTest() {
+      Optional<Appointment> dummy = Optional.empty();
+
+      when(appointmentRepository.findById(anyLong())).thenReturn(dummy);
+
+      assertThrows(AppointmentNotFoundException.class, () -> appointmentService.deleteById(111L));
+  }
+
+  @Test
   @DisplayName("Service should delete an appointment by ID") 
-  void deleteById() {
+  void deleteByIdTest() throws AppointmentNotFoundException {
 
-    //TODO: Se debe testear el servicio no el repositorio
+    Appointment appointment = new Appointment();
+    appointment.setId(222L);
+    appointment.setAppointmentReason("Reason...");
 
-    appointmentRepository.deleteById(87L);
+    when(appointmentRepository.findById(222L)).thenReturn(Optional.of(appointment));
 
-    verify(appointmentRepository, times(1)).deleteById(87L);
+    appointmentService.deleteById(222L);
+
+    verify(appointmentRepository, times(1)).findById(222L);
+    verify(appointmentRepository, times(1)).deleteById(222L);
   }
 
 }
