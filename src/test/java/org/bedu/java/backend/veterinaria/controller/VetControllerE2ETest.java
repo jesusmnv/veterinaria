@@ -72,9 +72,9 @@ class VetControllerE2ETest {
                 Vet vet1 = new Vet();
                 Vet vet2 = new Vet();
 
-                vet1.setName("Fernando");
-                vet1.setSurname("Ramos");
-                vet1.setMaternalSurname("Carvajal");
+                vet1.setNameVet("Fernando");
+                vet1.setSurnameVet("Ramos");
+                vet1.setMaternalSurnameVet("Carvajal");
                 vet1.setBirthdate(LocalDate.parse("1985-12-12"));
                 vet1.setCellphone("8332641597");
                 vet1.setEmail("fernandoRC@gmail.com");
@@ -82,9 +82,9 @@ class VetControllerE2ETest {
                 vet1.setEntryTime(LocalTime.parse("12:25"));
                 vet1.setExitTime(LocalTime.parse("16:15"));
 
-                vet2.setName("Marcos");
-                vet2.setSurname("Cruz");
-                vet2.setMaternalSurname("Carvajal");
+                vet2.setNameVet("Marcos");
+                vet2.setSurnameVet("Cruz");
+                vet2.setMaternalSurnameVet("Carvajal");
                 vet2.setBirthdate(LocalDate.parse("1985-12-12"));
                 vet2.setCellphone("8332641597");
                 vet2.setEmail("marcosC@gmail.com");
@@ -107,16 +107,16 @@ class VetControllerE2ETest {
                 List<VetDTO> response = mapper.readValue(content, listTypeReference);
 
                 assertEquals(2, response.size());
-                assertEquals(vet1.getName(), response.get(0).getName());
-                assertEquals(vet1.getSurname(), response.get(0).getSurname());
-                assertEquals(vet1.getMaternalSurname(), response.get(0).getMaternalSurname());
+                assertEquals(vet1.getNameVet(), response.get(0).getNameVet());
+                assertEquals(vet1.getSurnameVet(), response.get(0).getSurnameVet());
+                assertEquals(vet1.getMaternalSurnameVet(), response.get(0).getMaternalSurnameVet());
                 assertEquals(vet1.getBirthdate(), response.get(0).getBirthdate());
                 assertEquals(vet1.getCellphone(), response.get(0).getCellphone());
                 assertEquals(vet1.getEmail(), response.get(0).getEmail());
 
-                assertEquals(vet2.getName(), response.get(1).getName());
-                assertEquals(vet2.getSurname(), response.get(1).getSurname());
-                assertEquals(vet2.getMaternalSurname(), response.get(1).getMaternalSurname());
+                assertEquals(vet2.getNameVet(), response.get(1).getNameVet());
+                assertEquals(vet2.getSurnameVet(), response.get(1).getSurnameVet());
+                assertEquals(vet2.getMaternalSurnameVet(), response.get(1).getMaternalSurnameVet());
                 assertEquals(vet2.getBirthdate(), response.get(1).getBirthdate());
                 assertEquals(vet2.getCellphone(), response.get(1).getCellphone());
                 assertEquals(vet2.getEmail(), response.get(1).getEmail());
@@ -127,8 +127,8 @@ class VetControllerE2ETest {
         @DisplayName("POST /vets should be return an error if name is missing")
         void nameMissingRequestBodyTest() throws Exception {
                 String jsonString = "{"
-                                + "\"surname\": \"Velez\","
-                                + "\"maternalSurname\": \"Ramirez\","
+                                + "\"surnameVet\": \"Velez\","
+                                + "\"maternalSurnameVet\": \"Ramirez\","
                                 + "\"birthdate\": \"2001-01-01\","
                                 + "\"cellphone\": \"1234567890\","
                                 + "\"email\": \"velez@gmail.com\","

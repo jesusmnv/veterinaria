@@ -16,13 +16,13 @@ public class UpdateInvoiceDTO {
     @Schema(description = "Subtotal of the invoice", example = "123.50")
     private float subtotalU;
 
-    @Schema(description = "IVA of the invoice (16%)", example = "19.76")
+    @Schema(description = "VAT of the invoice (16%)", example = "19.76")
     private float vatU;
 
     @Schema(description = "Total of the invoice", example = "143.26")
     private float totalU;
 
-    @Schema(description = "RFC of the customer", example = "HBO8912228A9")
+    @Schema(description = "RFC of the client", example = "HBO8912228A9")
     private String clientRFCU;
 
     @Schema(description = "Company name", example = "Hortensia Bonilla Ortega")

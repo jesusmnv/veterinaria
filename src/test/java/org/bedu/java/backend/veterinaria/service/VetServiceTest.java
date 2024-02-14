@@ -53,9 +53,9 @@ class VetServiceTest {
 
         Vet vet = new Vet();
 
-        vet.setName("Julio");
-        vet.setSurname("Avila");
-        vet.setMaternalSurname("Robles");
+        vet.setNameVet("Julio");
+        vet.setSurnameVet("Avila");
+        vet.setMaternalSurnameVet("Robles");
         vet.setBirthdate(LocalDate.parse("1990-01-24"));
         vet.setCellphone("5514785236");
         vet.setEmail("julio@gmail.com");
@@ -72,9 +72,9 @@ class VetServiceTest {
         assertNotNull(result);
         assertTrue(result.size() > 0);
         assertEquals(vet.getId(), result.get(0).getId());
-        assertEquals(vet.getName(), result.get(0).getName());
-        assertEquals(vet.getSurname(), result.get(0).getSurname());
-        assertEquals(vet.getMaternalSurname(), result.get(0).getMaternalSurname());
+        assertEquals(vet.getNameVet(), result.get(0).getNameVet());
+        assertEquals(vet.getSurnameVet(), result.get(0).getSurnameVet());
+        assertEquals(vet.getMaternalSurnameVet(), result.get(0).getMaternalSurnameVet());
         assertEquals(vet.getBirthdate(), result.get(0).getBirthdate());
         assertEquals(vet.getCellphone(), result.get(0).getCellphone());
         assertEquals(vet.getEmail(), result.get(0).getEmail());
@@ -91,8 +91,8 @@ class VetServiceTest {
 
         Vet vet = new Vet();
         vet.setId(id);
-        vet.setName("Sam");
-        vet.setSurname("Obama");
+        vet.setNameVet("Sam");
+        vet.setSurnameVet("Obama");
         vet.setEmail("sam@gmail.com");
 
         when(repository.findById(id)).thenReturn(Optional.of(vet));
@@ -102,8 +102,8 @@ class VetServiceTest {
         assertNotNull(result);
         assertTrue(result.isPresent());
         assertEquals(vet.getId(), result.get().getId());
-        assertEquals(vet.getName(), result.get().getName());
-        assertEquals(vet.getSurname(), result.get().getSurname());
+        assertEquals(vet.getNameVet(), result.get().getNameVet());
+        assertEquals(vet.getSurnameVet(), result.get().getSurnameVet());
         assertEquals(vet.getEmail(), result.get().getEmail());
     }
 
@@ -113,9 +113,9 @@ class VetServiceTest {
 
         CreateVetDTO vetDTO = new CreateVetDTO();
 
-        vetDTO.setName("Alonso");
-        vetDTO.setSurname("Perez");
-        vetDTO.setMaternalSurname("Esquivel");
+        vetDTO.setNameVet("Alonso");
+        vetDTO.setSurnameVet("Perez");
+        vetDTO.setMaternalSurnameVet("Esquivel");
         vetDTO.setBirthdate(LocalDate.parse("1995-11-02"));
         vetDTO.setCellphone("5522641597");
         vetDTO.setEmail("alonso@gmail.com");
@@ -126,9 +126,9 @@ class VetServiceTest {
         Vet vet = new Vet();
 
         vet.setId(151l);
-        vet.setName(vetDTO.getName());
-        vet.setSurname(vetDTO.getSurname());
-        vet.setMaternalSurname(vetDTO.getMaternalSurname());
+        vet.setNameVet(vetDTO.getNameVet());
+        vet.setSurnameVet(vetDTO.getSurnameVet());
+        vet.setMaternalSurnameVet(vetDTO.getMaternalSurnameVet());
         vet.setBirthdate(vetDTO.getBirthdate());
         vet.setCellphone(vetDTO.getCellphone());
         vet.setEmail(vetDTO.getEmail());
@@ -142,9 +142,9 @@ class VetServiceTest {
 
         assertNotNull(result);
         assertEquals(vet.getId(), result.getId());
-        assertEquals(vet.getName(), result.getName());
-        assertEquals(vet.getSurname(), result.getSurname());
-        assertEquals(vet.getMaternalSurname(), result.getMaternalSurname());
+        assertEquals(vet.getNameVet(), result.getNameVet());
+        assertEquals(vet.getSurnameVet(), result.getSurnameVet());
+        assertEquals(vet.getMaternalSurnameVet(), result.getMaternalSurnameVet());
         assertEquals(vet.getBirthdate(), result.getBirthdate());
         assertEquals(vet.getCellphone(), result.getCellphone());
         assertEquals(vet.getEmail(), result.getEmail());
@@ -185,9 +185,9 @@ class VetServiceTest {
         Vet vet = new Vet();
 
         vet.setId(151l);
-        vet.setName("Al0nz0");
-        vet.setSurname("Peres");
-        vet.setMaternalSurname("Ezkibel");
+        vet.setNameVet("Al0nz0");
+        vet.setSurnameVet("Peres");
+        vet.setMaternalSurnameVet("Ezkibel");
         vet.setCellphone("5581231478");
         vet.setEmail("alonsoDr@gmail.com");
         vet.setSpecialty("Dentist");
@@ -198,9 +198,9 @@ class VetServiceTest {
 
         service.update(151l, updateVetDTO);
 
-        assertEquals(updateVetDTO.getNameU(), vet.getName());
-        assertEquals(updateVetDTO.getSurnameU(), vet.getSurname());
-        assertEquals(updateVetDTO.getMaternalSurnameU(), vet.getMaternalSurname());
+        assertEquals(updateVetDTO.getNameU(), vet.getNameVet());
+        assertEquals(updateVetDTO.getSurnameU(), vet.getSurnameVet());
+        assertEquals(updateVetDTO.getMaternalSurnameU(), vet.getMaternalSurnameVet());
         assertEquals(updateVetDTO.getBirthdateU(), vet.getBirthdate());
         assertEquals(updateVetDTO.getCellphoneU(), vet.getCellphone());
         assertEquals(updateVetDTO.getEmailU(), vet.getEmail());

@@ -44,9 +44,9 @@ class VetRepositoryTest {
         Vet vet3 = new Vet();
         Vet vet1 = new Vet();
 
-        vet1.setName("Juan");
-        vet1.setSurname("Perez");
-        vet1.setMaternalSurname("Castellanos");
+        vet1.setNameVet("Juan");
+        vet1.setSurnameVet("Perez");
+        vet1.setMaternalSurnameVet("Castellanos");
         vet1.setBirthdate(LocalDate.parse("1998-02-25"));
         vet1.setCellphone("8523697415");
         vet1.setEmail("juan@gmail.com");
@@ -54,9 +54,9 @@ class VetRepositoryTest {
         vet1.setEntryTime(LocalTime.parse("02:25"));
         vet1.setExitTime(LocalTime.parse("15:25"));
 
-        vet2.setName("Roberto");
-        vet2.setSurname("Valdez");
-        vet2.setMaternalSurname("Hernandez");
+        vet2.setNameVet("Roberto");
+        vet2.setSurnameVet("Valdez");
+        vet2.setMaternalSurnameVet("Hernandez");
         vet2.setBirthdate(LocalDate.parse("1991-08-25"));
         vet2.setCellphone("1478963254");
         vet2.setEmail("roberto@gmail.com");
@@ -64,9 +64,9 @@ class VetRepositoryTest {
         vet2.setEntryTime(LocalTime.parse("23:50"));
         vet2.setExitTime(LocalTime.parse("07:00"));
 
-        vet3.setName("Yamileth");
-        vet3.setSurname("Robles");
-        vet3.setMaternalSurname("Quintero");
+        vet3.setNameVet("Yamileth");
+        vet3.setSurnameVet("Robles");
+        vet3.setMaternalSurnameVet("Quintero");
         vet3.setBirthdate(LocalDate.parse("2000-12-15"));
         vet3.setCellphone("7896523148");
         vet3.setEmail("yamileth@gmail.com");
@@ -78,7 +78,7 @@ class VetRepositoryTest {
         manager.persist(vet2);
         manager.persist(vet3);
 
-        List<Vet> result = repository.findByName("Yamileth");
+        List<Vet> result = repository.findByNameVet("Yamileth");
 
         assertEquals(1, result.size());
 
@@ -93,9 +93,9 @@ class VetRepositoryTest {
         Vet vet3 = new Vet();
 
         // vet1.setId(151l);
-        vet1.setName("Juan");
-        vet1.setSurname("Perez");
-        vet1.setMaternalSurname("Castellanos");
+        vet1.setNameVet("Juan");
+        vet1.setSurnameVet("Perez");
+        vet1.setMaternalSurnameVet("Castellanos");
         vet1.setBirthdate(LocalDate.parse("1998-02-25"));
         vet1.setCellphone("8523697415");
         vet1.setEmail("juan@gmail.com");
@@ -104,9 +104,9 @@ class VetRepositoryTest {
         vet1.setExitTime(LocalTime.parse("15:25"));
 
         // vet2.setId(150l);
-        vet2.setName("Roberto");
-        vet2.setSurname("Valdez");
-        vet2.setMaternalSurname("Hernandez");
+        vet2.setNameVet("Roberto");
+        vet2.setSurnameVet("Valdez");
+        vet2.setMaternalSurnameVet("Hernandez");
         vet2.setBirthdate(LocalDate.parse("1991-08-25"));
         vet2.setCellphone("1478963254");
         vet2.setEmail("roberto@gmail.com");
@@ -115,9 +115,9 @@ class VetRepositoryTest {
         vet2.setExitTime(LocalTime.parse("07:00"));
 
         // vet3.setId(141l);
-        vet3.setName("Yamileth");
-        vet3.setSurname("Robles");
-        vet3.setMaternalSurname("Quintero");
+        vet3.setNameVet("Yamileth");
+        vet3.setSurnameVet("Robles");
+        vet3.setMaternalSurnameVet("Quintero");
         vet3.setBirthdate(LocalDate.parse("2000-12-15"));
         vet3.setCellphone("7896523148");
         vet3.setEmail("yamileth@gmail.com");

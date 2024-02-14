@@ -85,9 +85,9 @@ class ConsultationRepositoryTest {
 
                 Vet vet = new Vet();
                 vet.setId(7L);
-                vet.setName("Sofía");
-                vet.setSurname("Rodríguez");
-                vet.setMaternalSurname("Santos");
+                vet.setNameVet("Sofía");
+                vet.setSurnameVet("Rodríguez");
+                vet.setMaternalSurnameVet("Santos");
                 vet.setBirthdate(LocalDate.parse("1987-11-28"));
                 vet.setCellphone("555-789-0123");
                 vet.setEmail("sofia.rodriguez@email.com");
@@ -134,9 +134,9 @@ class ConsultationRepositoryTest {
 
                 Vet vet = new Vet();
                 vet.setId(9L);
-                vet.setName("María");
-                vet.setSurname("López");
-                vet.setMaternalSurname("Herrera");
+                vet.setNameVet("María");
+                vet.setSurnameVet("López");
+                vet.setMaternalSurnameVet("Herrera");
                 vet.setBirthdate(LocalDate.parse("1984-08-23"));
                 vet.setCellphone("555-901-2345");
                 vet.setEmail("maria.lopez@email.com");
@@ -183,9 +183,9 @@ class ConsultationRepositoryTest {
 
                 Vet vet = new Vet();
                 vet.setId(3L);
-                vet.setName("Laura");
-                vet.setSurname("Sánchez");
-                vet.setMaternalSurname("Ramírez");
+                vet.setNameVet("Laura");
+                vet.setSurnameVet("Sánchez");
+                vet.setMaternalSurnameVet("Ramírez");
                 vet.setBirthdate(LocalDate.parse("1988-09-18"));
                 vet.setCellphone("555-345-6789");
                 vet.setEmail("laura.sanchez@email.com");

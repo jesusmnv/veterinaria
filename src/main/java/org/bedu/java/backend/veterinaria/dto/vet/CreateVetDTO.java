@@ -18,17 +18,17 @@ public class CreateVetDTO {
     @Schema(description = "Vet name", example = "Alberto")
     @NotBlank(message = "The vet name is mandatory")
     @Length(min = 1, max = 100, message = "Vet's name must not exceed 100 chars")
-    private String name;
+    private String nameVet;
 
     @Schema(description = "Surname", example = "Juarez")
     @NotBlank(message = "The vet surname is mandatory")
     @Length(min = 1, max = 100, message = "The surname can't exceed 100 characteres")
-    private String surname;
+    private String surnameVet;
 
     @Schema(description = "Maternal surname", example = "Hernandez")
     @NotBlank(message = "The vet maternal surname is mandatory")
     @Length(min = 1, max = 100, message = "The maternal surname can't exceed 100 characteres")
-    private String maternalSurname;
+    private String maternalSurnameVet;
 
     @Schema(description = "Date of Birth", example = "1998-12-25")
     @NotNull(message = "The birthdate cannot be null")

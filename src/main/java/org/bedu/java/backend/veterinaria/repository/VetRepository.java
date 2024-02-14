@@ -11,7 +11,7 @@ public interface VetRepository extends CrudRepository<Vet, Long> {
 
     List<Vet> findAll();
 
-    List<Vet> findByName(String name);
+    List<Vet> findByNameVet(String name);
 
     List<Vet> findBySpecialty(String specialty);
 

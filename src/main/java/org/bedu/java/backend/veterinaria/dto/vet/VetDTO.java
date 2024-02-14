@@ -17,13 +17,13 @@ public class VetDTO {
     private Long id;
 
     @Schema(description = "Vet name", example = "Alberto")
-    private String name;
+    private String nameVet;
 
     @Schema(description = "Vet surname", example = "Juarez")
-    private String surname;
+    private String surnameVet;
 
     @Schema(description = "Vet maternal surname", example = "Hernandez")
-    private String maternalSurname;
+    private String maternalSurnameVet;
 
     @Schema(description = "Vet date of birth", example = "1998-12-25")
     private LocalDate birthdate;

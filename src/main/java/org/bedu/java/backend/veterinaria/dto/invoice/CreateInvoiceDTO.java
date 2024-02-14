@@ -24,14 +24,14 @@ public class CreateInvoiceDTO {
     @DecimalMin(value = "0.1", message = "Invoice subtotal should be greater than zero")
     private float subtotal;
 
-    @Schema(description = "IVA of the invoice (16%)", example = "19.76")
+    @Schema(description = "VAT of the invoice (16%)", example = "19.76")
     @DecimalMin(value = "0.1", message = "IVA should be greater than zero")
     private float vat;
 
     @Schema(description = "Total of the invoice", example = "143.26")
     private float total;
 
-    @Schema(description = "RFC of customer", example = "HBO8912228A9")
+    @Schema(description = "RFC of the client", example = "HBO8912228A9")
     @NotBlank(message = "RFC is mandatory")
     @Length(min = 13, max = 13, message = "RFC should have 13 chars")
     private String clientRFC;

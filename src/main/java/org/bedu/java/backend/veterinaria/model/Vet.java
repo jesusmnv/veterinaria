@@ -20,13 +20,13 @@ public class Vet {
     private Long id;
 
     @Column(nullable = false, length = 100)
-    private String name;
+    private String nameVet;
 
     @Column(nullable = false, length = 100)
-    private String surname;
+    private String surnameVet;
 
     @Column(name = "maternal_surname", nullable = false, length = 100)
-    private String maternalSurname;
+    private String maternalSurnameVet;
 
     @Column(nullable = false)
     private LocalDate birthdate;

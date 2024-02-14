@@ -72,9 +72,9 @@ class AppointmentRepositoryTest {
 
     Vet vet = new Vet();
     vet.setId(7L);
-    vet.setName("Sara");
-    vet.setSurname("Rodríguez");
-    vet.setMaternalSurname("Santos");
+    vet.setNameVet("Sara");
+    vet.setSurnameVet("Rodríguez");
+    vet.setMaternalSurnameVet("Santos");
     vet.setBirthdate(LocalDate.parse("1987-11-28"));
     vet.setCellphone("555-789-0123");
     vet.setEmail("sara@email.com");
@@ -109,9 +109,9 @@ class AppointmentRepositoryTest {
 
     Vet vet = new Vet();
     vet.setId(7L);
-    vet.setName("Fernanda");
-    vet.setSurname("Rodríguez");
-    vet.setMaternalSurname("Santos");
+    vet.setNameVet("Fernanda");
+    vet.setSurnameVet("Rodríguez");
+    vet.setMaternalSurnameVet("Santos");
     vet.setBirthdate(LocalDate.parse("1987-11-28"));
     vet.setCellphone("555-789-0123");
     vet.setEmail("fernanda@email.com");
@@ -146,9 +146,9 @@ class AppointmentRepositoryTest {
 
     Vet vet = new Vet();
     vet.setId(7L);
-    vet.setName("Guillermo");
-    vet.setSurname("Rodríguez");
-    vet.setMaternalSurname("Santos");
+    vet.setNameVet("Guillermo");
+    vet.setSurnameVet("Rodríguez");
+    vet.setMaternalSurnameVet("Santos");
     vet.setBirthdate(LocalDate.parse("1987-11-28"));
     vet.setCellphone("555-789-0123");
     vet.setEmail("guillermo@email.com");
