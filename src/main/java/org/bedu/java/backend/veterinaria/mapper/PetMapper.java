@@ -4,14 +4,11 @@ import org.bedu.java.backend.veterinaria.dto.pet.CreatePetDTO;
 import org.bedu.java.backend.veterinaria.dto.pet.PetDTO;
 import org.bedu.java.backend.veterinaria.dto.pet.UpdatePetDTO;
 import org.bedu.java.backend.veterinaria.model.Pet;
-import org.mapstruct.InjectionStrategy;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
+import org.mapstruct.*;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
+@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR, nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface PetMapper {
 
     PetDTO toDTO(Pet model);

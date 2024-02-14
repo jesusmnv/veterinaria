@@ -11,7 +11,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name = "owners")
+@Table(name = "owner")
 public class Owner {
 
     @Id

@@ -59,7 +59,7 @@ class VetServiceTest {
         vet.setBirthdate(LocalDate.parse("1990-01-24"));
         vet.setCellphone("5514785236");
         vet.setEmail("julio@gmail.com");
-        vet.setSpecialty("Cirujano");
+        vet.setSpecialty("Surgeon");
         vet.setEntryTime(LocalTime.parse("06:00"));
         vet.setExitTime(LocalTime.parse("15:50"));
 
@@ -113,25 +113,25 @@ class VetServiceTest {
 
         CreateVetDTO vetDTO = new CreateVetDTO();
 
-        vetDTO.setNameVet("Alonso");
-        vetDTO.setSurnameVet("Perez");
-        vetDTO.setMaternalSurnameVet("Esquivel");
-        vetDTO.setBirthdateVet(LocalDate.parse("1995-11-02"));
-        vetDTO.setCellphoneVet("5522641597");
-        vetDTO.setEmailVet("alonso@gmail.com");
-        vetDTO.setSpecialty("Dentista");
+        vetDTO.setName("Alonso");
+        vetDTO.setSurname("Perez");
+        vetDTO.setMaternalSurname("Esquivel");
+        vetDTO.setBirthdate(LocalDate.parse("1995-11-02"));
+        vetDTO.setCellphone("5522641597");
+        vetDTO.setEmail("alonso@gmail.com");
+        vetDTO.setSpecialty("Dentist");
         vetDTO.setEntryTime(LocalTime.parse("06:00"));
         vetDTO.setExitTime(LocalTime.parse("12:30"));
 
         Vet vet = new Vet();
 
         vet.setId(151l);
-        vet.setName(vetDTO.getNameVet());
-        vet.setSurname(vetDTO.getSurnameVet());
-        vet.setMaternalSurname(vetDTO.getMaternalSurnameVet());
-        vet.setBirthdate(vetDTO.getBirthdateVet());
-        vet.setCellphone(vetDTO.getCellphoneVet());
-        vet.setEmail(vetDTO.getEmailVet());
+        vet.setName(vetDTO.getName());
+        vet.setSurname(vetDTO.getSurname());
+        vet.setMaternalSurname(vetDTO.getMaternalSurname());
+        vet.setBirthdate(vetDTO.getBirthdate());
+        vet.setCellphone(vetDTO.getCellphone());
+        vet.setEmail(vetDTO.getEmail());
         vet.setSpecialty(vetDTO.getSpecialty());
         vet.setEntryTime(vetDTO.getEntryTime());
         vet.setExitTime(vetDTO.getExitTime());
@@ -178,7 +178,7 @@ class VetServiceTest {
         updateVetDTO.setBirthdateU(LocalDate.parse("1995-11-02"));
         updateVetDTO.setCellphoneU("8332584562");
         updateVetDTO.setEmailU("alonsoEnfermero@gmail.com");
-        updateVetDTO.setSpecialtyU("Enfermero");
+        updateVetDTO.setSpecialtyU("Nurse");
         updateVetDTO.setEntryTimeU(LocalTime.parse("16:30"));
         updateVetDTO.setExitTimeU(LocalTime.parse("22:45"));
 
@@ -190,7 +190,7 @@ class VetServiceTest {
         vet.setMaternalSurname("Ezkibel");
         vet.setCellphone("5581231478");
         vet.setEmail("alonsoDr@gmail.com");
-        vet.setSpecialty("Dentista");
+        vet.setSpecialty("Dentist");
         vet.setEntryTime(LocalTime.parse("02:25"));
         vet.setExitTime(LocalTime.parse("23:04"));
 

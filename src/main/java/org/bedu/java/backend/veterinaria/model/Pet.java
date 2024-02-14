@@ -11,7 +11,7 @@ import org.hibernate.validator.constraints.Range;
 @Setter
 @ToString
 @Entity
-@Table(name = "pets")
+@Table(name = "pet")
 public class Pet {
 
     @Id

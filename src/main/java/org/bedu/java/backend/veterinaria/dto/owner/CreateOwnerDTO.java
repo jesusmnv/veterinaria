@@ -10,6 +10,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 public class CreateOwnerDTO {
@@ -46,11 +47,12 @@ public class CreateOwnerDTO {
 
     @Schema(description = "Owner's date of birth", example = "1998-08-23")
     @NotNull(message = "Date of birth is mandatory")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate birthdate;
 
     @Schema(description = "Owner's occupation", example = "Empleado")
     @Column(nullable = false, length = 100)
-    @Length(min = 1, max = 60, message = "The occupation cannot exceed 60 chars")
+    @Length(min = 1, max = 60, message = "The occupation cannot exceed 100 chars")
     private String occupation;
 
 }

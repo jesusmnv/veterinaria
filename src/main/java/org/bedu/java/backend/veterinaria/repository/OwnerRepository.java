@@ -11,6 +11,6 @@ public interface OwnerRepository extends CrudRepository<Owner, Long> {
     List<Owner> findAll();
 
     // SELECT * FROM propietarios WHERE nombre LIKE = :nombre
-    List<Owner> findByNameContaining(String nombre);
+    List<Owner> findByNameContaining(String name);
 
 }

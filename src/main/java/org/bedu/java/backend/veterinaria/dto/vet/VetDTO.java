@@ -34,7 +34,7 @@ public class VetDTO {
     @Schema(description = "Vet email address", example = "albertoHerdJua@gmail.com")
     private String email;
 
-    @Schema(description = "Vet specialty", example = "Odontología")
+    @Schema(description = "Vet specialty", example = "Dentistry")
     private String specialty;
 
     @Schema(description = "Vet's entry time", example = "09:25")

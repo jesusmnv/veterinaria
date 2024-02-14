@@ -127,11 +127,11 @@ class VetControllerE2ETest {
         @DisplayName("POST /vets should be return an error if name is missing")
         void nameMissingRequestBodyTest() throws Exception {
                 String jsonString = "{"
-                                + "\"surnameVet\": \"Velez\","
-                                + "\"maternalSurnameVet\": \"Ramirez\","
-                                + "\"birthdateVet\": \"2001-01-01\","
-                                + "\"cellphoneVet\": \"1234567890\","
-                                + "\"emailVet\": \"velez@gmail.com\","
+                                + "\"surname\": \"Velez\","
+                                + "\"maternalSurname\": \"Ramirez\","
+                                + "\"birthdate\": \"2001-01-01\","
+                                + "\"cellphone\": \"1234567890\","
+                                + "\"email\": \"velez@gmail.com\","
                                 + "\"specialty\": \"Cirujano\","
                                 + "\"entryTime\": \"08:00\","
                                 + "\"exitTime\": \"10:00\""

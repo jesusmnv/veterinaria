@@ -36,7 +36,7 @@ public class UpdateVetDTO {
 
     @Schema(description = "Cellphone", example = "+528331593654")
     @NotBlank(message = "The vet cellphone is mandatory")
-    @Length(min = 1, max = 100, message = "The cellphone can't exceed 13 characteres")
+    @Length(min = 1, max = 13, message = "The cellphone can't exceed 13 characteres")
     private String cellphoneU;
 
     @Schema(description = "Email address", example = "albertojuHrd@gmail.com")
@@ -44,7 +44,7 @@ public class UpdateVetDTO {
     @Length(min = 1, max = 100, message = "The email address can't exceed 100 characteres")
     private String emailU;
 
-    @Schema(description = "Specialty", example = "Odontología")
+    @Schema(description = "Specialty", example = "Dentistry")
     @NotBlank(message = "The vet specialty is mandatory")
     @Length(min = 1, max = 100, message = "The specialty can't exceed 100 characters")
     private String specialtyU;

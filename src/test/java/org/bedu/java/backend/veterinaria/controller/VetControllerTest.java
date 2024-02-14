@@ -90,12 +90,12 @@ class VetControllerTest {
 
         CreateVetDTO vetDTO = new CreateVetDTO();
 
-        vetDTO.setNameVet("Alonso");
-        vetDTO.setSurnameVet("Perez");
-        vetDTO.setMaternalSurnameVet("Esquivel");
-        vetDTO.setBirthdateVet(LocalDate.parse("1995-11-02"));
-        vetDTO.setCellphoneVet("5522641597");
-        vetDTO.setEmailVet("alonso@gmail.com");
+        vetDTO.setName("Alonso");
+        vetDTO.setSurname("Perez");
+        vetDTO.setMaternalSurname("Esquivel");
+        vetDTO.setBirthdate(LocalDate.parse("1995-11-02"));
+        vetDTO.setCellphone("5522641597");
+        vetDTO.setEmail("alonso@gmail.com");
         vetDTO.setSpecialty("Dentista");
         vetDTO.setEntryTime(LocalTime.parse("06:00"));
         vetDTO.setExitTime(LocalTime.parse("12:30"));
@@ -103,12 +103,12 @@ class VetControllerTest {
         VetDTO vet = new VetDTO();
 
         vet.setId(151l);
-        vet.setName(vetDTO.getNameVet());
-        vet.setSurname(vetDTO.getSurnameVet());
-        vet.setMaternalSurname(vetDTO.getMaternalSurnameVet());
-        vet.setBirthdate(vetDTO.getBirthdateVet());
-        vet.setCellphone(vetDTO.getCellphoneVet());
-        vet.setEmail(vetDTO.getEmailVet());
+        vet.setName(vetDTO.getName());
+        vet.setSurname(vetDTO.getSurname());
+        vet.setMaternalSurname(vetDTO.getMaternalSurname());
+        vet.setBirthdate(vetDTO.getBirthdate());
+        vet.setCellphone(vetDTO.getCellphone());
+        vet.setEmail(vetDTO.getEmail());
         vet.setSpecialty(vetDTO.getSpecialty());
         vet.setEntryTime(vetDTO.getEntryTime());
         vet.setExitTime(vetDTO.getExitTime());
@@ -118,8 +118,6 @@ class VetControllerTest {
         VetDTO result = controller.save(vetDTO);
 
         assertNotNull(result);
-
-        // assertEquals(vet, result);
         assertEquals(vet.getId(), result.getId());
         assertEquals(vet.getName(), result.getName());
         assertEquals(vet.getSurname(), result.getSurname());
