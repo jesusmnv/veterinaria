@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawPet</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <h1>Vet Registration Form</h1>
+
+  <div class="formbold-main-wrapper">
+
+    <div class="formbold-form-wrapper">
+
+      <!-- <img src="your-image-url-here.jpg" alt="Imagen Veterinario"> -->
+
+      <form method="POST" name="form1" id="form1">
+        <div class="formbold-form-title">
+          <h2 class="">Register now</h2>
+          <!-- <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt.
+              </p> -->
+        </div>
+
+        <div class="formbold-mb-3">
+          <label for="nameVet" class="formbold-form-label">
+            First name
+          </label>
+          <input type="text" name="nameVet" id="nameVet" class="formbold-form-input" />
+        </div>
+
+        <div class="formbold-input-flex">
+          <div>
+            <label for="surnameVet" class="formbold-form-label"> Last name </label>
+            <input type="text" name="surnameVet" id="surnameVet" class="formbold-form-input" />
+          </div>
+          <div>
+            <label for="maternalSurnameVet" class="formbold-form-label">&nbsp;</label>
+            <input type="text" name="maternalSurnameVet" id="maternalSurnameVet" class="formbold-form-input" />
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div>
+            <label for="email" class="formbold-form-label"> Email </label>
+            <input type="email" name="email" id="email" class="formbold-form-input" />
+          </div>
+          <div>
+            <label for="cellphone" class="formbold-form-label"> Cellphone number </label>
+            <input type="phone" name="cellphone" id="cellphone" class="formbold-form-input" />
+          </div>
+        </div>
+
+        <div class="formbold-mb-3">
+          <label for="birthdate" class="formbold-form-label">
+            Date of Birth
+          </label>
+          <input type="date" name="birthdate" id="birthdate" class="formbold-form-input" />
+        </div>
+
+        <div class="formbold-mb-3">
+          <label for="specialty" class="formbold-form-label">
+            Specialty
+          </label>
+          <input type="text" name="specialty" id="specialty" class="formbold-form-input" />
+        </div>
+
+        <div class="formbold-input-flex">
+          <div>
+            <label for="entryTime" class="formbold-form-label"> Entry Time </label>
+            <input type="time" name="entryTime" id="entryTime" class="formbold-form-input" />
+          </div>
+          <div>
+            <label for="exitTime" class="formbold-form-label"> Exit Time </label>
+            <input type="time" name="exitTime" id="exitTime" class="formbold-form-input" />
+          </div>
+        </div>
+
+        <button id="btnRegistrar" name="btnRegistrar" class="formbold-btn">Register Now</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="js/form-vet.js"></script>
+</body>
+
+</html>

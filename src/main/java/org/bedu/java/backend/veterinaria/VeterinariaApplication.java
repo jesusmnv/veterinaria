@@ -13,6 +13,7 @@ public class VeterinariaApplication {
 		SpringApplication.run(VeterinariaApplication.class, args);
 	}
 
+<<<<<<< Updated upstream
 	@Bean
 	WebMvcConfigurer corsConfigurer() {
 		return new WebMvcConfigurer() {
@@ -26,5 +27,8 @@ public class VeterinariaApplication {
 			}
 		};
 	}
+=======
+	
+>>>>>>> Stashed changes
 
 }
