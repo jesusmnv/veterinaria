@@ -17,6 +17,7 @@ import org.bedu.java.backend.veterinaria.dto.vet.CreateVetDTO;
 import org.bedu.java.backend.veterinaria.dto.vet.UpdateVetDTO;
 import org.bedu.java.backend.veterinaria.dto.vet.VetDTO;
 import org.bedu.java.backend.veterinaria.exception.VetNotFoundException;
+import org.bedu.java.backend.veterinaria.model.Vet;
 import org.bedu.java.backend.veterinaria.service.VetService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -82,6 +83,28 @@ class VetControllerTest {
         assertEquals(vet.getEntryTime(), result.get(0).getEntryTime());
         assertEquals(vet.getExitTime(), result.get(0).getExitTime());
 
+    }
+
+    @Test
+    @DisplayName("Controller should return a vet")
+    void findByIdTest() {
+        Long id = 4L;
+
+        Vet vet = new Vet();
+        vet.setId(id);
+        vet.setNameVet("Alonso");
+        vet.setSurnameVet("Perez");
+        vet.setMaternalSurnameVet("Esquivel");
+        vet.setBirthdate(LocalDate.parse("1995-11-02"));
+        vet.setCellphone("5522641597");
+        vet.setEmail("alonso@gmail.com");
+        vet.setSpecialty("Dentista");
+        vet.setEntryTime(LocalTime.parse("06:00"));
+        vet.setExitTime(LocalTime.parse("12:30"));
+
+        controller.findById(id);
+
+        verify(service, times(1)).findById(id);
     }
 
     @Test

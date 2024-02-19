@@ -47,6 +47,7 @@ public class VetService {
 
         Vet vet = result.get();
         mapper.update(vet, data);
+
         vetRepository.save(vet);
     }
 

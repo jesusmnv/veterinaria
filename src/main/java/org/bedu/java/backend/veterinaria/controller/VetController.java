@@ -1,6 +1,7 @@
 package org.bedu.java.backend.veterinaria.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.bedu.java.backend.veterinaria.dto.vet.CreateVetDTO;
 import org.bedu.java.backend.veterinaria.dto.vet.UpdateVetDTO;
@@ -31,6 +32,13 @@ public class VetController {
     @ResponseStatus(HttpStatus.OK)
     public List<VetDTO> findAll() {
         return service.findAll();
+    }
+
+    @Operation(summary = "Search for a vet in the database")
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Optional<VetDTO> findById(@PathVariable Long id) {
+        return service.findById(id);
     }
 
     @Operation(summary = "Create a new vet")
