@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawPet - Consultations</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <h1>Consultations Registration Form</h1>
+
+  <div class="formbold-main-wrapper">
+
+    <div class="formbold-form-wrapper">
+
+      <!-- <img src="your-image-url-here.jpg" alt="Imagen Veterinario"> -->
+
+      <form method="POST" name="form1" id="form1">
+        <div class="formbold-form-title">
+          <h2 class="">Register now</h2>
+          <!-- <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt.
+              </p> -->
+        </div>
+
+        <div class="formbold-mb-3">
+          <label for="consultationDate" class="formbold-form-label">
+            Consultation Date
+          </label>
+          <input type="Date" name="consultationDate" id="consultationDate" class="formbold-form-input" />
+        </div>
+
+        <div class="formbold-input-flex">
+          <div>
+            <label for="diagnosis" class="formbold-form-label"> Diagnosis </label>
+            <input type="text" name="diagnosis" id="diagnosis" class="formbold-form-input" />
+          </div>
+          </div>
+
+        <div class="formbold-input-flex">
+          <div>
+            <label for="text" class="formbold-form-label"> Prescribed Treatment </label>
+            <input type="text" name="prescribedTreatment" id="prescribedTreatment" class="formbold-form-input" />
+          </div>
+         
+        </div>
+
+        <div class="formbold-mb-3">
+          <label for="observations" class="formbold-form-label">
+            Observations
+          </label>
+          <input type="text" name="observations" id="observations" class="formbold-form-input" />
+        </div>
+
+                
+
+        <button id="btnRegistrar" name="btnRegistrar" class="formbold-btn">Register Now</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script src="js/form-consultations.js"></script>
+</body>
+
+</html>

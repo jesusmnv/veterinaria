@@ -2,9 +2,11 @@ window.onload = () => {
     listarDuenios();
 }
 
+
+
 let listarDuenios = async () => {
 
-	const url = 'http://localhost:8080/owners';
+	const url = 'http://localhost:8080/consultations';
 
 	const opcionesFetch = {
 		method: 'GET',
@@ -46,7 +48,7 @@ let listarDuenios = async () => {
 
 let eliminarDuenios = async (id) => {
 
-	const url = `http://localhost:8080/owners/${id}`;
+	const url = `http://localhost:8080/consultations/${id}`;
 
 	const opcionesFetch = {
 		method: 'DELETE',
@@ -70,7 +72,7 @@ let editarDuenios = async (id) => {
 
     idEditar = id;
 
-    const url = `http://localhost:8080/owners/${id}`;
+    const url = `http://localhost:8080/consultations/${id}`;
 
 	const opcionesFetch = {
 		method: 'GET',
@@ -115,7 +117,7 @@ let aplicarActualizacion = async (id) => {
 
 
     
-    const url = `http://localhost:8080/owners/${id}`;
+    const url = `http://localhost:8080/consultations/${id}`;
 
     const opcionesFetch = {
         method: 'PUT',
@@ -134,5 +136,5 @@ let aplicarActualizacion = async (id) => {
 };
 
 function mostrarFormulario() {
-    let formulario = document.getElementById("formularioOwner").style.visibility = 'visible';
+    let formulario = document.getElementById("formulario").style.visibility = 'visible';
 }
