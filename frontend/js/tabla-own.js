@@ -1,10 +1,10 @@
 window.onload = () => {
-    listarVeterinarios();
+    listarDuenios();
 }
 
-let listarVeterinarios = async () => {
+let listarDuenios = async () => {
 
-	const url = 'http://localhost:8080/vets';
+	const url = 'http://localhost:8080/owners';
 
 	const opcionesFetch = {
 		method: 'GET',
@@ -22,14 +22,19 @@ let listarVeterinarios = async () => {
     for (let elemento of listado) {
         let contenidoFila = `<tr>
         <td>${elemento.id}</td>
-        <td>${elemento.nameVet}</td>
-        <td>${elemento.surnameVet}</td>
-        <td>${elemento.specialty}</td>
-        <td>${elemento.email}</td>
+        <td>${elemento.name}</td>
+        <td>${elemento.surname}</td>
+        <td>${elemento.address}</td>
         <td>${elemento.cellphone}</td>
+        <td>${elemento.email}</td>
+        <td>${elemento.birthdatel}</td>
+        <td>${elemento.occupation}</td>
         <td>
-            <i onClick="editarVeterinario(${elemento.id})" class="material-icons button edit">edit</i>
-            <i onClick="eliminarVeterinario(${elemento.id})" class="material-icons button delete">delete</i>
+
+
+
+            <i onClick="editarDuenios(${elemento.id})" class="material-icons button edit">edit</i>
+            <i onClick="eliminarDuenios(${elemento.id})" class="material-icons button delete">delete</i>
         </td>
         </tr>`;
         contenidoTabla += contenidoFila;
@@ -39,9 +44,9 @@ let listarVeterinarios = async () => {
 
 };
 
-let eliminarVeterinario = async (id) => {
+let eliminarDuenios = async (id) => {
 
-	const url = `http://localhost:8080/vets/${id}`;
+	const url = `http://localhost:8080/owners/${id}`;
 
 	const opcionesFetch = {
 		method: 'DELETE',
@@ -53,19 +58,19 @@ let eliminarVeterinario = async (id) => {
 
 	const peticion = await fetch(url, opcionesFetch);
 
-    listarVeterinarios();
+    listarDuenios();
 
 };
 
 let idEditar;
 
-let editarVeterinario = async (id) => {
+let editarDuenios = async (id) => {
     
     mostrarFormulario();
 
     idEditar = id;
 
-    const url = `http://localhost:8080/vets/${id}`;
+    const url = `http://localhost:8080/owners/${id}`;
 
 	const opcionesFetch = {
 		method: 'GET',
@@ -82,14 +87,13 @@ let editarVeterinario = async (id) => {
     console.log(obj)
 
     document.getElementById("nameU").value = obj.name; 
-    document.getElementById("surnameU").value = obj.surnameVet; 
-    document.getElementById("maternalSurnameU").value = obj.maternalSurnameVet; 
-    document.getElementById("emailU").value = obj.email; 
-    document.getElementById("birthdateU").value = obj.birthdate;
+    document.getElementById("surnameU").value = obj.surname; 
+    document.getElementById("maternalSurnameU").value = obj.maternalSurname; 
+    document.getElementById("addressU").value = obj.address;
     document.getElementById("cellphoneU").value = obj.cellphone; 
-    document.getElementById("specialtyU").value = obj.specialty; 
-    document.getElementById("entryTimeU").value = obj.entryTime; 
-    document.getElementById("exitTimeU").value = obj.exitTime;
+    document.getElementById("birthdateU").value = obj.birthdate;
+    document.getElementById("occupation").value = obj.occupation; 
+   
 
     let btnUpdate = document.getElementById('btnUpdate');
     
@@ -109,7 +113,9 @@ let aplicarActualizacion = async (id) => {
     data.id = id;
     console.log(data);
 
-    const url = `http://localhost:8080/vets/${id}`;
+
+    
+    const url = `http://localhost:8080/owners/${id}`;
 
     const opcionesFetch = {
         method: 'PUT',
@@ -122,11 +128,11 @@ let aplicarActualizacion = async (id) => {
 
     const peticion = await fetch(url, opcionesFetch);
 
-    listarVeterinarios();
+    listarDuenios();
 
 
 };
 
 function mostrarFormulario() {
-    let formulario = document.getElementById("formulario").style.visibility = 'visible';
+    let formulario = document.getElementById("formularioOwner").style.visibility = 'visible';
 }
