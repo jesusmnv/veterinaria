@@ -1,12 +1,12 @@
 window.onload = () => {
-    listarDuenios();
+    listarCitas();
 }
 
 
 
-let listarDuenios = async () => {
+let listarCitas = async () => {
 
-	const url = 'http://localhost:8080/consultations';
+	const url = 'http://localhost:8080/appointments';
 
 	const opcionesFetch = {
 		method: 'GET',
@@ -26,12 +26,14 @@ let listarDuenios = async () => {
         <td>${elemento.id}</td>
         <td>${elemento.appointmentDate}</td>
         <td>${elemento.appointmentTime}</td>
-        <td>${elemento.consultationDate}</td>
+        <td>${elemento.firstAppointment}</td>
         <td>${elemento.appointmentReason}</td>
         <td>
 
-            <i onClick="editarDuenios(${elemento.id})" class="material-icons button edit">edit</i>
-            <i onClick="eliminarDuenios(${elemento.id})" class="material-icons button delete">delete</i>
+
+
+            <i onClick="editarCitas(${elemento.id})" class="material-icons button edit">edit</i>
+            <i onClick="eliminarCitas(${elemento.id})" class="material-icons button delete">delete</i>
         </td>
         </tr>`;
         contenidoTabla += contenidoFila;
@@ -41,9 +43,9 @@ let listarDuenios = async () => {
 
 };
 
-let eliminarDuenios = async (id) => {
+let eliminarCitas = async (id) => {
 
-	const url = `http://localhost:8080/consultations/${id}`;
+	const url = `http://localhost:8080/appointments/${id}`;
 
 	const opcionesFetch = {
 		method: 'DELETE',
@@ -55,19 +57,19 @@ let eliminarDuenios = async (id) => {
 
 	const peticion = await fetch(url, opcionesFetch);
 
-    listarDuenios();
+    listarCitas();
 
 };
 
 let idEditar;
 
-let editarDuenios = async (id) => {
+let editarCitas = async (id) => {
     
     mostrarFormulario();
 
     idEditar = id;
 
-    const url = `http://localhost:8080/consultations/${id}`;
+    const url = `http://localhost:8080/appointments/${id}`;
 
 	const opcionesFetch = {
 		method: 'GET',
@@ -83,16 +85,11 @@ let editarDuenios = async (id) => {
 
     console.log(obj)
 
-    document.getElementById("appointmentDateU").value = obj.appointmentDate;
-    document.getElementById("appointmentTimeU").value = obj.appointmentTime;
-    document.getElementById("consultationDateU").value = obj.consultationDate; 
-    document.getElementById("appointmentReasonU").value = obj.appointmentReason; 
-    
-      
-
-    let btnUpdate = document.getElementById('btnUpdate');
-    
-    
+    document.getElementById("appointmentDateU").value = obj.appointmentDate; 
+    document.getElementById("appointmentTimeU").value = obj.appointmentTime; 
+    document.getElementById("firstAppointmentU").value = obj.firstAppointment; 
+    document.getElementById("appointmentReasonU").value = obj.appointmentReason;
+       
     
 };
 
@@ -110,7 +107,7 @@ let aplicarActualizacion = async (id) => {
 
 
     
-    const url = `http://localhost:8080/consultations/${id}`;
+    const url = `http://localhost:8080/appointments/${id}`;
 
     const opcionesFetch = {
         method: 'PUT',
@@ -123,7 +120,7 @@ let aplicarActualizacion = async (id) => {
 
     const peticion = await fetch(url, opcionesFetch);
 
-    listarDuenios();
+    listarCitas();
 
 
 };
